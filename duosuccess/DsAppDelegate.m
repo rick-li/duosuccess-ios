@@ -7,6 +7,7 @@
 //
 
 #import "DsAppDelegate.h"
+#import "DsDataStore.h"
 
 @implementation DsAppDelegate
 
@@ -20,6 +21,10 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [[DsDataStore sharedInstance] syncData];
+    
+    
     return YES;
 }
 

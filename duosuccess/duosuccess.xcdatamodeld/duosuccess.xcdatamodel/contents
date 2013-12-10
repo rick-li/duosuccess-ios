@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DsArticle" representedClassName="DsArticle" syncable="YES">
+        <attribute name="categoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="langId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="DsCategory" representedClassName="DsCategory" syncable="YES">
+        <attribute name="langId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="DsLang" representedClassName="DsLang" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="Entity" syncable="YES"/>
+    <fetchRequest name="articleReq" entity="DsArticle" predicateString="categoryId == &quot;&quot;"/>
+    <fetchRequest name="categoryReq" entity="DsLang"/>
+    <fetchRequest name="langReq" entity="DsCategory" predicateString="TRUEPREDICATE"/>
+    <elements>
+        <element name="DsArticle" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="DsLang" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="DsCategory" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Entity" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
 </model>
