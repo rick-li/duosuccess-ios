@@ -15,17 +15,14 @@
 
 @implementation DsRootViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
-        self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"menuController"];
-        self.backgroundImage = [UIImage imageNamed:@"Stars"];
-        self.delegate = (DsMenuViewController *)self.menuViewController;
-    }
-    return self;
+
+
+- (void)awakeFromNib{
+    self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
+    self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"menuController"];
+    self.backgroundImage = [UIImage imageNamed:@"Stars"];
+    self.delegate = (DsMenuViewController *)self.menuViewController;
+
 }
 
 - (void)viewDidLoad

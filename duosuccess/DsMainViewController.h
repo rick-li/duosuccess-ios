@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IntroControll.h"
+#import "RESideMenu.h"
 
-@interface DsMainViewController : UIViewController
+@interface DsMainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+
+@property IntroControll *introCtrl;
+@property NSArray *articles;
+@property NSString *selectedCategory;
+
+
+@property(nonatomic, retain) IBOutlet UITableView *tableView;
+@property(nonatomic, retain) IBOutlet UIView *introContainer;
+
+-(IBAction)showMenu;
+
+-(void)changeCategory:(NSString *) categoryId;
 
 @end

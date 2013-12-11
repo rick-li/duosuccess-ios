@@ -7,12 +7,15 @@
 //
 
 #import "DsMenuViewController.h"
+#import "DsDataStore.h"
+#import "DsMainViewController.h"
 
 @interface DsMenuViewController ()
-
+@property NSArray *categories;
 @end
 
 @implementation DsMenuViewController
+@synthesize categories;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +29,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.categories = [[DsDataStore sharedInstance] queryCategories];
+    
+    NSLog(@"categories count %lu.", self.categories.count);
+    
 	self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
@@ -59,18 +67,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UINavigationController *navigationController = (UINavigationController *)self.sideMenuViewController.contentViewController;
     
-    switch (indexPath.row) {
-        case 0:
-            navigationController.viewControllers = @[[self.storyboard instantiateViewControllerWithIdentifier:@"firstController"]];
-            [self.sideMenuViewController hideMenuViewController];
-            break;
-        case 1:
-            navigationController.viewControllers = @[[self.storyboard instantiateViewControllerWithIdentifier:@"secondController"]];
-            [self.sideMenuViewController hideMenuViewController];
-            break;
-        default:
-            break;
-    }
+    DsMainViewController *mainCtrl = [navigationController.viewControllers objectAtIndex:0];
+    NSManagedObject *category = [self.categories objectAtIndex:indexPath.row];
+    [mainCtrl changeCategory: [category valueForKey:@"objectId"]];
+    
+    navigationController.viewControllers = @[mainCtrl];
+    [self.sideMenuViewController hideMenuViewController];
 }
 
 #pragma mark -
@@ -88,7 +90,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 5;
+    
+    return self.categories.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,11 +110,9 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"Home", @"Calendar", @"Profile", @"Settings", @"Log Out"];
-    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
-    cell.textLabel.text = titles[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
-    
+    NSManagedObject *category = [self.categories objectAtIndex:indexPath.row];
+    NSLog(@"name is %@", [category valueForKey:@"name"]);
+    cell.textLabel.text = [category valueForKey:@"name"];
     return cell;
 }
 

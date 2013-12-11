@@ -214,8 +214,13 @@
 -(NSString*) defaultLang{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString *defaultLang = [defaults valueForKey:@"defaultLang"];
+//    [defaults setValue:@"We4fg0SA2e" forKey:@"defaultLang"];
     if(defaultLang == nil){
-        [defaults setValue:@"zh-cn" forKey:@"defaultLang"];
+//        [defaults setValue:@"zh-cn" forKey:@"defaultLang"];
+        //TODO query default lang by code.
+        [defaults setValue:@"We4fg0SA2e" forKey:@"defaultLang"];
+        defaultLang = @"We4fg0SA2e";
+        
     }
     return defaultLang;
 }
@@ -232,7 +237,7 @@
 -(NSArray*) queryCategories{
     NSError *error;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"category" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DsCategory" inManagedObjectContext:self.managedObjectContext];
     request.entity = entity;
     NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@", [self defaultLang]];
     [request setPredicate:objIdPredicate];
@@ -243,9 +248,9 @@
 -(NSArray*) queryArticlesByCategory: (NSString*)categoryId{
     NSError *error;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"category" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DsArticle" inManagedObjectContext:self.managedObjectContext];
     request.entity = entity;
-    NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@ && categoryId = %@", [NSArray arrayWithObjects:[self defaultLang], categoryId, nil]];
+    NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@ AND categoryId = %@" , [self defaultLang], categoryId];
     [request setPredicate:objIdPredicate];
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
     return objects;
