@@ -16,6 +16,7 @@
                     <connections>
                         <segue destination="PGh-ae-fSJ" kind="relationship" relationship="rootViewController" id="FXg-LC-elF"/>
                         <segue destination="ncq-zI-uyV" kind="push" id="kux-bQ-MWc"/>
+                        <segue destination="b1N-rw-Cc7" kind="push" id="eZd-hf-y9I"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIh-sw-wLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -48,7 +49,11 @@
                                 <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" id="0eR-oP-lk9"/>
+                                    <barButtonItem image="music" id="0eR-oP-lk9">
+                                        <connections>
+                                            <action selector="musicAction" destination="PGh-ae-fSJ" id="m64-qG-KU1"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -70,6 +75,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKs-Wg-Pdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="156" y="-83"/>
+        </scene>
+        <!--Ds Music View Controller - Sigma Music-->
+        <scene sceneID="FEB-7g-3hY">
+            <objects>
+                <viewController storyboardIdentifier="musicController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b1N-rw-Cc7" customClass="DsMusicViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t6i-cH-GkZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="oMQ-Qx-Oku"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2z8-Rn-O3B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sigma Music" id="BUq-qf-aKA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="doV-RO-NLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="524" y="-83"/>
         </scene>
         <!--Ds Root View Controller - Root-->
         <scene sceneID="k0D-Cu-iHo">
@@ -147,6 +171,7 @@
     </scenes>
     <resources>
         <image name="menu" width="24" height="24"/>
+        <image name="music" width="23" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

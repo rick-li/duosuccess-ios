@@ -36,8 +36,12 @@
 		BD4134A81858157D0090C605 /* IntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134A51858157D0090C605 /* IntroView.m */; };
 		BD4134AA185816D80090C605 /* DsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4134A9185816D80090C605 /* DsTableCell.xib */; };
 		BD4134AD18581A350090C605 /* DsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134AC18581A350090C605 /* DsTableCell.m */; };
-		BD4134AF18581E8C0090C605 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD4134AE18581E8C0090C605 /* Test.storyboard */; };
 		BD4134B21858533C0090C605 /* DsArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134B11858533C0090C605 /* DsArticleViewController.m */; };
+		BD4134B518585D020090C605 /* DsMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134B418585D020090C605 /* DsMusicViewController.m */; };
+		BD4134B7185885420090C605 /* DsInstConfrim.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4134B6185885420090C605 /* DsInstConfrim.xib */; };
+		BD4134BA185888110090C605 /* DsInstConfirm.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134B9185888110090C605 /* DsInstConfirm.m */; };
+		BD4134BD185893DC0090C605 /* DsMusicBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134BC185893DC0090C605 /* DsMusicBrowserView.m */; };
+		BD4134BF185893F40090C605 /* DsMusicBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4134BE185893F40090C605 /* DsMusicBrowser.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +98,16 @@
 		BD4134A9185816D80090C605 /* DsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsTableCell.xib; sourceTree = "<group>"; };
 		BD4134AB18581A350090C605 /* DsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsTableCell.h; sourceTree = "<group>"; };
 		BD4134AC18581A350090C605 /* DsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsTableCell.m; sourceTree = "<group>"; };
-		BD4134AE18581E8C0090C605 /* Test.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
 		BD4134B01858533C0090C605 /* DsArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsArticleViewController.h; sourceTree = "<group>"; };
 		BD4134B11858533C0090C605 /* DsArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsArticleViewController.m; sourceTree = "<group>"; };
+		BD4134B318585D020090C605 /* DsMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMusicViewController.h; sourceTree = "<group>"; };
+		BD4134B418585D020090C605 /* DsMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMusicViewController.m; sourceTree = "<group>"; };
+		BD4134B6185885420090C605 /* DsInstConfrim.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsInstConfrim.xib; sourceTree = "<group>"; };
+		BD4134B8185888110090C605 /* DsInstConfirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsInstConfirm.h; sourceTree = "<group>"; };
+		BD4134B9185888110090C605 /* DsInstConfirm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsInstConfirm.m; sourceTree = "<group>"; };
+		BD4134BB185893DB0090C605 /* DsMusicBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMusicBrowserView.h; sourceTree = "<group>"; };
+		BD4134BC185893DC0090C605 /* DsMusicBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMusicBrowserView.m; sourceTree = "<group>"; };
+		BD4134BE185893F40090C605 /* DsMusicBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsMusicBrowser.xib; sourceTree = "<group>"; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -215,6 +226,8 @@
 				BD41349D18575D300090C605 /* DsMainViewController.m */,
 				BD4134B01858533C0090C605 /* DsArticleViewController.h */,
 				BD4134B11858533C0090C605 /* DsArticleViewController.m */,
+				BD4134B318585D020090C605 /* DsMusicViewController.h */,
+				BD4134B418585D020090C605 /* DsMusicViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -238,11 +251,16 @@
 		BD4134691857384F0090C605 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				BD4134BB185893DB0090C605 /* DsMusicBrowserView.h */,
+				BD4134BC185893DC0090C605 /* DsMusicBrowserView.m */,
 				BD41349418575AD80090C605 /* MainIphone.storyboard */,
 				BD4134A9185816D80090C605 /* DsTableCell.xib */,
 				BD4134AB18581A350090C605 /* DsTableCell.h */,
 				BD4134AC18581A350090C605 /* DsTableCell.m */,
-				BD4134AE18581E8C0090C605 /* Test.storyboard */,
+				BD4134B6185885420090C605 /* DsInstConfrim.xib */,
+				BD4134B8185888110090C605 /* DsInstConfirm.h */,
+				BD4134B9185888110090C605 /* DsInstConfirm.m */,
+				BD4134BE185893F40090C605 /* DsMusicBrowser.xib */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -341,8 +359,9 @@
 				BD0286A5185736030043EFE6 /* InfoPlist.strings in Resources */,
 				BD0286B0185736030043EFE6 /* Images.xcassets in Resources */,
 				BD41349518575AD80090C605 /* MainIphone.storyboard in Resources */,
+				BD4134BF185893F40090C605 /* DsMusicBrowser.xib in Resources */,
 				BD4134AA185816D80090C605 /* DsTableCell.xib in Resources */,
-				BD4134AF18581E8C0090C605 /* Test.storyboard in Resources */,
+				BD4134B7185885420090C605 /* DsInstConfrim.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,11 +417,14 @@
 				BD4134AD18581A350090C605 /* DsTableCell.m in Sources */,
 				BD4134A81858157D0090C605 /* IntroView.m in Sources */,
 				BD41349E18575D300090C605 /* DsMainViewController.m in Sources */,
+				BD4134BA185888110090C605 /* DsInstConfirm.m in Sources */,
 				BD41349B18575C850090C605 /* DsMenuViewController.m in Sources */,
+				BD4134BD185893DC0090C605 /* DsMusicBrowserView.m in Sources */,
 				BD41349318574E770090C605 /* DsLang.m in Sources */,
 				BD41347518573AC40090C605 /* DsDataStore.m in Sources */,
 				BD4134A61858157D0090C605 /* IntroControll.m in Sources */,
 				BD0286A7185736030043EFE6 /* main.m in Sources */,
+				BD4134B518585D020090C605 /* DsMusicViewController.m in Sources */,
 				BD41349818575C590090C605 /* DsRootViewController.m in Sources */,
 				BD41348D18574C350090C605 /* DsCategory.m in Sources */,
 				BD41349018574E3A0090C605 /* DsArticle.m in Sources */,

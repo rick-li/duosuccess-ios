@@ -81,6 +81,11 @@
     [self.sideMenuViewController presentMenuViewController];
 }
 
+-(IBAction)musicAction{
+    UIViewController *musicCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"musicController"];
+
+    [self.navigationController pushViewController:musicCtrl animated:true];
+}
 
 -(void)changeCategory:(NSString *) categoryId{
     self.selectedCategory = categoryId;
