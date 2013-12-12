@@ -355,13 +355,13 @@ NSString *tmpDir;
 
 - (void)tick: (long)elapsed remains:(long)remains{
     NSLog(@"elapsed %ld, remains %ld.",elapsed, remains );
-    int elapsedMins = elapsed/60;
-    int elapsedSecs = elapsed-(elapsedMins*60);
-    NSString *elapsedDisplay = [NSString stringWithFormat:@"%d: %02d", elapsedMins, elapsedSecs];
+    long elapsedMins = elapsed/60;
+    long elapsedSecs = elapsed-(elapsedMins*60);
+    NSString *elapsedDisplay = [NSString stringWithFormat:@"%lu:%02lu", elapsedMins, elapsedSecs];
 
-    int remainsMins = remains/60;
-    int remainsSecs = remains-(remainsMins*60);
-    NSString *remainsDisplay = [NSString stringWithFormat:@"%d: %02d", remainsMins, remainsSecs];
+    long remainsMins = remains/60;
+    long remainsSecs = remains-(remainsMins*60);
+    NSString *remainsDisplay = [NSString stringWithFormat:@"%lu:%02lu", remainsMins, remainsSecs];
 
     self.musicCtrl.elapsed.text = elapsedDisplay;
     self.musicCtrl.remains.text = remainsDisplay;

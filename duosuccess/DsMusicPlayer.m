@@ -7,6 +7,8 @@
 //
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
+#import <MediaPlayer/MPNowPlayingInfoCenter.h>
+#import <MediaPlayer/MPMediaItem.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "DsMusicPlayer.h"
 
@@ -65,6 +67,24 @@ NSTimer *oneHourTimer;
     [self setLoop:mySequence];
     [self doStartMidi];
     
+    Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
+    
+    if (playingInfoCenter) {
+        
+        
+        NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+        
+        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage: [UIImage imageNamed:@"duoAlbumArt"]];
+        
+        [songInfo setObject:@"Audio Title" forKey:MPMediaItemPropertyTitle];
+        [songInfo setObject:@"Audio Author" forKey:MPMediaItemPropertyArtist];
+        [songInfo setObject:@"Audio Album" forKey:MPMediaItemPropertyAlbumTitle];
+        [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+        
+    }
+
+    
 }
 
 // Set up the audio session for this app.
@@ -83,7 +103,8 @@ NSTimer *oneHourTimer;
     // Activate the audio session
     [audioSession setActive: YES error: &audioSessionError];
     if (audioSessionError != nil) {NSLog (@"Error activating the audio session."); return NO;}
-    
+
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     NSLog(@"audioSessionActivated");
     return YES;
 }
