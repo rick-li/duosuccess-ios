@@ -7,9 +7,11 @@
 //
 
 #import "DsMusicViewController.h"
-#import "DsMusicBrowserView.h"
+
 #import "SAMWebViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "DsMusicPlayer.h"
+#import "DsMusicControll.h"
 
 @interface DsMusicViewController ()<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
@@ -20,12 +22,14 @@
 @property UIScrollView *instructionContainer;
 @property UIPageControl *instructionPageCtrl;
 @property DsInstConfirm *confirmView;
-@property DsMusicBrowserView *musicBrowserView;
+@property DsMusicControll *musicCtrl;
+@property DsMusicPlayer *musicPlayer;
+
 @end
 
 @implementation DsMusicViewController
 @synthesize confirmView;
-@synthesize musicBrowserView;
+
 
 
 @synthesize webView = _webView;
@@ -33,6 +37,10 @@
 @synthesize indicatorView = _indicatorView;
 @synthesize backBarButtonItem = _backBarButtonItem;
 @synthesize forwardBarButtonItem = _forwardBarButtonItem;
+@synthesize musicCtrl;
+@synthesize musicPlayer;
+
+NSString *tmpDir;
 
 - (UIActivityIndicatorView *)indicatorView {
 	if (!_indicatorView) {
@@ -74,10 +82,32 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+
+    tmpDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"/File"];
+    [self clearCache];
     
     //display instructin by default.
     [self displayInstruction];
+    
    
+}
+
+- (void)clearCache{
+    NSError *error = nil;
+
+    
+    NSLog(@"temp dir is %@", tmpDir);
+    BOOL folderExists = [[NSFileManager defaultManager] fileExistsAtPath:tmpDir];
+    
+    
+    if(folderExists){
+        NSURL *url = [NSURL URLWithString:tmpDir];
+        NSLog(@"URL: %@", url);
+        BOOL isRemoved = [[NSFileManager defaultManager] removeItemAtURL:url error: &error];
+        
+        NSLog (@"Temp Dir removed: %@", isRemoved ? @"YES" : @"NO");
+    }
+    
 }
 
 -(void) displayWebView{
@@ -135,9 +165,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-    
-
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -278,8 +305,69 @@
     if ([title length] > 0) {
         self.title = title;
     }
+    
+    NSLog(@"webview finished loading...");
+    
+    NSString *strjs = @"document.querySelector('embed').src";
+    NSString *midUrl = [webView stringByEvaluatingJavaScriptFromString:strjs];
+    
+    //remove mask
+    NSLog(@"mid Url is %@", midUrl);
+    
+    if(!midUrl || [midUrl length]==0){
+        NSLog(@"no midi in this page, don't play music");
+        return;
+    }
+    NSError *error = nil;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:tmpDir])
+        [[NSFileManager defaultManager] createDirectoryAtPath:tmpDir withIntermediateDirectories:NO attributes:nil error:&error];
+    
+    //download midi
+    NSURL *url = [NSURL URLWithString:
+                  midUrl];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    if(data)
+    {
+        NSString *midPath = [tmpDir stringByAppendingPathComponent:[url lastPathComponent]];
+        [data writeToFile:midPath atomically:YES];
+        NSLog(@"midi file path is %@", midPath);
+        self.musicPlayer = [DsMusicPlayer sharedInstance];
+        [musicPlayer playMedia:midPath];
+        
+        musicPlayer.delegate = self;
+        
+        self.musicCtrl = [[[NSBundle mainBundle] loadNibNamed:@"DsMusicControl" owner:self options:nil] objectAtIndex:0];
+        self.musicCtrl.slider.minimumValue = 0;
+        self.musicCtrl.slider.maximumValue = 3600;
+        musicCtrl.delegate = self ;
+        int musicCtrlHeight = self.musicCtrl.frame.size.height;
+        [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height-musicCtrlHeight)];
+        [self.view addSubview:self.musicCtrl];
+        CGRect frame = self.webView.frame;
+        frame.size.height = frame.size.height - musicCtrlHeight ;
+        [self.webView setFrame: frame];
+    }
 }
 
+- (void)onTapPlayButon: (DsMusicControll *)sender{
+    [self.musicPlayer stopMedia];
+}
+
+- (void)tick: (long)elapsed remains:(long)remains{
+    NSLog(@"elapsed %ld, remains %ld.",elapsed, remains );
+    int elapsedMins = elapsed/60;
+    int elapsedSecs = elapsed-(elapsedMins*60);
+    NSString *elapsedDisplay = [NSString stringWithFormat:@"%d: %02d", elapsedMins, elapsedSecs];
+
+    int remainsMins = remains/60;
+    int remainsSecs = remains-(remainsMins*60);
+    NSString *remainsDisplay = [NSString stringWithFormat:@"%d: %02d", remainsMins, remainsSecs];
+
+    self.musicCtrl.elapsed.text = elapsedDisplay;
+    self.musicCtrl.remains.text = remainsDisplay;
+    [self.musicCtrl.slider setValue:elapsed];
+    
+}
 
 #pragma mark - UIActionSheetDelegate
 
@@ -310,7 +398,7 @@
 
 
 - (void)displayInstruction{
-    NSArray *pages = @[@"musicInst1", @"musicInst2", @"musicInst3"];
+    NSArray *pages = @[@"musicInst1", @"musicInst2"];
     //Initial ScrollView
     self.instructionContainer = [[UIScrollView alloc] initWithFrame:self.view.frame];
     self.instructionContainer.backgroundColor = [UIColor clearColor];
@@ -349,7 +437,7 @@
     CGFloat pageWidth = scrollView.frame.size.width;
     int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     [self.instructionPageCtrl setCurrentPage:page];
-    if(page == 2){
+    if(page == 1){
 
             self.confirmView = [[[NSBundle mainBundle] loadNibNamed:@"DsInstConfrim" owner:self options:nil] objectAtIndex:0];
             [self.confirmView setCenter: CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height-100)];
@@ -368,9 +456,9 @@
     for (UIView *subView in [self.view subviews]){
         [subView removeFromSuperview];
     }
-    
     [self displayWebView];
     [self.webView loadURLString:@"https://www.duosuccess.com"];
+    
 }
 
 

@@ -40,8 +40,6 @@
 		BD4134B518585D020090C605 /* DsMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134B418585D020090C605 /* DsMusicViewController.m */; };
 		BD4134B7185885420090C605 /* DsInstConfrim.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4134B6185885420090C605 /* DsInstConfrim.xib */; };
 		BD4134BA185888110090C605 /* DsInstConfirm.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134B9185888110090C605 /* DsInstConfirm.m */; };
-		BD4134BD185893DC0090C605 /* DsMusicBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134BC185893DC0090C605 /* DsMusicBrowserView.m */; };
-		BD4134BF185893F40090C605 /* DsMusicBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4134BE185893F40090C605 /* DsMusicBrowser.xib */; };
 		BD4134E118596DF30090C605 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C118596DF30090C605 /* LICENSE */; };
 		BD4134E218596DF30090C605 /* Readme.markdown in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C218596DF30090C605 /* Readme.markdown */; };
 		BD4134E318596DF30090C605 /* SAMWebView-action-button-mini.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C418596DF30090C605 /* SAMWebView-action-button-mini.png */; };
@@ -71,6 +69,13 @@
 		BD4134FB18596DF30090C605 /* SAMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134DE18596DF30090C605 /* SAMWebView.m */; };
 		BD4134FC18596DF30090C605 /* SAMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134E018596DF30090C605 /* SAMWebViewController.m */; };
 		BD4134FE185981310090C605 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4134FD185981310090C605 /* MessageUI.framework */; };
+		BD41350118599F250090C605 /* DsMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41350018599F250090C605 /* DsMusicPlayer.m */; };
+		BD41350318599F8C0090C605 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41350218599F8C0090C605 /* CoreAudio.framework */; };
+		BD41350518599F940090C605 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41350418599F940090C605 /* AVFoundation.framework */; };
+		BD41350718599FAC0090C605 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41350618599FAC0090C605 /* AudioToolbox.framework */; };
+		BD41350A1859A3F10090C605 /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = BD4135091859A3F10090C605 /* piano.sf2 */; };
+		BD41350C1859A9F60090C605 /* DsMusicControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD41350B1859A9F60090C605 /* DsMusicControl.xib */; };
+		BD41350F1859ADE30090C605 /* DsMusicControll.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41350E1859ADE30090C605 /* DsMusicControll.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,9 +139,6 @@
 		BD4134B6185885420090C605 /* DsInstConfrim.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsInstConfrim.xib; sourceTree = "<group>"; };
 		BD4134B8185888110090C605 /* DsInstConfirm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsInstConfirm.h; sourceTree = "<group>"; };
 		BD4134B9185888110090C605 /* DsInstConfirm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsInstConfirm.m; sourceTree = "<group>"; };
-		BD4134BB185893DB0090C605 /* DsMusicBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMusicBrowserView.h; sourceTree = "<group>"; };
-		BD4134BC185893DC0090C605 /* DsMusicBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMusicBrowserView.m; sourceTree = "<group>"; };
-		BD4134BE185893F40090C605 /* DsMusicBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsMusicBrowser.xib; sourceTree = "<group>"; };
 		BD4134C118596DF30090C605 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BD4134C218596DF30090C605 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
 		BD4134C418596DF30090C605 /* SAMWebView-action-button-mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-action-button-mini.png"; sourceTree = "<group>"; };
@@ -168,6 +170,15 @@
 		BD4134DF18596DF30090C605 /* SAMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMWebViewController.h; sourceTree = "<group>"; };
 		BD4134E018596DF30090C605 /* SAMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMWebViewController.m; sourceTree = "<group>"; };
 		BD4134FD185981310090C605 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BD4134FF18599F250090C605 /* DsMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMusicPlayer.h; sourceTree = "<group>"; };
+		BD41350018599F250090C605 /* DsMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMusicPlayer.m; sourceTree = "<group>"; };
+		BD41350218599F8C0090C605 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		BD41350418599F940090C605 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BD41350618599FAC0090C605 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BD4135091859A3F10090C605 /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = piano.sf2; path = "../midi-browser/ios/Resources/piano.sf2"; sourceTree = "<group>"; };
+		BD41350B1859A9F60090C605 /* DsMusicControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsMusicControl.xib; sourceTree = "<group>"; };
+		BD41350D1859ADE30090C605 /* DsMusicControll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMusicControll.h; sourceTree = "<group>"; };
+		BD41350E1859ADE30090C605 /* DsMusicControll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMusicControll.m; sourceTree = "<group>"; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -176,6 +187,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD41350718599FAC0090C605 /* AudioToolbox.framework in Frameworks */,
+				BD41350518599F940090C605 /* AVFoundation.framework in Frameworks */,
+				BD41350318599F8C0090C605 /* CoreAudio.framework in Frameworks */,
 				BD4134FE185981310090C605 /* MessageUI.framework in Frameworks */,
 				BD02869B185736020043EFE6 /* CoreGraphics.framework in Frameworks */,
 				BD02869F185736020043EFE6 /* CoreData.framework in Frameworks */,
@@ -202,6 +216,7 @@
 		BD02868C185736020043EFE6 = {
 			isa = PBXGroup;
 			children = (
+				BD4135081859A3D00090C605 /* Resources */,
 				BD4134C018596DF30090C605 /* SAMWebView */,
 				BD41349F1858157D0090C605 /* IntroControll */,
 				BD0286A0185736020043EFE6 /* duosuccess */,
@@ -224,6 +239,9 @@
 		BD028697185736020043EFE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD41350618599FAC0090C605 /* AudioToolbox.framework */,
+				BD41350418599F940090C605 /* AVFoundation.framework */,
+				BD41350218599F8C0090C605 /* CoreAudio.framework */,
 				BD4134FD185981310090C605 /* MessageUI.framework */,
 				BD028698185736020043EFE6 /* Foundation.framework */,
 				BD02869A185736020043EFE6 /* CoreGraphics.framework */,
@@ -298,6 +316,8 @@
 		BD413468185738460090C605 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				BD4134FF18599F250090C605 /* DsMusicPlayer.h */,
+				BD41350018599F250090C605 /* DsMusicPlayer.m */,
 				BD0286AC185736030043EFE6 /* duosuccess.xcdatamodeld */,
 				BD41349118574E770090C605 /* DsLang.h */,
 				BD41349218574E770090C605 /* DsLang.m */,
@@ -314,8 +334,6 @@
 		BD4134691857384F0090C605 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				BD4134BB185893DB0090C605 /* DsMusicBrowserView.h */,
-				BD4134BC185893DC0090C605 /* DsMusicBrowserView.m */,
 				BD41349418575AD80090C605 /* MainIphone.storyboard */,
 				BD4134A9185816D80090C605 /* DsTableCell.xib */,
 				BD4134AB18581A350090C605 /* DsTableCell.h */,
@@ -323,7 +341,9 @@
 				BD4134B6185885420090C605 /* DsInstConfrim.xib */,
 				BD4134B8185888110090C605 /* DsInstConfirm.h */,
 				BD4134B9185888110090C605 /* DsInstConfirm.m */,
-				BD4134BE185893F40090C605 /* DsMusicBrowser.xib */,
+				BD41350B1859A9F60090C605 /* DsMusicControl.xib */,
+				BD41350D1859ADE30090C605 /* DsMusicControll.h */,
+				BD41350E1859ADE30090C605 /* DsMusicControll.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -392,6 +412,14 @@
 				BD4134E018596DF30090C605 /* SAMWebViewController.m */,
 			);
 			path = SAMWebView;
+			sourceTree = "<group>";
+		};
+		BD4135081859A3D00090C605 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD4135091859A3F10090C605 /* piano.sf2 */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,9 +505,9 @@
 				BD0286A5185736030043EFE6 /* InfoPlist.strings in Resources */,
 				BD0286B0185736030043EFE6 /* Images.xcassets in Resources */,
 				BD4134F618596DF30090C605 /* SAMWebView-safari-button@2x.png in Resources */,
+				BD41350A1859A3F10090C605 /* piano.sf2 in Resources */,
 				BD41349518575AD80090C605 /* MainIphone.storyboard in Resources */,
 				BD4134E118596DF30090C605 /* LICENSE in Resources */,
-				BD4134BF185893F40090C605 /* DsMusicBrowser.xib in Resources */,
 				BD4134ED18596DF30090C605 /* SAMWebView-forward-button.png in Resources */,
 				BD4134E718596DF30090C605 /* SAMWebView-back-button-mini.png in Resources */,
 				BD4134E418596DF30090C605 /* SAMWebView-action-button-mini@2x.png in Resources */,
@@ -504,6 +532,7 @@
 				BD4134F518596DF30090C605 /* SAMWebView-safari-button.png in Resources */,
 				BD4134E918596DF30090C605 /* SAMWebView-back-button.png in Resources */,
 				BD4134F918596DF30090C605 /* SAMWebView-stop-button.png in Resources */,
+				BD41350C1859A9F60090C605 /* DsMusicControl.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,16 +587,17 @@
 				BD4134A71858157D0090C605 /* IntroModel.m in Sources */,
 				BD4134AD18581A350090C605 /* DsTableCell.m in Sources */,
 				BD4134A81858157D0090C605 /* IntroView.m in Sources */,
+				BD41350F1859ADE30090C605 /* DsMusicControll.m in Sources */,
 				BD41349E18575D300090C605 /* DsMainViewController.m in Sources */,
 				BD4134BA185888110090C605 /* DsInstConfirm.m in Sources */,
 				BD41349B18575C850090C605 /* DsMenuViewController.m in Sources */,
-				BD4134BD185893DC0090C605 /* DsMusicBrowserView.m in Sources */,
 				BD41349318574E770090C605 /* DsLang.m in Sources */,
 				BD41347518573AC40090C605 /* DsDataStore.m in Sources */,
 				BD4134A61858157D0090C605 /* IntroControll.m in Sources */,
 				BD0286A7185736030043EFE6 /* main.m in Sources */,
 				BD4134FC18596DF30090C605 /* SAMWebViewController.m in Sources */,
 				BD4134B518585D020090C605 /* DsMusicViewController.m in Sources */,
+				BD41350118599F250090C605 /* DsMusicPlayer.m in Sources */,
 				BD41349818575C590090C605 /* DsRootViewController.m in Sources */,
 				BD41348D18574C350090C605 /* DsCategory.m in Sources */,
 				BD41349018574E3A0090C605 /* DsArticle.m in Sources */,
