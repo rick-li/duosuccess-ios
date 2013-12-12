@@ -18,6 +18,7 @@ PODS:
   - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
   - Facebook-iOS-SDK (3.10.0)
+  - MBProgressHUD (0.8)
   - NPReachability (0.1.0)
   - Parse (1.2.16):
     - Facebook-iOS-SDK (~> 3.9)
@@ -28,6 +29,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (= 2.0.3)
+  - MBProgressHUD (= 0.8)
   - NPReachability (= 0.1.0)
   - Parse (= 1.2.16)
   - RESideMenu (~> 3.3.1)
@@ -36,6 +38,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   Facebook-iOS-SDK: ef402579aeb30cf0c4a6370fb0a927e3dc3059e5
+  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   NPReachability: 20281bf45f6124421a43668d2c7a61d1ecba8cf2
   Parse: 18f62939dd2d13a66270f4cb9a98401d88e3ad54
   RESideMenu: dcd3af0b8fcdc32e2d306ecc6d6a20b928248105

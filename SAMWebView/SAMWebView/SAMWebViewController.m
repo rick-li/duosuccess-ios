@@ -1,32 +1,25 @@
 //
-//  DsMusicViewController.m
-//  duosuccess
+//  SAMWebViewController.m
+//  SAMWebView
 //
-//  Created by Rick Li on 12/11/13.
-//  Copyright (c) 2013 Rick Li. All rights reserved.
+//  Created by Sam Soffes on 7/28/12.
+//  Copyright 2012 Sam Soffes. All rights reserved.
 //
 
-#import "DsMusicViewController.h"
-#import "DsMusicBrowserView.h"
 #import "SAMWebViewController.h"
-#import <MessageUI/MessageUI.h>
 
-@interface DsMusicViewController ()<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+#import <MessageUI/MessageUI.h>
+#import "DsMusicViewController.h"
+
+@interface SAMWebViewController () <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, readonly) UIActivityIndicatorView *indicatorView;
 @property (nonatomic, readonly) UIBarButtonItem *backBarButtonItem;
 @property (nonatomic, readonly) UIBarButtonItem *forwardBarButtonItem;
 
-@property UIScrollView *instructionContainer;
-@property UIPageControl *instructionPageCtrl;
-@property DsInstConfirm *confirmView;
-@property DsMusicBrowserView *musicBrowserView;
 @end
 
-@implementation DsMusicViewController
-@synthesize confirmView;
-@synthesize musicBrowserView;
-
+@implementation SAMWebViewController
 
 @synthesize webView = _webView;
 @synthesize toolbarHidden = _toolbarHidden;
@@ -46,11 +39,11 @@
 - (UIBarButtonItem *)backBarButtonItem {
 	if (!_backBarButtonItem) {
 		_backBarButtonItem = [[UIBarButtonItem alloc]
-                              initWithImage:[UIImage imageNamed:@"SAMWebView-back-button"]
-                              landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-back-button-mini"]
-                              style:UIBarButtonItemStylePlain
-                              target:self.webView
-                              action:@selector(goBack)];
+						  initWithImage:[UIImage imageNamed:@"SAMWebView-back-button"]
+						  landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-back-button-mini"]
+						  style:UIBarButtonItemStylePlain
+						  target:self.webView
+						  action:@selector(goBack)];
 	}
 	return _backBarButtonItem;
 }
@@ -69,23 +62,21 @@
 }
 
 
+#pragma mark - NSObject
+
+- (id)init {
+	if ((self = [super init])) {
+        self.toolbarHidden = NO;
+	}
+	return self;
+}
+
 
 #pragma mark - UIViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    
-    //display instructin by default.
-    [self displayInstruction];
-   
-}
-
--(void) displayWebView{
-    //display toolbar
-    if (!self.toolbarHidden && ![self.currentURL isFileURL]) {
-        [self.navigationController setToolbarHidden:NO animated:true];
-    }
-    
+	
     // Loading indicator
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicatorView];
 	
@@ -96,14 +87,14 @@
 											style:UIBarButtonItemStylePlain
 											target:self.webView
 											action:@selector(reload)];
-    
+
 	UIBarButtonItem *safariBarButtonItem = [[UIBarButtonItem alloc]
 											initWithImage:[UIImage imageNamed:@"SAMWebView-safari-button"]
 											landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-safari-button-mini"]
 											style:UIBarButtonItemStylePlain
 											target:self
 											action:@selector(openSafari:)];
-    
+
 	UIBarButtonItem *actionSheetBarButtonItem = [[UIBarButtonItem alloc]
 												 initWithImage:[UIImage imageNamed:@"SAMWebView-action-button"]
 												 landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-action-button-mini"]
@@ -114,35 +105,47 @@
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]
 									  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
 									  target:nil action:nil];
-    
+
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc]
 								   initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
 								   target:nil action:nil];
     fixedSpace.width = 10.0;
-    
+
 	self.toolbarItems = @[fixedSpace, self.backBarButtonItem, flexibleSpace, self.forwardBarButtonItem, flexibleSpace,
-                          reloadBarButtonItem, flexibleSpace, safariBarButtonItem, flexibleSpace, actionSheetBarButtonItem, fixedSpace];
+        reloadBarButtonItem, flexibleSpace, safariBarButtonItem, flexibleSpace, actionSheetBarButtonItem, fixedSpace];
 	
     // Close button
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(close:)];
 	}
-    
+
     // Web view
 	self.webView.frame = self.view.bounds;
 	[self.view addSubview:self.webView];
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-    
+
+    if (!self.toolbarHidden && ![self.currentURL isFileURL]) {
+        [self.navigationController setToolbarHidden:NO animated:animated];
+    }
 
 
+//    NSMutableArray *newControllers = @[];
+//    for(UIViewController *ctrl in self.navigationController.viewControllers){
+//        
+//        if(![ctrl isKindOfClass: [DsMusicViewController class]]){
+//            
+//        }
+//    }
+//    self.navigationController.viewControllers = newControllers;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-    
+
     if (!self.toolbarHidden) {
         [self.navigationController setToolbarHidden:YES animated:animated];
     }
@@ -199,7 +202,7 @@
 	} else {
 		actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy URL", @"Email URL", nil];
 	}
-    
+
 	if (self.navigationController) {
 		actionSheet.actionSheetStyle = (UIActionSheetStyle)self.navigationController.navigationBar.barStyle;
 	}
@@ -232,7 +235,7 @@
 - (void)updateBrowserUI {
 	self.backBarButtonItem.enabled = [self.webView canGoBack];
 	self.forwardBarButtonItem.enabled = [self.webView canGoForward];
-    
+
 	UIBarButtonItem *reloadButton = nil;
 	
 	if ([self.webView isLoadingPage]) {
@@ -265,7 +268,7 @@
     NSURL *URL = self.currentURL;
 	self.title = URL.absoluteString;
 	[self updateBrowserUI];
-    
+
 	if (!self.toolbarHidden) {
 		[self.navigationController setToolbarHidden:[URL isFileURL] animated:YES];
 	}
@@ -297,87 +300,6 @@
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
-- (void)displayInstruction{
-    NSArray *pages = @[@"musicInst1", @"musicInst2", @"musicInst3"];
-    //Initial ScrollView
-    self.instructionContainer = [[UIScrollView alloc] initWithFrame:self.view.frame];
-    self.instructionContainer.backgroundColor = [UIColor clearColor];
-        self.instructionContainer.pagingEnabled = YES;
-        self.instructionContainer.showsHorizontalScrollIndicator = NO;
-        self.instructionContainer.showsVerticalScrollIndicator = NO;
-    self.instructionContainer.delegate = self;
-    [self.view addSubview:self.instructionContainer];
-    
-    //Initial PageView
-    self.instructionPageCtrl = [[UIPageControl alloc] init];
-        self.instructionPageCtrl.numberOfPages = pages.count;
-    [    self.instructionPageCtrl sizeToFit];
-    [    self.instructionPageCtrl setCenter:CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height-50)];
-    [self.view addSubview:  self.instructionPageCtrl];
-    
-    
-    self.instructionContainer.contentSize = CGSizeMake(pages.count * self.view.frame.size.width, self.view.frame.size.height);
-    self.instructionContainer.delegate = self;
-    CGSize scrollViewSize = self.instructionContainer.frame.size;
-    //insert TextViews into ScrollView
-    for(int i = 0; i <  pages.count; i++) {
-        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed: pages[i] ]];
-        CGRect slideRect = CGRectMake(scrollViewSize.width * i, 0, scrollViewSize.width, scrollViewSize.height);
-        
-        UIView *slide = [[UIView alloc] initWithFrame:slideRect];
-        [slide setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0]];
-        [slide addSubview:image];
-
-        [self.instructionContainer addSubview:slide];
-    }
-
-}
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat pageWidth = scrollView.frame.size.width;
-    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    [self.instructionPageCtrl setCurrentPage:page];
-    if(page == 2){
-
-            self.confirmView = [[[NSBundle mainBundle] loadNibNamed:@"DsInstConfrim" owner:self options:nil] objectAtIndex:0];
-            [self.confirmView setCenter: CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height-100)];
-        self.confirmView.delegate = self;
-            [self.view addSubview:self.confirmView];
-
-    }else{
-        
-        [self.confirmView removeFromSuperview];
-    }
-}
-
-- (void)start: (DsInstConfirm *)dsInstConfirm{
-    NSLog(@"Start pressed");
-    //remove instructions if it has
-    for (UIView *subView in [self.view subviews]){
-        [subView removeFromSuperview];
-    }
-    
-    [self displayWebView];
-    [self.webView loadURLString:@"https://www.duosuccess.com"];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -42,6 +42,35 @@
 		BD4134BA185888110090C605 /* DsInstConfirm.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134B9185888110090C605 /* DsInstConfirm.m */; };
 		BD4134BD185893DC0090C605 /* DsMusicBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134BC185893DC0090C605 /* DsMusicBrowserView.m */; };
 		BD4134BF185893F40090C605 /* DsMusicBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4134BE185893F40090C605 /* DsMusicBrowser.xib */; };
+		BD4134E118596DF30090C605 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C118596DF30090C605 /* LICENSE */; };
+		BD4134E218596DF30090C605 /* Readme.markdown in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C218596DF30090C605 /* Readme.markdown */; };
+		BD4134E318596DF30090C605 /* SAMWebView-action-button-mini.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C418596DF30090C605 /* SAMWebView-action-button-mini.png */; };
+		BD4134E418596DF30090C605 /* SAMWebView-action-button-mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C518596DF30090C605 /* SAMWebView-action-button-mini@2x.png */; };
+		BD4134E518596DF30090C605 /* SAMWebView-action-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C618596DF30090C605 /* SAMWebView-action-button.png */; };
+		BD4134E618596DF30090C605 /* SAMWebView-action-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C718596DF30090C605 /* SAMWebView-action-button@2x.png */; };
+		BD4134E718596DF30090C605 /* SAMWebView-back-button-mini.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C818596DF30090C605 /* SAMWebView-back-button-mini.png */; };
+		BD4134E818596DF30090C605 /* SAMWebView-back-button-mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134C918596DF30090C605 /* SAMWebView-back-button-mini@2x.png */; };
+		BD4134E918596DF30090C605 /* SAMWebView-back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134CA18596DF30090C605 /* SAMWebView-back-button.png */; };
+		BD4134EA18596DF30090C605 /* SAMWebView-back-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134CB18596DF30090C605 /* SAMWebView-back-button@2x.png */; };
+		BD4134EB18596DF30090C605 /* SAMWebView-forward-button-mini.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134CC18596DF30090C605 /* SAMWebView-forward-button-mini.png */; };
+		BD4134EC18596DF30090C605 /* SAMWebView-forward-button-mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134CD18596DF30090C605 /* SAMWebView-forward-button-mini@2x.png */; };
+		BD4134ED18596DF30090C605 /* SAMWebView-forward-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134CE18596DF30090C605 /* SAMWebView-forward-button.png */; };
+		BD4134EE18596DF30090C605 /* SAMWebView-forward-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134CF18596DF30090C605 /* SAMWebView-forward-button@2x.png */; };
+		BD4134EF18596DF30090C605 /* SAMWebView-reload-button-mini.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D018596DF30090C605 /* SAMWebView-reload-button-mini.png */; };
+		BD4134F018596DF30090C605 /* SAMWebView-reload-button-mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D118596DF30090C605 /* SAMWebView-reload-button-mini@2x.png */; };
+		BD4134F118596DF30090C605 /* SAMWebView-reload-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D218596DF30090C605 /* SAMWebView-reload-button.png */; };
+		BD4134F218596DF30090C605 /* SAMWebView-reload-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D318596DF30090C605 /* SAMWebView-reload-button@2x.png */; };
+		BD4134F318596DF30090C605 /* SAMWebView-safari-button-mini.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D418596DF30090C605 /* SAMWebView-safari-button-mini.png */; };
+		BD4134F418596DF30090C605 /* SAMWebView-safari-button-mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D518596DF30090C605 /* SAMWebView-safari-button-mini@2x.png */; };
+		BD4134F518596DF30090C605 /* SAMWebView-safari-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D618596DF30090C605 /* SAMWebView-safari-button.png */; };
+		BD4134F618596DF30090C605 /* SAMWebView-safari-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D718596DF30090C605 /* SAMWebView-safari-button@2x.png */; };
+		BD4134F718596DF30090C605 /* SAMWebView-stop-button-mini.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D818596DF30090C605 /* SAMWebView-stop-button-mini.png */; };
+		BD4134F818596DF30090C605 /* SAMWebView-stop-button-mini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134D918596DF30090C605 /* SAMWebView-stop-button-mini@2x.png */; };
+		BD4134F918596DF30090C605 /* SAMWebView-stop-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134DA18596DF30090C605 /* SAMWebView-stop-button.png */; };
+		BD4134FA18596DF30090C605 /* SAMWebView-stop-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4134DB18596DF30090C605 /* SAMWebView-stop-button@2x.png */; };
+		BD4134FB18596DF30090C605 /* SAMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134DE18596DF30090C605 /* SAMWebView.m */; };
+		BD4134FC18596DF30090C605 /* SAMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134E018596DF30090C605 /* SAMWebViewController.m */; };
+		BD4134FE185981310090C605 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4134FD185981310090C605 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +137,37 @@
 		BD4134BB185893DB0090C605 /* DsMusicBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMusicBrowserView.h; sourceTree = "<group>"; };
 		BD4134BC185893DC0090C605 /* DsMusicBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMusicBrowserView.m; sourceTree = "<group>"; };
 		BD4134BE185893F40090C605 /* DsMusicBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsMusicBrowser.xib; sourceTree = "<group>"; };
+		BD4134C118596DF30090C605 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BD4134C218596DF30090C605 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
+		BD4134C418596DF30090C605 /* SAMWebView-action-button-mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-action-button-mini.png"; sourceTree = "<group>"; };
+		BD4134C518596DF30090C605 /* SAMWebView-action-button-mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-action-button-mini@2x.png"; sourceTree = "<group>"; };
+		BD4134C618596DF30090C605 /* SAMWebView-action-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-action-button.png"; sourceTree = "<group>"; };
+		BD4134C718596DF30090C605 /* SAMWebView-action-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-action-button@2x.png"; sourceTree = "<group>"; };
+		BD4134C818596DF30090C605 /* SAMWebView-back-button-mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-back-button-mini.png"; sourceTree = "<group>"; };
+		BD4134C918596DF30090C605 /* SAMWebView-back-button-mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-back-button-mini@2x.png"; sourceTree = "<group>"; };
+		BD4134CA18596DF30090C605 /* SAMWebView-back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-back-button.png"; sourceTree = "<group>"; };
+		BD4134CB18596DF30090C605 /* SAMWebView-back-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-back-button@2x.png"; sourceTree = "<group>"; };
+		BD4134CC18596DF30090C605 /* SAMWebView-forward-button-mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-forward-button-mini.png"; sourceTree = "<group>"; };
+		BD4134CD18596DF30090C605 /* SAMWebView-forward-button-mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-forward-button-mini@2x.png"; sourceTree = "<group>"; };
+		BD4134CE18596DF30090C605 /* SAMWebView-forward-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-forward-button.png"; sourceTree = "<group>"; };
+		BD4134CF18596DF30090C605 /* SAMWebView-forward-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-forward-button@2x.png"; sourceTree = "<group>"; };
+		BD4134D018596DF30090C605 /* SAMWebView-reload-button-mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-reload-button-mini.png"; sourceTree = "<group>"; };
+		BD4134D118596DF30090C605 /* SAMWebView-reload-button-mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-reload-button-mini@2x.png"; sourceTree = "<group>"; };
+		BD4134D218596DF30090C605 /* SAMWebView-reload-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-reload-button.png"; sourceTree = "<group>"; };
+		BD4134D318596DF30090C605 /* SAMWebView-reload-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-reload-button@2x.png"; sourceTree = "<group>"; };
+		BD4134D418596DF30090C605 /* SAMWebView-safari-button-mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-safari-button-mini.png"; sourceTree = "<group>"; };
+		BD4134D518596DF30090C605 /* SAMWebView-safari-button-mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-safari-button-mini@2x.png"; sourceTree = "<group>"; };
+		BD4134D618596DF30090C605 /* SAMWebView-safari-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-safari-button.png"; sourceTree = "<group>"; };
+		BD4134D718596DF30090C605 /* SAMWebView-safari-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-safari-button@2x.png"; sourceTree = "<group>"; };
+		BD4134D818596DF30090C605 /* SAMWebView-stop-button-mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-stop-button-mini.png"; sourceTree = "<group>"; };
+		BD4134D918596DF30090C605 /* SAMWebView-stop-button-mini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-stop-button-mini@2x.png"; sourceTree = "<group>"; };
+		BD4134DA18596DF30090C605 /* SAMWebView-stop-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-stop-button.png"; sourceTree = "<group>"; };
+		BD4134DB18596DF30090C605 /* SAMWebView-stop-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SAMWebView-stop-button@2x.png"; sourceTree = "<group>"; };
+		BD4134DD18596DF30090C605 /* SAMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMWebView.h; sourceTree = "<group>"; };
+		BD4134DE18596DF30090C605 /* SAMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMWebView.m; sourceTree = "<group>"; };
+		BD4134DF18596DF30090C605 /* SAMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMWebViewController.h; sourceTree = "<group>"; };
+		BD4134E018596DF30090C605 /* SAMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMWebViewController.m; sourceTree = "<group>"; };
+		BD4134FD185981310090C605 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4134FE185981310090C605 /* MessageUI.framework in Frameworks */,
 				BD02869B185736020043EFE6 /* CoreGraphics.framework in Frameworks */,
 				BD02869F185736020043EFE6 /* CoreData.framework in Frameworks */,
 				BD02869D185736020043EFE6 /* UIKit.framework in Frameworks */,
@@ -141,6 +202,7 @@
 		BD02868C185736020043EFE6 = {
 			isa = PBXGroup;
 			children = (
+				BD4134C018596DF30090C605 /* SAMWebView */,
 				BD41349F1858157D0090C605 /* IntroControll */,
 				BD0286A0185736020043EFE6 /* duosuccess */,
 				BD0286BD185736030043EFE6 /* duosuccessTests */,
@@ -162,6 +224,7 @@
 		BD028697185736020043EFE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD4134FD185981310090C605 /* MessageUI.framework */,
 				BD028698185736020043EFE6 /* Foundation.framework */,
 				BD02869A185736020043EFE6 /* CoreGraphics.framework */,
 				BD02869C185736020043EFE6 /* UIKit.framework */,
@@ -278,6 +341,59 @@
 			path = IntroControll;
 			sourceTree = "<group>";
 		};
+		BD4134C018596DF30090C605 /* SAMWebView */ = {
+			isa = PBXGroup;
+			children = (
+				BD4134C118596DF30090C605 /* LICENSE */,
+				BD4134C218596DF30090C605 /* Readme.markdown */,
+				BD4134C318596DF30090C605 /* Resources */,
+				BD4134DC18596DF30090C605 /* SAMWebView */,
+			);
+			path = SAMWebView;
+			sourceTree = "<group>";
+		};
+		BD4134C318596DF30090C605 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BD4134C418596DF30090C605 /* SAMWebView-action-button-mini.png */,
+				BD4134C518596DF30090C605 /* SAMWebView-action-button-mini@2x.png */,
+				BD4134C618596DF30090C605 /* SAMWebView-action-button.png */,
+				BD4134C718596DF30090C605 /* SAMWebView-action-button@2x.png */,
+				BD4134C818596DF30090C605 /* SAMWebView-back-button-mini.png */,
+				BD4134C918596DF30090C605 /* SAMWebView-back-button-mini@2x.png */,
+				BD4134CA18596DF30090C605 /* SAMWebView-back-button.png */,
+				BD4134CB18596DF30090C605 /* SAMWebView-back-button@2x.png */,
+				BD4134CC18596DF30090C605 /* SAMWebView-forward-button-mini.png */,
+				BD4134CD18596DF30090C605 /* SAMWebView-forward-button-mini@2x.png */,
+				BD4134CE18596DF30090C605 /* SAMWebView-forward-button.png */,
+				BD4134CF18596DF30090C605 /* SAMWebView-forward-button@2x.png */,
+				BD4134D018596DF30090C605 /* SAMWebView-reload-button-mini.png */,
+				BD4134D118596DF30090C605 /* SAMWebView-reload-button-mini@2x.png */,
+				BD4134D218596DF30090C605 /* SAMWebView-reload-button.png */,
+				BD4134D318596DF30090C605 /* SAMWebView-reload-button@2x.png */,
+				BD4134D418596DF30090C605 /* SAMWebView-safari-button-mini.png */,
+				BD4134D518596DF30090C605 /* SAMWebView-safari-button-mini@2x.png */,
+				BD4134D618596DF30090C605 /* SAMWebView-safari-button.png */,
+				BD4134D718596DF30090C605 /* SAMWebView-safari-button@2x.png */,
+				BD4134D818596DF30090C605 /* SAMWebView-stop-button-mini.png */,
+				BD4134D918596DF30090C605 /* SAMWebView-stop-button-mini@2x.png */,
+				BD4134DA18596DF30090C605 /* SAMWebView-stop-button.png */,
+				BD4134DB18596DF30090C605 /* SAMWebView-stop-button@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BD4134DC18596DF30090C605 /* SAMWebView */ = {
+			isa = PBXGroup;
+			children = (
+				BD4134DD18596DF30090C605 /* SAMWebView.h */,
+				BD4134DE18596DF30090C605 /* SAMWebView.m */,
+				BD4134DF18596DF30090C605 /* SAMWebViewController.h */,
+				BD4134E018596DF30090C605 /* SAMWebViewController.m */,
+			);
+			path = SAMWebView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,12 +472,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4134F718596DF30090C605 /* SAMWebView-stop-button-mini.png in Resources */,
+				BD4134F818596DF30090C605 /* SAMWebView-stop-button-mini@2x.png in Resources */,
 				BD0286A5185736030043EFE6 /* InfoPlist.strings in Resources */,
 				BD0286B0185736030043EFE6 /* Images.xcassets in Resources */,
+				BD4134F618596DF30090C605 /* SAMWebView-safari-button@2x.png in Resources */,
 				BD41349518575AD80090C605 /* MainIphone.storyboard in Resources */,
+				BD4134E118596DF30090C605 /* LICENSE in Resources */,
 				BD4134BF185893F40090C605 /* DsMusicBrowser.xib in Resources */,
+				BD4134ED18596DF30090C605 /* SAMWebView-forward-button.png in Resources */,
+				BD4134E718596DF30090C605 /* SAMWebView-back-button-mini.png in Resources */,
+				BD4134E418596DF30090C605 /* SAMWebView-action-button-mini@2x.png in Resources */,
 				BD4134AA185816D80090C605 /* DsTableCell.xib in Resources */,
+				BD4134E818596DF30090C605 /* SAMWebView-back-button-mini@2x.png in Resources */,
+				BD4134E218596DF30090C605 /* Readme.markdown in Resources */,
+				BD4134F218596DF30090C605 /* SAMWebView-reload-button@2x.png in Resources */,
+				BD4134E518596DF30090C605 /* SAMWebView-action-button.png in Resources */,
+				BD4134FA18596DF30090C605 /* SAMWebView-stop-button@2x.png in Resources */,
+				BD4134F318596DF30090C605 /* SAMWebView-safari-button-mini.png in Resources */,
+				BD4134EE18596DF30090C605 /* SAMWebView-forward-button@2x.png in Resources */,
+				BD4134EA18596DF30090C605 /* SAMWebView-back-button@2x.png in Resources */,
+				BD4134EF18596DF30090C605 /* SAMWebView-reload-button-mini.png in Resources */,
+				BD4134F418596DF30090C605 /* SAMWebView-safari-button-mini@2x.png in Resources */,
+				BD4134E318596DF30090C605 /* SAMWebView-action-button-mini.png in Resources */,
+				BD4134E618596DF30090C605 /* SAMWebView-action-button@2x.png in Resources */,
 				BD4134B7185885420090C605 /* DsInstConfrim.xib in Resources */,
+				BD4134F118596DF30090C605 /* SAMWebView-reload-button.png in Resources */,
+				BD4134EC18596DF30090C605 /* SAMWebView-forward-button-mini@2x.png in Resources */,
+				BD4134EB18596DF30090C605 /* SAMWebView-forward-button-mini.png in Resources */,
+				BD4134F018596DF30090C605 /* SAMWebView-reload-button-mini@2x.png in Resources */,
+				BD4134F518596DF30090C605 /* SAMWebView-safari-button.png in Resources */,
+				BD4134E918596DF30090C605 /* SAMWebView-back-button.png in Resources */,
+				BD4134F918596DF30090C605 /* SAMWebView-stop-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,10 +566,12 @@
 				BD41347518573AC40090C605 /* DsDataStore.m in Sources */,
 				BD4134A61858157D0090C605 /* IntroControll.m in Sources */,
 				BD0286A7185736030043EFE6 /* main.m in Sources */,
+				BD4134FC18596DF30090C605 /* SAMWebViewController.m in Sources */,
 				BD4134B518585D020090C605 /* DsMusicViewController.m in Sources */,
 				BD41349818575C590090C605 /* DsRootViewController.m in Sources */,
 				BD41348D18574C350090C605 /* DsCategory.m in Sources */,
 				BD41349018574E3A0090C605 /* DsArticle.m in Sources */,
+				BD4134FB18596DF30090C605 /* SAMWebView.m in Sources */,
 				BD0286AB185736030043EFE6 /* DsAppDelegate.m in Sources */,
 				BD4134B21858533C0090C605 /* DsArticleViewController.m in Sources */,
 				BD0286AE185736030043EFE6 /* duosuccess.xcdatamodeld in Sources */,

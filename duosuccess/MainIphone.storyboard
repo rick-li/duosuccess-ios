@@ -85,10 +85,11 @@
                         <viewControllerLayoutGuide type="bottom" id="oMQ-Qx-Oku"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2z8-Rn-O3B">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Sigma Music" id="BUq-qf-aKA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doV-RO-NLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,6 +130,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voe-Ef-BvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-220" y="-753"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gk6-jf-GvK">
+            <objects>
+                <viewController storyboardIdentifier="testController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R0X-03-T0h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V8U-FJ-dmR"/>
+                        <viewControllerLayoutGuide type="bottom" id="edt-0e-PwL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b5q-KU-l0l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvV-ID-NP0">
+                                <rect key="frame" x="107" y="166" width="153" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGX-Fn-qw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="1330"/>
         </scene>
         <!--Ds Article View Controller-->
         <scene sceneID="BsS-K0-KEs">
