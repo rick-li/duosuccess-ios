@@ -68,7 +68,13 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)flashCompleted:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+
+}
+
 -(void)flashScreen {
+    [CATransaction begin];
     CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     NSArray *animationValues = @[ @0.9f, @0.0f ];
     NSArray *animationTimes = @[ @0.5f, @1.0f ];
@@ -80,11 +86,17 @@
     opacityAnimation.fillMode = kCAFillModeForwards;
     opacityAnimation.removedOnCompletion = YES;
     opacityAnimation.duration = 0.6;
+    [CATransaction setCompletionBlock:^{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"西格瑪能紙已下載" message:@"請於我的能紙處查看" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alert show];
+    }];
     
     [self.webView.layer addAnimation:opacityAnimation forKey:@"animation"];
+    [CATransaction commit];
+
 }
 
-- (void)openSafari:(id)sender {
+- (void)takeScreenshot:(id)sender {
 
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
         UIGraphicsBeginImageContextWithOptions(self.webView.bounds.size, NO, [UIScreen mainScreen].scale);
@@ -99,6 +111,7 @@
     NSString *fileDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"/paperScreenshot.png"];
     [data writeToFile:fileDir atomically:YES];
     
+
     NSLog(@"the image has been saved");
 }
 
@@ -246,12 +259,12 @@
 											target:self.webView
 											action:@selector(reload)];
     
-	UIBarButtonItem *safariBarButtonItem = [[UIBarButtonItem alloc]
-											initWithImage:[UIImage imageNamed:@"SAMWebView-safari-button"]
-											landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-safari-button-mini"]
+	UIBarButtonItem *screenshotButtonItem = [[UIBarButtonItem alloc]
+											initWithImage:[UIImage imageNamed:@"camera"]
+											landscapeImagePhone:[UIImage imageNamed:@"camera"]
 											style:UIBarButtonItemStylePlain
 											target:self
-											action:@selector(openSafari:)];
+											action:@selector(takeScreenshot:)];
     
 	UIBarButtonItem *actionSheetBarButtonItem = [[UIBarButtonItem alloc]
 												 initWithImage:[UIImage imageNamed:@"SAMWebView-action-button"]
@@ -270,7 +283,7 @@
     fixedSpace.width = 10.0;
     
 	self.toolbarItems = @[fixedSpace, self.backBarButtonItem, flexibleSpace, self.forwardBarButtonItem, flexibleSpace,
-                          reloadBarButtonItem, flexibleSpace, safariBarButtonItem, flexibleSpace, actionSheetBarButtonItem, fixedSpace];
+                          reloadBarButtonItem, flexibleSpace, screenshotButtonItem, flexibleSpace, actionSheetBarButtonItem, fixedSpace];
 	
     // Close button
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {

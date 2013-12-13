@@ -10,7 +10,10 @@
 
 @interface DsArticleViewController : UIViewController
 
-@property(nonatomic, retain) IBOutlet  UIImageView *image;
-@property(nonatomic, retain) IBOutlet  UITextView *content;
+@property(nonatomic, retain) IBOutlet  UIImageView *imageView;
+@property(nonatomic, retain) IBOutlet  UITextView *contentView;
+
+@property NSString *imageUrl;
+@property NSString *content;
 
 @end

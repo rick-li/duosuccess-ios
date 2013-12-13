@@ -80,6 +80,9 @@
     self.articles = [[DsDataStore sharedInstance] queryArticlesByCategory:self.selectedCategory];
 
 	// Do any additional setup after loading the view.
+    
+    
+    self.title = @"多成中醫";
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,16 +110,25 @@
 }
 
 -(IBAction)paperAction{
+    DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
+    webViewCtrl.displayWebViewByDefault = true;
+    [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
+    [self.navigationController pushViewController:webViewCtrl animated:true];
 }
 
 -(IBAction)configAction{
     if (!appSettingsViewController) {
 		appSettingsViewController = [[IASKAppSettingsViewController alloc] init];
 		appSettingsViewController.delegate = self;
-		BOOL enabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"AutoConnect"];
-		appSettingsViewController.hiddenKeys = enabled ? nil : [NSSet setWithObjects:@"AutoConnectLogin", @"AutoConnectPassword", nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingDidChange:) name:kIASKAppSettingChanged object:nil];
 	}
     [self.navigationController pushViewController:appSettingsViewController animated:true];
+}
+
+#pragma mark kIASKAppSettingChanged notification
+- (void)settingDidChange:(NSNotification*)notification {
+    NSLog(@"Notification changed: %@", notification.userInfo);
+    //TODO respond to notification changes.
 }
 
 -(void)changeCategory:(NSString *) categoryId{
@@ -138,7 +150,15 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     
-    self.articleCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"articleController"];
+    articleCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"articleController"];
+    NSManagedObject *obj = [articles objectAtIndex:indexPath.row];
+    
+    NSString *title =[obj valueForKey:@"title"];
+    NSString *content =[obj valueForKey:@"content"];
+    
+    articleCtrl.title = title;
+    articleCtrl.content = content;
+
     [self.navigationController pushViewController:self.articleCtrl animated:true];
 }
 

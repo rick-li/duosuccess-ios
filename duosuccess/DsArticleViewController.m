@@ -14,6 +14,12 @@
 
 @implementation DsArticleViewController
 
+@synthesize imageView;
+@synthesize contentView;
+
+@synthesize imageUrl;
+@synthesize content;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self.imageView setImage:[UIImage imageNamed:@"tea"]];
+    self.contentView.text = content;
 }
 
 - (void)didReceiveMemoryWarning
