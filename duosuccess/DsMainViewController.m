@@ -12,6 +12,15 @@
 #import "DsTableCell.h"
 #import "DsDataStore.h"
 
+#import <MessageUI/MessageUI.h>
+
+#ifdef USES_IASK_STATIC_LIBRARY
+#import "InAppSettingsKit/IASKSettingsReader.h"
+#else
+#import "IASKSettingsReader.h"
+#endif
+
+
 @interface DsMainViewController ()
 @property UITableViewController *tableCtrl;
 @property UIRefreshControl *refreshCtrl;
@@ -29,6 +38,7 @@
 @synthesize articleCtrl;
 
 @synthesize selectedCategory;
+@synthesize appSettingsViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -100,6 +110,13 @@
 }
 
 -(IBAction)configAction{
+    if (!appSettingsViewController) {
+		appSettingsViewController = [[IASKAppSettingsViewController alloc] init];
+		appSettingsViewController.delegate = self;
+		BOOL enabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"AutoConnect"];
+		appSettingsViewController.hiddenKeys = enabled ? nil : [NSSet setWithObjects:@"AutoConnectLogin", @"AutoConnectPassword", nil];
+	}
+    [self.navigationController pushViewController:appSettingsViewController animated:true];
 }
 
 -(void)changeCategory:(NSString *) categoryId{

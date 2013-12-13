@@ -78,6 +78,7 @@
 		BD41350F1859ADE30090C605 /* DsMusicControll.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41350E1859ADE30090C605 /* DsMusicControll.m */; };
 		BD413512185AB4420090C605 /* DsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD413511185AB4420090C605 /* DsWebViewController.m */; };
 		BD413518185ADFE40090C605 /* DsPaperController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD413517185ADFE40090C605 /* DsPaperController.m */; };
+		BD41351C185AF6440090C605 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD41351B185AF6440090C605 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,7 @@
 		BD413511185AB4420090C605 /* DsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsWebViewController.m; sourceTree = "<group>"; };
 		BD413516185ADFE40090C605 /* DsPaperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsPaperController.h; sourceTree = "<group>"; };
 		BD413517185ADFE40090C605 /* DsPaperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsPaperController.m; sourceTree = "<group>"; };
+		BD41351B185AF6440090C605 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -280,6 +282,7 @@
 				BD0286A3185736030043EFE6 /* InfoPlist.strings */,
 				BD0286A6185736030043EFE6 /* main.m */,
 				BD0286A8185736030043EFE6 /* duosuccess-Prefix.pch */,
+				BD41351B185AF6440090C605 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD41351C185AF6440090C605 /* Settings.bundle in Resources */,
 				BD4134F718596DF30090C605 /* SAMWebView-stop-button-mini.png in Resources */,
 				BD4134F818596DF30090C605 /* SAMWebView-stop-button-mini@2x.png in Resources */,
 				BD0286A5185736030043EFE6 /* InfoPlist.strings in Resources */,

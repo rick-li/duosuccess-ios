@@ -10,6 +10,12 @@
 #import "IntroControll.h"
 #import "RESideMenu.h"
 
+#if USES_IASK_STATIC_LIBRARY
+#import "InAppSettingsKit/IASKAppSettingsViewController.h"
+#else
+#import "IASKAppSettingsViewController.h"
+#endif
+
 @interface DsMainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 
@@ -17,6 +23,8 @@
 @property NSArray *articles;
 @property NSString *selectedCategory;
 
+
+@property (nonatomic, retain) IASKAppSettingsViewController *appSettingsViewController;
 
 @property(nonatomic, retain) IBOutlet UITableView *tableView;
 @property(nonatomic, retain) IBOutlet UIView *introContainer;

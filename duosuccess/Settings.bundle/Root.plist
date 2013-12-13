@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>語言</string>
+			<key>Key</key>
+			<string>language</string>
+			<key>DefaultValue</key>
+			<string>zh-cn</string>
+			<key>Titles</key>
+			<array>
+				<string>繁體中文</string>
+				<string>English</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>zh-cn</string>
+				<string>en</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>接收推送</string>
+			<key>Key</key>
+			<string>notification</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>
