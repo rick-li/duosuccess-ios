@@ -8,6 +8,7 @@
 
 #import "DsMainViewController.h"
 #import "DsArticleViewController.h"
+#import "DsWebViewController.h"
 #import "DsTableCell.h"
 #import "DsDataStore.h"
 
@@ -85,6 +86,20 @@
     UIViewController *musicCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"musicController"];
 
     [self.navigationController pushViewController:musicCtrl animated:true];
+}
+
+-(IBAction)browserAction{
+    DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
+    webViewCtrl.displayWebViewByDefault = true;
+    [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
+    [self.navigationController pushViewController:webViewCtrl animated:true];
+    
+}
+
+-(IBAction)paperAction{
+}
+
+-(IBAction)configAction{
 }
 
 -(void)changeCategory:(NSString *) categoryId{

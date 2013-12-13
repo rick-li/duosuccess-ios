@@ -76,6 +76,8 @@
 		BD41350A1859A3F10090C605 /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = BD4135091859A3F10090C605 /* piano.sf2 */; };
 		BD41350C1859A9F60090C605 /* DsMusicControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD41350B1859A9F60090C605 /* DsMusicControl.xib */; };
 		BD41350F1859ADE30090C605 /* DsMusicControll.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41350E1859ADE30090C605 /* DsMusicControll.m */; };
+		BD413512185AB4420090C605 /* DsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD413511185AB4420090C605 /* DsWebViewController.m */; };
+		BD413518185ADFE40090C605 /* DsPaperController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD413517185ADFE40090C605 /* DsPaperController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +181,10 @@
 		BD41350B1859A9F60090C605 /* DsMusicControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsMusicControl.xib; sourceTree = "<group>"; };
 		BD41350D1859ADE30090C605 /* DsMusicControll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMusicControll.h; sourceTree = "<group>"; };
 		BD41350E1859ADE30090C605 /* DsMusicControll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMusicControll.m; sourceTree = "<group>"; };
+		BD413510185AB4420090C605 /* DsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsWebViewController.h; sourceTree = "<group>"; };
+		BD413511185AB4420090C605 /* DsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsWebViewController.m; sourceTree = "<group>"; };
+		BD413516185ADFE40090C605 /* DsPaperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsPaperController.h; sourceTree = "<group>"; };
+		BD413517185ADFE40090C605 /* DsPaperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsPaperController.m; sourceTree = "<group>"; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -309,6 +315,10 @@
 				BD4134B11858533C0090C605 /* DsArticleViewController.m */,
 				BD4134B318585D020090C605 /* DsMusicViewController.h */,
 				BD4134B418585D020090C605 /* DsMusicViewController.m */,
+				BD413510185AB4420090C605 /* DsWebViewController.h */,
+				BD413511185AB4420090C605 /* DsWebViewController.m */,
+				BD413516185ADFE40090C605 /* DsPaperController.h */,
+				BD413517185ADFE40090C605 /* DsPaperController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -586,6 +596,7 @@
 			files = (
 				BD4134A71858157D0090C605 /* IntroModel.m in Sources */,
 				BD4134AD18581A350090C605 /* DsTableCell.m in Sources */,
+				BD413512185AB4420090C605 /* DsWebViewController.m in Sources */,
 				BD4134A81858157D0090C605 /* IntroView.m in Sources */,
 				BD41350F1859ADE30090C605 /* DsMusicControll.m in Sources */,
 				BD41349E18575D300090C605 /* DsMainViewController.m in Sources */,
@@ -603,6 +614,7 @@
 				BD41349018574E3A0090C605 /* DsArticle.m in Sources */,
 				BD4134FB18596DF30090C605 /* SAMWebView.m in Sources */,
 				BD0286AB185736030043EFE6 /* DsAppDelegate.m in Sources */,
+				BD413518185ADFE40090C605 /* DsPaperController.m in Sources */,
 				BD4134B21858533C0090C605 /* DsArticleViewController.m in Sources */,
 				BD0286AE185736030043EFE6 /* duosuccess.xcdatamodeld in Sources */,
 			);

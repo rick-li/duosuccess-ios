@@ -76,9 +76,11 @@ NSTimer *oneHourTimer;
         
         MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage: [UIImage imageNamed:@"duoAlbumArt"]];
         
-        [songInfo setObject:@"Audio Title" forKey:MPMediaItemPropertyTitle];
-        [songInfo setObject:@"Audio Author" forKey:MPMediaItemPropertyArtist];
-        [songInfo setObject:@"Audio Album" forKey:MPMediaItemPropertyAlbumTitle];
+        [songInfo setObject:@"西格瑪音樂自然健康" forKey:MPMediaItemPropertyTitle];
+        [songInfo setObject:@"龍衛權" forKey:MPMediaItemPropertyArtist];
+        [songInfo setObject:@"多成中醫" forKey:MPMediaItemPropertyAlbumTitle];
+        [songInfo setObject:[NSNumber numberWithInt:1] forKey:MPNowPlayingInfoPropertyPlaybackRate];
+        [songInfo setObject:[NSNumber numberWithInt:60*60] forKey:MPMediaItemPropertyPlaybackDuration];
         [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
         

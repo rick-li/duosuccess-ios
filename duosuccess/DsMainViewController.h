@@ -22,7 +22,14 @@
 @property(nonatomic, retain) IBOutlet UIView *introContainer;
 
 -(IBAction)showMenu;
+
 -(IBAction)musicAction;
+
+-(IBAction)browserAction;
+
+-(IBAction)paperAction;
+
+-(IBAction)configAction;
 
 -(void)changeCategory:(NSString *) categoryId;
 

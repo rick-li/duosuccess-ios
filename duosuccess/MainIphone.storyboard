@@ -49,9 +49,27 @@
                                 <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem image="music" id="0eR-oP-lk9">
+                                    <barButtonItem image="music" width="31" id="0eR-oP-lk9">
                                         <connections>
                                             <action selector="musicAction" destination="PGh-ae-fSJ" id="m64-qG-KU1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jXT-8u-6XQ"/>
+                                    <barButtonItem image="print" id="wh7-uX-BBu">
+                                        <connections>
+                                            <action selector="paperAction" destination="PGh-ae-fSJ" id="y2y-Uy-k7K"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MeM-T4-N7T"/>
+                                    <barButtonItem image="global" id="Ooz-gW-vSV">
+                                        <connections>
+                                            <action selector="browserAction" destination="PGh-ae-fSJ" id="jWq-WU-YtW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OeT-P8-qq0"/>
+                                    <barButtonItem image="gear" id="L7b-2o-n1b">
+                                        <connections>
+                                            <action selector="configAction" destination="PGh-ae-fSJ" id="PdX-bc-pcp"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -194,12 +212,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyB-2i-6sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="612"/>
+            <point key="canvasLocation" x="178" y="580"/>
+        </scene>
+        <!--Ds Web View Controller-->
+        <scene sceneID="Opz-Zq-Xrb">
+            <objects>
+                <viewController storyboardIdentifier="webViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kVw-VM-QCc" customClass="DsWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IcL-Qt-ukc"/>
+                        <viewControllerLayoutGuide type="bottom" id="laB-YR-ah3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gPx-vt-c3f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6q-We-YzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="524" y="580"/>
         </scene>
     </scenes>
     <resources>
+        <image name="gear" width="24" height="24"/>
+        <image name="global" width="24" height="24"/>
         <image name="menu" width="24" height="24"/>
         <image name="music" width="23" height="23"/>
+        <image name="print" width="24" height="21"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

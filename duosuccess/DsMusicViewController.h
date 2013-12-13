@@ -11,11 +11,9 @@
 #import "SAMWebView.h"
 #import "DsMusicPlayer.h"
 #import "DsMusicControll.h"
+#import "DsWebViewController.h"
 
-@interface DsMusicViewController : UIViewController<UIScrollViewDelegate, DsInstConfirmDelegate, SAMWebViewDelegate, DsMusicPlayerDelegate, DsMusicControlDelegate>
+@interface DsMusicViewController : DsWebViewController<UIScrollViewDelegate, DsInstConfirmDelegate, DsMusicPlayerDelegate, DsMusicControlDelegate>
 
-@property (nonatomic, assign) BOOL toolbarHidden;
-@property (nonatomic, readonly) SAMWebView *webView;
-@property (nonatomic, readonly) NSURL *currentURL;
 
 @end
