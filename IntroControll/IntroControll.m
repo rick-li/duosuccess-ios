@@ -25,7 +25,7 @@
         //Initial shadow
         UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shadow"]];
         shadowImageView.contentMode = UIViewContentModeScaleToFill;
-        shadowImageView.frame = CGRectMake(0, frame.size.height-300, frame.size.width, 300);
+        shadowImageView.frame = CGRectMake(0, frame.size.height-100, frame.size.width, 100);
         [self addSubview:shadowImageView];
         
         //Initial ScrollView
@@ -41,7 +41,7 @@
         pageControl = [[UIPageControl alloc] init];
         pageControl.numberOfPages = pagesArray.count;
         [pageControl sizeToFit];
-        [pageControl setCenter:CGPointMake(frame.size.width/2.0, frame.size.height-50)];
+        [pageControl setCenter:CGPointMake(frame.size.width/2.0, frame.size.height-20)];
         [self addSubview:pageControl];
         
         //Create pages
@@ -59,11 +59,11 @@
         }
             
         //start timer
-        timer =  [NSTimer scheduledTimerWithTimeInterval:3.0
-                        target:self
-                        selector:@selector(tick)
-                        userInfo:nil
-                        repeats:YES];
+//        timer =  [NSTimer scheduledTimerWithTimeInterval:3.0
+//                        target:self
+//                        selector:@selector(tick)
+//                        userInfo:nil
+//                        repeats:YES];
         
         [self initShow];
     }

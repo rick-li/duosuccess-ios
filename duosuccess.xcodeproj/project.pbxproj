@@ -16,7 +16,6 @@
 		BD0286A7185736030043EFE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0286A6185736030043EFE6 /* main.m */; };
 		BD0286AB185736030043EFE6 /* DsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0286AA185736030043EFE6 /* DsAppDelegate.m */; };
 		BD0286AE185736030043EFE6 /* duosuccess.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD0286AC185736030043EFE6 /* duosuccess.xcdatamodeld */; };
-		BD0286B0185736030043EFE6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0286AF185736030043EFE6 /* Images.xcassets */; };
 		BD0286B7185736030043EFE6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0286B6185736030043EFE6 /* XCTest.framework */; };
 		BD0286B8185736030043EFE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD028698185736020043EFE6 /* Foundation.framework */; };
 		BD0286B9185736030043EFE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD02869C185736020043EFE6 /* UIKit.framework */; };
@@ -79,6 +78,23 @@
 		BD413512185AB4420090C605 /* DsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD413511185AB4420090C605 /* DsWebViewController.m */; };
 		BD413518185ADFE40090C605 /* DsPaperController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD413517185ADFE40090C605 /* DsPaperController.m */; };
 		BD41351C185AF6440090C605 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD41351B185AF6440090C605 /* Settings.bundle */; };
+		BD413537185C34140090C605 /* UIImage+iPhone5.m in Sources */ = {isa = PBXBuildFile; fileRef = BD413536185C34140090C605 /* UIImage+iPhone5.m */; };
+		BD413542185C34450090C605 /* back6.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413538185C34450090C605 /* back6.png */; };
+		BD413543185C34450090C605 /* back6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413539185C34450090C605 /* back6@2x.png */; };
+		BD413544185C34450090C605 /* menubar-7.png in Resources */ = {isa = PBXBuildFile; fileRef = BD41353A185C34450090C605 /* menubar-7.png */; };
+		BD413545185C34450090C605 /* menubar-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD41353B185C34450090C605 /* menubar-7@2x.png */; };
+		BD413546185C34450090C605 /* menubar-button-7.png in Resources */ = {isa = PBXBuildFile; fileRef = BD41353C185C34450090C605 /* menubar-button-7.png */; };
+		BD413547185C34450090C605 /* menubar-button-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD41353D185C34450090C605 /* menubar-button-7@2x.png */; };
+		BD413548185C34450090C605 /* menubar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = BD41353E185C34450090C605 /* menubar-button.png */; };
+		BD413549185C34450090C605 /* menubar-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD41353F185C34450090C605 /* menubar-button@2x.png */; };
+		BD41354A185C34450090C605 /* menubar.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413540185C34450090C605 /* menubar.png */; };
+		BD41354B185C34450090C605 /* menubar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413541185C34450090C605 /* menubar@2x.png */; };
+		BD41354F185C346E0090C605 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41354E185C346E0090C605 /* Utils.m */; };
+		BD413552185C36420090C605 /* list-item-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413550185C36420090C605 /* list-item-bg.png */; };
+		BD413553185C36420090C605 /* list-item-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413551185C36420090C605 /* list-item-bg@2x.png */; };
+		BD413555185C3E610090C605 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD413554185C3E610090C605 /* Images.xcassets */; };
+		BD413558185C41340090C605 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413556185C41340090C605 /* tabbar.png */; };
+		BD413559185C41340090C605 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413557185C41340090C605 /* tabbar@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +121,6 @@
 		BD0286A9185736030043EFE6 /* DsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DsAppDelegate.h; sourceTree = "<group>"; };
 		BD0286AA185736030043EFE6 /* DsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DsAppDelegate.m; sourceTree = "<group>"; };
 		BD0286AD185736030043EFE6 /* duosuccess.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duosuccess.xcdatamodel; sourceTree = "<group>"; };
-		BD0286AF185736030043EFE6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BD0286B5185736030043EFE6 /* duosuccessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = duosuccessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0286B6185736030043EFE6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		BD0286BF185736030043EFE6 /* duosuccessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "duosuccessTests-Info.plist"; sourceTree = "<group>"; };
@@ -187,6 +202,25 @@
 		BD413516185ADFE40090C605 /* DsPaperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsPaperController.h; sourceTree = "<group>"; };
 		BD413517185ADFE40090C605 /* DsPaperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsPaperController.m; sourceTree = "<group>"; };
 		BD41351B185AF6440090C605 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BD413535185C34140090C605 /* UIImage+iPhone5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+iPhone5.h"; sourceTree = "<group>"; };
+		BD413536185C34140090C605 /* UIImage+iPhone5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+iPhone5.m"; sourceTree = "<group>"; };
+		BD413538185C34450090C605 /* back6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back6.png; sourceTree = "<group>"; };
+		BD413539185C34450090C605 /* back6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back6@2x.png"; sourceTree = "<group>"; };
+		BD41353A185C34450090C605 /* menubar-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-7.png"; sourceTree = "<group>"; };
+		BD41353B185C34450090C605 /* menubar-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-7@2x.png"; sourceTree = "<group>"; };
+		BD41353C185C34450090C605 /* menubar-button-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-button-7.png"; sourceTree = "<group>"; };
+		BD41353D185C34450090C605 /* menubar-button-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-button-7@2x.png"; sourceTree = "<group>"; };
+		BD41353E185C34450090C605 /* menubar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-button.png"; sourceTree = "<group>"; };
+		BD41353F185C34450090C605 /* menubar-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-button@2x.png"; sourceTree = "<group>"; };
+		BD413540185C34450090C605 /* menubar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubar.png; sourceTree = "<group>"; };
+		BD413541185C34450090C605 /* menubar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar@2x.png"; sourceTree = "<group>"; };
+		BD41354D185C346E0090C605 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		BD41354E185C346E0090C605 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		BD413550185C36420090C605 /* list-item-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-item-bg.png"; sourceTree = "<group>"; };
+		BD413551185C36420090C605 /* list-item-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-item-bg@2x.png"; sourceTree = "<group>"; };
+		BD413554185C3E610090C605 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BD413556185C41340090C605 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
+		BD413557185C41340090C605 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -224,9 +258,8 @@
 		BD02868C185736020043EFE6 = {
 			isa = PBXGroup;
 			children = (
+				BD413532185C33C80090C605 /* Libraries */,
 				BD4135081859A3D00090C605 /* Resources */,
-				BD4134C018596DF30090C605 /* SAMWebView */,
-				BD41349F1858157D0090C605 /* IntroControll */,
 				BD0286A0185736020043EFE6 /* duosuccess */,
 				BD0286BD185736030043EFE6 /* duosuccessTests */,
 				BD028697185736020043EFE6 /* Frameworks */,
@@ -264,12 +297,12 @@
 		BD0286A0185736020043EFE6 /* duosuccess */ = {
 			isa = PBXGroup;
 			children = (
+				BD413554185C3E610090C605 /* Images.xcassets */,
 				BD4134691857384F0090C605 /* ui */,
 				BD413468185738460090C605 /* models */,
 				BD413467185738400090C605 /* controllers */,
 				BD0286A9185736030043EFE6 /* DsAppDelegate.h */,
 				BD0286AA185736030043EFE6 /* DsAppDelegate.m */,
-				BD0286AF185736030043EFE6 /* Images.xcassets */,
 				BD0286A1185736020043EFE6 /* Supporting Files */,
 			);
 			path = duosuccess;
@@ -430,9 +463,68 @@
 		BD4135081859A3D00090C605 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BD41351D185C31B30090C605 /* images */,
 				BD4135091859A3F10090C605 /* piano.sf2 */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		BD41351D185C31B30090C605 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				BD413556185C41340090C605 /* tabbar.png */,
+				BD413557185C41340090C605 /* tabbar@2x.png */,
+				BD413550185C36420090C605 /* list-item-bg.png */,
+				BD413551185C36420090C605 /* list-item-bg@2x.png */,
+				BD413538185C34450090C605 /* back6.png */,
+				BD413539185C34450090C605 /* back6@2x.png */,
+				BD41353A185C34450090C605 /* menubar-7.png */,
+				BD41353B185C34450090C605 /* menubar-7@2x.png */,
+				BD41353C185C34450090C605 /* menubar-button-7.png */,
+				BD41353D185C34450090C605 /* menubar-button-7@2x.png */,
+				BD41353E185C34450090C605 /* menubar-button.png */,
+				BD41353F185C34450090C605 /* menubar-button@2x.png */,
+				BD413540185C34450090C605 /* menubar.png */,
+				BD413541185C34450090C605 /* menubar@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		BD413532185C33C80090C605 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BD41354C185C346E0090C605 /* Utils */,
+				BD413533185C34140090C605 /* Categories */,
+				BD4134C018596DF30090C605 /* SAMWebView */,
+				BD41349F1858157D0090C605 /* IntroControll */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		BD413533185C34140090C605 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BD413534185C34140090C605 /* UIImage+iPhone5 */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		BD413534185C34140090C605 /* UIImage+iPhone5 */ = {
+			isa = PBXGroup;
+			children = (
+				BD413535185C34140090C605 /* UIImage+iPhone5.h */,
+				BD413536185C34140090C605 /* UIImage+iPhone5.m */,
+			);
+			path = "UIImage+iPhone5";
+			sourceTree = "<group>";
+		};
+		BD41354C185C346E0090C605 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BD41354D185C346E0090C605 /* Utils.h */,
+				BD41354E185C346E0090C605 /* Utils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,22 +605,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD413546185C34450090C605 /* menubar-button-7.png in Resources */,
+				BD413555185C3E610090C605 /* Images.xcassets in Resources */,
 				BD41351C185AF6440090C605 /* Settings.bundle in Resources */,
 				BD4134F718596DF30090C605 /* SAMWebView-stop-button-mini.png in Resources */,
+				BD413547185C34450090C605 /* menubar-button-7@2x.png in Resources */,
+				BD413553185C36420090C605 /* list-item-bg@2x.png in Resources */,
+				BD413559185C41340090C605 /* tabbar@2x.png in Resources */,
 				BD4134F818596DF30090C605 /* SAMWebView-stop-button-mini@2x.png in Resources */,
 				BD0286A5185736030043EFE6 /* InfoPlist.strings in Resources */,
-				BD0286B0185736030043EFE6 /* Images.xcassets in Resources */,
+				BD413543185C34450090C605 /* back6@2x.png in Resources */,
 				BD4134F618596DF30090C605 /* SAMWebView-safari-button@2x.png in Resources */,
+				BD413545185C34450090C605 /* menubar-7@2x.png in Resources */,
 				BD41350A1859A3F10090C605 /* piano.sf2 in Resources */,
 				BD41349518575AD80090C605 /* MainIphone.storyboard in Resources */,
 				BD4134E118596DF30090C605 /* LICENSE in Resources */,
 				BD4134ED18596DF30090C605 /* SAMWebView-forward-button.png in Resources */,
 				BD4134E718596DF30090C605 /* SAMWebView-back-button-mini.png in Resources */,
+				BD413542185C34450090C605 /* back6.png in Resources */,
 				BD4134E418596DF30090C605 /* SAMWebView-action-button-mini@2x.png in Resources */,
 				BD4134AA185816D80090C605 /* DsTableCell.xib in Resources */,
 				BD4134E818596DF30090C605 /* SAMWebView-back-button-mini@2x.png in Resources */,
+				BD413558185C41340090C605 /* tabbar.png in Resources */,
 				BD4134E218596DF30090C605 /* Readme.markdown in Resources */,
 				BD4134F218596DF30090C605 /* SAMWebView-reload-button@2x.png in Resources */,
+				BD41354B185C34450090C605 /* menubar@2x.png in Resources */,
 				BD4134E518596DF30090C605 /* SAMWebView-action-button.png in Resources */,
 				BD4134FA18596DF30090C605 /* SAMWebView-stop-button@2x.png in Resources */,
 				BD4134F318596DF30090C605 /* SAMWebView-safari-button-mini.png in Resources */,
@@ -544,7 +645,12 @@
 				BD4134EB18596DF30090C605 /* SAMWebView-forward-button-mini.png in Resources */,
 				BD4134F018596DF30090C605 /* SAMWebView-reload-button-mini@2x.png in Resources */,
 				BD4134F518596DF30090C605 /* SAMWebView-safari-button.png in Resources */,
+				BD413548185C34450090C605 /* menubar-button.png in Resources */,
+				BD413549185C34450090C605 /* menubar-button@2x.png in Resources */,
+				BD41354A185C34450090C605 /* menubar.png in Resources */,
+				BD413552185C36420090C605 /* list-item-bg.png in Resources */,
 				BD4134E918596DF30090C605 /* SAMWebView-back-button.png in Resources */,
+				BD413544185C34450090C605 /* menubar-7.png in Resources */,
 				BD4134F918596DF30090C605 /* SAMWebView-stop-button.png in Resources */,
 				BD41350C1859A9F60090C605 /* DsMusicControl.xib in Resources */,
 			);
@@ -606,10 +712,12 @@
 				BD41349E18575D300090C605 /* DsMainViewController.m in Sources */,
 				BD4134BA185888110090C605 /* DsInstConfirm.m in Sources */,
 				BD41349B18575C850090C605 /* DsMenuViewController.m in Sources */,
+				BD413537185C34140090C605 /* UIImage+iPhone5.m in Sources */,
 				BD41349318574E770090C605 /* DsLang.m in Sources */,
 				BD41347518573AC40090C605 /* DsDataStore.m in Sources */,
 				BD4134A61858157D0090C605 /* IntroControll.m in Sources */,
 				BD0286A7185736030043EFE6 /* main.m in Sources */,
+				BD41354F185C346E0090C605 /* Utils.m in Sources */,
 				BD4134FC18596DF30090C605 /* SAMWebViewController.m in Sources */,
 				BD4134B518585D020090C605 /* DsMusicViewController.m in Sources */,
 				BD41350118599F250090C605 /* DsMusicPlayer.m in Sources */,

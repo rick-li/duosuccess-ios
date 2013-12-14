@@ -14,7 +14,7 @@
         [titleLabel setShadowOffset:CGSizeMake(1, 1)];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel sizeToFit];
-        [titleLabel setCenter:CGPointMake(frame.size.width/2, frame.size.height-145)];
+        [titleLabel setCenter:CGPointMake(frame.size.width/2, frame.size.height-100)];
         [self addSubview:titleLabel];
         
         UILabel *descriptionLabel = [[UILabel alloc] init];

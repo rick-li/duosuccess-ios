@@ -8,11 +8,17 @@
         <!--Navigation Controller-->
         <scene sceneID="eKf-Li-Hy1">
             <objects>
-                <navigationController storyboardIdentifier="contentController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YFE-fW-1xd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="contentController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="YFE-fW-1xd" sceneMemberID="viewController">
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="y5l-5D-peS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2hV-6u-tMx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5mT-Vv-nTG">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </toolbar>
                     <connections>
                         <segue destination="PGh-ae-fSJ" kind="relationship" relationship="rootViewController" id="FXg-LC-elF"/>
                         <segue destination="ncq-zI-uyV" kind="push" id="kux-bQ-MWc"/>
@@ -36,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4hD-pm-ZTv">
-                                <rect key="frame" x="0.0" y="-2" width="320" height="462"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="W4a-yK-NTR">
@@ -45,39 +51,39 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ruf-C1-aXF">
-                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem image="music" width="31" id="0eR-oP-lk9">
-                                        <connections>
-                                            <action selector="musicAction" destination="PGh-ae-fSJ" id="m64-qG-KU1"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jXT-8u-6XQ"/>
-                                    <barButtonItem image="print" id="wh7-uX-BBu">
-                                        <connections>
-                                            <action selector="paperAction" destination="PGh-ae-fSJ" id="y2y-Uy-k7K"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MeM-T4-N7T"/>
-                                    <barButtonItem image="global" id="Ooz-gW-vSV">
-                                        <connections>
-                                            <action selector="browserAction" destination="PGh-ae-fSJ" id="jWq-WU-YtW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OeT-P8-qq0"/>
-                                    <barButtonItem image="gear" id="L7b-2o-n1b">
-                                        <connections>
-                                            <action selector="configAction" destination="PGh-ae-fSJ" id="PdX-bc-pcp"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <toolbarItems>
+                        <barButtonItem image="music" width="31" style="plain" id="0eR-oP-lk9">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="musicAction" destination="PGh-ae-fSJ" id="m64-qG-KU1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jXT-8u-6XQ"/>
+                        <barButtonItem image="print" style="plain" id="wh7-uX-BBu">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="paperAction" destination="PGh-ae-fSJ" id="y2y-Uy-k7K"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="MeM-T4-N7T"/>
+                        <barButtonItem image="global" style="plain" id="Ooz-gW-vSV">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="browserAction" destination="PGh-ae-fSJ" id="jWq-WU-YtW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="OeT-P8-qq0"/>
+                        <barButtonItem image="gear" id="L7b-2o-n1b">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="configAction" destination="PGh-ae-fSJ" id="PdX-bc-pcp"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="DLb-wj-Hk9">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="D9n-9Y-Yx3">
                             <connections>
@@ -203,6 +209,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="9P8-cW-yWR"/>
                     <connections>
                         <outlet property="contentView" destination="d3g-ZU-VGw" id="7fm-W3-SvU"/>
@@ -240,6 +247,7 @@
         <image name="music" width="23" height="23"/>
         <image name="print" width="24" height="21"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

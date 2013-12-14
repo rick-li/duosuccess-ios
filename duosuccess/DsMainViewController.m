@@ -49,9 +49,17 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:false];
+    
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     if(self.selectedCategory == nil){
         self.selectedCategory = @"hb9xA3ZwjR";
     }
@@ -167,7 +175,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 79;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

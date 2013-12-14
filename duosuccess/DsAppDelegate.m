@@ -8,6 +8,8 @@
 
 #import "DsAppDelegate.h"
 #import "DsDataStore.h"
+#import "UIImage+iPhone5.h"
+#import "Utils.h"
 
 @implementation DsAppDelegate
 
@@ -21,8 +23,75 @@
     [[DsDataStore sharedInstance] syncData];
     
     
+    UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
+    if (idiom == UIUserInterfaceIdiomPad)
+    {
+//        [self customizeiPadTheme];
+        
+//        [self iPadInit];
+    }
+    else
+    {
+        [self customizeiPhoneTheme];
+        
+//        [self configureiPhoneTabBar];
+    }
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
+
+
+-(void)customizeiPhoneTheme
+{
+    [[UIApplication sharedApplication]
+     setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+    
+    UIImage *navBarImage = [[UIImage tallImageNamed:@"menubar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
+    if(![Utils isVersion6AndBelow])
+        navBarImage = [[UIImage tallImageNamed:@"menubar-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
+    
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+    
+    
+    UIImage *barButton = [[UIImage tallImageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+//    if(![Utils isVersion6AndBelow])
+//        barButton = [[UIImage tallImageNamed:@"menubar-button-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+//
+    if([Utils isVersion6AndBelow]){
+        [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
+                                              barMetrics:UIBarMetricsDefault];
+        
+    }
+    
+    UIImage *backButton = [[UIImage tallImageNamed:@"back6.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+    if(![Utils isVersion6AndBelow])
+        backButton = nil;
+    
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
+    
+    UIImage *toolbarBg = [UIImage tallImageNamed:@"tabbar.png"];
+    
+    [[UIToolbar appearance] setBackgroundImage:toolbarBg forToolbarPosition:UIBarPositionBottom barMetrics:UIBarMetricsDefault];
+    
+//    UIImage *minImage = [UIImage tallImageNamed:@"ipad-slider-fill"];
+//    UIImage *maxImage = [UIImage tallImageNamed:@"ipad-slider-track.png"];
+//    UIImage *thumbImage = [UIImage tallImageNamed:@"ipad-slider-handle.png"];
+//    
+//    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
+//    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
+//    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
+//    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
+//    
+//    UIImage* tabBarBackground = [UIImage tallImageNamed:@"tabbar.png"];
+//    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+//    
+//    
+//    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage tallImageNamed:@"tabbar-active.png"]];
+//    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
