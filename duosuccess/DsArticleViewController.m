@@ -36,10 +36,10 @@
     self.contentView.text = content;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.navigationController setToolbarHidden:true];
+    
 }
 
 @end

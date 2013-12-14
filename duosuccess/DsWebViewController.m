@@ -177,6 +177,7 @@
                         target:self.webView
                         action:@selector(reload)];
 	}
+    [reloadButton setTintColor: [UIColor whiteColor]];
 	
 	NSMutableArray *items = [self.toolbarItems mutableCopy];
 	[items replaceObjectAtIndex:5 withObject:reloadButton];
@@ -226,6 +227,7 @@
                               style:UIBarButtonItemStylePlain
                               target:self.webView
                               action:@selector(goBack)];
+        [_backBarButtonItem setTintColor: [UIColor whiteColor]];
 	}
 	return _backBarButtonItem;
 }
@@ -239,6 +241,7 @@
 								 style:UIBarButtonItemStylePlain
 								 target:self.webView
 								 action:@selector(goForward)];
+                [_forwardBarButtonItem setTintColor: [UIColor whiteColor]];
 	}
 	return _forwardBarButtonItem;
 }
@@ -251,6 +254,8 @@
     // Loading indicator
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicatorView];
 	
+    UIColor *white = [UIColor whiteColor];
+    
     // Toolbar buttons
 	UIBarButtonItem *reloadBarButtonItem = [[UIBarButtonItem alloc]
 											initWithImage:[UIImage imageNamed:@"SAMWebView-reload-button"]
@@ -258,6 +263,7 @@
 											style:UIBarButtonItemStylePlain
 											target:self.webView
 											action:@selector(reload)];
+    
     
 	UIBarButtonItem *screenshotButtonItem = [[UIBarButtonItem alloc]
 											initWithImage:[UIImage imageNamed:@"camera"]
@@ -272,6 +278,7 @@
 												 style:UIBarButtonItemStylePlain
 												 target:self
 												 action:@selector(openActionSheet:)];
+
 	
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]
 									  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
@@ -281,6 +288,13 @@
 								   initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
 								   target:nil action:nil];
     fixedSpace.width = 10.0;
+    
+    
+    [reloadBarButtonItem setTintColor: white];
+    [actionSheetBarButtonItem  setTintColor: white];
+    [screenshotButtonItem setTintColor:white];
+    [_backBarButtonItem setTintColor: white];
+    [_forwardBarButtonItem setTintColor: white];
     
 	self.toolbarItems = @[fixedSpace, self.backBarButtonItem, flexibleSpace, self.forwardBarButtonItem, flexibleSpace,
                           reloadBarButtonItem, flexibleSpace, screenshotButtonItem, flexibleSpace, actionSheetBarButtonItem, fixedSpace];

@@ -45,7 +45,13 @@ NSString *tmpDir;
     //display instructin by default.
     [self displayInstruction];
     
-   
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:true];
+    
 }
 
 - (void)clearCache{

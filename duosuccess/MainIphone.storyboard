@@ -77,7 +77,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="OeT-P8-qq0"/>
-                        <barButtonItem image="gear" id="L7b-2o-n1b">
+                        <barButtonItem image="gear" style="plain" id="L7b-2o-n1b">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="configAction" destination="PGh-ae-fSJ" id="PdX-bc-pcp"/>
@@ -85,7 +85,7 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="DLb-wj-Hk9">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="D9n-9Y-Yx3">
+                        <barButtonItem key="leftBarButtonItem" image="menu" style="plain" id="D9n-9Y-Yx3">
                             <connections>
                                 <action selector="showMenu" destination="PGh-ae-fSJ" id="En6-2p-huJ"/>
                             </connections>
@@ -191,11 +191,11 @@
                         <viewControllerLayoutGuide type="bottom" id="vaN-96-NFt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VvS-Zj-J0c">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-ba-ATh">
-                                <rect key="frame" x="0.0" y="62" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3g-ZU-VGw">
@@ -209,6 +209,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9P8-cW-yWR"/>
                     <connections>
