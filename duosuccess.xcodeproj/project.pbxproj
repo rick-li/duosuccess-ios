@@ -22,6 +22,12 @@
 		BD0286BA185736030043EFE6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD02869E185736020043EFE6 /* CoreData.framework */; };
 		BD0286C2185736030043EFE6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD0286C0185736030043EFE6 /* InfoPlist.strings */; };
 		BD0286C4185736030043EFE6 /* duosuccessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0286C3185736030043EFE6 /* duosuccessTests.m */; };
+		BD3449DE1866F227005357D6 /* DsNotificationReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */; };
+		BD3449E21867355C005357D6 /* DsNonMgLang.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449E11867355C005357D6 /* DsNonMgLang.m */; };
+		BD3449E518687A3D005357D6 /* DsConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449E418687A3D005357D6 /* DsConst.m */; };
+		BD3449EB18696676005357D6 /* DsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449EA18696676005357D6 /* DsListViewController.m */; };
+		BD3449F11869781E005357D6 /* DsMainListImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449F01869781E005357D6 /* DsMainListImpl.m */; };
+		BD3449F41869782B005357D6 /* DsCategoryListImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449F31869782B005357D6 /* DsCategoryListImpl.m */; };
 		BD41347518573AC40090C605 /* DsDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41347418573AC40090C605 /* DsDataStore.m */; };
 		BD41348D18574C350090C605 /* DsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41348C18574C350090C605 /* DsCategory.m */; };
 		BD41349018574E3A0090C605 /* DsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41348F18574E3A0090C605 /* DsArticle.m */; };
@@ -29,7 +35,6 @@
 		BD41349518575AD80090C605 /* MainIphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD41349418575AD80090C605 /* MainIphone.storyboard */; };
 		BD41349818575C590090C605 /* DsRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41349718575C590090C605 /* DsRootViewController.m */; };
 		BD41349B18575C850090C605 /* DsMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41349A18575C850090C605 /* DsMenuViewController.m */; };
-		BD41349E18575D300090C605 /* DsMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41349D18575D300090C605 /* DsMainViewController.m */; };
 		BD4134A61858157D0090C605 /* IntroControll.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134A11858157D0090C605 /* IntroControll.m */; };
 		BD4134A71858157D0090C605 /* IntroModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134A31858157D0090C605 /* IntroModel.m */; };
 		BD4134A81858157D0090C605 /* IntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4134A51858157D0090C605 /* IntroView.m */; };
@@ -126,6 +131,19 @@
 		BD0286BF185736030043EFE6 /* duosuccessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "duosuccessTests-Info.plist"; sourceTree = "<group>"; };
 		BD0286C1185736030043EFE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD0286C3185736030043EFE6 /* duosuccessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = duosuccessTests.m; sourceTree = "<group>"; };
+		BD3449DC1866F227005357D6 /* DsNotificationReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsNotificationReceiver.h; sourceTree = "<group>"; };
+		BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsNotificationReceiver.m; sourceTree = "<group>"; };
+		BD3449DF186734F7005357D6 /* DsLangProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DsLangProtocol.h; sourceTree = "<group>"; };
+		BD3449E01867355C005357D6 /* DsNonMgLang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsNonMgLang.h; sourceTree = "<group>"; };
+		BD3449E11867355C005357D6 /* DsNonMgLang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsNonMgLang.m; sourceTree = "<group>"; };
+		BD3449E318687A3D005357D6 /* DsConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsConst.h; sourceTree = "<group>"; };
+		BD3449E418687A3D005357D6 /* DsConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsConst.m; sourceTree = "<group>"; };
+		BD3449E918696676005357D6 /* DsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsListViewController.h; sourceTree = "<group>"; };
+		BD3449EA18696676005357D6 /* DsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsListViewController.m; sourceTree = "<group>"; };
+		BD3449EF1869781E005357D6 /* DsMainListImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMainListImpl.h; sourceTree = "<group>"; };
+		BD3449F01869781E005357D6 /* DsMainListImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMainListImpl.m; sourceTree = "<group>"; };
+		BD3449F21869782B005357D6 /* DsCategoryListImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsCategoryListImpl.h; sourceTree = "<group>"; };
+		BD3449F31869782B005357D6 /* DsCategoryListImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsCategoryListImpl.m; sourceTree = "<group>"; };
 		BD41347318573AC40090C605 /* DsDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsDataStore.h; sourceTree = "<group>"; };
 		BD41347418573AC40090C605 /* DsDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsDataStore.m; sourceTree = "<group>"; };
 		BD41348B18574C350090C605 /* DsCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsCategory.h; sourceTree = "<group>"; };
@@ -139,8 +157,6 @@
 		BD41349718575C590090C605 /* DsRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsRootViewController.m; sourceTree = "<group>"; };
 		BD41349918575C850090C605 /* DsMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMenuViewController.h; sourceTree = "<group>"; };
 		BD41349A18575C850090C605 /* DsMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMenuViewController.m; sourceTree = "<group>"; };
-		BD41349C18575D300090C605 /* DsMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMainViewController.h; sourceTree = "<group>"; };
-		BD41349D18575D300090C605 /* DsMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMainViewController.m; sourceTree = "<group>"; };
 		BD4134A01858157D0090C605 /* IntroControll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroControll.h; sourceTree = "<group>"; };
 		BD4134A11858157D0090C605 /* IntroControll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroControll.m; sourceTree = "<group>"; };
 		BD4134A21858157D0090C605 /* IntroModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroModel.h; sourceTree = "<group>"; };
@@ -345,8 +361,6 @@
 				BD41349718575C590090C605 /* DsRootViewController.m */,
 				BD41349918575C850090C605 /* DsMenuViewController.h */,
 				BD41349A18575C850090C605 /* DsMenuViewController.m */,
-				BD41349C18575D300090C605 /* DsMainViewController.h */,
-				BD41349D18575D300090C605 /* DsMainViewController.m */,
 				BD4134B01858533C0090C605 /* DsArticleViewController.h */,
 				BD4134B11858533C0090C605 /* DsArticleViewController.m */,
 				BD4134B318585D020090C605 /* DsMusicViewController.h */,
@@ -355,6 +369,12 @@
 				BD413511185AB4420090C605 /* DsWebViewController.m */,
 				BD413516185ADFE40090C605 /* DsPaperController.h */,
 				BD413517185ADFE40090C605 /* DsPaperController.m */,
+				BD3449E918696676005357D6 /* DsListViewController.h */,
+				BD3449EA18696676005357D6 /* DsListViewController.m */,
+				BD3449EF1869781E005357D6 /* DsMainListImpl.h */,
+				BD3449F01869781E005357D6 /* DsMainListImpl.m */,
+				BD3449F21869782B005357D6 /* DsCategoryListImpl.h */,
+				BD3449F31869782B005357D6 /* DsCategoryListImpl.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -373,6 +393,13 @@
 				BD41348C18574C350090C605 /* DsCategory.m */,
 				BD41347318573AC40090C605 /* DsDataStore.h */,
 				BD41347418573AC40090C605 /* DsDataStore.m */,
+				BD3449DC1866F227005357D6 /* DsNotificationReceiver.h */,
+				BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */,
+				BD3449DF186734F7005357D6 /* DsLangProtocol.h */,
+				BD3449E01867355C005357D6 /* DsNonMgLang.h */,
+				BD3449E11867355C005357D6 /* DsNonMgLang.m */,
+				BD3449E318687A3D005357D6 /* DsConst.h */,
+				BD3449E418687A3D005357D6 /* DsConst.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -577,6 +604,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Rick Li";
 				TargetAttributes = {
+					BD028694185736020043EFE6 = {
+						DevelopmentTeam = MM2B8W94AH;
+					};
 					BD0286B4185736030043EFE6 = {
 						TestTargetID = BD028694185736020043EFE6;
 					};
@@ -709,15 +739,19 @@
 				BD413512185AB4420090C605 /* DsWebViewController.m in Sources */,
 				BD4134A81858157D0090C605 /* IntroView.m in Sources */,
 				BD41350F1859ADE30090C605 /* DsMusicControll.m in Sources */,
-				BD41349E18575D300090C605 /* DsMainViewController.m in Sources */,
+				BD3449EB18696676005357D6 /* DsListViewController.m in Sources */,
+				BD3449E518687A3D005357D6 /* DsConst.m in Sources */,
+				BD3449DE1866F227005357D6 /* DsNotificationReceiver.m in Sources */,
 				BD4134BA185888110090C605 /* DsInstConfirm.m in Sources */,
 				BD41349B18575C850090C605 /* DsMenuViewController.m in Sources */,
 				BD413537185C34140090C605 /* UIImage+iPhone5.m in Sources */,
 				BD41349318574E770090C605 /* DsLang.m in Sources */,
+				BD3449E21867355C005357D6 /* DsNonMgLang.m in Sources */,
 				BD41347518573AC40090C605 /* DsDataStore.m in Sources */,
 				BD4134A61858157D0090C605 /* IntroControll.m in Sources */,
 				BD0286A7185736030043EFE6 /* main.m in Sources */,
 				BD41354F185C346E0090C605 /* Utils.m in Sources */,
+				BD3449F41869782B005357D6 /* DsCategoryListImpl.m in Sources */,
 				BD4134FC18596DF30090C605 /* SAMWebViewController.m in Sources */,
 				BD4134B518585D020090C605 /* DsMusicViewController.m in Sources */,
 				BD41350118599F250090C605 /* DsMusicPlayer.m in Sources */,
@@ -727,6 +761,7 @@
 				BD4134FB18596DF30090C605 /* SAMWebView.m in Sources */,
 				BD0286AB185736030043EFE6 /* DsAppDelegate.m in Sources */,
 				BD413518185ADFE40090C605 /* DsPaperController.m in Sources */,
+				BD3449F11869781E005357D6 /* DsMainListImpl.m in Sources */,
 				BD4134B21858533C0090C605 /* DsArticleViewController.m in Sources */,
 				BD0286AE185736030043EFE6 /* duosuccess.xcdatamodeld in Sources */,
 			);
@@ -787,6 +822,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -850,6 +886,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
 				INFOPLIST_FILE = "duosuccess/duosuccess-Info.plist";
@@ -865,6 +902,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
 				INFOPLIST_FILE = "duosuccess/duosuccess-Info.plist";

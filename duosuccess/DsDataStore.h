@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DsNonMgLang.h"
 
 @interface DsDataStore : NSObject
 
@@ -21,7 +22,7 @@
 -(NSArray*) queryLang;
 -(NSArray*) queryCategories;
 -(NSArray*) queryArticlesByCategory: (NSString*)categoryId;
--(NSString*) defaultLang;
+-(NSDictionary*) defaultLang;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

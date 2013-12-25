@@ -8,6 +8,7 @@
 
 #import "DsDataStore.h"
 #import <Parse/Parse.h>
+#import "DsConst.h"
 
 @implementation DsDataStore
 
@@ -31,7 +32,7 @@
     [self syncData:@"DsLang" withPfType:@"Lang"];
     
     [self syncData:@"DsCategory" withPfType:@"Category"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"categoryUpdated" object:nil];
+
     
     [self syncData:@"DsArticle" withPfType:@"Article"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"articleUpdated" object:nil];
@@ -51,7 +52,7 @@
     NSNumber *orderVal = pfObj[@"order"];
     [mObj setValue:orderVal forKey:@"order"];
     
-        NSDate *updatedAtVal = pfObj.updatedAt;
+    NSDate *updatedAtVal = pfObj.updatedAt;
     [mObj setValue:updatedAtVal forKey:@"updatedAt"];
 }
 
@@ -89,7 +90,7 @@
     NSNumber *orderVal = pfObj[@"order"];
     [mObj setValue:orderVal forKey:@"order"];
     
-        NSDate *updatedAtVal = pfObj.updatedAt;
+    NSDate *updatedAtVal = pfObj.updatedAt;
     [mObj setValue:updatedAtVal forKey:@"updatedAt"];
     
     NSString *langId = ((PFObject *)pfObj[@"lang"]).objectId;
@@ -135,7 +136,7 @@
         }
         
         for(PFObject *pfObj in objects){
-
+            
             
             if([pfObj[@"status"] isEqualToString:@"deleted" ]){
                 NSManagedObject *mObj = [self getObjectByObjectId:pfObj[@"objectId"] withType: dbType];
@@ -149,24 +150,37 @@
                 if(mObj == nil){
                     mObj = [NSEntityDescription insertNewObjectForEntityForName:dbType inManagedObjectContext:[self managedObjectContext]];
                 }
-            
-            if([dbType isEqualToString:@"DsLang"]){
-                [self setLangAttrs:mObj fromPfObj:pfObj];
-            }
-            
-            if([dbType isEqualToString:@"DsCategory"]){
-                [self setCategoryAttrs:mObj fromPfObj:pfObj];
-            }
-            
-            if([dbType isEqualToString:@"DsArticle"]){
-                [self setArticleAttrs:mObj fromPfObj:pfObj];
-            }
+                
+                if([dbType isEqualToString:@"DsLang"]){
+                    [self setLangAttrs:mObj fromPfObj:pfObj];
+                }
+                
+                if([dbType isEqualToString:@"DsCategory"]){
+                    [self setCategoryAttrs:mObj fromPfObj:pfObj];
+                }
+                
+                if([dbType isEqualToString:@"DsArticle"]){
+                    [self setArticleAttrs:mObj fromPfObj:pfObj];
+                }
             }
             
             
         }
         NSError *saveError = nil;
         [self.managedObjectContext save: &saveError];
+        
+        if([@"Lang" isEqualToString:pfType]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:LANG_UPDATED object:nil];
+        }
+        
+        if([@"Category" isEqualToString:pfType]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_UPDATED object:nil];
+        }
+        
+        if([@"Article" isEqualToString:pfType]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:ARTICLE_UPDATED object:nil];
+        }
+
     }];
     
 }
@@ -188,7 +202,7 @@
     [expressionDescription setExpressionResultType:NSDateAttributeType];
     
     [request setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
-
+    
     // Execute the fetch.
     NSError *error = nil;
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
@@ -207,20 +221,40 @@
             return maxDate;
         }
     }
-
+    
     return [NSDate dateWithTimeIntervalSince1970:0];;
 }
 
--(NSString*) defaultLang{
+
+//should be type of DsLang
+-(NSDictionary*) defaultLang{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString *defaultLang = [defaults valueForKey:@"defaultLang"];
-//    [defaults setValue:@"We4fg0SA2e" forKey:@"defaultLang"];
-    if(defaultLang == nil){
-//        [defaults setValue:@"zh-cn" forKey:@"defaultLang"];
-        //TODO query default lang by code.
-        [defaults setValue:@"We4fg0SA2e" forKey:@"defaultLang"];
-        defaultLang = @"We4fg0SA2e";
+    NSMutableDictionary *defaultLang = [defaults objectForKey:@"defaultLang"];
+    
+    if(defaultLang == nil || [defaultLang count] ==0){
         
+        NSString *defaultLangCode = @"zh-tw";
+        NSArray *langs = [self queryLang];
+        for(NSManagedObject *langObj in langs){
+            if([defaultLangCode isEqualToString: [langObj valueForKey:@"code"]]){
+                defaultLang = [[NSMutableDictionary alloc] init];
+                
+                [defaults setObject:defaultLang forKey:@"defaultLang"];
+                NSLog(@"set default lang to %@.", [defaultLang valueForKey:@"code"]);
+            }
+        }
+        
+    }
+    
+    if(defaultLang == nil || [defaultLang count] ==0){
+        defaultLang = [[NSMutableDictionary alloc] init];
+        
+        [defaultLang setValue:@"繁體中文" forKey:@"name"];
+        [defaultLang setValue:@"zh-tw" forKey:@"code"];
+        [defaultLang setValue:@"We4fg0SA2e" forKey:@"objectId"];
+        
+        [defaults setObject:defaultLang forKey:@"defaultLang"];
+        NSLog(@"set default lang to %@.", [defaultLang valueForKey:@"code"]);
     }
     return defaultLang;
 }
@@ -239,10 +273,20 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"DsCategory" inManagedObjectContext:self.managedObjectContext];
     request.entity = entity;
-    NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@", [self defaultLang]];
+    NSString *lang = [[self defaultLang] valueForKey:@"objectId"];
+    NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@", lang];
     [request setPredicate:objIdPredicate];
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
-    return objects;
+
+    NSMutableArray *results = [[NSMutableArray alloc]init];
+    for(NSManagedObject *obj in objects){
+        NSString *objectId = [obj valueForKey:@"objectId"];
+        NSString *name = [obj valueForKey:@"name"];
+        NSDictionary *category = [NSDictionary dictionaryWithObjects:@[objectId, name] forKeys:@[@"objectId", @"name"]];
+        
+        [results addObject:category];
+    }
+    return results;
 }
 
 -(NSArray*) queryArticlesByCategory: (NSString*)categoryId{
@@ -250,7 +294,8 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"DsArticle" inManagedObjectContext:self.managedObjectContext];
     request.entity = entity;
-    NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@ AND categoryId = %@" , [self defaultLang], categoryId];
+    NSString *lang = [[self defaultLang] valueForKey:@"objectId"];
+    NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@ AND categoryId = %@" , lang, categoryId];
     [request setPredicate:objIdPredicate];
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
     return objects;

@@ -1,14 +1,17 @@
 //
-//  DsMainViewController.h
+//  DsListViewController.h
 //  duosuccess
 //
-//  Created by Rick Li on 12/10/13.
+//  Created by Rick Li on 12/24/13.
 //  Copyright (c) 2013 Rick Li. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "IntroControll.h"
+
 #import "RESideMenu.h"
+#import "IntroControll.h"
+#import "DsArticleViewController.h"
+
 
 #if USES_IASK_STATIC_LIBRARY
 #import "InAppSettingsKit/IASKAppSettingsViewController.h"
@@ -16,15 +19,31 @@
 #import "IASKAppSettingsViewController.h"
 #endif
 
-@interface DsMainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@protocol DsListDelegate <NSObject>
 
+-(void) init: (NSObject*) ctrl;
+-(void) setCategory: (NSDictionary*) category;
+-(void) loadArticle: (id) ctrl;
+
+@end
+
+
+@interface DsListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+@property id <DsListDelegate> listDelegate;
 
 @property IntroControll *introCtrl;
-@property NSArray *articles;
-@property NSString *selectedCategory;
 
+@property UITableViewController *tableCtrl;
+@property UIRefreshControl *refreshCtrl;
+@property DsArticleViewController *articleCtrl;
+@property NSArray *tableArticles;
 
 @property (nonatomic, retain) IASKAppSettingsViewController *appSettingsViewController;
+
+-(void)loadArticles;
+
+
 
 @property(nonatomic, retain) IBOutlet UITableView *tableView;
 @property(nonatomic, retain) IBOutlet UIView *introContainer;
@@ -38,7 +57,5 @@
 -(IBAction)paperAction;
 
 -(IBAction)configAction;
-
--(void)changeCategory:(NSString *) categoryId;
 
 @end

@@ -8,10 +8,18 @@
 
 #import "DsMenuViewController.h"
 #import "DsDataStore.h"
-#import "DsMainViewController.h"
+
+#import "DsConst.h"
+#import "DsMainListImpl.h"
+#import "DsCategoryListImpl.h"
 
 @interface DsMenuViewController ()
-@property NSArray *categories;
+
+@property NSMutableArray *categories;
+@property DsListViewController *listCtrl;
+@property DsMainListImpl *mainList;
+@property DsCategoryListImpl *cateList;
+
 @end
 
 @implementation DsMenuViewController
@@ -30,9 +38,31 @@
 {
     [super viewDidLoad];
     
-    self.categories = [[DsDataStore sharedInstance] queryCategories];
+    [[NSNotificationCenter defaultCenter] addObserverForName:CATEGORY_UPDATED object:nil queue:nil usingBlock:^(NSNotification *notification){
+        [self loadCategories];
+    }];
     
-    NSLog(@"categories count %lu.", self.categories.count);
+    [self loadCategories];
+}
+
+
+- (void)loadCategories
+{
+    
+    if(self.tableView != nil){
+        [self.tableView removeFromSuperview];
+    }
+    NSArray *categoriesFromDB = [[DsDataStore sharedInstance] queryCategories];
+    if([categoriesFromDB count] <= 0){
+        return;
+    }
+    self.categories = [[NSMutableArray alloc] init];
+    
+    [self.categories addObject:[NSDictionary dictionaryWithObjects:@[@"", @"main"] forKeys:@[@"objectId",@"name"]]];
+    [self.categories addObjectsFromArray:categoriesFromDB];
+    
+    
+    NSLog(@"categories count %ul.", self.categories.count);
     
 	self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
@@ -52,6 +82,7 @@
     [self.view addSubview:self.tableView];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -65,13 +96,38 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainIphone" bundle:nil];
     UINavigationController *navigationController = (UINavigationController *)self.sideMenuViewController.contentViewController;
     
-    DsMainViewController *mainCtrl = [navigationController.viewControllers objectAtIndex:0];
-    NSManagedObject *category = [self.categories objectAtIndex:indexPath.row];
-    [mainCtrl changeCategory: [category valueForKey:@"objectId"]];
     
-    navigationController.viewControllers = @[mainCtrl];
+    NSDictionary *category = [self.categories objectAtIndex:indexPath.row];
+    
+    if(self.mainList == nil){
+        self.mainList = [[DsMainListImpl alloc]init];
+    }
+    
+    if(self.cateList == nil){
+        self.cateList = [[DsCategoryListImpl alloc] init];
+    }
+    
+    if(self.listCtrl == nil){
+        if([[navigationController.viewControllers objectAtIndex:0] isKindOfClass:DsListViewController.class]){
+            self.listCtrl = [navigationController.viewControllers objectAtIndex:0];
+        }else{
+            self.listCtrl = [sb instantiateViewControllerWithIdentifier:@"listController"];
+        }
+    }
+
+    if([@"main" isEqualToString: [category valueForKey:@"name"]]){
+        self.listCtrl.listDelegate = self.mainList;
+        [self.mainList loadArticle:self.listCtrl];
+    }else{
+        self.listCtrl.listDelegate = self.cateList;
+        self.cateList.category = category;
+        [self.cateList loadArticle:self.listCtrl];
+    }
+    navigationController.viewControllers = @[self.listCtrl];
+    
     [self.sideMenuViewController hideMenuViewController];
 }
 
