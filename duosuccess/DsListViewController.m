@@ -24,7 +24,9 @@
 @implementation DsListViewController
 
 @synthesize listDelegate;
+
 @synthesize tableArticles;
+@synthesize introArticles;
 
 @synthesize tableView;
 @synthesize introCtrl;
@@ -61,6 +63,10 @@
         self.tableCtrl.tableView = self.tableView;
     }
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:ARTICLE_UPDATED object:nil queue:nil usingBlock:^(NSNotification *notification){
+        [self loadArticles];
+    }];
+    
     [self loadArticles];
 }
 
@@ -82,18 +88,19 @@
 }
 
 
--(void) createIntroContrainer:(NSArray*) introData{
+-(void) createIntroContrainer:(NSArray*) lintroArticles{
+    introArticles = lintroArticles;
     
     if(self.introCtrl != nil){
         [self.introCtrl removeFromSuperview];
     }
     
-    if([introData count] <= 0){
+    if([introArticles count] <= 0){
         return;
     }
     
     NSMutableArray *pages = [[NSMutableArray alloc] init];
-    for(NSManagedObject *obj in introData){
+    for(NSManagedObject *obj in introArticles){
         IntroModel *model = [[IntroModel alloc] initWithTitle:[obj valueForKey:@"title"] description:[obj valueForKey:@"intro"] imageUrl:[obj valueForKey:@"imageUrl"]];
         [pages addObject:model];
     }
@@ -137,6 +144,13 @@
     [self.navigationController pushViewController:appSettingsViewController animated:true];
 }
 
+
+- (IBAction)onTapIntro:(id)sender{
+    NSLog(@"tapping intro container.");
+    NSManagedObject *article = [introArticles objectAtIndex: self.introCtrl.currentPhotoNum];
+    [self openArticle:article];
+}
+
 #pragma mark kIASKAppSettingChanged notification
 - (void)settingDidChange:(NSNotification*)notification {
     NSLog(@"Notification changed: %@", notification.userInfo);
@@ -152,6 +166,21 @@
     [self.refreshCtrl endRefreshing];
 }
 
+
+-(void) openArticle:(NSManagedObject*) article{
+    articleCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"articleController"];
+    
+    NSString *title =[article valueForKey:@"title"];
+    NSString *content =[article valueForKey:@"content"];
+    NSString *imageUrl = [article valueForKey:@"imageUrl"];
+    
+    articleCtrl.title = title;
+    articleCtrl.content = content;
+    articleCtrl.imageUrl = imageUrl;
+    
+    [self.navigationController pushViewController:self.articleCtrl animated:true];
+}
+
 #pragma mark -
 #pragma mark UITableView Delegate
 
@@ -159,19 +188,8 @@
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
-    articleCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"articleController"];
-    NSManagedObject *obj = [tableArticles objectAtIndex:indexPath.row];
-    
-    NSString *title =[obj valueForKey:@"title"];
-    NSString *content =[obj valueForKey:@"content"];
-    NSString *imageUrl = [obj valueForKey:@"imageUrl"];
-    
-    articleCtrl.title = title;
-    articleCtrl.content = content;
-    articleCtrl.imageUrl = imageUrl;
-    
-    [self.navigationController pushViewController:self.articleCtrl animated:true];
+    NSManagedObject *article = [tableArticles objectAtIndex:indexPath.row];
+    [self openArticle:article];
 }
 
 #pragma mark -

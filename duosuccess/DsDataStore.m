@@ -139,16 +139,15 @@
         }
         
         for(PFObject *pfObj in objects){
-            
-            
+
             if([pfObj[@"status"] isEqualToString:@"deleted" ]){
-                NSManagedObject *mObj = [self getObjectByObjectId:pfObj[@"objectId"] withType: dbType];
+                NSManagedObject *mObj = [self getObjectByObjectId:pfObj.objectId withType: dbType];
                 if(mObj != nil){
                     [self.managedObjectContext deleteObject:mObj];
                 }
             }else{
                 //existing object by objectId
-                NSManagedObject *mObj = [self getObjectByObjectId: pfObj[@"objectId"] withType: dbType];
+                NSManagedObject *mObj = [self getObjectByObjectId: pfObj.objectId withType: dbType];
                 
                 if(mObj == nil){
                     mObj = [NSEntityDescription insertNewObjectForEntityForName:dbType inManagedObjectContext:[self managedObjectContext]];

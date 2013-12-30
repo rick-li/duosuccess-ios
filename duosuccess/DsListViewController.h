@@ -37,6 +37,8 @@
 @property UITableViewController *tableCtrl;
 @property UIRefreshControl *refreshCtrl;
 @property DsArticleViewController *articleCtrl;
+
+@property NSArray *introArticles;
 @property NSArray *tableArticles;
 
 @property (nonatomic, retain) IASKAppSettingsViewController *appSettingsViewController;
@@ -57,5 +59,9 @@
 -(IBAction)paperAction;
 
 -(IBAction)configAction;
+
+- (IBAction)onTapIntro:(id)sender;
+
+
 
 @end

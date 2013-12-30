@@ -11,8 +11,9 @@
     
     NSTimer *timer;
     
-    int currentPhotoNum;
 }
+
+@property int currentPhotoNum;
 
 - (id)initWithFrame:(CGRect)frame pages:(NSArray*)pages;
 

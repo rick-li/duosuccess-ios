@@ -21,13 +21,11 @@
 
 -(void) init: (DsListViewController*) lctrl{
     self.ctrl = lctrl;
-    [[NSNotificationCenter defaultCenter] addObserverForName:ARTICLE_UPDATED object:nil queue:nil usingBlock:^(NSNotification *notification){
-        [self loadArticle:lctrl];
-    }];
     
     if(self.selectedCategory == nil){
         self.selectedCategory = [NSDictionary dictionaryWithObjects:@[@"hb9xA3ZwjR"] forKeys:@[@"objectId"]];
     }
+    
     lctrl.title = @"main page";
     self.inited = true;
     

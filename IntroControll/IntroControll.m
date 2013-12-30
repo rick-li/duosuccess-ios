@@ -3,7 +3,7 @@
 #import <UIImageView+UIActivityIndicatorForSDWebImage.h>
 
 @implementation IntroControll
-
+@synthesize currentPhotoNum;
 
 - (id)initWithFrame:(CGRect)frame pages:(NSArray*)pagesArray
 {
@@ -18,7 +18,7 @@
         [backgroundImage1 setContentMode:UIViewContentModeScaleAspectFill];
         [backgroundImage1 setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
         [self addSubview:backgroundImage1];
-
+        
         backgroundImage2 = [[UIImageView alloc] initWithFrame:frame];
         [backgroundImage2 setContentMode:UIViewContentModeScaleAspectFill];
         [backgroundImage2 setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
@@ -59,13 +59,13 @@
             view.frame = CGRectOffset(view.frame, i*frame.size.width, 0);
             [scrollView addSubview:view];
         }
-            
+        
         //start timer
-//        timer =  [NSTimer scheduledTimerWithTimeInterval:3.0
-//                        target:self
-//                        selector:@selector(tick)
-//                        userInfo:nil
-//                        repeats:YES];
+        //        timer =  [NSTimer scheduledTimerWithTimeInterval:3.0
+        //                        target:self
+        //                        selector:@selector(tick)
+        //                        userInfo:nil
+        //                        repeats:YES];
         
         [self initShow];
     }
@@ -79,7 +79,7 @@
 
 -(void) setImage:(NSString*)imageUrl : (UIImageView*)imageView {
     if(imageUrl){
-     [imageView setImageWithURL:(NSURL *)imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
+        [imageView setImageWithURL:(NSURL *)imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
     }else{
         imageView.image = [UIImage imageNamed:@"placeholder"];
     }
@@ -92,16 +92,16 @@
         currentPhotoNum = scrollPhotoNumber;
         
         IntroModel *currentModel = (IntroModel*)[pages objectAtIndex:currentPhotoNum];
-//        [backgroundImage1 setImageWithURL:(NSURL *)currentModel.imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
+        
         [self setImage: currentModel.imageUrl : backgroundImage1];
         
         IntroModel *nextModel = (currentPhotoNum+1 != [pages count]) ? (IntroModel*)[pages objectAtIndex:currentPhotoNum+1] : nil;
         if(nextModel != nil){
-//            [backgroundImage1 setImageWithURL:(NSURL *)nextModel.imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
+            
             [self setImage: nextModel.imageUrl : backgroundImage2];
             
         }
-
+        
     }
     
     float offset =  scrollView.contentOffset.x - (currentPhotoNum * self.frame.size.width);
@@ -114,8 +114,8 @@
         offset = self.frame.size.width - MIN(-offset, self.frame.size.width);
         backgroundImage2.alpha = 0;
         backgroundImage1.alpha = (offset / self.frame.size.width);
-    
-    //other
+        
+        //other
     } else if(offset != 0) {
         //last
         if(scrollPhotoNumber == pages.count-1) {
@@ -129,7 +129,7 @@
             backgroundImage2.alpha = offset / self.frame.size.width;
             backgroundImage1.alpha = 1.0 - backgroundImage2.alpha;
         }
-    //stable
+        //stable
     } else {
         pageControl.currentPage = currentPhotoNum;
         backgroundImage1.alpha = 1;

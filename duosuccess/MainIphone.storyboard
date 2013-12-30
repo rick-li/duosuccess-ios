@@ -55,6 +55,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="3Oa-9y-ixC" appends="YES" id="3WN-b9-IYp"/>
+                                    </connections>
                                 </view>
                             </tableView>
                         </subviews>
@@ -103,6 +107,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKs-Wg-Pdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3Oa-9y-ixC">
+                    <connections>
+                        <action selector="onTapIntro:" destination="PGh-ae-fSJ" id="1E8-oD-AuS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="156" y="-83"/>
         </scene>

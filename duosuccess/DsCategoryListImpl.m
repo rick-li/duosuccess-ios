@@ -17,9 +17,7 @@
 
 -(void) init: (DsListViewController*) lctrl{
     self.ctrl = lctrl;
-    [[NSNotificationCenter defaultCenter] addObserverForName:ARTICLE_UPDATED object:nil queue:nil usingBlock:^(NSNotification *notification){
-        [self loadArticle: lctrl];
-    }];
+
     self.inited = true;
     
 }
