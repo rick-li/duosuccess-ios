@@ -30,8 +30,22 @@
         [self init:lctrl];
     }
     self.ctrl = lctrl;
-    self.ctrl.tableArticles = [[DsDataStore sharedInstance] queryArticlesByCategory:[self.category valueForKey:@"objectId"]];
+    
+    NSArray *articles = [[DsDataStore sharedInstance] queryArticlesByCategory:[self.category valueForKey:@"objectId"]];
+    
+    int introCount = [articles count] >=2 ?2: [articles count];
+    NSArray *introData = [articles subarrayWithRange:NSMakeRange(0, introCount)];
+    [self.ctrl createIntroContrainer: introData];
+    
+    if([articles count] >2){
+        NSArray *tableData = [articles subarrayWithRange:NSMakeRange(2,[articles count]-2)];
+        self.ctrl.tableArticles = tableData;
+        
+    }else{
+        self.ctrl.tableArticles = @[];
+    }
     [self.ctrl.tableView reloadData];
     self.ctrl.title = [self.category valueForKey:@"name"];
 }
+
 @end

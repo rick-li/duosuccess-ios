@@ -177,14 +177,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3g-ZU-VGw">
-                                <rect key="frame" x="0.0" y="201" width="320" height="367"/>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-BX-EuZ">
+                                <rect key="frame" x="-5" y="138" width="325" height="321"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -192,7 +189,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9P8-cW-yWR"/>
                     <connections>
-                        <outlet property="contentView" destination="d3g-ZU-VGw" id="7fm-W3-SvU"/>
+                        <outlet property="contentView" destination="ggQ-BX-EuZ" id="9m0-OH-hcB"/>
                         <outlet property="imageView" destination="R8y-ba-ATh" id="r4m-Cf-ghH"/>
                     </connections>
                 </viewController>

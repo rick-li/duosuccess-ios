@@ -99,9 +99,12 @@
     NSString *categoryId = ((PFObject *)pfObj[@"category"]).objectId;
     [mObj setValue:categoryId forKey:@"categoryId"];
     
-    PFFile *image = (PFFile *)pfObj[@"image"];
+    PFObject *image = (PFObject *)pfObj[@"image"];
+    [image fetchIfNeeded];
     if(image != nil){
-        NSString *imageUrl = image.url;
+        PFFile *imageFile = image[@"image"];
+        
+        NSString *imageUrl = imageFile.url;
         [mObj setValue:imageUrl forKey:@"imageUrl"];
     }
     
@@ -276,6 +279,9 @@
     NSString *lang = [[self defaultLang] valueForKey:@"objectId"];
     NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@", lang];
     [request setPredicate:objIdPredicate];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:true];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
 
     NSMutableArray *results = [[NSMutableArray alloc]init];
@@ -297,6 +303,9 @@
     NSString *lang = [[self defaultLang] valueForKey:@"objectId"];
     NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:@"langId = %@ AND categoryId = %@" , lang, categoryId];
     [request setPredicate:objIdPredicate];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:true];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
     return objects;
 }

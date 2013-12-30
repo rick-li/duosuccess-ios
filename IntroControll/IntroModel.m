@@ -4,14 +4,14 @@
 
 @synthesize titleText;
 @synthesize descriptionText;
-@synthesize image;
+@synthesize imageUrl;
 
-- (id) initWithTitle:(NSString*)title description:(NSString*)desc image:(NSString*)imageText {
+- (id) initWithTitle:(NSString*)title description:(NSString*)desc imageUrl:(NSString*)imageUrl {
     self = [super init];
     if(self != nil) {
         titleText = title;
         descriptionText = desc;
-        image = [UIImage imageNamed:imageText];
+        self.imageUrl = imageUrl;
     }
     return self;
 }

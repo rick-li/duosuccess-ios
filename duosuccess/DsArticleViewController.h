@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface DsArticleViewController : UIViewController
 
 @property(nonatomic, retain) IBOutlet  UIImageView *imageView;
-@property(nonatomic, retain) IBOutlet  UITextView *contentView;
+@property(nonatomic, retain) IBOutlet  UIWebView *contentView;
 
 @property NSString *imageUrl;
 @property NSString *content;

@@ -1,4 +1,6 @@
 #import "IntroControll.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <UIImageView+UIActivityIndicatorForSDWebImage.h>
 
 @implementation IntroControll
 
@@ -75,15 +77,31 @@
     [scrollView setContentOffset:CGPointMake((currentPhotoNum+1 == pages.count ? 0 : currentPhotoNum+1)*self.frame.size.width, 0) animated:YES];
 }
 
+-(void) setImage:(NSString*)imageUrl : (UIImageView*)imageView {
+    if(imageUrl){
+     [imageView setImageWithURL:(NSURL *)imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
+    }else{
+        imageView.image = [UIImage imageNamed:@"placeholder"];
+    }
+}
+
 - (void) initShow {
     int scrollPhotoNumber = MAX(0, MIN(pages.count-1, (int)(scrollView.contentOffset.x / self.frame.size.width)));
     
     if(scrollPhotoNumber != currentPhotoNum) {
         currentPhotoNum = scrollPhotoNumber;
         
-        //backgroundImage1.image = currentPhotoNum != 0 ? [(IntroModel*)[pages objectAtIndex:currentPhotoNum-1] image] : nil;
-        backgroundImage1.image = [(IntroModel*)[pages objectAtIndex:currentPhotoNum] image];
-        backgroundImage2.image = currentPhotoNum+1 != [pages count] ? [(IntroModel*)[pages objectAtIndex:currentPhotoNum+1] image] : nil;
+        IntroModel *currentModel = (IntroModel*)[pages objectAtIndex:currentPhotoNum];
+//        [backgroundImage1 setImageWithURL:(NSURL *)currentModel.imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
+        [self setImage: currentModel.imageUrl : backgroundImage1];
+        
+        IntroModel *nextModel = (currentPhotoNum+1 != [pages count]) ? (IntroModel*)[pages objectAtIndex:currentPhotoNum+1] : nil;
+        if(nextModel != nil){
+//            [backgroundImage1 setImageWithURL:(NSURL *)nextModel.imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
+            [self setImage: nextModel.imageUrl : backgroundImage2];
+            
+        }
+
     }
     
     float offset =  scrollView.contentOffset.x - (currentPhotoNum * self.frame.size.width);

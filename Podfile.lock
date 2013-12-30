@@ -17,7 +17,7 @@ PODS:
   - AFNetworking/Serialization (2.0.3)
   - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
-  - Facebook-iOS-SDK (3.10.0)
+  - Facebook-iOS-SDK (3.11.0)
   - InAppSettingsKit (2.0)
   - MBProgressHUD (0.8)
   - NPReachability (0.1.0)
@@ -27,6 +27,8 @@ PODS:
   - SDWebImage (3.5.1):
     - SDWebImage/Core
   - SDWebImage/Core (3.5.1)
+  - UIActivityIndicator-for-SDWebImage (1.0.3):
+    - SDWebImage (~> 3.2)
 
 DEPENDENCIES:
   - AFNetworking (= 2.0.3)
@@ -36,15 +38,17 @@ DEPENDENCIES:
   - Parse (= 1.2.16)
   - RESideMenu (~> 3.3.1)
   - SDWebImage (= 3.5.1)
+  - UIActivityIndicator-for-SDWebImage (= 1.0.3)
 
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
-  Facebook-iOS-SDK: ef402579aeb30cf0c4a6370fb0a927e3dc3059e5
+  Facebook-iOS-SDK: 2eb12f9ed04f3d3956f0a4fb0e4e60c824dcd101
   InAppSettingsKit: 2b85ba925a81634860461c21274f54b130c84614
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   NPReachability: 20281bf45f6124421a43668d2c7a61d1ecba8cf2
   Parse: 18f62939dd2d13a66270f4cb9a98401d88e3ad54
   RESideMenu: dcd3af0b8fcdc32e2d306ecc6d6a20b928248105
   SDWebImage: a408b548a634b792372e07e753fc1079aff5032a
+  UIActivityIndicator-for-SDWebImage: e712b97826395022ce7b4a4b56eb7194090c19d5
 
 COCOAPODS: 0.28.0

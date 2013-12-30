@@ -81,6 +81,28 @@
     [self.listDelegate loadArticle:self];
 }
 
+
+-(void) createIntroContrainer:(NSArray*) introData{
+    
+    if(self.introCtrl != nil){
+        [self.introCtrl removeFromSuperview];
+    }
+    
+    if([introData count] <= 0){
+        return;
+    }
+    
+    NSMutableArray *pages = [[NSMutableArray alloc] init];
+    for(NSManagedObject *obj in introData){
+        IntroModel *model = [[IntroModel alloc] initWithTitle:[obj valueForKey:@"title"] description:[obj valueForKey:@"intro"] imageUrl:[obj valueForKey:@"imageUrl"]];
+        [pages addObject:model];
+    }
+    
+    
+    self.introCtrl = [[IntroControll alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 190.0f) pages:pages];
+    [self.introContainer addSubview:self.introCtrl];
+}
+
 - (IBAction) showMenu{
     [self.sideMenuViewController presentMenuViewController];
 }
@@ -125,7 +147,8 @@
 
 - (void)refreshTable{
     NSLog(@"refreshing");
-    [self loadArticles];
+
+    [[DsDataStore sharedInstance] syncData];
     [self.refreshCtrl endRefreshing];
 }
 
@@ -142,9 +165,11 @@
     
     NSString *title =[obj valueForKey:@"title"];
     NSString *content =[obj valueForKey:@"content"];
+    NSString *imageUrl = [obj valueForKey:@"imageUrl"];
     
     articleCtrl.title = title;
     articleCtrl.content = content;
+    articleCtrl.imageUrl = imageUrl;
     
     [self.navigationController pushViewController:self.articleCtrl animated:true];
 }

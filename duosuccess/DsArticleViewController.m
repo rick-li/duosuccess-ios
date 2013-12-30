@@ -7,6 +7,8 @@
 //
 
 #import "DsArticleViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <UIImageView+UIActivityIndicatorForSDWebImage.h>
 
 @interface DsArticleViewController ()
 
@@ -32,8 +34,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.imageView setImage:[UIImage imageNamed:@"tea"]];
-    self.contentView.text = content;
+    
+    [imageView setImageWithURL:[NSURL URLWithString: imageUrl]
+              placeholderImage:[UIImage imageNamed:@"tea"]
+                       options:SDWebImageRefreshCached];
+    
+    if(imageUrl){
+        [imageView setImageWithURL:(NSURL *)imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
+    }else{
+        //set to a default image
+        imageView.image = [UIImage imageNamed:@"placeholder"];
+    }
+
+    NSURL *baseUrl = [NSURL URLWithString:@"https://www.duosuccess.com"];
+    [self.contentView loadHTMLString:self.content baseURL:baseUrl];
 }
 
 - (void)viewWillAppear:(BOOL)animated
