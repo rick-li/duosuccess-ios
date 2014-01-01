@@ -32,7 +32,7 @@
     [self syncData:@"DsLang" withPfType:@"Lang"];
     
     [self syncData:@"DsCategory" withPfType:@"Category"];
-
+    
     
     [self syncData:@"DsArticle" withPfType:@"Article"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"articleUpdated" object:nil];
@@ -139,7 +139,7 @@
         }
         
         for(PFObject *pfObj in objects){
-
+            
             if([pfObj[@"status"] isEqualToString:@"deleted" ]){
                 NSManagedObject *mObj = [self getObjectByObjectId:pfObj.objectId withType: dbType];
                 if(mObj != nil){
@@ -182,7 +182,7 @@
         if([@"Article" isEqualToString:pfType]){
             [[NSNotificationCenter defaultCenter] postNotificationName:ARTICLE_UPDATED object:nil];
         }
-
+        
     }];
     
 }
@@ -282,7 +282,7 @@
     [request setSortDescriptors:@[sortDescriptor]];
     
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
-
+    
     NSMutableArray *results = [[NSMutableArray alloc]init];
     for(NSManagedObject *obj in objects){
         NSString *objectId = [obj valueForKey:@"objectId"];
@@ -294,7 +294,7 @@
     return results;
 }
 
--(NSArray*) queryArticlesByCategory: (NSString*)categoryId{
+-(NSArray*) queryArticlesByCategory: (NSString*)categoryId :(int) offset : (int) limit{
     NSError *error;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"DsArticle" inManagedObjectContext:self.managedObjectContext];
@@ -304,9 +304,20 @@
     [request setPredicate:objIdPredicate];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:true];
     [request setSortDescriptors:@[sortDescriptor]];
+    [request setFetchOffset:offset];
+    [request setFetchLimit:limit];
     
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if(!error){
+        NSLog(@"Failed to query articles %@.", error.description);
+    }
+    
     return objects;
+    
+}
+-(NSArray*) queryArticlesByCategory: (NSString*)categoryId{
+    return [self queryArticlesByCategory:categoryId :0 :30];
 }
 
 

@@ -52,8 +52,9 @@
     
 
     NSDictionary *firstCategory = [categories objectAtIndex:0];
+
+    NSArray *introData = [store queryArticlesByCategory:[firstCategory valueForKey:@"objectId"] :0 :5];
     
-    NSArray *introData = [store queryArticlesByCategory:[firstCategory valueForKey:@"objectId"]];
     NSLog(@"intro data count %ul.", [introData count]);
     //header for first category
     [self.ctrl createIntroContrainer: introData];
@@ -63,7 +64,7 @@
     for(int i =1;i<[categories count]; i++){
         NSDictionary *category = [categories objectAtIndex:i];
         NSString *cateId = [category valueForKey:@"objectId"];
-        NSArray *partialArticles = [store queryArticlesByCategory:cateId];
+        NSArray *partialArticles = [store queryArticlesByCategory:cateId :0 : 5];
         [articles addObjectsFromArray: partialArticles];
     }
     self.ctrl.tableArticles = articles;
