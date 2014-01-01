@@ -104,6 +104,7 @@
                     <connections>
                         <outlet property="introContainer" destination="W4a-yK-NTR" id="Q3Z-BL-tjW"/>
                         <outlet property="tableView" destination="4hD-pm-ZTv" id="ki9-F9-fal"/>
+                        <segue destination="IdE-Qb-S2B" kind="push" id="PHM-Y5-Dlt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKs-Wg-Pdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="156" y="-83"/>
         </scene>
-        <!--Ds Music View Controller - Sigma Music-->
+        <!--Ds Intro View Controller - Sigma Music-->
         <scene sceneID="FEB-7g-3hY">
             <objects>
-                <viewController storyboardIdentifier="musicController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b1N-rw-Cc7" customClass="DsMusicViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="musicController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b1N-rw-Cc7" customClass="DsIntroViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t6i-cH-GkZ"/>
                         <viewControllerLayoutGuide type="bottom" id="oMQ-Qx-Oku"/>
@@ -134,6 +135,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doV-RO-NLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="524" y="-83"/>
+        </scene>
+        <!--Ds Paper Controller - Title-->
+        <scene sceneID="wls-gJ-fEb">
+            <objects>
+                <viewController storyboardIdentifier="paperController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IdE-Qb-S2B" customClass="DsPaperController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mhJ-32-NQk"/>
+                        <viewControllerLayoutGuide type="bottom" id="9M3-tH-Bea"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rht-qG-35V">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGf-N5-6P6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="459"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGW-fC-DUb">
+                                <rect key="frame" x="0.0" y="459" width="320" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Will Expire in " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbW-vN-hgg">
+                                        <rect key="frame" x="15" y="12" width="291" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Title" id="9an-nl-GpJ"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="paperView" destination="MGf-N5-6P6" id="gOu-ut-PJh"/>
+                        <outlet property="remainLabel" destination="wbW-vN-hgg" id="Kzp-TP-MDE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AwK-fo-zEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="-83"/>
         </scene>
         <!--Ds Root View Controller - Root-->
         <scene sceneID="k0D-Cu-iHo">
@@ -183,11 +228,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-ba-ATh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-BX-EuZ">
-                                <rect key="frame" x="-5" y="138" width="325" height="321"/>
+                                <rect key="frame" x="-5" y="169" width="325" height="335"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -197,6 +242,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9P8-cW-yWR"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentView" destination="ggQ-BX-EuZ" id="9m0-OH-hcB"/>
                         <outlet property="imageView" destination="R8y-ba-ATh" id="r4m-Cf-ghH"/>

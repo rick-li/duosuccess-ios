@@ -13,7 +13,9 @@
 #import "DsMusicControll.h"
 #import "DsWebViewController.h"
 
-@interface DsMusicViewController : DsWebViewController<UIScrollViewDelegate, DsInstConfirmDelegate, DsMusicPlayerDelegate, DsMusicControlDelegate>
+@interface DsIntroViewController : UIViewController<UIScrollViewDelegate, DsInstConfirmDelegate>
+
+//DsWebViewController<UIScrollViewDelegate, DsInstConfirmDelegate, DsMusicPlayerDelegate, DsMusicControlDelegate>
 
 
 @end

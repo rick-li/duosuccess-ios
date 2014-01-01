@@ -7,13 +7,24 @@
 //
 
 #import "DsWebViewController.h"
+#import "DsMusicPlayer.h"
+#import "DsMusicControll.h"
+#import "DsFileStore.h"
+#import "DsEventStore.h"
 #import <MessageUI/MessageUI.h>
+#import <EventKit/EventKit.h>
 
 @interface DsWebViewController ()<UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, readonly) UIActivityIndicatorView *indicatorView;
 @property (nonatomic, readonly) UIBarButtonItem *backBarButtonItem;
 @property (nonatomic, readonly) UIBarButtonItem *forwardBarButtonItem;
+
+
+@property UIScrollView *instructionContainer;
+@property UIPageControl *instructionPageCtrl;
+@property DsMusicControll *musicCtrl;
+@property DsMusicPlayer *musicPlayer;
 
 @end
 
@@ -26,11 +37,16 @@
 @synthesize indicatorView = _indicatorView;
 @synthesize backBarButtonItem = _backBarButtonItem;
 @synthesize forwardBarButtonItem = _forwardBarButtonItem;
+@synthesize musicCtrl;
+@synthesize musicPlayer;
+
+DsFileStore *fileStore;
 
 - (id)init
 {
     self = [super init];
     self.displayWebViewByDefault = false;
+
     return self;
 }
 
@@ -47,9 +63,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    fileStore = [DsFileStore sharedInstance];
+    
     if(self.displayWebViewByDefault){
         [self displayWebView];
     }
+
+    [self clearCache];
+
 }
 
 
@@ -88,7 +109,11 @@
     opacityAnimation.duration = 0.6;
     [CATransaction setCompletionBlock:^{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"西格瑪能紙已下載" message:@"請於我的能紙處查看" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        
         [alert show];
+        
+        
+
     }];
     
     [self.webView.layer addAnimation:opacityAnimation forKey:@"animation"];
@@ -106,13 +131,11 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     NSData * data = UIImagePNGRepresentation(image);
-    
-    [self flashScreen];
-    NSString *fileDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"/paperScreenshot.png"];
-    [data writeToFile:fileDir atomically:YES];
-    
 
-    NSLog(@"the image has been saved");
+    [fileStore savePaperImage:data];
+    [[DsEventStore sharedInstance] savePaperReminder];
+    [self flashScreen];
+    
 }
 
 
@@ -203,7 +226,8 @@
     if ([title length] > 0) {
         self.title = title;
     }
-    
+
+    [self playMusic:webView];
     NSLog(@"webview finished loading...");
     
     
@@ -362,6 +386,79 @@
 		[self emailURL:actionSheet];
 	}
 }
+
+//start music part
+
+
+- (void)onTapPlayButon: (DsMusicControll *)sender{
+    [self clearCache];
+    [self.musicPlayer stopMedia];
+}
+
+- (void)tick: (long)elapsed remains:(long)remains{
+    NSLog(@"elapsed %ld, remains %ld.",elapsed, remains );
+    long elapsedMins = elapsed/60;
+    long elapsedSecs = elapsed-(elapsedMins*60);
+    NSString *elapsedDisplay = [NSString stringWithFormat:@"%lu:%02lu", elapsedMins, elapsedSecs];
+    
+    long remainsMins = remains/60;
+    long remainsSecs = remains-(remainsMins*60);
+    NSString *remainsDisplay = [NSString stringWithFormat:@"%lu:%02lu", remainsMins, remainsSecs];
+    
+    self.musicCtrl.elapsed.text = elapsedDisplay;
+    self.musicCtrl.remains.text = remainsDisplay;
+    [self.musicCtrl.slider setValue:elapsed];
+    
+}
+
+- (void)clearCache{
+    
+    [fileStore clearMusicCache];
+}
+
+-(void)playMusic:(SAMWebView *)webView {
+    NSString *strjs = @"document.querySelector('embed').src";
+    NSString *midUrl = [webView stringByEvaluatingJavaScriptFromString:strjs];
+    
+    //remove mask
+    NSLog(@"mid Url is %@", midUrl);
+    
+    if(!midUrl || [midUrl length]==0){
+        NSLog(@"no midi in this page, don't play music");
+        return;
+    }
+
+    
+    //download midi
+    NSURL *url = [NSURL URLWithString:
+                  midUrl];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    NSString *tmpDir = [fileStore tmpDir];
+    if(data)
+    {
+        NSString *midPath = [tmpDir stringByAppendingPathComponent:[url lastPathComponent]];
+        [data writeToFile:midPath atomically:YES];
+        NSLog(@"midi file path is %@", midPath);
+        self.musicPlayer = [DsMusicPlayer sharedInstance];
+        [musicPlayer playMedia:midPath];
+        
+        musicPlayer.delegate = self;
+        
+        self.musicCtrl = [[[NSBundle mainBundle] loadNibNamed:@"DsMusicControl" owner:self options:nil] objectAtIndex:0];
+        self.musicCtrl.slider.minimumValue = 0;
+        self.musicCtrl.slider.maximumValue = 3600;
+        musicCtrl.delegate = self ;
+        int musicCtrlHeight = self.musicCtrl.frame.size.height;
+        [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height-musicCtrlHeight)];
+        [self.view addSubview:self.musicCtrl];
+        CGRect frame = self.webView.frame;
+        frame.size.height = frame.size.height - musicCtrlHeight ;
+        [self.webView setFrame: frame];
+    }
+}
+
+
 
 
 @end

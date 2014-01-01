@@ -8,9 +8,11 @@
 
 #import "DsListViewController.h"
 #import "DsArticleViewController.h"
+#import "DsPaperController.h"
 #import "DsWebViewController.h"
 #import "DsTableCell.h"
 #import "DsDataStore.h"
+#import "DsFileStore.h"
 #import "DsMainListImpl.h"
 
 #import "DsConst.h"
@@ -129,11 +131,54 @@
 }
 
 -(IBAction)paperAction{
-    DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
-    webViewCtrl.displayWebViewByDefault = true;
-    [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
-    [self.navigationController pushViewController:webViewCtrl animated:true];
+    
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:nil, nil];
+    if([[DsFileStore sharedInstance] isPaperImageExists]){
+        [actionSheet addButtonWithTitle:@"Check my paper"];
+    }
+    [actionSheet addButtonWithTitle:@"Download new paper"];
+    
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet setTag:1];
+    [actionSheet showInView:self.view];
+    
 }
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if([actionSheet tag] == 1){
+        
+        //music
+        if (buttonIndex == 1) {
+            NSLog(@"number of action buttons is %d.", actionSheet.numberOfButtons);
+            if(actionSheet.numberOfButtons==3){
+                DsPaperController *pCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"paperController"];
+                
+                [self.navigationController pushViewController:pCtrl animated:true];
+            }else{
+                DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
+                webViewCtrl.displayWebViewByDefault = true;
+                [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
+                [self.navigationController pushViewController:webViewCtrl animated:true];
+                
+            }
+            
+        }
+        else if (buttonIndex == 2) {
+            DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
+            webViewCtrl.displayWebViewByDefault = true;
+            [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
+            [self.navigationController pushViewController:webViewCtrl animated:true];
+        }
+    }
+}
+
 
 -(IBAction)configAction{
     if (!appSettingsViewController) {
@@ -161,7 +206,7 @@
 
 - (void)refreshTable{
     NSLog(@"refreshing");
-
+    
     [[DsDataStore sharedInstance] syncData];
     [self.refreshCtrl endRefreshing];
 }
@@ -207,7 +252,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-
+    
     return self.tableArticles.count;
     
 }

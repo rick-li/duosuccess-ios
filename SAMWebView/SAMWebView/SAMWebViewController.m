@@ -9,7 +9,7 @@
 #import "SAMWebViewController.h"
 
 #import <MessageUI/MessageUI.h>
-#import "DsMusicViewController.h"
+#import "DsIntroViewController.h"
 
 @interface SAMWebViewController () <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 

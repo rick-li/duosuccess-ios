@@ -4,6 +4,7 @@
 <dict>
 	<key>PreferenceSpecifiers</key>
 	<array>
+
 		<dict>
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>
@@ -23,6 +24,16 @@
 				<string>zh-cn</string>
 				<string>en</string>
 			</array>
+		</dict>
+        <dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Receive Image</string>
+			<key>Key</key>
+			<string></string>
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>

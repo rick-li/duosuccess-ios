@@ -35,10 +35,6 @@
 {
     [super viewDidLoad];
     
-    [imageView setImageWithURL:[NSURL URLWithString: imageUrl]
-              placeholderImage:[UIImage imageNamed:@"tea"]
-                       options:SDWebImageRefreshCached];
-    
     if(imageUrl){
         [imageView setImageWithURL:(NSURL *)imageUrl placeholderImage:[UIImage imageNamed:@"placeholder" ] usingActivityIndicatorStyle:(UIActivityIndicatorViewStyle)UIActivityIndicatorViewStyleWhite];
     }else{
@@ -53,6 +49,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setToolbarHidden:true];
+    self.navigationController.navigationBar.topItem.title = @"   ";
     
 }
 

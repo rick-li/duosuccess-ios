@@ -28,7 +28,7 @@
 @end
 
 
-@interface DsListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface DsListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property id <DsListDelegate> listDelegate;
 

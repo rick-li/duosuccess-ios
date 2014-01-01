@@ -8,6 +8,8 @@
 
 #import "DsWebViewController.h"
 
-@interface DsPaperController : DsWebViewController
+@interface DsPaperController : DsWebViewController<UIAlertViewDelegate>
 
+    @property(nonatomic, retain) IBOutlet UIImageView *paperView;
+    @property(nonatomic, retain) IBOutlet UILabel *remainLabel;
 @end
