@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2iz-ot-wLd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2iz-ot-wLd">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -39,15 +39,11 @@
         <scene sceneID="JmY-3V-nqR">
             <objects>
                 <viewController storyboardIdentifier="listController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PGh-ae-fSJ" customClass="DsListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7kv-L8-F8r"/>
-                        <viewControllerLayoutGuide type="bottom" id="Z8a-Lb-Zz7"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lS9-1X-SbT">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4hD-pm-ZTv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4hD-pm-ZTv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,10 +116,6 @@
         <scene sceneID="FEB-7g-3hY">
             <objects>
                 <viewController storyboardIdentifier="musicController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b1N-rw-Cc7" customClass="DsIntroViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="t6i-cH-GkZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="oMQ-Qx-Oku"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2z8-Rn-O3B">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -140,23 +132,19 @@
         <scene sceneID="wls-gJ-fEb">
             <objects>
                 <viewController storyboardIdentifier="paperController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IdE-Qb-S2B" customClass="DsPaperController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mhJ-32-NQk"/>
-                        <viewControllerLayoutGuide type="bottom" id="9M3-tH-Bea"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rht-qG-35V">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MGf-N5-6P6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="MGf-N5-6P6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="459"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGW-fC-DUb">
+                            <view contentMode="scaleToFill" id="YGW-fC-DUb">
                                 <rect key="frame" x="0.0" y="459" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Will Expire in " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbW-vN-hgg">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will Expire in " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wbW-vN-hgg">
                                         <rect key="frame" x="15" y="12" width="291" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -184,10 +172,6 @@
         <scene sceneID="k0D-Cu-iHo">
             <objects>
                 <viewController storyboardIdentifier="rootController" title="Root" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2iz-ot-wLd" customClass="DsRootViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2V2-4b-Vwm"/>
-                        <viewControllerLayoutGuide type="bottom" id="JUS-ym-Q86"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="W19-eV-ncF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -202,10 +186,6 @@
         <scene sceneID="nyK-1M-w3o">
             <objects>
                 <viewController storyboardIdentifier="menuController" title="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bwv-sS-QsM" customClass="DsMenuViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zu6-wg-nio"/>
-                        <viewControllerLayoutGuide type="bottom" id="7Ba-SE-4U0"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LFE-UC-nMj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -219,33 +199,29 @@
         <scene sceneID="BsS-K0-KEs">
             <objects>
                 <viewController storyboardIdentifier="articleController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ncq-zI-uyV" customClass="DsArticleViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9eC-UH-AmV"/>
-                        <viewControllerLayoutGuide type="bottom" id="vaN-96-NFt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VvS-Zj-J0c">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Opb-iv-k7E">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-ba-ATh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="HFC-Cs-HGs">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-BX-EuZ">
-                                <rect key="frame" x="-5" y="169" width="325" height="335"/>
+                            <webView contentMode="scaleToFill" id="lFn-ZO-Ofx">
+                                <rect key="frame" x="0.0" y="174" width="320" height="330"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                    </scrollView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9P8-cW-yWR"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="contentView" destination="ggQ-BX-EuZ" id="9m0-OH-hcB"/>
-                        <outlet property="imageView" destination="R8y-ba-ATh" id="r4m-Cf-ghH"/>
+                        <outlet property="containerView" destination="Opb-iv-k7E" id="fj7-Ml-hiA"/>
+                        <outlet property="contentView" destination="lFn-ZO-Ofx" id="F4g-XR-KkU"/>
+                        <outlet property="imageView" destination="HFC-Cs-HGs" id="wOc-EZ-w3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyB-2i-6sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,10 +232,6 @@
         <scene sceneID="Opz-Zq-Xrb">
             <objects>
                 <viewController storyboardIdentifier="webViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kVw-VM-QCc" customClass="DsWebViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IcL-Qt-ukc"/>
-                        <viewControllerLayoutGuide type="bottom" id="laB-YR-ah3"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gPx-vt-c3f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

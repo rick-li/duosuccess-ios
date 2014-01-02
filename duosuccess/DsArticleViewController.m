@@ -18,6 +18,7 @@
 
 @synthesize imageView;
 @synthesize contentView;
+@synthesize containerView;
 
 @synthesize imageUrl;
 @synthesize content;
@@ -44,13 +45,31 @@
 
     NSURL *baseUrl = [NSURL URLWithString:@"https://www.duosuccess.com"];
     [self.contentView loadHTMLString:self.content baseURL:baseUrl];
+    self.contentView.scrollView.scrollEnabled = false;
+    self.contentView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setToolbarHidden:true];
     self.navigationController.navigationBar.topItem.title = @"   ";
-    
+    self.containerView.scrollEnabled = true;
+
 }
 
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    float h;
+    NSString *heightString = [contentView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"];
+    
+    NSLog(@"web content is %@ high",heightString);
+    h = [heightString floatValue] +12.0f;
+    contentView.frame = CGRectMake(contentView.frame.origin.x, contentView.frame.origin.y, contentView.frame.size.width, h);
+    
+    // get bottom of text field
+    
+    h = contentView.frame.origin.y + h; // extra 70 pixels for UIButton at bottom and padding.
+    
+    [self.containerView setContentSize:CGSizeMake(320, h)];
+}
 @end
