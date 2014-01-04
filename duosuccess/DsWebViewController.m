@@ -11,6 +11,7 @@
 #import "DsMusicControll.h"
 #import "DsFileStore.h"
 #import "DsEventStore.h"
+#import "DsPaperController.h"
 #import <MessageUI/MessageUI.h>
 #import <EventKit/EventKit.h>
 
@@ -25,6 +26,9 @@
 @property UIPageControl *instructionPageCtrl;
 @property DsMusicControll *musicCtrl;
 @property DsMusicPlayer *musicPlayer;
+
+
+@property UIBarButtonItem *screenshotButtonItem;
 
 @end
 
@@ -74,14 +78,6 @@ DsFileStore *fileStore;
 }
 
 
-#pragma mark - MFMailComposeViewControllerDelegate
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-
 
 #pragma mark - Actions
 
@@ -108,17 +104,29 @@ DsFileStore *fileStore;
     opacityAnimation.removedOnCompletion = YES;
     opacityAnimation.duration = 0.6;
     [CATransaction setCompletionBlock:^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"西格瑪能紙已下載" message:@"請於我的能紙處查看" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        
+        NSLocalizedString(@"energyPaperDownloaded", @"Energy paper is downloaded");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"西格瑪能紙已下載" message:@"請於我的能紙處查看" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        [alert addButtonWithTitle:NSLocalizedString(@"check", "Check")];
         [alert show];
-        
-        
         
     }];
     
     [self.webView.layer addAnimation:opacityAnimation forKey:@"animation"];
     [CATransaction commit];
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"button index is %d", buttonIndex);
+    if(buttonIndex == 1){
+        //check the paper
+        DsPaperController *pCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"paperController"];
+        
+        //replace current view controller
+//        [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController pushViewController:pCtrl animated:TRUE];
+
+    }
 }
 
 - (void)takeScreenshot:(id)sender {
@@ -173,6 +181,21 @@ DsFileStore *fileStore;
 
 #pragma mark - SAMWebViewDelegate
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        NSURL *url = request.URL;
+        if([url.scheme isEqualToString:@"http"] && [url.host isEqualToString:@"www.duosuccess.com"]){
+            NSString *strUrl = [url absoluteString];
+            NSString *newUrl = [strUrl stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
+            [self.webView loadURL:[NSURL URLWithString:newUrl]];
+            NSLog(@"override http -> https %@.", newUrl);
+            return false;
+        }
+    }
+    return true;
+}
+
+
 - (void)webViewDidStartLoadingPage:(SAMWebView *)webView {
     NSURL *URL = self.currentURL;
 	self.title = URL.absoluteString;
@@ -191,10 +214,13 @@ DsFileStore *fileStore;
     }
     NSString *lowerCaseTitle = [title lowercaseString];
     if([lowerCaseTitle rangeOfString:@"paper"].location!=NSNotFound || [lowerCaseTitle rangeOfString:@"calendar"].location!=NSNotFound){
-        
+        [_screenshotButtonItem setEnabled:true];
+    }else{
+        [_screenshotButtonItem setEnabled:false];
     }
     
     if(self.musicCtrl){
+        [self musicStop:nil];
         [self.musicCtrl removeFromSuperview];
         self.musicCtrl = nil;
     }
@@ -261,12 +287,12 @@ DsFileStore *fileStore;
 											action:@selector(reload)];
     
     
-	UIBarButtonItem *screenshotButtonItem = [[UIBarButtonItem alloc]
-                                             initWithImage:[UIImage imageNamed:@"camera"]
-                                             landscapeImagePhone:[UIImage imageNamed:@"camera"]
-                                             style:UIBarButtonItemStylePlain
-                                             target:self
-                                             action:@selector(takeScreenshot:)];
+	_screenshotButtonItem = [[UIBarButtonItem alloc]
+                             initWithImage:[UIImage imageNamed:@"camera"]
+                             landscapeImagePhone:[UIImage imageNamed:@"camera"]
+                             style:UIBarButtonItemStylePlain
+                             target:self
+                             action:@selector(takeScreenshot:)];
     
     //	UIBarButtonItem *actionSheetBarButtonItem = [[UIBarButtonItem alloc]
     //												 initWithImage:[UIImage imageNamed:@"SAMWebView-action-button"]
@@ -288,12 +314,12 @@ DsFileStore *fileStore;
     
     [reloadBarButtonItem setTintColor: white];
     //    [actionSheetBarButtonItem  setTintColor: white];
-    [screenshotButtonItem setTintColor:white];
+    [_screenshotButtonItem setTintColor:white];
     [_backBarButtonItem setTintColor: white];
     [_forwardBarButtonItem setTintColor: white];
     
 	self.toolbarItems = @[fixedSpace, self.backBarButtonItem, flexibleSpace, self.forwardBarButtonItem, flexibleSpace,
-                          reloadBarButtonItem, flexibleSpace, screenshotButtonItem];
+                          reloadBarButtonItem, flexibleSpace, _screenshotButtonItem];
 	
     // Close button
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {

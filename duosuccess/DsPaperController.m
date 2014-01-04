@@ -65,7 +65,7 @@ DsEventStore *eventStore;
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateStyle= kCFDateFormatterShortStyle;
         formatter.timeStyle = kCFDateFormatterMediumStyle;
-        self.remainLabel.text = [@"Will expire at " stringByAppendingString:[formatter stringFromDate:dueDate]];
+        self.remainLabel.text = [NSLocalizedString(@"willExpireAt", @"Will expire at: ") stringByAppendingString:[formatter stringFromDate:dueDate]];
     }
 
     self.title = NSLocalizedString(@"myPaper", @"My Paper");
@@ -76,7 +76,7 @@ DsEventStore *eventStore;
     [fileStore removePaperImage];
     [[DsEventStore sharedInstance] removePaperReminder];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"能纸" message:@"能纸已清除" delegate:(self) cancelButtonTitle:@"好的" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"energyPaper", @"energy paper") message:NSLocalizedString(@"energyPaperRemoved", @"energy Paper Removed") delegate:(self) cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [alert show];
     

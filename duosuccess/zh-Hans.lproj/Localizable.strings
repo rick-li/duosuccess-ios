@@ -7,6 +7,7 @@
 */
 /* Localized versions of Info.plist keys */
 
+
 "mainTitle"="多成中醫";
 
 /** Paper section **/
@@ -15,7 +16,9 @@
 "cancel" = "取消";
 "checkMyPaper" = "我的能纸";
 "downloadPaper" ="下载新的能纸";
+
 "energyPaperDownloaded"="能纸已下载";
 "energyPaperRemoved"="能纸已删除";
+
 "willExpireAt"="过期时间: ";
 "check"="查看";

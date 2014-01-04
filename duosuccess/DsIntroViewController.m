@@ -123,7 +123,4 @@ NSString *tmpDir;
     [navController pushViewController:webViewCtrl animated:TRUE];
 }
 
-
-
-
 @end

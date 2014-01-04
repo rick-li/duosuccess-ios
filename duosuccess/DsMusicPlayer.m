@@ -119,7 +119,7 @@ NSTimer *oneHourTimer;
     if(self.remains<0){
         self.remains = 0;
     }
-    if(self.elapsed >= 60 * 1){
+    if(self.elapsed >= 60 * 60){
         NSLog(@"1 hour arrived, calling music stop.");
         [self invalidateTimer];
         [self.delegate musicStop:self];

@@ -246,6 +246,9 @@
 		BDF68F691877D05200D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BDF68F6D1877E70C00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BDF68F6F1877E71200D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BDF68F701878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		BDF68F711878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BDF68F721878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -631,6 +634,7 @@
 			knownRegions = (
 				en,
 				"zh-Hant",
+				"zh-Hans",
 			);
 			mainGroup = BD02868C185736020043EFE6;
 			productRefGroup = BD028696185736020043EFE6 /* Products */;
@@ -807,6 +811,7 @@
 			children = (
 				BD0286C1185736030043EFE6 /* en */,
 				BDF68F631877CD6800D3EDF3 /* zh-Hant */,
+				BDF68F721878088300D3EDF3 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -816,6 +821,7 @@
 			children = (
 				BDF68F671877D04B00D3EDF3 /* en */,
 				BDF68F691877D05200D3EDF3 /* zh-Hant */,
+				BDF68F701878088300D3EDF3 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -825,6 +831,7 @@
 			children = (
 				BDF68F6D1877E70C00D3EDF3 /* en */,
 				BDF68F6F1877E71200D3EDF3 /* zh-Hant */,
+				BDF68F711878088300D3EDF3 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

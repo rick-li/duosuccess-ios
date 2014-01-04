@@ -10,7 +10,13 @@
 
 "mainTitle"="Duosuccess";
 
+"energyPaper"="Energy Paper";
 "myPaper" = "My Energy Paper";
 "cancel" = "Cancel";
 "checkMyPaper" = "My Energy Paper";
 "downloadPaper" ="Download New Energy Paper";
+
+"energyPaperDownloaded"="Energy Paper is downloaded";
+"energyPaperRemoved"="Energy Paper is removed";
+"willExpireAt"="Will Expire At: ";
+"check"="Check";

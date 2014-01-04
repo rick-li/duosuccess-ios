@@ -12,7 +12,7 @@
 #import "DsMusicControll.h"
 
 
-@interface DsWebViewController : UIViewController<SAMWebViewDelegate,DsMusicPlayerDelegate, DsMusicControlDelegate>
+@interface DsWebViewController : UIViewController<SAMWebViewDelegate,DsMusicPlayerDelegate, DsMusicControlDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, readonly) SAMWebView *webView;
 @property (nonatomic, assign) BOOL toolbarHidden;
