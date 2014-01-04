@@ -46,7 +46,7 @@ DsFileStore *fileStore;
 {
     self = [super init];
     self.displayWebViewByDefault = false;
-
+    
     return self;
 }
 
@@ -54,7 +54,7 @@ DsFileStore *fileStore;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        
         // Custom initialization
     }
     return self;
@@ -68,9 +68,9 @@ DsFileStore *fileStore;
     if(self.displayWebViewByDefault){
         [self displayWebView];
     }
-
+    
     [self clearCache];
-
+    
 }
 
 
@@ -91,7 +91,7 @@ DsFileStore *fileStore;
 
 -(void)flashCompleted:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
 {
-
+    
 }
 
 -(void)flashScreen {
@@ -113,16 +113,16 @@ DsFileStore *fileStore;
         [alert show];
         
         
-
+        
     }];
     
     [self.webView.layer addAnimation:opacityAnimation forKey:@"animation"];
     [CATransaction commit];
-
+    
 }
 
 - (void)takeScreenshot:(id)sender {
-
+    
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
         UIGraphicsBeginImageContextWithOptions(self.webView.bounds.size, NO, [UIScreen mainScreen].scale);
     else
@@ -131,18 +131,12 @@ DsFileStore *fileStore;
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     NSData * data = UIImagePNGRepresentation(image);
-
+    
     [fileStore savePaperImage:data];
     [[DsEventStore sharedInstance] savePaperReminder];
     [self flashScreen];
     
 }
-
-
-
-
-
-
 
 #pragma mark - Private
 
@@ -195,7 +189,15 @@ DsFileStore *fileStore;
     if ([title length] > 0) {
         self.title = title;
     }
-
+    NSString *lowerCaseTitle = [title lowercaseString];
+    if([lowerCaseTitle rangeOfString:@"paper"].location!=NSNotFound || [lowerCaseTitle rangeOfString:@"calendar"].location!=NSNotFound){
+        
+    }
+    
+    if(self.musicCtrl){
+        [self.musicCtrl removeFromSuperview];
+        self.musicCtrl = nil;
+    }
     [self playMusic:webView];
     NSLog(@"webview finished loading...");
     
@@ -234,10 +236,11 @@ DsFileStore *fileStore;
 								 style:UIBarButtonItemStylePlain
 								 target:self.webView
 								 action:@selector(goForward)];
-                [_forwardBarButtonItem setTintColor: [UIColor whiteColor]];
+        [_forwardBarButtonItem setTintColor: [UIColor whiteColor]];
 	}
 	return _forwardBarButtonItem;
 }
+
 -(void) displayWebView{
     //display toolbar
     if (!self.toolbarHidden && ![self.currentURL isFileURL]) {
@@ -259,19 +262,19 @@ DsFileStore *fileStore;
     
     
 	UIBarButtonItem *screenshotButtonItem = [[UIBarButtonItem alloc]
-											initWithImage:[UIImage imageNamed:@"camera"]
-											landscapeImagePhone:[UIImage imageNamed:@"camera"]
-											style:UIBarButtonItemStylePlain
-											target:self
-											action:@selector(takeScreenshot:)];
+                                             initWithImage:[UIImage imageNamed:@"camera"]
+                                             landscapeImagePhone:[UIImage imageNamed:@"camera"]
+                                             style:UIBarButtonItemStylePlain
+                                             target:self
+                                             action:@selector(takeScreenshot:)];
     
-//	UIBarButtonItem *actionSheetBarButtonItem = [[UIBarButtonItem alloc]
-//												 initWithImage:[UIImage imageNamed:@"SAMWebView-action-button"]
-//												 landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-action-button-mini"]
-//												 style:UIBarButtonItemStylePlain
-//												 target:self
-//												 action:@selector(openActionSheet:)];
-
+    //	UIBarButtonItem *actionSheetBarButtonItem = [[UIBarButtonItem alloc]
+    //												 initWithImage:[UIImage imageNamed:@"SAMWebView-action-button"]
+    //												 landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-action-button-mini"]
+    //												 style:UIBarButtonItemStylePlain
+    //												 target:self
+    //												 action:@selector(openActionSheet:)];
+    
 	
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]
 									  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
@@ -284,7 +287,7 @@ DsFileStore *fileStore;
     
     
     [reloadBarButtonItem setTintColor: white];
-//    [actionSheetBarButtonItem  setTintColor: white];
+    //    [actionSheetBarButtonItem  setTintColor: white];
     [screenshotButtonItem setTintColor:white];
     [_backBarButtonItem setTintColor: white];
     [_forwardBarButtonItem setTintColor: white];
@@ -308,7 +311,8 @@ DsFileStore *fileStore;
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-    
+    NSLog(@"webview will disappear..");
+    [self.musicPlayer stopMedia];
     if (!self.toolbarHidden) {
         [self.navigationController setToolbarHidden:YES animated:animated];
     }
@@ -348,8 +352,12 @@ DsFileStore *fileStore;
 
 //start music part
 - (void)onTapPlayButon: (DsMusicControll *)sender{
-    [self clearCache];
-    [self.musicPlayer stopMedia];
+    if(musicPlayer.isPlaying){
+        [self clearCache];
+        [self.musicPlayer stopMedia];
+    }else{
+        [self.webView reload];
+    }
 }
 
 - (void)tick: (long)elapsed remains:(long)remains{
@@ -373,6 +381,10 @@ DsFileStore *fileStore;
     [fileStore clearMusicCache];
 }
 
+-(void)musicStop:(DsMusicPlayer *)sender{
+    [musicCtrl onTapPlayButton:nil];
+}
+
 -(void)playMusic:(SAMWebView *)webView {
     NSString *strjs = @"document.querySelector('embed').src";
     NSString *midUrl = [webView stringByEvaluatingJavaScriptFromString:strjs];
@@ -384,7 +396,7 @@ DsFileStore *fileStore;
         NSLog(@"no midi in this page, don't play music");
         return;
     }
-
+    
     
     //download midi
     NSURL *url = [NSURL URLWithString:
@@ -399,6 +411,7 @@ DsFileStore *fileStore;
         NSLog(@"midi file path is %@", midPath);
         self.musicPlayer = [DsMusicPlayer sharedInstance];
         [musicPlayer playMedia:midPath];
+        musicPlayer.isPlaying = true;
         
         musicPlayer.delegate = self;
         
@@ -407,11 +420,13 @@ DsFileStore *fileStore;
         self.musicCtrl.slider.maximumValue = 3600;
         musicCtrl.delegate = self ;
         int musicCtrlHeight = self.musicCtrl.frame.size.height;
-        [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height-musicCtrlHeight)];
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+            //compensate the edge for ios7.
+            musicCtrlHeight -= self.navigationController.toolbar.frame.size.height;
+        }
+        [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, self.webView.frame.size.height-musicCtrlHeight)];
         [self.view addSubview:self.musicCtrl];
-        CGRect frame = self.webView.frame;
-        frame.size.height = frame.size.height - musicCtrlHeight ;
-        [self.webView setFrame: frame];
+        
     }
 }
 

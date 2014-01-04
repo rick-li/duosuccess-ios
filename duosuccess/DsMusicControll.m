@@ -23,6 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        isPlaying = false;
     }
     return self;
 }
@@ -37,11 +38,13 @@
 */
 
 - (IBAction)onTapPlayButton:(id)sender {
-    [self.delegate onTapPlayButon:self];
+
     if(isPlaying){
         [self.playBtn setImage:[UIImage imageNamed:@"Stop" ] forState:(UIControlStateNormal)];
     }else{
         [self.playBtn setImage:[UIImage imageNamed:@"play" ] forState:(UIControlStateNormal)];
     }
+    isPlaying = !isPlaying;
+    [self.delegate onTapPlayButon:self];
 }
 @end

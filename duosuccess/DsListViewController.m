@@ -135,17 +135,17 @@
 
 -(IBAction)paperAction{
     
-    
+    NSString *cancelStr = NSLocalizedString(@"cancel", @"Cancel");
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:nil
                                   delegate:self
-                                  cancelButtonTitle:@"取消"
+                                  cancelButtonTitle:cancelStr
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:nil, nil];
     if([[DsFileStore sharedInstance] isPaperImageExists]){
-        [actionSheet addButtonWithTitle:@"Check my paper"];
+        [actionSheet addButtonWithTitle: NSLocalizedString(@"checkMyPaper", @"Check my paper")];
     }
-    [actionSheet addButtonWithTitle:@"Download new paper"];
+    [actionSheet addButtonWithTitle:NSLocalizedString(@"downloadPaper", @"Download new paper")];
     
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet setTag:1];

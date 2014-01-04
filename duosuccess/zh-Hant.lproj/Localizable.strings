@@ -8,4 +8,9 @@
 /* Localized versions of Info.plist keys */
 
 "mainTitle"="多成中醫";
+
+/** Paper section **/
 "myPaper" = "我的能纸";
+"cancel" = "取消";
+"checkMyPaper" = "我的能纸";
+"downloadPaper" ="下载新的能纸";

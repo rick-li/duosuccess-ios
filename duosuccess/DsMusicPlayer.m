@@ -33,13 +33,15 @@
 @synthesize elapsed;
 @synthesize remains;
 
-
+@synthesize isPlaying;
 
 + (id)sharedInstance {
     static DsMusicPlayer *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
         sharedInstance = [[self alloc] init];
+        sharedInstance.isPlaying = false;
     });
     
     [sharedInstance setupAudioSession];
@@ -54,7 +56,7 @@ NSTimer *oneHourTimer;
 
 
 - (void) playMedia:(NSString *)midPath{
-    //    [self.stopBtn setEnabled:TRUE];
+    isPlaying = true;
     elapsed = 0;
     remains = 60 * 60;
     [self stopMedia];
@@ -117,7 +119,7 @@ NSTimer *oneHourTimer;
     if(self.remains<0){
         self.remains = 0;
     }
-    if(self.elapsed >= 60 * 60){
+    if(self.elapsed >= 60 * 1){
         NSLog(@"1 hour arrived, calling music stop.");
         [self invalidateTimer];
         [self.delegate musicStop:self];
@@ -175,13 +177,13 @@ NSTimer *oneHourTimer;
 }
 
 - (void) stopMedia{
-    
+    isPlaying = false;
     if(player == nil ){
         return;
     }
-    Boolean isPlaying = FALSE;
-    MusicPlayerIsPlaying(player, &isPlaying);
-    if(!isPlaying){
+    Boolean isPlayerPlaying = FALSE;
+    MusicPlayerIsPlaying(player, &isPlayerPlaying);
+    if(!isPlayerPlaying){
         NSLog(@"not playing music, no need to stop.");
         return;
     }

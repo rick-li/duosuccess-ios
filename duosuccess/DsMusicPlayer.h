@@ -26,6 +26,8 @@
 
 @property MusicSequence mySequence;
 @property MusicPlayer player;
+@property bool isPlaying;
+
 @property id <DsMusicPlayerDelegate> delegate;
 
 - (void) playMedia:(NSString *)midPath;
