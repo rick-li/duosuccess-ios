@@ -11,29 +11,30 @@
 #import "DsDataStore.h"
 
 @interface DsMainListImpl()
-@property NSDictionary *selectedCategory;
+
 @end
 
 
 @implementation DsMainListImpl
 
-@synthesize selectedCategory;
+
+NSString *title;
 
 -(void) init: (DsListViewController*) lctrl{
     self.ctrl = lctrl;
     
-    if(self.selectedCategory == nil){
-        self.selectedCategory = [NSDictionary dictionaryWithObjects:@[@"hb9xA3ZwjR"] forKeys:@[@"objectId"]];
-    }
-    
-    lctrl.title = @"main page";
+    title = NSLocalizedString(@"mainTitle", @"Main Page by default");
     self.inited = true;
     
-
+    
 }
 
 -(void) setCategory: (NSDictionary*) lcategory{
     self.category = lcategory;
+}
+
+-(NSString*) getTitle{
+    return title;
 }
 
 -(void) loadArticle: (DsListViewController*) lctrl{
@@ -50,9 +51,9 @@
         return;
     }
     
-
+    
     NSDictionary *firstCategory = [categories objectAtIndex:0];
-
+    
     NSArray *introData = [store queryArticlesByCategory:[firstCategory valueForKey:@"objectId"] :0 :5];
     
     NSLog(@"intro data count %ul.", [introData count]);
@@ -68,8 +69,10 @@
         [articles addObjectsFromArray: partialArticles];
     }
     self.ctrl.tableArticles = articles;
-
+    
     [self.ctrl.tableView reloadData];
+    
+    lctrl.title = title;
     
 }
 

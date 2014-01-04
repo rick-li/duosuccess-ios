@@ -12,4 +12,5 @@
 
     @property(nonatomic, retain) IBOutlet UIImageView *paperView;
     @property(nonatomic, retain) IBOutlet UILabel *remainLabel;
+    @property(nonatomic, retain) IBOutlet UIView *remainContainer;
 @end

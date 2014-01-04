@@ -76,6 +76,9 @@
 {
     [self.navigationController setToolbarHidden:false];
     
+    self.title = [listDelegate getTitle];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -146,7 +149,7 @@
     
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet setTag:1];
-    [actionSheet showInView:self.view];
+    [actionSheet showFromToolbar:self.navigationController.toolbar];
     
 }
 
@@ -218,10 +221,18 @@
     NSString *title =[article valueForKey:@"title"];
     NSString *content =[article valueForKey:@"content"];
     NSString *imageUrl = [article valueForKey:@"imageUrl"];
+    NSDate *date = [article valueForKey:@"updatedAt"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle= kCFDateFormatterMediumStyle;
+    formatter.timeStyle = kCFDateFormatterMediumStyle;
     
-    articleCtrl.title = title;
+    
+    
+    articleCtrl.titleTxt = title;
+    articleCtrl.dateTxt = [formatter stringFromDate:date];
     articleCtrl.content = content;
     articleCtrl.imageUrl = imageUrl;
+    
     
     [self.navigationController pushViewController:self.articleCtrl animated:true];
 }

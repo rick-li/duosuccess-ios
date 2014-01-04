@@ -15,13 +15,17 @@
 
 @synthesize ctrl;
 
+NSString *title;
+
 -(void) init: (DsListViewController*) lctrl{
     self.ctrl = lctrl;
 
     self.inited = true;
     
 }
-
+-(NSString*) getTitle{
+    return title;
+}
 
 -(void) loadArticle: (DsListViewController*) lctrl{
     if(!self.inited){
@@ -43,7 +47,8 @@
         self.ctrl.tableArticles = @[];
     }
     [self.ctrl.tableView reloadData];
-    self.ctrl.title = [self.category valueForKey:@"name"];
+    title = [self.category valueForKey:@"name"];
+    ctrl.title = title;
 }
 
 @end

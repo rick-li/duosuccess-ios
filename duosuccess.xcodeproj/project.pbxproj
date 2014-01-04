@@ -12,7 +12,6 @@
 		BD02869B185736020043EFE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD02869A185736020043EFE6 /* CoreGraphics.framework */; };
 		BD02869D185736020043EFE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD02869C185736020043EFE6 /* UIKit.framework */; };
 		BD02869F185736020043EFE6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD02869E185736020043EFE6 /* CoreData.framework */; };
-		BD0286A5185736030043EFE6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD0286A3185736030043EFE6 /* InfoPlist.strings */; };
 		BD0286A7185736030043EFE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0286A6185736030043EFE6 /* main.m */; };
 		BD0286AB185736030043EFE6 /* DsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0286AA185736030043EFE6 /* DsAppDelegate.m */; };
 		BD0286AE185736030043EFE6 /* duosuccess.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD0286AC185736030043EFE6 /* duosuccess.xcdatamodeld */; };
@@ -101,6 +100,9 @@
 		BD413555185C3E610090C605 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD413554185C3E610090C605 /* Images.xcassets */; };
 		BD413558185C41340090C605 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413556185C41340090C605 /* tabbar.png */; };
 		BD413559185C41340090C605 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413557185C41340090C605 /* tabbar@2x.png */; };
+		BDF68F611877CD1400D3EDF3 /* duosuccess-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */; };
+		BDF68F661877D04B00D3EDF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F681877D04B00D3EDF3 /* Localizable.strings */; };
+		BDF68F6C1877E70C00D3EDF3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F6E1877E70C00D3EDF3 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,8 +122,6 @@
 		BD02869A185736020043EFE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BD02869C185736020043EFE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BD02869E185736020043EFE6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BD0286A2185736020043EFE6 /* duosuccess-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "duosuccess-Info.plist"; sourceTree = "<group>"; };
-		BD0286A4185736030043EFE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD0286A6185736030043EFE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BD0286A8185736030043EFE6 /* duosuccess-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "duosuccess-Prefix.pch"; sourceTree = "<group>"; };
 		BD0286A9185736030043EFE6 /* DsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DsAppDelegate.h; sourceTree = "<group>"; };
@@ -240,6 +240,12 @@
 		BD413554185C3E610090C605 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BD413556185C41340090C605 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 		BD413557185C41340090C605 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
+		BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "duosuccess-Info.plist"; sourceTree = "<group>"; };
+		BDF68F631877CD6800D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BDF68F671877D04B00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BDF68F691877D05200D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		BDF68F6D1877E70C00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BDF68F6F1877E71200D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -330,11 +336,12 @@
 		BD0286A1185736020043EFE6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BD0286A2185736020043EFE6 /* duosuccess-Info.plist */,
-				BD0286A3185736030043EFE6 /* InfoPlist.strings */,
+				BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */,
 				BD0286A6185736030043EFE6 /* main.m */,
 				BD0286A8185736030043EFE6 /* duosuccess-Prefix.pch */,
 				BD41351B185AF6440090C605 /* Settings.bundle */,
+				BDF68F681877D04B00D3EDF3 /* Localizable.strings */,
+				BDF68F6E1877E70C00D3EDF3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -623,6 +630,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hant",
 			);
 			mainGroup = BD02868C185736020043EFE6;
 			productRefGroup = BD028696185736020043EFE6 /* Products */;
@@ -648,9 +656,9 @@
 				BD413553185C36420090C605 /* list-item-bg@2x.png in Resources */,
 				BD413559185C41340090C605 /* tabbar@2x.png in Resources */,
 				BD4134F818596DF30090C605 /* SAMWebView-stop-button-mini@2x.png in Resources */,
-				BD0286A5185736030043EFE6 /* InfoPlist.strings in Resources */,
 				BD413543185C34450090C605 /* back6@2x.png in Resources */,
 				BD4134F618596DF30090C605 /* SAMWebView-safari-button@2x.png in Resources */,
+				BDF68F661877D04B00D3EDF3 /* Localizable.strings in Resources */,
 				BD413545185C34450090C605 /* menubar-7@2x.png in Resources */,
 				BD41350A1859A3F10090C605 /* piano.sf2 in Resources */,
 				BD41349518575AD80090C605 /* MainIphone.storyboard in Resources */,
@@ -659,7 +667,9 @@
 				BD4134E718596DF30090C605 /* SAMWebView-back-button-mini.png in Resources */,
 				BD413542185C34450090C605 /* back6.png in Resources */,
 				BD4134E418596DF30090C605 /* SAMWebView-action-button-mini@2x.png in Resources */,
+				BDF68F6C1877E70C00D3EDF3 /* InfoPlist.strings in Resources */,
 				BD4134AA185816D80090C605 /* DsTableCell.xib in Resources */,
+				BDF68F611877CD1400D3EDF3 /* duosuccess-Info.plist in Resources */,
 				BD4134E818596DF30090C605 /* SAMWebView-back-button-mini@2x.png in Resources */,
 				BD413558185C41340090C605 /* tabbar.png in Resources */,
 				BD4134E218596DF30090C605 /* Readme.markdown in Resources */,
@@ -792,18 +802,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BD0286A3185736030043EFE6 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BD0286A4185736030043EFE6 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		BD0286C0185736030043EFE6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BD0286C1185736030043EFE6 /* en */,
+				BDF68F631877CD6800D3EDF3 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BDF68F681877D04B00D3EDF3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDF68F671877D04B00D3EDF3 /* en */,
+				BDF68F691877D05200D3EDF3 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		BDF68F6E1877E70C00D3EDF3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDF68F6D1877E70C00D3EDF3 /* en */,
+				BDF68F6F1877E71200D3EDF3 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

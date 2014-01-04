@@ -24,6 +24,7 @@
 -(void) init: (NSObject*) ctrl;
 -(void) setCategory: (NSDictionary*) category;
 -(void) loadArticle: (id) ctrl;
+-(NSString*) getTitle;
 
 @end
 

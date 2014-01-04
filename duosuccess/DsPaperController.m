@@ -9,6 +9,7 @@
 #import "DsPaperController.h"
 #import "DsFileStore.h"
 #import "DsEventStore.h"
+#import "UIImage+iPhone5.h"
 
 @interface DsPaperController ()
 
@@ -18,6 +19,7 @@
 
 @synthesize paperView;
 @synthesize remainLabel;
+@synthesize remainContainer;
 
 DsFileStore *fileStore;
 DsEventStore *eventStore;
@@ -26,7 +28,6 @@ DsEventStore *eventStore;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
     }
     return self;
 }
@@ -34,6 +35,7 @@ DsEventStore *eventStore;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    remainContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar.png"]];
 	// Do any additional setup after loading the view.
     fileStore = [DsFileStore sharedInstance];
     eventStore = [DsEventStore sharedInstance];
@@ -61,12 +63,12 @@ DsEventStore *eventStore;
         self.remainLabel.text = @"Your paper expired, pls remove.";
     }else{
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        formatter.dateStyle= kCFDateFormatterMediumStyle;
+        formatter.dateStyle= kCFDateFormatterShortStyle;
         formatter.timeStyle = kCFDateFormatterMediumStyle;
         self.remainLabel.text = [@"Will expire at " stringByAppendingString:[formatter stringFromDate:dueDate]];
     }
 
-    self.title = @"My Paper";
+    self.title = NSLocalizedString(@"myPaper", @"My Paper");
 }
 
 -(void) deletePaper{

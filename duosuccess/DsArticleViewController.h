@@ -14,8 +14,11 @@
 @property(nonatomic, retain) IBOutlet  UIImageView *imageView;
 @property(nonatomic, retain) IBOutlet  UIWebView *contentView;
 @property(nonatomic, retain) IBOutlet  UIScrollView *containerView;
+@property(nonatomic, retain) IBOutlet  UILabel *titleView;
+@property(nonatomic, retain) IBOutlet  UILabel *dateView;
 
 @property NSString *imageUrl;
 @property NSString *content;
-
+@property NSString *titleTxt;
+@property NSString *dateTxt;
 @end

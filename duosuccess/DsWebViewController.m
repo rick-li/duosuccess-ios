@@ -139,40 +139,9 @@ DsFileStore *fileStore;
 }
 
 
-- (void)openActionSheet:(id)sender {
-	UIActionSheet *actionSheet = nil;
-	
-	if (![MFMailComposeViewController canSendMail]) {
-		actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy URL", nil];
-	} else {
-		actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Copy URL", @"Email URL", nil];
-	}
-    
-	if (self.navigationController) {
-		actionSheet.actionSheetStyle = (UIActionSheetStyle)self.navigationController.navigationBar.barStyle;
-	}
-	
-	[actionSheet showInView:self.navigationController.view];
-}
 
 
-- (void)copyURL:(id)sender {
-	[[UIPasteboard generalPasteboard] setURL:self.currentURL];
-}
 
-
-- (void)emailURL:(id)sender {
-	if (![MFMailComposeViewController canSendMail]) {
-		return;
-	}
-	
-	MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
-	controller.subject = self.title;
-	controller.mailComposeDelegate = self;
-	[controller setMessageBody:self.webView.lastRequest.mainDocumentURL.absoluteString isHTML:NO];
-    
-    [self presentViewController:controller animated:YES completion:nil];
-}
 
 
 #pragma mark - Private
@@ -296,12 +265,12 @@ DsFileStore *fileStore;
 											target:self
 											action:@selector(takeScreenshot:)];
     
-	UIBarButtonItem *actionSheetBarButtonItem = [[UIBarButtonItem alloc]
-												 initWithImage:[UIImage imageNamed:@"SAMWebView-action-button"]
-												 landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-action-button-mini"]
-												 style:UIBarButtonItemStylePlain
-												 target:self
-												 action:@selector(openActionSheet:)];
+//	UIBarButtonItem *actionSheetBarButtonItem = [[UIBarButtonItem alloc]
+//												 initWithImage:[UIImage imageNamed:@"SAMWebView-action-button"]
+//												 landscapeImagePhone:[UIImage imageNamed:@"SAMWebView-action-button-mini"]
+//												 style:UIBarButtonItemStylePlain
+//												 target:self
+//												 action:@selector(openActionSheet:)];
 
 	
 	UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]
@@ -315,13 +284,13 @@ DsFileStore *fileStore;
     
     
     [reloadBarButtonItem setTintColor: white];
-    [actionSheetBarButtonItem  setTintColor: white];
+//    [actionSheetBarButtonItem  setTintColor: white];
     [screenshotButtonItem setTintColor:white];
     [_backBarButtonItem setTintColor: white];
     [_forwardBarButtonItem setTintColor: white];
     
 	self.toolbarItems = @[fixedSpace, self.backBarButtonItem, flexibleSpace, self.forwardBarButtonItem, flexibleSpace,
-                          reloadBarButtonItem, flexibleSpace, screenshotButtonItem, flexibleSpace, actionSheetBarButtonItem, fixedSpace];
+                          reloadBarButtonItem, flexibleSpace, screenshotButtonItem];
 	
     // Close button
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -376,20 +345,8 @@ DsFileStore *fileStore;
 }
 
 
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-	if (buttonIndex == 0) {
-		[self copyURL:actionSheet];
-	}
-    else if (buttonIndex == 1) {
-		[self emailURL:actionSheet];
-	}
-}
 
 //start music part
-
-
 - (void)onTapPlayButon: (DsMusicControll *)sender{
     [self clearCache];
     [self.musicPlayer stopMedia];

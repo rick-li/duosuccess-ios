@@ -22,6 +22,10 @@
 
 @synthesize imageUrl;
 @synthesize content;
+@synthesize titleTxt;
+@synthesize dateTxt;
+@synthesize titleView;
+@synthesize dateView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,12 +51,14 @@
     [self.contentView loadHTMLString:self.content baseURL:baseUrl];
     self.contentView.scrollView.scrollEnabled = false;
     self.contentView.delegate = self;
+    self.titleView.text=titleTxt;
+    self.dateView.text = dateTxt;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setToolbarHidden:true];
-    self.navigationController.navigationBar.topItem.title = @"   ";
+//    self.navigationController.navigationBar.topItem.title = @"   ";
     self.containerView.scrollEnabled = true;
 
 }

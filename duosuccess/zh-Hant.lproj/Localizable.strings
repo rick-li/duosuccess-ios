@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  duosuccess
+
+  Created by Rick Li on 1/4/14.
+  Copyright (c) 2014 Rick Li. All rights reserved.
+*/
+/* Localized versions of Info.plist keys */
+
+"mainTitle"="多成中醫";
+"myPaper" = "我的能纸";
