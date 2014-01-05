@@ -9,9 +9,9 @@ env:
   - secure: eUERbuGk9U9JKO9fO//qYtVT/a8a0HBumcIFRiRkMEgij43Qts3Ojg4RhiMlC2u9kXWLmxqZZC/5qF2s/roI2pC0F7W4eGgL5IdJUQPeJ8FSV36R42yPabryE+f+hpZsitJeQzZLWyfSlWBEsSXvMYX9lba+WnHFNlS+nmW7SMA=
   - secure: A4JeufdX9KtW3mF8uFNnII+wIIaiRGcWBq3sHQQu5d0BZvOYEMJGnTam2JRiX8ajDc7eu+DqOz8CT5gJjQx9uma5bHX/QKId9o8GP4OUu9HTmqSjtPpOV8mL13ghU9n9xT3cSFwXtGQEhkVuN+s6MF0bHOWqfVrzU//VQHV9HfI=
 before_script:
-  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/duosucessdistribute.mobileprovision.enc -d -a -out scripts/profile/duosucessdistribute.mobileprovision
-  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.enc -d -a -out scripts/certs/dist.cer
-  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/profile/duosuccessdistribute.mobileprovision.enc -d -a -out ./scripts/profile/duosuccessdistribute.mobileprovision
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/certs/dist.enc -d -a -out ./scripts/certs/dist.cer
+  - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/certs/dist.p12.enc -d -a -out ./scripts/certs/dist.p12
   - ./scripts/add-key.sh
   - ./scripts/update-bundle.sh
 script:
