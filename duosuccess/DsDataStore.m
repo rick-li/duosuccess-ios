@@ -25,9 +25,28 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+NSString *appVersion;
+BOOL isUnderCensor;
+
+-(BOOL) isCensorMode{
+    return isUnderCensor;
+}
+
 -(void) syncData{
-    [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
+    if(DEBUG==1){
+        [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
                   clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
+    }else{
+        [Parse setApplicationId:@"L8yb6OqqvqHZhwViBea5xCWAgtRtow0R3CtDjz1E"
+                      clientKey:@"RtwyX72VmvloGfsN7y5ptELaMaQNqQQAD03eWFgP"];
+    }
+    
+    appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    
+    NSLog(@"===My app version is %@.", appVersion);
+    [self queryCensorStatus];
+    
+    
     //sync lang, category, article
     [self syncData:@"DsLang" withPfType:@"Lang"];
     
@@ -38,6 +57,16 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"articleUpdated" object:nil];
 }
 
+-(void)queryCensorStatus{
+    PFQuery *query = [PFQuery queryWithClassName:@"Censor"];
+    [query whereKey:@"version" equalTo:appVersion];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
+        PFObject *obj = [results objectAtIndex:0];
+//        isUnderCensor = (BOOL)[obj valueForKey:@"underCensor"];
+        isUnderCensor = [obj[@"underCensor"] boolValue];
+        NSLog(@"Is Under censor, %d", isUnderCensor);
+    }];
+}
 
 -(void)setLangAttrs:(NSManagedObject *)mObj fromPfObj: (PFObject *) pfObj{
     NSString *objectIdVal = pfObj.objectId;

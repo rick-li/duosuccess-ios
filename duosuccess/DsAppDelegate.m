@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSLog(@"==didFinishLaunchingWithOptions==");
-    
+
     [[DsDataStore sharedInstance] syncData];
     
     

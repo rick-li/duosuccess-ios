@@ -120,9 +120,13 @@
 }
 
 -(IBAction)musicAction{
-    UIViewController *musicCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"musicController"];
-    
-    [self.navigationController pushViewController:musicCtrl animated:true];
+    if([[DsDataStore sharedInstance] isCensorMode]){
+        [self startWebBrowser:@"https://www.duosuccess.com/tcm/001a01080301b01aj.htm"];
+    }else{
+        UIViewController *musicCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"musicController"];
+        [self.navigationController pushViewController:musicCtrl animated:true];
+
+    }
 }
 
 -(IBAction)browserAction{
@@ -153,6 +157,18 @@
     
 }
 
+-(void)startWebBrowser:(NSString *)pUrl{
+    NSString *url = @"https://www.duosuccess.com";
+    if(pUrl){
+        url = pUrl;
+    }
+    DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
+    webViewCtrl.displayWebViewByDefault = true;
+    [webViewCtrl.webView loadURLString:url];
+    [self.navigationController pushViewController:webViewCtrl animated:true];
+    
+}
+
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if([actionSheet tag] == 1){
@@ -165,19 +181,12 @@
                 
                 [self.navigationController pushViewController:pCtrl animated:true];
             }else{
-                DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
-                webViewCtrl.displayWebViewByDefault = true;
-                [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
-                [self.navigationController pushViewController:webViewCtrl animated:true];
-                
+                [self startWebBrowser:nil];
             }
             
         }
         else if (buttonIndex == 2) {
-            DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
-            webViewCtrl.displayWebViewByDefault = true;
-            [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
-            [self.navigationController pushViewController:webViewCtrl animated:true];
+            [self startWebBrowser:nil];
         }
     }
 }

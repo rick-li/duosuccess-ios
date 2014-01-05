@@ -18,6 +18,8 @@
 
 -(void) syncData;
 
+-(BOOL) isCensorMode;
+
 -(NSArray*) queryLang;
 -(NSArray*) queryCategories;
 -(NSArray*) queryArticlesByCategory: (NSString*)categoryId;

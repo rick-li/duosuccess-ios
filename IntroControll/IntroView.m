@@ -14,7 +14,7 @@
         [titleLabel setShadowOffset:CGSizeMake(1, 1)];
         [titleLabel setBackgroundColor:[UIColor clearColor]];
         [titleLabel sizeToFit];
-        [titleLabel setCenter:CGPointMake(frame.size.width/2, frame.size.height-100)];
+        [titleLabel setCenter:CGPointMake(frame.size.width/2, frame.size.height-80)];
         [self addSubview:titleLabel];
         
         UILabel *descriptionLabel = [[UILabel alloc] init];
@@ -30,10 +30,10 @@
       
         CGSize s = [descriptionLabel.text sizeWithFont:descriptionLabel.font constrainedToSize:CGSizeMake(frame.size.width-40, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
         
-        //three lines height
-        CGSize three = [@"1 \n 2 \n 3" sizeWithFont:descriptionLabel.font constrainedToSize:CGSizeMake(frame.size.width-40, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+        //two lines height
+        CGSize two = [@"1 \n 2" sizeWithFont:descriptionLabel.font constrainedToSize:CGSizeMake(frame.size.width-40, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
         
-        descriptionLabel.frame = CGRectMake((self.frame.size.width-s.width)/2, titleLabel.frame.origin.y+titleLabel.frame.size.height+4,s.width, MIN(s.height, three.height));
+        descriptionLabel.frame = CGRectMake((self.frame.size.width-s.width)/2, titleLabel.frame.origin.y+titleLabel.frame.size.height+4,s.width, MIN(s.height, two.height));
         
         NSLog(@"%f", s.height);
 

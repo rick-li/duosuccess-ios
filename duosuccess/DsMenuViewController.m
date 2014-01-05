@@ -58,7 +58,7 @@
     }
     self.categories = [[NSMutableArray alloc] init];
     
-    [self.categories addObject:[NSDictionary dictionaryWithObjects:@[@"", @"main"] forKeys:@[@"objectId",@"name"]]];
+    [self.categories addObject:[NSDictionary dictionaryWithObjects:@[@"", NSLocalizedString(@"mainTitle", @"duosuccess")] forKeys:@[@"objectId",@"name"]]];
     [self.categories addObjectsFromArray:categoriesFromDB];
     
     
