@@ -10,15 +10,14 @@ env:
 before_install: 
   - gem install cocoapods
 before_script:
-
-script:
-  - xctool -workspace duosuccess.xcworkspace -scheme duosuccess -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO TESTFLIGHT_APP_TOKEN=$TESTFLIGHT_APP_TOKEN 
-after_script:
   - ls -al 
   - ls ./scripts/profile
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/profile/duosuccessdistribute.mobileprovision.enc -d -a -out ./scripts/profile/duosuccessdistribute.mobileprovision
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/certs/dist.enc -d -a -out ./scripts/certs/dist.cer
   - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/certs/dist.p12.enc -d -a -out ./scripts/certs/dist.p12
+script:
+  - xctool -workspace duosuccess.xcworkspace -scheme duosuccess -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO TESTFLIGHT_APP_TOKEN=$TESTFLIGHT_APP_TOKEN 
+after_script:
   - ./scripts/add-key.sh
   - ./scripts/update-bundle.sh
   - ./scripts/remove-key.sh
