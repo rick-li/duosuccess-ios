@@ -32,6 +32,12 @@ BOOL isUnderCensor;
     return isUnderCensor;
 }
 
+#ifdef DEBUG
+
+#else
+    #define DEBUG 0
+#endif
+
 -(void) syncData{
     if(DEBUG==1){
         [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"

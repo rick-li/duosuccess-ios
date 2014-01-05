@@ -1,0 +1,9 @@
+language: |-
+  objective-c - xctool -workspace duosuccess.xcworkspace -scheme duosuccess -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -workspace duosuccess.xcworkspace -scheme duosuccess -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+env:
+  global:
+  - APP_NAME="duosuccess"
+  - 'DEVELOPER_NAME="iPhone Distribution: Rick Li (MM2B8W94AH)"'
+  - PROFILE_NAME="duosuccessdistribute"
+    secure: e1vQDX+jmaQGxvHlTB2DOeIp3OARvB6s5ccR04agF2Ipp3IixZ4QsQx3Wwfkqq/r5vb//MGNDMUYXsiyaVCp3Dl/oAzf5osnC8XQ7QNYMhbkkXprEK0m2q+gU9Wo0qOl8WKUFeX2LNrr9ZChYclF2vR0FzgYiHg1Q+ASvCqxlIs=
