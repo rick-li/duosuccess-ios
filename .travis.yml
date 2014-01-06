@@ -1,4 +1,5 @@
 language: objective-c
+rvm: 1.9.3
 cache: bundler
 env:
   global:
@@ -10,7 +11,7 @@ env:
   - secure: ZVQzG+/Xm9rdlneH5W/O+98TQz3OWGsJ8eP8TW1xuIwgWqjh2bgfJpAhkP6IGaZkB8sWZhgW20BjrgdmX3gfPtXBNP91iNrEBex/DLu86T3lCcbaroT/3RfuXF9b10FtkGqiIQG7cNmVs320d9PVI51qbbrCymugtj4PnMCL2bA=
   - secure: ag4wXH3Uc2+tMW1rjP82B3ypgwEqlEDuyxMJxHg1NIXP/V9rE9zccZXGuAWHeDp9wtcj3F08tuJ8WMiu4v67VToKFdBuEuhjqbMiqvujHpL3fKrfQuNd3ZuH9B++bTyW7u21GzIER1V35Gz2GcyKkxuyiVvwQ/zho6sOOP/vvXU=
 before_install:
-- gem install cocoapods
+#- gem install cocoapods
 before_script:
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/profile/duosuccessdistribute.mobileprovision.enc
   -d -a -out ./scripts/profile/duosuccessdistribute.mobileprovision
@@ -18,14 +19,12 @@ before_script:
   -a -out ./scripts/certs/dist.cer
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/certs/dist.p12.enc -d
   -a -out ./scripts/certs/dist.p12
-script:
 - ./scripts/add-key.sh
 - ./scripts/update-bundle.sh
-- xctool -workspace duosuccess.xcworkspace -scheme duosuccess -sdk iphoneos -configuration
-  Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO TESTFLIGHT_APP_TOKEN=$TESTFLIGHT_APP_TOKEN
+script:
+
+- xctool -workspace duosuccess.xcworkspace -scheme duosuccess -sdk iphoneos -configuration Release OBJROOT=$PWD/build SYMROOT=$PWD/build ONLY_ACTIVE_ARCH=NO TESTFLIGHT_APP_TOKEN=$TESTFLIGHT_APP_TOKEN
 after_script:
-- ls -al
-- ls ./scripts/profile
 - ./scripts/remove-key.sh
 after_success:
 - ./scripts/sign-and-upload.sh
