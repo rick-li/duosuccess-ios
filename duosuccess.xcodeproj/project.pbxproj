@@ -108,9 +108,9 @@
 		BD652AE4187AB345005FB4C3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AE3187AB345005FB4C3 /* CFNetwork.framework */; };
 		BD652AE6187AB34D005FB4C3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AE5187AB34D005FB4C3 /* StoreKit.framework */; };
 		BD652AE8187AB372005FB4C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AE7187AB372005FB4C3 /* SystemConfiguration.framework */; };
-		BD652AEA187AB4D1005FB4C3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AE9187AB4D1005FB4C3 /* Parse.framework */; };
-		BD652AEC187AB906005FB4C3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AEB187AB906005FB4C3 /* FacebookSDK.framework */; };
 		BD652AEE187ABA09005FB4C3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AED187ABA09005FB4C3 /* MobileCoreServices.framework */; };
+		BD652AF1187AD7C8005FB4C3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AEF187AD7C8005FB4C3 /* FacebookSDK.framework */; };
+		BD652AF2187AD7C8005FB4C3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AF0187AD7C8005FB4C3 /* Parse.framework */; };
 		BDF68F611877CD1400D3EDF3 /* duosuccess-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */; };
 		BDF68F661877D04B00D3EDF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F681877D04B00D3EDF3 /* Localizable.strings */; };
 		BDF68F6C1877E70C00D3EDF3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F6E1877E70C00D3EDF3 /* InfoPlist.strings */; };
@@ -260,9 +260,9 @@
 		BD652AE3187AB345005FB4C3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BD652AE5187AB34D005FB4C3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BD652AE7187AB372005FB4C3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		BD652AE9187AB4D1005FB4C3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		BD652AEB187AB906005FB4C3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		BD652AED187ABA09005FB4C3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BD652AEF187AD7C8005FB4C3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Frameworks/FacebookSDK.framework; sourceTree = "<group>"; };
+		BD652AF0187AD7C8005FB4C3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "duosuccess-Info.plist"; sourceTree = "<group>"; };
 		BDF68F631877CD6800D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BDF68F671877D04B00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -281,8 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD652AEE187ABA09005FB4C3 /* MobileCoreServices.framework in Frameworks */,
+				BD652AF1187AD7C8005FB4C3 /* FacebookSDK.framework in Frameworks */,
 				BD652AE8187AB372005FB4C3 /* SystemConfiguration.framework in Frameworks */,
-				BD652AEC187AB906005FB4C3 /* FacebookSDK.framework in Frameworks */,
 				BD652AE6187AB34D005FB4C3 /* StoreKit.framework in Frameworks */,
 				BD652AE4187AB345005FB4C3 /* CFNetwork.framework in Frameworks */,
 				BD652AE2187AB310005FB4C3 /* Security.framework in Frameworks */,
@@ -292,9 +292,9 @@
 				BD652AD8187AB284005FB4C3 /* libz.1.1.3.dylib in Frameworks */,
 				BD41350718599FAC0090C605 /* AudioToolbox.framework in Frameworks */,
 				BD41350518599F940090C605 /* AVFoundation.framework in Frameworks */,
-				BD652AEA187AB4D1005FB4C3 /* Parse.framework in Frameworks */,
 				BD41350318599F8C0090C605 /* CoreAudio.framework in Frameworks */,
 				BD4134FE185981310090C605 /* MessageUI.framework in Frameworks */,
+				BD652AF2187AD7C8005FB4C3 /* Parse.framework in Frameworks */,
 				BD02869B185736020043EFE6 /* CoreGraphics.framework in Frameworks */,
 				BD02869F185736020043EFE6 /* CoreData.framework in Frameworks */,
 				BD02869D185736020043EFE6 /* UIKit.framework in Frameworks */,
@@ -342,9 +342,9 @@
 		BD028697185736020043EFE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD652AEF187AD7C8005FB4C3 /* FacebookSDK.framework */,
+				BD652AF0187AD7C8005FB4C3 /* Parse.framework */,
 				BD652AED187ABA09005FB4C3 /* MobileCoreServices.framework */,
-				BD652AEB187AB906005FB4C3 /* FacebookSDK.framework */,
-				BD652AE9187AB4D1005FB4C3 /* Parse.framework */,
 				BD652AE7187AB372005FB4C3 /* SystemConfiguration.framework */,
 				BD652AE5187AB34D005FB4C3 /* StoreKit.framework */,
 				BD652AE3187AB345005FB4C3 /* CFNetwork.framework */,
@@ -970,6 +970,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/rickli/Documents/apps/duosuccess-https",
+					"/Users/rickli/Documents/apps/duosuccess-https/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
@@ -992,6 +993,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/rickli/Documents/apps/duosuccess-https",
+					"/Users/rickli/Documents/apps/duosuccess-https/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
