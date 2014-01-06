@@ -39,16 +39,16 @@ BOOL isUnderCensor;
 #endif
 
 -(void) syncData{
-    if(DEBUG==1){
-        [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
-                  clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
-    }else{
-        [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
-                      clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
-//        [Parse setApplicationId:@"L8yb6OqqvqHZhwViBea5xCWAgtRtow0R3CtDjz1E"
-//                      clientKey:@"RtwyX72VmvloGfsN7y5ptELaMaQNqQQAD03eWFgP"];
-    }
     
+    
+    if(DEBUG==1){
+            [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
+        clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
+    }else{
+        [Parse setApplicationId:@"L8yb6OqqvqHZhwViBea5xCWAgtRtow0R3CtDjz1E"
+                      clientKey:@"KmDVN8meSLM9QjYE5wsrbVMtmWpbLo0MYxpAFFCR"];
+    }
+
     appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     
     NSLog(@"===My app version is %@.", appVersion);
@@ -135,7 +135,7 @@ BOOL isUnderCensor;
     
     NSString *categoryId = ((PFObject *)pfObj[@"category"]).objectId;
     [mObj setValue:categoryId forKey:@"categoryId"];
-    
+//    pfObj 
     PFObject *image = (PFObject *)pfObj[@"image"];
     [image fetchIfNeeded];
     if(image != nil){
@@ -169,6 +169,8 @@ BOOL isUnderCensor;
     
     PFQuery *query = [PFQuery queryWithClassName:pfType];
     [query whereKey:@"updatedAt" greaterThan:lastSavePoint];
+    [query includeKey:@"image"];
+    [query includeKey:@"category"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(error != nil){
             NSLog(@"retrieve error %@.", error);
