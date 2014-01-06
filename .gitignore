@@ -20,5 +20,8 @@ DerivedData
 #CocoaPods
 Pods
 
-scripts/local-env.sh
+local-build.sh
 build
+*.cer
+*.p12
+*.mobileprovision
