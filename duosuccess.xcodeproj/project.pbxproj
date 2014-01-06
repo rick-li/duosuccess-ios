@@ -77,7 +77,6 @@
 		BD41350318599F8C0090C605 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41350218599F8C0090C605 /* CoreAudio.framework */; };
 		BD41350518599F940090C605 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41350418599F940090C605 /* AVFoundation.framework */; };
 		BD41350718599FAC0090C605 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD41350618599FAC0090C605 /* AudioToolbox.framework */; };
-		BD41350A1859A3F10090C605 /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = BD4135091859A3F10090C605 /* piano.sf2 */; };
 		BD41350C1859A9F60090C605 /* DsMusicControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD41350B1859A9F60090C605 /* DsMusicControl.xib */; };
 		BD41350F1859ADE30090C605 /* DsMusicControll.m in Sources */ = {isa = PBXBuildFile; fileRef = BD41350E1859ADE30090C605 /* DsMusicControll.m */; };
 		BD413512185AB4420090C605 /* DsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD413511185AB4420090C605 /* DsWebViewController.m */; };
@@ -100,6 +99,7 @@
 		BD413555185C3E610090C605 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD413554185C3E610090C605 /* Images.xcassets */; };
 		BD413558185C41340090C605 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413556185C41340090C605 /* tabbar.png */; };
 		BD413559185C41340090C605 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD413557185C41340090C605 /* tabbar@2x.png */; };
+		BD652AD4187A63B0005FB4C3 /* piano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = BD652AD3187A63B0005FB4C3 /* piano.sf2 */; };
 		BDF68F611877CD1400D3EDF3 /* duosuccess-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */; };
 		BDF68F661877D04B00D3EDF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F681877D04B00D3EDF3 /* Localizable.strings */; };
 		BDF68F6C1877E70C00D3EDF3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F6E1877E70C00D3EDF3 /* InfoPlist.strings */; };
@@ -212,7 +212,6 @@
 		BD41350218599F8C0090C605 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		BD41350418599F940090C605 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BD41350618599FAC0090C605 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		BD4135091859A3F10090C605 /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = piano.sf2; path = "../midi-browser/ios/Resources/piano.sf2"; sourceTree = "<group>"; };
 		BD41350B1859A9F60090C605 /* DsMusicControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DsMusicControl.xib; sourceTree = "<group>"; };
 		BD41350D1859ADE30090C605 /* DsMusicControll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMusicControll.h; sourceTree = "<group>"; };
 		BD41350E1859ADE30090C605 /* DsMusicControll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMusicControll.m; sourceTree = "<group>"; };
@@ -240,14 +239,15 @@
 		BD413554185C3E610090C605 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BD413556185C41340090C605 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 		BD413557185C41340090C605 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
+		BD652AD3187A63B0005FB4C3 /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.sf2; sourceTree = "<group>"; };
 		BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "duosuccess-Info.plist"; sourceTree = "<group>"; };
 		BDF68F631877CD6800D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		BDF68F671877D04B00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BDF68F691877D05200D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		BDF68F6D1877E70C00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BDF68F6F1877E71200D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		BDF68F701878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		BDF68F711878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BDF68F671877D04B00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BDF68F691877D05200D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		BDF68F6D1877E70C00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BDF68F6F1877E71200D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BDF68F701878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		BDF68F711878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BDF68F721878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -505,8 +505,8 @@
 		BD4135081859A3D00090C605 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BD652AD3187A63B0005FB4C3 /* piano.sf2 */,
 				BD41351D185C31B30090C605 /* images */,
-				BD4135091859A3F10090C605 /* piano.sf2 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -663,8 +663,8 @@
 				BD413543185C34450090C605 /* back6@2x.png in Resources */,
 				BD4134F618596DF30090C605 /* SAMWebView-safari-button@2x.png in Resources */,
 				BDF68F661877D04B00D3EDF3 /* Localizable.strings in Resources */,
+				BD652AD4187A63B0005FB4C3 /* piano.sf2 in Resources */,
 				BD413545185C34450090C605 /* menubar-7@2x.png in Resources */,
-				BD41350A1859A3F10090C605 /* piano.sf2 in Resources */,
 				BD41349518575AD80090C605 /* MainIphone.storyboard in Resources */,
 				BD4134E118596DF30090C605 /* LICENSE in Resources */,
 				BD4134ED18596DF30090C605 /* SAMWebView-forward-button.png in Resources */,
