@@ -43,8 +43,10 @@ BOOL isUnderCensor;
         [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
                   clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
     }else{
-        [Parse setApplicationId:@"L8yb6OqqvqHZhwViBea5xCWAgtRtow0R3CtDjz1E"
-                      clientKey:@"RtwyX72VmvloGfsN7y5ptELaMaQNqQQAD03eWFgP"];
+        [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
+                      clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
+//        [Parse setApplicationId:@"L8yb6OqqvqHZhwViBea5xCWAgtRtow0R3CtDjz1E"
+//                      clientKey:@"RtwyX72VmvloGfsN7y5ptELaMaQNqQQAD03eWFgP"];
     }
     
     appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
