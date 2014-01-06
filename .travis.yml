@@ -8,9 +8,10 @@ env:
   - secure: M42tuTGPuncorIPr0BHFGO/064LbU/KmO5gwFWNWuwKhLvppCP5bw3AqY1IaH5xrhqYM7SooZj3FVAwLMbjbaZ+N4+IBHujB/F9JMjgrxOjoCG4du+tdUVHZZKeDgrDql/5sBKxEjXGDXshcx4LkhXMMFwXW7gDVhzt4nzxRC8Y=
   - secure: XFWJtRCSFJWTBMG1gg55zay7uh0qy32sLKmyjVNeduGErOXiK4hBM7X2/p+PSOJCHvai8ZTiwZv7LcPmBePUOzl6gO7LfEooYAhx7/R5qWYQ5f4ZhBwunc6qucmKCxHBhC1QjxVLumwBcmGm7ry+uP+YG32yBZCpsBQpMkrQmgw=
   - secure: ZVQzG+/Xm9rdlneH5W/O+98TQz3OWGsJ8eP8TW1xuIwgWqjh2bgfJpAhkP6IGaZkB8sWZhgW20BjrgdmX3gfPtXBNP91iNrEBex/DLu86T3lCcbaroT/3RfuXF9b10FtkGqiIQG7cNmVs320d9PVI51qbbrCymugtj4PnMCL2bA=
+  - secure: ag4wXH3Uc2+tMW1rjP82B3ypgwEqlEDuyxMJxHg1NIXP/V9rE9zccZXGuAWHeDp9wtcj3F08tuJ8WMiu4v67VToKFdBuEuhjqbMiqvujHpL3fKrfQuNd3ZuH9B++bTyW7u21GzIER1V35Gz2GcyKkxuyiVvwQ/zho6sOOP/vvXU=
 before_install:
 - gem install cocoapods
-before_script: 
+before_script:
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/profile/duosuccessdistribute.mobileprovision.enc
   -d -a -out ./scripts/profile/duosuccessdistribute.mobileprovision
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in ./scripts/certs/dist.cer.enc -d
