@@ -48,40 +48,51 @@
 
 - (void)loadCategories
 {
+    NSLog(@"load Categories.");
     
-    if(self.tableView != nil){
-        [self.tableView removeFromSuperview];
-    }
     NSArray *categoriesFromDB = [[DsDataStore sharedInstance] queryCategories];
     if([categoriesFromDB count] <= 0){
         return;
     }
     self.categories = [[NSMutableArray alloc] init];
     
-    [self.categories addObject:[NSDictionary dictionaryWithObjects:@[@"", NSLocalizedString(@"mainTitle", @"duosuccess")] forKeys:@[@"objectId",@"name"]]];
+    [self.categories addObject:[NSDictionary dictionaryWithObjects:@[@"main", NSLocalizedString(@"mainTitle", @"duosuccess")] forKeys:@[@"objectId",@"name"]]];
     [self.categories addObjectsFromArray:categoriesFromDB];
     
-    
-
-    
     int count = self.categories.count;
-        NSLog(@"categories count %ul.", count);
-	self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * count) / 2.0f, self.view.frame.size.width, 54 * count) style:UITableViewStylePlain];
-        tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        tableView.opaque = NO;
-        tableView.backgroundColor = [UIColor clearColor];
-        
-        tableView.backgroundView = nil;
-        tableView.backgroundColor = [UIColor clearColor];
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        tableView.bounces = NO;
-        tableView.scrollsToTop = NO;
-        tableView;
-    });
-    [self.view addSubview:self.tableView];
+    NSLog(@"categories count %ul.", count);
+    NSLog(@"Menu Container height is %f.", self.view.frame.size.height);
+    if(!self.tableView){
+        self.tableView = ({
+            int y = (self.view.frame.size.height - 54 * count) / 2.0f;
+
+            NSLog(@"y is %d ",y);
+            UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, 54 * count) style:UITableViewStylePlain];
+            
+            tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
+            tableView.delegate = self;
+            tableView.dataSource = self;
+            tableView.opaque = NO;
+            tableView.backgroundView = nil;
+            tableView.backgroundColor = [UIColor clearColor];
+            tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            tableView.bounces = NO;
+            tableView.scrollsToTop = NO;
+            tableView;
+        });
+        [self.view addSubview:self.tableView];
+    }else{
+
+        int y = (self.view.frame.size.height - 54 * count) / 2.0f;
+        int w = self.view.frame.size.width;
+        NSLog(@"y is %d ",y);
+        self.tableView.frame = CGRectMake(0, 120, w, 54 * count);
+
+        [self.tableView reloadData];
+    }
+    
+    
+    
 }
 
 
@@ -119,8 +130,8 @@
             self.listCtrl = [sb instantiateViewControllerWithIdentifier:@"listController"];
         }
     }
-
-    if([@"main" isEqualToString: [category valueForKey:@"name"]]){
+    
+    if([@"main" isEqualToString: [category valueForKey:@"objectId"]]){
         self.listCtrl.listDelegate = self.mainList;
         [self.mainList loadArticle:self.listCtrl];
     }else{
