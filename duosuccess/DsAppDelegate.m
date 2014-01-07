@@ -49,10 +49,16 @@
     return YES;
 }
 
+
+- (void)application:didFailToRegisterForRemoteNotificationsWithError{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误" message: @"无法接收推送" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alert show];
+}
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Notification registered" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-    [alert show];
+    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"aaNotification registered with device %@", newDeviceToken] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+//    [alert show];
     NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken.... ");
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
@@ -62,13 +68,13 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     
     [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if(succeeded){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Installation saved successfully" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-            [alert show];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Installation saved successfully" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+//            [alert show];
             NSLog(@"Installation saved successfully.");
         }else{
             NSLog(@"Error %@", error.description);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:error.description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-            [alert show];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:error.description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+//            [alert show];
         }
     }];
 }
