@@ -8,7 +8,8 @@
 /* Localized versions of Info.plist keys */
 
 
-"mainTitle"="Duosuccess";
+/*"mainTitle"="Duosuccess";*/
+"mainTitle"="main title";
 
 "energyPaper"="Energy Paper";
 "myPaper" = "My Energy Paper";

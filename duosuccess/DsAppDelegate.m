@@ -18,30 +18,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSLog(@"==didFinishLaunchingWithOptions==");
-
+    
     [[DsDataStore sharedInstance] syncData];
     
     
     UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
     if (idiom == UIUserInterfaceIdiomPad)
     {
-//        [self customizeiPadTheme];
+        //        [self customizeiPadTheme];
         
-//        [self iPadInit];
+        //        [self iPadInit];
     }
     else
     {
         [self customizeiPhoneTheme];
         
-//        [self configureiPhoneTabBar];
+        //        [self configureiPhoneTabBar];
     }
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-
+    
     [application registerForRemoteNotificationTypes:
      UIRemoteNotificationTypeBadge |
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
+    NSLog(@"Register notification successfully.");
     
     NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     [[DsNotificationReceiver sharedInstance] receiveNotifiaction:notificationPayload];
@@ -50,14 +51,26 @@
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Notification registered" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alert show];
     NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken.... ");
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
     NSString *lang = [[[DsDataStore sharedInstance] defaultLang] valueForKey:@"code"];
     [currentInstallation addUniqueObject:lang forKey:@"channels"];
-    [currentInstallation saveInBackground];
+    
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if(succeeded){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Installation saved successfully" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+            NSLog(@"Installation saved successfully.");
+        }else{
+            NSLog(@"Error %@", error.description);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:error.description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }];
 }
 
 - (void)application:(UIApplication *)application
@@ -82,9 +95,9 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     
     
     UIImage *barButton = [[UIImage tallImageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
-//    if(![Utils isVersion6AndBelow])
-//        barButton = [[UIImage tallImageNamed:@"menubar-button-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
-//
+    //    if(![Utils isVersion6AndBelow])
+    //        barButton = [[UIImage tallImageNamed:@"menubar-button-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
+    //
     if([Utils isVersion6AndBelow]){
         [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
                                               barMetrics:UIBarMetricsDefault];
@@ -112,21 +125,21 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     [[UIToolbar appearance] setBackgroundImage:toolbarBg forToolbarPosition:UIBarPositionBottom barMetrics:UIBarMetricsDefault];
     
     
-//    UIImage *minImage = [UIImage tallImageNamed:@"ipad-slider-fill"];
-//    UIImage *maxImage = [UIImage tallImageNamed:@"ipad-slider-track.png"];
-//    UIImage *thumbImage = [UIImage tallImageNamed:@"ipad-slider-handle.png"];
-//    
-//    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
-//    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
-//    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
-//    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
-//    
-//    UIImage* tabBarBackground = [UIImage tallImageNamed:@"tabbar.png"];
-//    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-//    
-//    
-//    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage tallImageNamed:@"tabbar-active.png"]];
-//    
+    //    UIImage *minImage = [UIImage tallImageNamed:@"ipad-slider-fill"];
+    //    UIImage *maxImage = [UIImage tallImageNamed:@"ipad-slider-track.png"];
+    //    UIImage *thumbImage = [UIImage tallImageNamed:@"ipad-slider-handle.png"];
+    //
+    //    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
+    //    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
+    //    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
+    //    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
+    //
+    //    UIImage* tabBarBackground = [UIImage tallImageNamed:@"tabbar.png"];
+    //    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    //
+    //
+    //    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage tallImageNamed:@"tabbar-active.png"]];
+    //
 }
 
 
@@ -138,7 +151,7 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
