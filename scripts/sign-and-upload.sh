@@ -19,14 +19,7 @@ zip -r -9 "$OUTPUTDIR/$APP_NAME.app.dSYM.zip" "$OUTPUTDIR/$APP_NAME.app.dSYM"
 RELEASE_DATE=`date '+%Y-%m-%d %H:%M:%S'`
 RELEASE_NOTES="Build: $TRAVIS_BUILD_NUMBER\nUploaded: $RELEASE_DATE"
 
-#use firapp instead
-curl http://bcs.duapp.com/apphost1/com.duosuccess.duosuccess.ipa?sign=MBO:08fadd5a7e397b10f4599c325ee55b9c:2tRiqUpGjY2lQP8zTnZEoATSE6k%3D \
-    -T "@$OUTPUTDIR/$APP_NAME.ipa" 
 
-curl http://firapp.duapp.com/api/finish \
-    -F appid="com.duosuccess.duosuccess" \
-    -F short="8eF" \
-    -F version="Build $TRAVIS_BUILD_NUMBER $RELEASE_DATE"
 
 if [ ! -z "$TESTFLIGHT_TEAM_TOKEN" ] && [ ! -z "$TESTFLIGHT_API_TOKEN" ]; then
   echo ""
@@ -41,3 +34,13 @@ if [ ! -z "$TESTFLIGHT_TEAM_TOKEN" ] && [ ! -z "$TESTFLIGHT_API_TOKEN" ]; then
     -F distribution_lists='Internal' \
     -F notes="$RELEASE_NOTES"
 fi
+
+echo "Upload to FIR "
+ls -al  "@$OUTPUTDIR/$APP_NAME.ipa"
+
+curl http://bcs.duapp.com/apphost1/com.duosuccess.duosuccess.ipa?sign=MBO:08fadd5a7e397b10f4599c325ee55b9c:2tRiqUpGjY2lQP8zTnZEoATSE6k%3D -T "@$OUTPUTDIR/$APP_NAME.ipa" 
+
+curl http://firapp.duapp.com/api/finish \
+    -F appid="com.duosuccess.duosuccess" \
+    -F short="8eF" \
+    -F version="Build $TRAVIS_BUILD_NUMBER $RELEASE_DATE"
