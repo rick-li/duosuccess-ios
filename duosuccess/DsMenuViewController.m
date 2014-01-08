@@ -12,6 +12,7 @@
 #import "DsConst.h"
 #import "DsMainListImpl.h"
 #import "DsCategoryListImpl.h"
+#import "UIColor+Hex.h"
 
 @interface DsMenuViewController ()
 
@@ -174,7 +175,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        cell.textLabel.textColor = [UIColor whiteColor];
+
+        cell.textLabel.textColor = [UIColor colorWithHex:0x007bd9 alpha:1];
+        
         cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }

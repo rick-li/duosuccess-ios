@@ -10,6 +10,7 @@
 #import "DsDataStore.h"
 #import "DsNotificationReceiver.h"
 #import "UIImage+iPhone5.h"
+#import "UIColor+Hex.h"
 #import "Utils.h"
 #import <Parse/Parse.h>
 
@@ -95,7 +96,7 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     
     UIImage *navBarImage = [[UIImage tallImageNamed:@"menubar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
     if(![Utils isVersion6AndBelow])
-        navBarImage = [[UIImage tallImageNamed:@"menubar-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
+        navBarImage = [[UIImage tallImageNamed:@"dmenubar-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
     
     [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
     
@@ -113,20 +114,19 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     //customize the font title
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-    shadow.shadowOffset = CGSizeMake(0, 1);
+    shadow.shadowOffset = CGSizeMake(0, 0);
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           [UIColor colorWithHex:0x0190b9 alpha:1], NSForegroundColorAttributeName,
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
     
     UIImage *backButton = [[UIImage tallImageNamed:@"back6.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
     if(![Utils isVersion6AndBelow])
         backButton = nil;
-    
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
                                                     barMetrics:UIBarMetricsDefault];
     
-    UIImage *toolbarBg = [UIImage tallImageNamed:@"tabbar.png"];
+    UIImage *toolbarBg = [UIImage tallImageNamed:@"dtabbar.png"];
     
     [[UIToolbar appearance] setBackgroundImage:toolbarBg forToolbarPosition:UIBarPositionBottom barMetrics:UIBarMetricsDefault];
     

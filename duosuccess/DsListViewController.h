@@ -48,6 +48,7 @@
 
 -(void) createIntroContrainer:(NSArray*) introData;
 
+@property(nonatomic, retain) IBOutlet UIView *pageContainer;
 @property(nonatomic, retain) IBOutlet UITableView *tableView;
 @property(nonatomic, retain) IBOutlet UIView *introContainer;
 

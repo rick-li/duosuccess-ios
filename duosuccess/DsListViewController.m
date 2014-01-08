@@ -30,6 +30,7 @@
 @synthesize tableArticles;
 @synthesize introArticles;
 
+@synthesize pageContainer;
 @synthesize tableView;
 @synthesize introCtrl;
 @synthesize introContainer;
@@ -51,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.listDelegate = [[DsMainListImpl alloc]init];
@@ -293,6 +294,9 @@
     cell.title.text = [article valueForKey:@"title"];
     cell.intro.text = [article valueForKey:@"intro"];
     cell.intro.numberOfLines = 0;
+    
+    //make table transparent withoiut impacting the text and images
+    cell.backgroundColor = [[UIColor alloc] initWithWhite:1 alpha:0.0];
     return cell;
 }
 
