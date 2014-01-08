@@ -9,6 +9,7 @@
 #import "DsArticleViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <UIImageView+UIActivityIndicatorForSDWebImage.h>
+#import "DsWebViewController.h"
 
 @interface DsArticleViewController ()
 
@@ -19,13 +20,17 @@
 @synthesize imageView;
 @synthesize contentView;
 @synthesize containerView;
+@synthesize titleView;
+@synthesize dateView;
+@synthesize moreBtn;
+
 
 @synthesize imageUrl;
 @synthesize content;
 @synthesize titleTxt;
 @synthesize dateTxt;
-@synthesize titleView;
-@synthesize dateView;
+@synthesize viewMoreLink;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,8 +56,10 @@
     [self.contentView loadHTMLString:self.content baseURL:baseUrl];
     self.contentView.scrollView.scrollEnabled = false;
     self.contentView.delegate = self;
-    self.titleView.text=titleTxt;
+    self.titleView.text = titleTxt;
     self.dateView.text = dateTxt;
+//    self.moreBtn.titleLabel.text = NSLocalizedString(@"viewMore", @"View More");
+    [self.moreBtn setTitle:NSLocalizedString(@"viewMore", @"View More") forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,4 +85,17 @@
     
     [self.containerView setContentSize:CGSizeMake(320, h)];
 }
+
+- (IBAction)onClickViewMore:(id)sender {
+    NSLog(@"onc click view more");
+    NSString *url = @"https://www.duosuccess.com";
+    if(self.viewMoreLink){
+        url = self.viewMoreLink;
+    }
+    DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
+    webViewCtrl.displayWebViewByDefault = true;
+    [webViewCtrl.webView loadURLString:url];
+    [self.navigationController pushViewController:webViewCtrl animated:true];
+}
+
 @end

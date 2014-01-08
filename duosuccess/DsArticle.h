@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * categoryId;
 @property (nonatomic, retain) NSString * langId;
 @property (nonatomic, retain) NSString * objectId;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSDate * updatedAt;
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="DsArticle" representedClassName="DsArticle" syncable="YES">
         <attribute name="categoryId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,6 +10,7 @@
         <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="DsCategory" representedClassName="DsCategory" syncable="YES">
         <attribute name="langId" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,8 +32,8 @@
     <fetchRequest name="langReq" entity="DsCategory" predicateString="TRUEPREDICATE"/>
     <elements>
         <element name="DsArticle" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="DsLang" positionX="0" positionY="0" width="0" height="0"/>
         <element name="DsCategory" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="DsLang" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Entity" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

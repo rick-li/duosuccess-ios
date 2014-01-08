@@ -201,56 +201,76 @@
         <scene sceneID="BsS-K0-KEs">
             <objects>
                 <viewController storyboardIdentifier="articleController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ncq-zI-uyV" customClass="DsArticleViewController" sceneMemberID="viewController">
-                    <scrollView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Opb-iv-k7E">
+                    <view key="view" contentMode="bottom" id="F2G-Um-9lg">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listBg" id="363-v7-Oiy">
+                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listBg" id="ciD-sW-SGM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="HFC-Cs-HGs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="192"/>
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="m3g-Md-wgM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="470"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <webView opaque="NO" contentMode="scaleToFill" id="lFn-ZO-Ofx">
-                                <rect key="frame" x="0.0" y="250" width="320" height="254"/>
+                                <subviews>
+                                    <webView opaque="NO" contentMode="scaleToFill" id="6EL-k9-829">
+                                        <rect key="frame" x="0.0" y="218" width="320" height="251"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </webView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="x6s-TK-ATk">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HYm-RA-5cl">
+                                        <rect key="frame" x="7" y="159" width="313" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.22745099660000001" green="0.5647059083" blue="0.7254902124" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nel-m8-64F">
+                                        <rect key="frame" x="7" y="197" width="313" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bds-N2-4A1">
+                                <rect key="frame" x="207" y="474" width="113" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0kW-BK-sPU">
-                                <rect key="frame" x="6" y="195" width="314" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <rect key="contentStretch" x="1.3877787807814457e-17" y="0.0" width="1" height="1"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <color key="textColor" red="0.22745099660000001" green="0.5647059083" blue="0.7254902124" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FG9-9T-4co">
-                                <rect key="frame" x="6" y="231" width="314" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0c5-oo-RkR" appends="YES" id="JHJ-8G-ZBY"/>
+                                </connections>
+                            </button>
                         </subviews>
-                    </scrollView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9P8-cW-yWR"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="containerView" destination="Opb-iv-k7E" id="fj7-Ml-hiA"/>
-                        <outlet property="contentView" destination="lFn-ZO-Ofx" id="F4g-XR-KkU"/>
-                        <outlet property="dateView" destination="FG9-9T-4co" id="csQ-7F-Nic"/>
-                        <outlet property="imageView" destination="HFC-Cs-HGs" id="wOc-EZ-w3w"/>
-                        <outlet property="titleView" destination="0kW-BK-sPU" id="fr4-H0-yMh"/>
+                        <outlet property="containerView" destination="m3g-Md-wgM" id="fzk-JX-vs9"/>
+                        <outlet property="contentView" destination="6EL-k9-829" id="oep-ze-KhP"/>
+                        <outlet property="dateView" destination="Nel-m8-64F" id="gfP-5c-KNv"/>
+                        <outlet property="imageView" destination="x6s-TK-ATk" id="IAo-Ec-jAW"/>
+                        <outlet property="moreBtn" destination="Bds-N2-4A1" id="C3H-Ao-9w5"/>
+                        <outlet property="titleView" destination="HYm-RA-5cl" id="5ib-yB-ZjS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyB-2i-6sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0c5-oo-RkR">
+                    <connections>
+                        <action selector="onClickViewMore:" destination="ncq-zI-uyV" id="N8o-9V-WJr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="178" y="580"/>
         </scene>

@@ -128,6 +128,9 @@ BOOL isUnderCensor;
     NSNumber *orderVal = pfObj[@"order"];
     [mObj setValue:orderVal forKey:@"order"];
     
+    NSString *urlVal = pfObj[@"url"];
+    [mObj setValue:urlVal forKey:@"url"];
+    
     NSDate *updatedAtVal = pfObj.updatedAt;
     [mObj setValue:updatedAtVal forKey:@"updatedAt"];
     
@@ -136,7 +139,7 @@ BOOL isUnderCensor;
     
     NSString *categoryId = ((PFObject *)pfObj[@"category"]).objectId;
     [mObj setValue:categoryId forKey:@"categoryId"];
-//    pfObj 
+
     PFObject *image = (PFObject *)pfObj[@"image"];
     [image fetchIfNeeded];
     if(image != nil){
@@ -145,8 +148,6 @@ BOOL isUnderCensor;
         NSString *imageUrl = imageFile.url;
         [mObj setValue:imageUrl forKey:@"imageUrl"];
     }
-    
-    
 }
 
 -(NSManagedObject *) getObjectByObjectId: (NSString *)objectId withType: (NSString *)dbType{

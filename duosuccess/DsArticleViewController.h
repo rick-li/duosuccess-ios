@@ -17,8 +17,14 @@
 @property(nonatomic, retain) IBOutlet  UILabel *titleView;
 @property(nonatomic, retain) IBOutlet  UILabel *dateView;
 
+@property(nonatomic, retain) IBOutlet  UIButton *moreBtn;
+
+- (IBAction)onClickViewMore:(id)sender;
+
+
 @property NSString *imageUrl;
 @property NSString *content;
 @property NSString *titleTxt;
 @property NSString *dateTxt;
+@property NSString *viewMoreLink;
 @end

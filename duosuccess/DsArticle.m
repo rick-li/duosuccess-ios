@@ -19,6 +19,8 @@
 @dynamic categoryId;
 @dynamic langId;
 @dynamic objectId;
+@dynamic url;
 @dynamic updatedAt;
+
 
 @end
