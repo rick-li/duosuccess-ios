@@ -21,11 +21,11 @@
 		BD0286BA185736030043EFE6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD02869E185736020043EFE6 /* CoreData.framework */; };
 		BD0286C2185736030043EFE6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD0286C0185736030043EFE6 /* InfoPlist.strings */; };
 		BD0286C4185736030043EFE6 /* duosuccessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0286C3185736030043EFE6 /* duosuccessTests.m */; };
-		BD138AB5187C5B02002F577B /* dlist_bullets_icon&48.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AB1187C5B02002F577B /* dlist_bullets_icon&48.png */; };
-		BD138AB6187C5B02002F577B /* dmenubar-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AB2187C5B02002F577B /* dmenubar-7@2x.png */; };
-		BD138AB7187C5B02002F577B /* dmenubar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AB3187C5B02002F577B /* dmenubar@2x.png */; };
-		BD138AB8187C5B02002F577B /* dtabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AB4187C5B02002F577B /* dtabbar@2x.png */; };
 		BD138ABE187D06A0002F577B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = BD138ABD187D06A0002F577B /* UIColor+Hex.m */; };
+		BD138AC2187D2FA2002F577B /* dmenubar-7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138ABF187D2FA2002F577B /* dmenubar-7@2x.png */; };
+		BD138AC3187D2FA2002F577B /* dmenubar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AC0187D2FA2002F577B /* dmenubar@2x.png */; };
+		BD138AC4187D2FA2002F577B /* dtabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AC1187D2FA2002F577B /* dtabbar@2x.png */; };
+		BD138AC6187D31E3002F577B /* dlist_bullets_icon&48.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AC5187D31E3002F577B /* dlist_bullets_icon&48.png */; };
 		BD3449DE1866F227005357D6 /* DsNotificationReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */; };
 		BD3449E518687A3D005357D6 /* DsConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449E418687A3D005357D6 /* DsConst.m */; };
 		BD3449EB18696676005357D6 /* DsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449EA18696676005357D6 /* DsListViewController.m */; };
@@ -145,12 +145,12 @@
 		BD0286BF185736030043EFE6 /* duosuccessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "duosuccessTests-Info.plist"; sourceTree = "<group>"; };
 		BD0286C1185736030043EFE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD0286C3185736030043EFE6 /* duosuccessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = duosuccessTests.m; sourceTree = "<group>"; };
-		BD138AB1187C5B02002F577B /* dlist_bullets_icon&48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dlist_bullets_icon&48.png"; path = "../../../Downloads/dcl/dlist_bullets_icon&48.png"; sourceTree = "<group>"; };
-		BD138AB2187C5B02002F577B /* dmenubar-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dmenubar-7@2x.png"; path = "../../../Downloads/dcl/dmenubar-7@2x.png"; sourceTree = "<group>"; };
-		BD138AB3187C5B02002F577B /* dmenubar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dmenubar@2x.png"; path = "../../../Downloads/dcl/dmenubar@2x.png"; sourceTree = "<group>"; };
-		BD138AB4187C5B02002F577B /* dtabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dtabbar@2x.png"; path = "../../../Downloads/dcl/dtabbar@2x.png"; sourceTree = "<group>"; };
 		BD138ABC187D06A0002F577B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		BD138ABD187D06A0002F577B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		BD138ABF187D2FA2002F577B /* dmenubar-7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dmenubar-7@2x.png"; sourceTree = "<group>"; };
+		BD138AC0187D2FA2002F577B /* dmenubar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dmenubar@2x.png"; sourceTree = "<group>"; };
+		BD138AC1187D2FA2002F577B /* dtabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dtabbar@2x.png"; sourceTree = "<group>"; };
+		BD138AC5187D31E3002F577B /* dlist_bullets_icon&48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dlist_bullets_icon&48.png"; sourceTree = "<group>"; };
 		BD3449DC1866F227005357D6 /* DsNotificationReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsNotificationReceiver.h; sourceTree = "<group>"; };
 		BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsNotificationReceiver.m; sourceTree = "<group>"; };
 		BD3449DF186734F7005357D6 /* DsLangProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DsLangProtocol.h; sourceTree = "<group>"; };
@@ -567,10 +567,10 @@
 		BD41351D185C31B30090C605 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				BD138AB1187C5B02002F577B /* dlist_bullets_icon&48.png */,
-				BD138AB2187C5B02002F577B /* dmenubar-7@2x.png */,
-				BD138AB3187C5B02002F577B /* dmenubar@2x.png */,
-				BD138AB4187C5B02002F577B /* dtabbar@2x.png */,
+				BD138AC5187D31E3002F577B /* dlist_bullets_icon&48.png */,
+				BD138ABF187D2FA2002F577B /* dmenubar-7@2x.png */,
+				BD138AC0187D2FA2002F577B /* dmenubar@2x.png */,
+				BD138AC1187D2FA2002F577B /* dtabbar@2x.png */,
 				BD413556185C41340090C605 /* tabbar.png */,
 				BD413557185C41340090C605 /* tabbar@2x.png */,
 				BD413550185C36420090C605 /* list-item-bg.png */,
@@ -725,15 +725,15 @@
 				BD41349518575AD80090C605 /* MainIphone.storyboard in Resources */,
 				BD4134E118596DF30090C605 /* LICENSE in Resources */,
 				BD4134ED18596DF30090C605 /* SAMWebView-forward-button.png in Resources */,
+				BD138AC6187D31E3002F577B /* dlist_bullets_icon&48.png in Resources */,
 				BD4134E718596DF30090C605 /* SAMWebView-back-button-mini.png in Resources */,
-				BD138AB8187C5B02002F577B /* dtabbar@2x.png in Resources */,
-				BD138AB7187C5B02002F577B /* dmenubar@2x.png in Resources */,
+				BD138AC4187D2FA2002F577B /* dtabbar@2x.png in Resources */,
+				BD138AC3187D2FA2002F577B /* dmenubar@2x.png in Resources */,
 				BD413542185C34450090C605 /* back6.png in Resources */,
 				BD4134E418596DF30090C605 /* SAMWebView-action-button-mini@2x.png in Resources */,
 				BDF68F6C1877E70C00D3EDF3 /* InfoPlist.strings in Resources */,
 				BD4134AA185816D80090C605 /* DsTableCell.xib in Resources */,
 				BDF68F611877CD1400D3EDF3 /* duosuccess-Info.plist in Resources */,
-				BD138AB5187C5B02002F577B /* dlist_bullets_icon&48.png in Resources */,
 				BD4134E818596DF30090C605 /* SAMWebView-back-button-mini@2x.png in Resources */,
 				BD413558185C41340090C605 /* tabbar.png in Resources */,
 				BD4134E218596DF30090C605 /* Readme.markdown in Resources */,
@@ -759,7 +759,7 @@
 				BD41354A185C34450090C605 /* menubar.png in Resources */,
 				BD413552185C36420090C605 /* list-item-bg.png in Resources */,
 				BD4134E918596DF30090C605 /* SAMWebView-back-button.png in Resources */,
-				BD138AB6187C5B02002F577B /* dmenubar-7@2x.png in Resources */,
+				BD138AC2187D2FA2002F577B /* dmenubar-7@2x.png in Resources */,
 				BD413544185C34450090C605 /* menubar-7.png in Resources */,
 				BD4134F918596DF30090C605 /* SAMWebView-stop-button.png in Resources */,
 				BD41350C1859A9F60090C605 /* DsMusicControl.xib in Resources */,
