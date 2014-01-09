@@ -20,6 +20,7 @@
 @property (nonatomic, readonly) UIActivityIndicatorView *indicatorView;
 @property (nonatomic, readonly) UIBarButtonItem *backBarButtonItem;
 @property (nonatomic, readonly) UIBarButtonItem *forwardBarButtonItem;
+@property (nonatomic, readonly) UIImageView *bgView;
 
 
 @property UIScrollView *instructionContainer;
@@ -36,6 +37,7 @@
 
 @synthesize displayWebViewByDefault;
 @synthesize webView = _webView;
+@synthesize bgView = _bgView;
 @synthesize toolbarHidden = _toolbarHidden;
 @synthesize currentURL;
 @synthesize indicatorView = _indicatorView;
@@ -226,8 +228,6 @@ DsFileStore *fileStore;
     }
     [self playMusic:webView];
     NSLog(@"webview finished loading...");
-    
-    
 }
 
 
@@ -327,7 +327,15 @@ DsFileStore *fileStore;
 	}
     
     // Web view
+    if(!self.bgView){
+        _bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"listBg"]];
+        _bgView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+        self.webView.backgroundColor = [[UIColor alloc] initWithWhite:1 alpha:0.0];
+    }
+    self.bgView.frame = self.view.bounds;
 	self.webView.frame = self.view.bounds;
+
+    [self.view addSubview:self.bgView];
 	[self.view addSubview:self.webView];
 }
 
@@ -370,6 +378,7 @@ DsFileStore *fileStore;
         _webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
         _webView.delegate = self;
         _webView.scalesPageToFit = YES;
+        _webView.opaque = FALSE;
     }
     return _webView;
 }

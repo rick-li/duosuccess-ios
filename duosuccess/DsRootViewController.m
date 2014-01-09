@@ -22,7 +22,7 @@
     self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"menuController"];
     self.backgroundImage = [UIImage imageNamed:@"Stars"];
     self.delegate = (DsMenuViewController *)self.menuViewController;
-
+    
 }
 
 - (void)viewDidLoad

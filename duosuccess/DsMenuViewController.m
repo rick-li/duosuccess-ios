@@ -17,7 +17,7 @@
 @interface DsMenuViewController ()
 
 @property NSMutableArray *categories;
-@property DsListViewController *listCtrl;
+
 @property DsMainListImpl *mainList;
 @property DsCategoryListImpl *cateList;
 
@@ -44,6 +44,10 @@
     }];
     
     [self loadCategories];
+    
+    UINavigationController *navigationController = (UINavigationController *)self.sideMenuViewController.contentViewController;
+    self.listCtrl = [navigationController.viewControllers objectAtIndex:0];
+
 }
 
 
@@ -111,6 +115,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MainIphone" bundle:nil];
+    
     UINavigationController *navigationController = (UINavigationController *)self.sideMenuViewController.contentViewController;
     
     

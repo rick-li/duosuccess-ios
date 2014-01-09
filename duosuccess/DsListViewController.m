@@ -14,8 +14,10 @@
 #import "DsDataStore.h"
 #import "DsFileStore.h"
 #import "DsMainListImpl.h"
-
+#import "DsArticleHelper.h"
 #import "DsConst.h"
+#import "DsNotificationReceiver.h"
+#import "DsAppDelegate.h"
 
 #ifdef USES_IASK_STATIC_LIBRARY
 #import "InAppSettingsKit/IASKSettingsReader.h"
@@ -71,15 +73,20 @@
     }];
     
     [self loadArticles];
+    
+    ((DsAppDelegate *)[UIApplication sharedApplication].delegate).listCtrl = self;
+    
+    DsNotificationReceiver *notificationHandler = [DsNotificationReceiver sharedInstance];
+    if(notificationHandler.pendingNotification){
+        NSLog(@"Pending notification found, load it.");
+        [notificationHandler receiveNotifiaction:notificationHandler.pendingNotification forListCtrl:self];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setToolbarHidden:false];
-    
     self.title = [listDelegate getTitle];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -226,24 +233,10 @@
 
 
 -(void) openArticle:(NSManagedObject*) article{
-    articleCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"articleController"];
+
+    NSDictionary *dArticle = [article dictionaryWithValuesForKeys:[NSArray arrayWithObjects: @"title", @"content", @"imageUrl", @"url", @"updatedAt", nil] ];
+    [[DsArticleHelper sharedInstance] openArticle: dArticle withNavCtrl:self.navigationController];
     
-    NSString *title =[article valueForKey:@"title"];
-    NSString *content =[article valueForKey:@"content"];
-    NSString *imageUrl = [article valueForKey:@"imageUrl"];
-    NSString *url = [article valueForKey:@"url"];
-    NSDate *date = [article valueForKey:@"updatedAt"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateStyle= kCFDateFormatterMediumStyle;
-    formatter.timeStyle = kCFDateFormatterMediumStyle;
-    
-    articleCtrl.titleTxt = title;
-    articleCtrl.dateTxt = [formatter stringFromDate:date];
-    articleCtrl.content = content;
-    articleCtrl.imageUrl = imageUrl;
-    articleCtrl.viewMoreLink = url;
-    
-    [self.navigationController pushViewController:self.articleCtrl animated:true];
 }
 
 #pragma mark -

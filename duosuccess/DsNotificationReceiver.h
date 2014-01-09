@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "DsListViewController.h"
 
 @interface DsNotificationReceiver : NSObject
 
 + (id)sharedInstance;
 
--(void)receiveNotifiaction: (NSDictionary*) notificationPayload;
+@property NSDictionary *pendingNotification;
+
+-(void)receiveNotifiaction: (NSDictionary*)notificationPayload forListCtrl: (DsListViewController*)listCtrl;
 
 @end

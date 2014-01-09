@@ -9,6 +9,8 @@
 #import "DsAppDelegate.h"
 #import "DsDataStore.h"
 #import "DsNotificationReceiver.h"
+#import "DsRootViewController.h"
+#import "DsMenuViewController.h"
 #import "UIImage+iPhone5.h"
 #import "UIColor+Hex.h"
 #import "Utils.h"
@@ -16,12 +18,13 @@
 
 @implementation DsAppDelegate
 
+@synthesize listCtrl;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSLog(@"==didFinishLaunchingWithOptions==");
     
     [[DsDataStore sharedInstance] syncData];
-    
     
     UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
     if (idiom == UIUserInterfaceIdiomPad)
@@ -33,33 +36,38 @@
     else
     {
         [self customizeiPhoneTheme];
-        
-        //        [self configureiPhoneTabBar];
     }
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [application registerForRemoteNotificationTypes:
      UIRemoteNotificationTypeBadge |
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
-    NSLog(@"Register notification successfully.");
     
+    //if app is started by notification swipe
     NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-    [[DsNotificationReceiver sharedInstance] receiveNotifiaction:notificationPayload];
+    if(notificationPayload){
+        NSLog(@"Application started with Notification swipe.");
+    }
+    
+//    [[DsNotificationReceiver sharedInstance] receiveNotifiaction:[NSDictionary dictionaryWithObject:@"TUUYBtlywF" forKey:@"oid"] forListCtrl:self.listCtrl];
+    
     return YES;
 }
+
 
 
 - (void)application:didFailToRegisterForRemoteNotificationsWithError{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误" message: @"无法接收推送" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
     [alert show];
 }
+
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"aaNotification registered with device %@", newDeviceToken] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-//    [alert show];
+    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[NSString stringWithFormat:@"aaNotification registered with device %@", newDeviceToken] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    //    [alert show];
     NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken.... ");
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
@@ -69,23 +77,41 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     
     [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if(succeeded){
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Installation saved successfully" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-//            [alert show];
+            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Installation saved successfully" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            //            [alert show];
             NSLog(@"Installation saved successfully.");
         }else{
             NSLog(@"Error %@", error.description);
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:error.description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-//            [alert show];
+            //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"error" message:error.description delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            //            [alert show];
         }
     }];
 }
 
+
+NSDictionary *notificationWhileRunning;
+
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
-    //if the app is already running.
-    [[DsNotificationReceiver sharedInstance] receiveNotifiaction:notificationPayload];
-    //handle user's
-    //[PFPush handlePush:userInfo];
+    notificationWhileRunning = notificationPayload;
+    //check if user is playing music
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NotificationReceived","") message:NSLocalizedString(@"OpenItNow", "") delegate:self cancelButtonTitle:NSLocalizedString(@"NoThanks", "") otherButtonTitles:NSLocalizedString(@"ok", ""), nil];
+    [alert show];
+
+
+   }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"button idx is %d.", buttonIndex);
+    if (buttonIndex == 1)
+    {
+
+        [[DsNotificationReceiver sharedInstance] receiveNotifiaction:notificationWhileRunning forListCtrl:listCtrl];
+        notificationWhileRunning = nil;
+    }
 }
 
 

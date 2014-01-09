@@ -26,6 +26,8 @@
 		BD138AC3187D2FA2002F577B /* dmenubar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AC0187D2FA2002F577B /* dmenubar@2x.png */; };
 		BD138AC4187D2FA2002F577B /* dtabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AC1187D2FA2002F577B /* dtabbar@2x.png */; };
 		BD138AC6187D31E3002F577B /* dlist_bullets_icon&48.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AC5187D31E3002F577B /* dlist_bullets_icon&48.png */; };
+		BD138ACB187E446A002F577B /* DsArticleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD138ACA187E446A002F577B /* DsArticleHelper.m */; };
+		BD138ACE187E6BC6002F577B /* DsMask.m in Sources */ = {isa = PBXBuildFile; fileRef = BD138ACD187E6BC6002F577B /* DsMask.m */; };
 		BD3449DE1866F227005357D6 /* DsNotificationReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */; };
 		BD3449E518687A3D005357D6 /* DsConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449E418687A3D005357D6 /* DsConst.m */; };
 		BD3449EB18696676005357D6 /* DsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449EA18696676005357D6 /* DsListViewController.m */; };
@@ -151,6 +153,10 @@
 		BD138AC0187D2FA2002F577B /* dmenubar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dmenubar@2x.png"; sourceTree = "<group>"; };
 		BD138AC1187D2FA2002F577B /* dtabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dtabbar@2x.png"; sourceTree = "<group>"; };
 		BD138AC5187D31E3002F577B /* dlist_bullets_icon&48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dlist_bullets_icon&48.png"; sourceTree = "<group>"; };
+		BD138AC9187E446A002F577B /* DsArticleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsArticleHelper.h; sourceTree = "<group>"; };
+		BD138ACA187E446A002F577B /* DsArticleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsArticleHelper.m; sourceTree = "<group>"; };
+		BD138ACC187E6BC6002F577B /* DsMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMask.h; sourceTree = "<group>"; };
+		BD138ACD187E6BC6002F577B /* DsMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMask.m; sourceTree = "<group>"; };
 		BD3449DC1866F227005357D6 /* DsNotificationReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsNotificationReceiver.h; sourceTree = "<group>"; };
 		BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsNotificationReceiver.m; sourceTree = "<group>"; };
 		BD3449DF186734F7005357D6 /* DsLangProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DsLangProtocol.h; sourceTree = "<group>"; };
@@ -466,6 +472,8 @@
 				BD3A1C771873140C00CD69FB /* DsFileStore.m */,
 				BD3A1C791873CFF300CD69FB /* DsEventStore.h */,
 				BD3A1C7A1873CFF300CD69FB /* DsEventStore.m */,
+				BD138AC9187E446A002F577B /* DsArticleHelper.h */,
+				BD138ACA187E446A002F577B /* DsArticleHelper.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -485,6 +493,8 @@
 				BD41350E1859ADE30090C605 /* DsMusicControll.m */,
 				BD138ABC187D06A0002F577B /* UIColor+Hex.h */,
 				BD138ABD187D06A0002F577B /* UIColor+Hex.m */,
+				BD138ACC187E6BC6002F577B /* DsMask.h */,
+				BD138ACD187E6BC6002F577B /* DsMask.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -825,6 +835,7 @@
 				BD4134BA185888110090C605 /* DsInstConfirm.m in Sources */,
 				BD41349B18575C850090C605 /* DsMenuViewController.m in Sources */,
 				BD413537185C34140090C605 /* UIImage+iPhone5.m in Sources */,
+				BD138ACB187E446A002F577B /* DsArticleHelper.m in Sources */,
 				BD41349318574E770090C605 /* DsLang.m in Sources */,
 				BD41347518573AC40090C605 /* DsDataStore.m in Sources */,
 				BD4134A61858157D0090C605 /* IntroControll.m in Sources */,
@@ -841,6 +852,7 @@
 				BD4134FB18596DF30090C605 /* SAMWebView.m in Sources */,
 				BD0286AB185736030043EFE6 /* DsAppDelegate.m in Sources */,
 				BD413518185ADFE40090C605 /* DsPaperController.m in Sources */,
+				BD138ACE187E6BC6002F577B /* DsMask.m in Sources */,
 				BD3A1C7B1873CFF300CD69FB /* DsEventStore.m in Sources */,
 				BD3A1C781873140C00CD69FB /* DsFileStore.m in Sources */,
 				BD3449F11869781E005357D6 /* DsMainListImpl.m in Sources */,

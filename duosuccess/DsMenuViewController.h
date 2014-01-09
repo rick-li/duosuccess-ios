@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "RESideMenu.h"
+#import "DsListViewController.h"
 
 @interface DsMenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate>
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
+@property (strong, retain) DsListViewController *listCtrl;
 
 @end

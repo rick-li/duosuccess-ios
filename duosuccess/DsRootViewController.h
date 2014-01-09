@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "RESideMenu.h"
+#import "DsMenuViewController.h"
 
 @interface DsRootViewController : RESideMenu
+
+@property UINavigationController *navCtrl;
 
 @end

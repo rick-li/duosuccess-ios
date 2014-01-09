@@ -36,7 +36,7 @@ if [ ! -z "$TESTFLIGHT_TEAM_TOKEN" ] && [ ! -z "$TESTFLIGHT_API_TOKEN" ]; then
 fi
 
 echo "Upload to FIR "
-ls -al  "@$OUTPUTDIR/$APP_NAME.ipa"
+ls -al  "$OUTPUTDIR/$APP_NAME.ipa"
 
 curl http://bcs.duapp.com/apphost1/com.duosuccess.duosuccess.ipa?sign=MBO:08fadd5a7e397b10f4599c325ee55b9c:2tRiqUpGjY2lQP8zTnZEoATSE6k%3D -T "$OUTPUTDIR/$APP_NAME.ipa" 
 

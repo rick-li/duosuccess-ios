@@ -113,6 +113,8 @@ BOOL isUnderCensor;
 }
 
 -(void)setArticleAttrs:(NSManagedObject *)mObj fromPfObj: (PFObject *) pfObj{
+    
+
     NSString *objectIdVal = pfObj.objectId;
     [mObj setValue:objectIdVal forKey:@"objectId"];
     

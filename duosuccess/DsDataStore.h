@@ -22,6 +22,7 @@
 
 -(NSArray*) queryLang;
 -(NSArray*) queryCategories;
+-(NSDictionary*) queryArticleById;
 -(NSArray*) queryArticlesByCategory: (NSString*)categoryId;
 -(NSArray*) queryArticlesByCategory: (NSString*)categoryId :(int) offset : (int) limit;
 -(NSDictionary*) defaultLang;
