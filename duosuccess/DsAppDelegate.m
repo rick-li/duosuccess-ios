@@ -50,7 +50,10 @@
     NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notificationPayload){
         NSLog(@"Application started with Notification swipe.");
+            [self clearBadge];
     }
+    
+    [[DsNotificationReceiver sharedInstance] receiveNotifiaction: notificationPayload forListCtrl:self.listCtrl];
     
 //    [[DsNotificationReceiver sharedInstance] receiveNotifiaction:[NSDictionary dictionaryWithObject:@"TUUYBtlywF" forKey:@"oid"] forListCtrl:self.listCtrl];
     
@@ -64,7 +67,6 @@
     
     return YES;
 }
-
 
 
 - (void)application:didFailToRegisterForRemoteNotificationsWithError{
@@ -108,8 +110,6 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NotificationReceived","") message:NSLocalizedString(@"OpenItNow", "") delegate:self cancelButtonTitle:NSLocalizedString(@"NoThanks", "") otherButtonTitles:NSLocalizedString(@"ok", ""), nil];
     [alert show];
-
-
    }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -120,6 +120,14 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
 
         [[DsNotificationReceiver sharedInstance] receiveNotifiaction:notificationWhileRunning forListCtrl:listCtrl];
         notificationWhileRunning = nil;
+    }
+}
+
+-(void) clearBadge{
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge != 0) {
+        currentInstallation.badge = 0;
+        [currentInstallation saveEventually];
     }
 }
 
@@ -206,12 +214,10 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     //clear badge for app.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    if (currentInstallation.badge != 0) {
-        currentInstallation.badge = 0;
-        [currentInstallation saveEventually];
-    }
+    [self clearBadge];
 }
+
+
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
