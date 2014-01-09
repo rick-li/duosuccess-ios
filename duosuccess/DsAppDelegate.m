@@ -50,13 +50,14 @@
     NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notificationPayload){
         NSLog(@"Application started with Notification swipe.");
-            [self clearBadge];
+        [self clearBadge];
     }
     
     [[DsNotificationReceiver sharedInstance] receiveNotifiaction: notificationPayload forListCtrl:self.listCtrl];
     
 //    [[DsNotificationReceiver sharedInstance] receiveNotifiaction:[NSDictionary dictionaryWithObject:@"TUUYBtlywF" forKey:@"oid"] forListCtrl:self.listCtrl];
     
+    //set first run flag.
     if([[NSUserDefaults standardUserDefaults] objectForKey:@"FirstRun"] == nil){
         //first run
         NSLog(@"App is running for first time.");
@@ -107,7 +108,7 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     notificationWhileRunning = notificationPayload;
     //check if user is playing music
     
-    
+    [self clearBadge];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NotificationReceived","") message:NSLocalizedString(@"OpenItNow", "") delegate:self cancelButtonTitle:NSLocalizedString(@"NoThanks", "") otherButtonTitles:NSLocalizedString(@"ok", ""), nil];
     [alert show];
    }

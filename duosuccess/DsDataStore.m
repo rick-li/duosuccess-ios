@@ -9,6 +9,7 @@
 #import "DsDataStore.h"
 #import <Parse/Parse.h>
 #import "DsConst.h"
+#import "DsMask.h"
 
 @implementation DsDataStore
 
@@ -49,12 +50,12 @@ BOOL isUnderCensor;
                       clientKey:@"KmDVN8meSLM9QjYE5wsrbVMtmWpbLo0MYxpAFFCR"];
         NSLog(@"Currently using PROD version.");
     }
-
+    
     appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    
     
     NSLog(@"App version is %@.", appVersion);
     [self queryCensorStatus];
-    
     
     //sync lang, category, article
     [self syncData:@"DsLang" withPfType:@"Lang"];
@@ -352,7 +353,7 @@ BOOL isUnderCensor;
     
     NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
     
-    if(!error){
+    if(error){
         NSLog(@"Failed to query articles %@.", error.description);
     }
     

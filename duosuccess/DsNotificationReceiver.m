@@ -62,7 +62,9 @@
             NSDate *updatedAt = article.updatedAt;
             [dArticle setObject:title forKey:@"title"];
             [dArticle setObject:content forKey:@"content"];
-            [dArticle setObject:imageUrl forKey:@"imageUrl"];
+            if(imageUrl){
+                [dArticle setObject:imageUrl forKey:@"imageUrl"];
+            }
             [dArticle setObject:updatedAt forKey:@"updatedAt"];
             
             [[DsMask sharedInstance] removeMask];

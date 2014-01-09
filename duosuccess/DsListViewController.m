@@ -18,6 +18,7 @@
 #import "DsConst.h"
 #import "DsNotificationReceiver.h"
 #import "DsAppDelegate.h"
+#import "DsMask.h"
 
 #ifdef USES_IASK_STATIC_LIBRARY
 #import "InAppSettingsKit/IASKSettingsReader.h"
@@ -54,7 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.listDelegate = [[DsMainListImpl alloc]init];
@@ -69,10 +70,15 @@
     }
     
     [[NSNotificationCenter defaultCenter] addObserverForName:ARTICLE_UPDATED object:nil queue:nil usingBlock:^(NSNotification *notification){
+        [[DsMask sharedInstance] removeMask];
+        [self.refreshCtrl endRefreshing];
+
         [self loadArticles];
     }];
     
     [self loadArticles];
+    
+    
     
     ((DsAppDelegate *)[UIApplication sharedApplication].delegate).listCtrl = self;
     
@@ -81,12 +87,20 @@
         NSLog(@"Pending notification found, load it.");
         [notificationHandler receiveNotifiaction:notificationHandler.pendingNotification forListCtrl:self];
     }
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setToolbarHidden:false];
     self.title = [listDelegate getTitle];
+    
+    if((!self.tableArticles && !self.introArticles)||(self.tableArticles.count + self.introArticles.count) == 0)
+    {
+        [[DsMask sharedInstance] startMask:nil forView:self.view];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,6 +111,7 @@
 
 
 -(void)loadArticles{
+    NSLog(@"Load Articles.");
     [self.listDelegate loadArticle:self];
 }
 
@@ -133,7 +148,7 @@
     }else{
         UIViewController *musicCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"musicController"];
         [self.navigationController pushViewController:musicCtrl animated:true];
-
+        
     }
 }
 
@@ -228,12 +243,11 @@
     NSLog(@"refreshing");
     
     [[DsDataStore sharedInstance] syncData];
-    [self.refreshCtrl endRefreshing];
 }
 
 
 -(void) openArticle:(NSManagedObject*) article{
-
+    
     NSDictionary *dArticle = [article dictionaryWithValuesForKeys:[NSArray arrayWithObjects: @"title", @"content", @"imageUrl", @"url", @"updatedAt", nil] ];
     [[DsArticleHelper sharedInstance] openArticle: dArticle withNavCtrl:self.navigationController];
     

@@ -11,6 +11,7 @@
 #import "DsMusicControll.h"
 #import "DsFileStore.h"
 #import "DsEventStore.h"
+#import "DsDataStore.h"
 #import "DsPaperController.h"
 #import <MessageUI/MessageUI.h>
 #import <EventKit/EventKit.h>
@@ -125,9 +126,9 @@ DsFileStore *fileStore;
         DsPaperController *pCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"paperController"];
         
         //replace current view controller
-//        [self.navigationController popViewControllerAnimated:NO];
+        //        [self.navigationController popViewControllerAnimated:NO];
         [self.navigationController pushViewController:pCtrl animated:TRUE];
-
+        
     }
 }
 
@@ -327,15 +328,17 @@ DsFileStore *fileStore;
 	}
     
     // Web view
-    if(!self.bgView){
-        _bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"listBg"]];
-        _bgView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-        self.webView.backgroundColor = [[UIColor alloc] initWithWhite:1 alpha:0.0];
+    if([[DsDataStore sharedInstance] isCensorMode]){
+        if(!self.bgView){
+            _bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"listBg"]];
+            _bgView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+            self.webView.backgroundColor = [[UIColor alloc] initWithWhite:1 alpha:0.0];
+        }
+        self.bgView.frame = self.view.bounds;
+        [self.view addSubview:self.bgView];
+        
     }
-    self.bgView.frame = self.view.bounds;
 	self.webView.frame = self.view.bounds;
-
-    [self.view addSubview:self.bgView];
 	[self.view addSubview:self.webView];
 }
 
@@ -464,8 +467,5 @@ DsFileStore *fileStore;
         
     }
 }
-
-
-
 
 @end
