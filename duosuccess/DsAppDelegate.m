@@ -14,6 +14,7 @@
 #import "UIImage+iPhone5.h"
 #import "UIColor+Hex.h"
 #import "Utils.h"
+#import "DsEventStore.h"
 #import <Parse/Parse.h>
 
 @implementation DsAppDelegate
@@ -52,6 +53,14 @@
     }
     
 //    [[DsNotificationReceiver sharedInstance] receiveNotifiaction:[NSDictionary dictionaryWithObject:@"TUUYBtlywF" forKey:@"oid"] forListCtrl:self.listCtrl];
+    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:@"FirstRun"] == nil){
+        //first run
+        NSLog(@"App is running for first time.");
+        [[NSUserDefaults standardUserDefaults] setObject:false forKey:@"FirstRun"];
+        //Delete paper events left by previous installation.
+        [[DsEventStore sharedInstance] clearPaparReminders];
+    }
     
     return YES;
 }

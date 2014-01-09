@@ -60,7 +60,7 @@ DsEventStore *eventStore;
     }
     
     if([dueDate compare:now] == NSOrderedAscending){
-        self.remainLabel.text = @"Your paper expired, pls remove.";
+        self.remainLabel.text = NSLocalizedString(@"energyPaperExpired", "");
     }else{
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateStyle= kCFDateFormatterShortStyle;

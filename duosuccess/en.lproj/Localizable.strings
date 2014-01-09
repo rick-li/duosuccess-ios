@@ -19,6 +19,8 @@
 
 "energyPaperDownloaded"="Energy Paper is downloaded";
 "energyPaperRemoved"="Energy Paper is removed";
+"energyPaperExpired"="Energy Paper is expired, Please Remove";
+
 "willExpireAt"="Will Expire At: ";
 "check"="Check";
 "viewMore"="Origin Link";

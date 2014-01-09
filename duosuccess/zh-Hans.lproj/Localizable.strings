@@ -19,6 +19,7 @@
 
 "energyPaperDownloaded"="能纸已下载";
 "energyPaperRemoved"="能纸已删除";
+"energyPaperExpired"="能纸已过期，请删除";
 
 "willExpireAt"="过期时间: ";
 "check"="查看";

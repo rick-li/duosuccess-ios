@@ -18,6 +18,7 @@
 "downloadPaper" ="下载新的能纸";
 "energyPaperDownloaded"="能纸已下载";
 "energyPaperRemoved"="能纸已删除";
+"energyPaperExpired"="能纸已过期，请删除";
 "willExpireAt"="过期时间: ";
 "check"="查看";
 
@@ -25,7 +26,7 @@
 
 
 "NotificationReceived"="收到新的消息";
-"NoThanks"="不用 謝謝";
+"NoThanks"="不 謝謝";
 "ok"="好";
 "OpenItNow"="現在查看?";
 "loading"="请稍等...";

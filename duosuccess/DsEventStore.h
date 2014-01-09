@@ -21,4 +21,6 @@
 
 -(void) removePaperReminder;
 
+-(void) clearPaparReminders;
+
 @end
