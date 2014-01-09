@@ -133,7 +133,6 @@
         [pages addObject:model];
     }
     
-    
     self.introCtrl = [[IntroControll alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 190.0f) pages:pages];
     [self.introContainer addSubview:self.introCtrl];
 }
@@ -166,14 +165,16 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:nil
                                   delegate:self
-                                  cancelButtonTitle:cancelStr
+                                  cancelButtonTitle:nil
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:nil, nil];
     if([[DsFileStore sharedInstance] isPaperImageExists]){
         [actionSheet addButtonWithTitle: NSLocalizedString(@"checkMyPaper", @"Check my paper")];
     }
     [actionSheet addButtonWithTitle:NSLocalizedString(@"downloadPaper", @"Download new paper")];
-    
+    [actionSheet addButtonWithTitle:cancelStr];
+
+	actionSheet.cancelButtonIndex = actionSheet.numberOfButtons-1;
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet setTag:1];
     [actionSheet showFromToolbar:self.navigationController.toolbar];
@@ -197,7 +198,7 @@
     if([actionSheet tag] == 1){
         
         //music
-        if (buttonIndex == 1) {
+        if (buttonIndex == 0) {
             NSLog(@"number of action buttons is %d.", actionSheet.numberOfButtons);
             if(actionSheet.numberOfButtons==3){
                 DsPaperController *pCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"paperController"];
@@ -208,7 +209,7 @@
             }
             
         }
-        else if (buttonIndex == 2) {
+        else if (buttonIndex == 1) {
             [self startWebBrowser:nil];
         }
     }

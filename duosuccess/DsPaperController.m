@@ -35,7 +35,7 @@ DsEventStore *eventStore;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    remainContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar.png"]];
+    remainContainer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dtabbar.png"]];
 	// Do any additional setup after loading the view.
     fileStore = [DsFileStore sharedInstance];
     eventStore = [DsEventStore sharedInstance];

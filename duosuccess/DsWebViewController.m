@@ -126,8 +126,11 @@ DsFileStore *fileStore;
         DsPaperController *pCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"paperController"];
         
         //replace current view controller
-        //        [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController pushViewController:pCtrl animated:TRUE];
+        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+        [controllers removeLastObject];
+        [controllers addObject:pCtrl];
+        
+        [self.navigationController setViewControllers:controllers animated:YES];
         
     }
 }
@@ -329,6 +332,7 @@ DsFileStore *fileStore;
     
     // Web view
     if([[DsDataStore sharedInstance] isCensorMode]){
+        _webView.opaque = FALSE;
         if(!self.bgView){
             _bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"listBg"]];
             _bgView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
@@ -381,7 +385,7 @@ DsFileStore *fileStore;
         _webView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
         _webView.delegate = self;
         _webView.scalesPageToFit = YES;
-        _webView.opaque = FALSE;
+        _webView.opaque = TRUE;
     }
     return _webView;
 }
