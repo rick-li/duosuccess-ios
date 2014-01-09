@@ -89,7 +89,7 @@
 - (IBAction)onClickViewMore:(id)sender {
     NSLog(@"onc click view more");
     NSString *url = @"https://www.duosuccess.com";
-    if(self.viewMoreLink){
+    if(!self.viewMoreLink || (NSNull *)self.viewMoreLink != [NSNull null]){
         url = self.viewMoreLink;
     }
     DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
