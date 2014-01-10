@@ -134,6 +134,14 @@ BOOL isUnderCensor;
     NSString *urlVal = pfObj[@"url"];
     [mObj setValue:urlVal forKey:@"url"];
     
+    NSString *stickyVal = pfObj[@"sticky"];
+    if(stickyVal){
+        [mObj setValue:stickyVal forKey:@"sticky"];
+    }else{
+        
+        [mObj setValue: [NSNumber numberWithBool:false] forKey:@"sticky"];
+    }
+    
     NSDate *updatedAtVal = pfObj.updatedAt;
     [mObj setValue:updatedAtVal forKey:@"updatedAt"];
     
@@ -338,6 +346,34 @@ BOOL isUnderCensor;
     return results;
 }
 
+-(NSArray*) queryArticlesByCategory: (NSString*)categoryId :(bool)isSticky :(int) offset : (int) limit{
+    NSError *error;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DsArticle" inManagedObjectContext:self.managedObjectContext];
+    request.entity = entity;
+    NSString *lang = [[self defaultLang] valueForKey:@"objectId"];
+    NSString *strPredicate = @"langId = %@ AND categoryId = %@ ";
+    if(isSticky){
+        strPredicate = [strPredicate stringByAppendingString:@"AND sticky=true"];
+    }else{
+        strPredicate = [strPredicate stringByAppendingString:@"AND sticky=false"];
+    }
+    NSPredicate *objIdPredicate = [NSPredicate predicateWithFormat:strPredicate , lang, categoryId];
+    [request setPredicate:objIdPredicate];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:true];
+    [request setSortDescriptors:@[sortDescriptor]];
+    [request setFetchOffset:offset];
+    [request setFetchLimit:limit];
+    
+    NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if(error){
+        NSLog(@"Failed to query articles %@.", error.description);
+    }
+    
+    return objects;
+}
+
 -(NSArray*) queryArticlesByCategory: (NSString*)categoryId :(int) offset : (int) limit{
     NSError *error;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -421,7 +457,10 @@ BOOL isUnderCensor;
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

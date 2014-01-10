@@ -159,6 +159,8 @@
 		BD138ACC187E6BC6002F577B /* DsMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMask.h; sourceTree = "<group>"; };
 		BD138ACD187E6BC6002F577B /* DsMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMask.m; sourceTree = "<group>"; };
 		BD138ACF187FF263002F577B /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		BD138AD1188010CD002F577B /* duosuccess 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "duosuccess 2.xcdatamodel"; sourceTree = "<group>"; };
+		BD138AD21880119E002F577B /* duosuccess 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "duosuccess 3.xcdatamodel"; sourceTree = "<group>"; };
 		BD3449DC1866F227005357D6 /* DsNotificationReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsNotificationReceiver.h; sourceTree = "<group>"; };
 		BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsNotificationReceiver.m; sourceTree = "<group>"; };
 		BD3449DF186734F7005357D6 /* DsLangProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DsLangProtocol.h; sourceTree = "<group>"; };
@@ -1120,9 +1122,11 @@
 		BD0286AC185736030043EFE6 /* duosuccess.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				BD138AD21880119E002F577B /* duosuccess 3.xcdatamodel */,
+				BD138AD1188010CD002F577B /* duosuccess 2.xcdatamodel */,
 				BD0286AD185736030043EFE6 /* duosuccess.xcdatamodel */,
 			);
-			currentVersion = BD0286AD185736030043EFE6 /* duosuccess.xcdatamodel */;
+			currentVersion = BD138AD21880119E002F577B /* duosuccess 3.xcdatamodel */;
 			path = duosuccess.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -61,9 +61,14 @@
     }
     self.categories = [[NSMutableArray alloc] init];
     
-    [self.categories addObject:[NSDictionary dictionaryWithObjects:@[@"main", NSLocalizedString(@"mainTitle", @"duosuccess")] forKeys:@[@"objectId",@"name"]]];
     [self.categories addObjectsFromArray:categoriesFromDB];
     
+    NSMutableDictionary *firstCategory = [[NSMutableDictionary alloc] init];
+    [firstCategory addEntriesFromDictionary: [self.categories objectAtIndex:0]];
+    [firstCategory setObject: NSLocalizedString(@"mainTitle", @"duosuccess") forKey:@"name"];
+
+    [firstCategory setValue:[NSNumber numberWithBool:true] forKey:@"isMain"];
+    [self.categories replaceObjectAtIndex:0 withObject:firstCategory];
     int count = self.categories.count;
     NSLog(@"categories count %ul.", count);
     NSLog(@"Menu Container height is %f.", self.view.frame.size.height);
@@ -137,7 +142,7 @@
         }
     }
     
-    if([@"main" isEqualToString: [category valueForKey:@"objectId"]]){
+    if( [category valueForKey:@"isMain"]){
         self.listCtrl.listDelegate = self.mainList;
         [self.mainList loadArticle:self.listCtrl];
     }else{
