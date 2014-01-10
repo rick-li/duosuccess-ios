@@ -66,7 +66,7 @@ NSString *title;
     
     [self.ctrl.tableView reloadData];
     
-    lctrl.title = title;
+    lctrl.title = NSLocalizedString(@"mainTitle", @"Main Page by default");
     
 }
 

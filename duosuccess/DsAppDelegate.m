@@ -26,6 +26,7 @@
     NSLog(@"==didFinishLaunchingWithOptions==");
     
     [[DsDataStore sharedInstance] syncData];
+
     
     UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
     if (idiom == UIUserInterfaceIdiomPad)
@@ -66,6 +67,8 @@
         [[DsEventStore sharedInstance] clearPaparReminders];
     }
     
+    //Display launch image longer
+    [NSThread sleepForTimeInterval:2.0];
     return YES;
 }
 
