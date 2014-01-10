@@ -398,7 +398,9 @@ DsFileStore *fileStore;
         [self clearCache];
         [self.musicPlayer stopMedia];
     }else{
-        [self.webView reload];
+        if(self.view.window){ //view is still displayed on screen.
+            [self.webView reload];
+        }
     }
 }
 
@@ -414,9 +416,11 @@ DsFileStore *fileStore;
     
     self.musicCtrl.elapsed.text = elapsedDisplay;
     self.musicCtrl.remains.text = remainsDisplay;
-    [self.musicCtrl.slider setValue:elapsed];
-    
+    float progress = (float)elapsed/(float)3600;
+    self.musicCtrl.slider.progress = progress;
+
 }
+
 
 - (void)clearCache{
     
@@ -424,13 +428,16 @@ DsFileStore *fileStore;
 }
 
 -(void)musicStop:(DsMusicPlayer *)sender{
-    [musicCtrl onTapPlayButton:nil];
+    [self.navigationController setToolbarHidden:false animated:true];
+    if(musicCtrl.isPlaying){
+        [musicCtrl onTapPlayButton:nil];
+    }
 }
 
 -(void)playMusic:(SAMWebView *)webView {
     NSString *strjs = @"document.querySelector('embed').src";
     NSString *midUrl = [webView stringByEvaluatingJavaScriptFromString:strjs];
-    
+//    NSString *midUrl = @"http://file.midicn.com/midi/nation_music/25575midid.mid";
     //remove mask
     NSLog(@"mid Url is %@", midUrl);
     
@@ -458,15 +465,17 @@ DsFileStore *fileStore;
         musicPlayer.delegate = self;
         
         self.musicCtrl = [[[NSBundle mainBundle] loadNibNamed:@"DsMusicControl" owner:self options:nil] objectAtIndex:0];
-        self.musicCtrl.slider.minimumValue = 0;
-        self.musicCtrl.slider.maximumValue = 3600;
+
         musicCtrl.delegate = self ;
         int musicCtrlHeight = self.musicCtrl.frame.size.height;
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
             //compensate the edge for ios7.
-            musicCtrlHeight -= self.navigationController.toolbar.frame.size.height;
+//            musicCtrlHeight -= self.navigationController.toolbar.frame.size.height;
         }
-        [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, self.webView.frame.size.height-musicCtrlHeight)];
+        int viewHeight = [UIScreen mainScreen].applicationFrame.size.height;
+        NSLog(@"View Height is %d.", viewHeight);
+        [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, viewHeight-musicCtrlHeight )];
+        [self.navigationController setToolbarHidden:true animated:true];
         [self.view addSubview:self.musicCtrl];
         
     }

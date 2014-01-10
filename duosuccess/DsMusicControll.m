@@ -37,12 +37,15 @@
 }
 */
 
+
 - (IBAction)onTapPlayButton:(id)sender {
 
     if(isPlaying){
-        [self.playBtn setImage:[UIImage imageNamed:@"Stop" ] forState:(UIControlStateNormal)];
+        [self.playBtn setImage:[UIImage imageNamed:@"stop2" ] forState:(UIControlStateNormal)];
     }else{
-        [self.playBtn setImage:[UIImage imageNamed:@"play" ] forState:(UIControlStateNormal)];
+
+        [self.playBtn setImage:[UIImage imageNamed:@"play22" ] forState:(UIControlStateNormal)];
+        
     }
     isPlaying = !isPlaying;
     [self.delegate onTapPlayButon:self];

@@ -196,7 +196,7 @@
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if([actionSheet tag] == 1){
-        
+
         //music
         if (buttonIndex == 0) {
             NSLog(@"number of action buttons is %d.", actionSheet.numberOfButtons);
@@ -210,7 +210,9 @@
             
         }
         else if (buttonIndex == 1) {
-            [self startWebBrowser:nil];
+            if(actionSheet.numberOfButtons==3){
+                [self startWebBrowser:nil];
+            }
         }
     }
 }

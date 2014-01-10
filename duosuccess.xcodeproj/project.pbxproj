@@ -28,6 +28,7 @@
 		BD138AC6187D31E3002F577B /* dlist_bullets_icon&48.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138AC5187D31E3002F577B /* dlist_bullets_icon&48.png */; };
 		BD138ACB187E446A002F577B /* DsArticleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BD138ACA187E446A002F577B /* DsArticleHelper.m */; };
 		BD138ACE187E6BC6002F577B /* DsMask.m in Sources */ = {isa = PBXBuildFile; fileRef = BD138ACD187E6BC6002F577B /* DsMask.m */; };
+		BD138AD0187FF264002F577B /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD138ACF187FF263002F577B /* play@2x.png */; };
 		BD3449DE1866F227005357D6 /* DsNotificationReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */; };
 		BD3449E518687A3D005357D6 /* DsConst.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449E418687A3D005357D6 /* DsConst.m */; };
 		BD3449EB18696676005357D6 /* DsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD3449EA18696676005357D6 /* DsListViewController.m */; };
@@ -157,6 +158,7 @@
 		BD138ACA187E446A002F577B /* DsArticleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsArticleHelper.m; sourceTree = "<group>"; };
 		BD138ACC187E6BC6002F577B /* DsMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsMask.h; sourceTree = "<group>"; };
 		BD138ACD187E6BC6002F577B /* DsMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsMask.m; sourceTree = "<group>"; };
+		BD138ACF187FF263002F577B /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		BD3449DC1866F227005357D6 /* DsNotificationReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DsNotificationReceiver.h; sourceTree = "<group>"; };
 		BD3449DD1866F227005357D6 /* DsNotificationReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DsNotificationReceiver.m; sourceTree = "<group>"; };
 		BD3449DF186734F7005357D6 /* DsLangProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DsLangProtocol.h; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 		BD41351D185C31B30090C605 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BD138ACF187FF263002F577B /* play@2x.png */,
 				BD138AC5187D31E3002F577B /* dlist_bullets_icon&48.png */,
 				BD138ABF187D2FA2002F577B /* dmenubar-7@2x.png */,
 				BD138AC0187D2FA2002F577B /* dmenubar@2x.png */,
@@ -749,6 +752,7 @@
 				BD4134E218596DF30090C605 /* Readme.markdown in Resources */,
 				BD4134F218596DF30090C605 /* SAMWebView-reload-button@2x.png in Resources */,
 				BD41354B185C34450090C605 /* menubar@2x.png in Resources */,
+				BD138AD0187FF264002F577B /* play@2x.png in Resources */,
 				BD4134E518596DF30090C605 /* SAMWebView-action-button.png in Resources */,
 				BD4134FA18596DF30090C605 /* SAMWebView-stop-button@2x.png in Resources */,
 				BD4134F318596DF30090C605 /* SAMWebView-safari-button-mini.png in Resources */,
