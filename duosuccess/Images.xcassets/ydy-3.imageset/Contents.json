@@ -2,12 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "printer.png"
+      "scale" : "1x",
+      "filename" : "ydy-3.png"
     }
   ],
   "info" : {
