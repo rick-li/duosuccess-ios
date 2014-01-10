@@ -61,11 +61,11 @@
         }
         
         //start timer
-        //        timer =  [NSTimer scheduledTimerWithTimeInterval:3.0
-        //                        target:self
-        //                        selector:@selector(tick)
-        //                        userInfo:nil
-        //                        repeats:YES];
+        timer =  [NSTimer scheduledTimerWithTimeInterval:3.0
+                                target:self
+                                selector:@selector(tick)
+                                userInfo:nil
+                                repeats:YES];
         
         [self initShow];
     }
