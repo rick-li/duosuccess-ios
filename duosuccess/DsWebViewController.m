@@ -13,6 +13,7 @@
 #import "DsEventStore.h"
 #import "DsDataStore.h"
 #import "DsPaperController.h"
+#import "UIColor+Hex.h"
 #import <MessageUI/MessageUI.h>
 #import <EventKit/EventKit.h>
 
@@ -238,6 +239,7 @@ DsFileStore *fileStore;
 - (UIActivityIndicatorView *)indicatorView {
 	if (!_indicatorView) {
 		_indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 22.0f, 22.0f)];
+        _indicatorView.color =  [UIColor colorWithHex:0x0190b9 alpha:1];
 		_indicatorView.hidesWhenStopped = YES;
 	}
 	return _indicatorView;
