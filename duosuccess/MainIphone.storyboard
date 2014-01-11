@@ -112,17 +112,18 @@
             </objects>
             <point key="canvasLocation" x="318" y="-205"/>
         </scene>
-        <!--Ds Intro View Controller - Sigma Music-->
+        <!--Ds Intro View Controller-->
         <scene sceneID="FEB-7g-3hY">
             <objects>
-                <viewController storyboardIdentifier="musicController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b1N-rw-Cc7" customClass="DsIntroViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="introController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b1N-rw-Cc7" customClass="DsIntroViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2z8-Rn-O3B">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Sigma Music" id="BUq-qf-aKA"/>
+                    <navigationItem key="navigationItem" id="BUq-qf-aKA"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doV-RO-NLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,6 +8,7 @@
 
 #import "DsListViewController.h"
 #import "DsArticleViewController.h"
+#import "DsIntroViewController.h"
 #import "DsPaperController.h"
 #import "DsWebViewController.h"
 #import "DsTableCell.h"
@@ -72,7 +73,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ARTICLE_UPDATED object:nil queue:nil usingBlock:^(NSNotification *notification){
         [[DsMask sharedInstance] removeMask];
         [self.refreshCtrl endRefreshing];
-
+        
         [self loadArticles];
     }];
     
@@ -145,8 +146,17 @@
     if([[DsDataStore sharedInstance] isCensorMode]){
         [self startWebBrowser:@"https://www.duosuccess.com/tcm/001a01080301b01aj.htm"];
     }else{
-        UIViewController *musicCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"musicController"];
-        [self.navigationController pushViewController:musicCtrl animated:true];
+        bool skipMusicIntro = [[NSUserDefaults standardUserDefaults] valueForKey: DsSkipMusicIntro];
+        if(!skipMusicIntro){
+            DsIntroViewController *musicCtrl = (DsIntroViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
+            musicCtrl.skipIntroKey = DsSkipMusicIntro;
+            musicCtrl.instructPages = @[@"musicInst1", @"musicInst2"];
+            [self.navigationController pushViewController:musicCtrl animated:true];
+            
+        }else{
+            [self startWebBrowser:nil];
+        }
+        
         
     }
 }
@@ -173,7 +183,7 @@
     }
     [actionSheet addButtonWithTitle:NSLocalizedString(@"downloadPaper", @"Download new paper")];
     [actionSheet addButtonWithTitle:cancelStr];
-
+    
 	actionSheet.cancelButtonIndex = actionSheet.numberOfButtons-1;
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet setTag:1];
@@ -196,8 +206,8 @@
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if([actionSheet tag] == 1){
-
-        //music
+        
+        //paper
         if (buttonIndex == 0) {
             NSLog(@"number of action buttons is %d.", actionSheet.numberOfButtons);
             if(actionSheet.numberOfButtons==3){
@@ -205,7 +215,18 @@
                 
                 [self.navigationController pushViewController:pCtrl animated:true];
             }else{
-                [self startWebBrowser:nil];
+                bool skipPaperIntro = [[NSUserDefaults standardUserDefaults] valueForKey: DsSkipPaperIntro];
+                if(!skipPaperIntro){
+                    DsIntroViewController *paperIntroCtrl = (DsIntroViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"introController"];
+                    paperIntroCtrl.instructPages = @[@"musicInst1", @"musicInst2"];
+                    
+                    paperIntroCtrl.skipIntroKey = DsSkipPaperIntro;
+                    [self.navigationController pushViewController:paperIntroCtrl animated:true];
+                    
+                }else{
+                    [self startWebBrowser:nil];
+                }
+                
             }
             
         }

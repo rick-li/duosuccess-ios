@@ -13,9 +13,19 @@
 #import "DsMusicControll.h"
 #import "DsWebViewController.h"
 
+
+FOUNDATION_EXPORT NSString *const DsSkipMusicIntro;
+FOUNDATION_EXPORT NSString *const DsSkipPaperIntro;
+
+typedef enum {
+    DsMusic,
+    DsPaper
+} ActionType;
+
 @interface DsIntroViewController : UIViewController<UIScrollViewDelegate, DsInstConfirmDelegate>
 
-//DsWebViewController<UIScrollViewDelegate, DsInstConfirmDelegate, DsMusicPlayerDelegate, DsMusicControlDelegate>
+@property NSString *skipIntroKey;
+@property NSArray *instructPages;
 
 
 @end

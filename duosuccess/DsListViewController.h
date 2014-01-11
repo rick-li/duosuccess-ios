@@ -11,6 +11,7 @@
 #import "RESideMenu.h"
 #import "IntroControll.h"
 #import "DsArticleViewController.h"
+#import "DsIntroViewController.h"
 
 
 #if USES_IASK_STATIC_LIBRARY
