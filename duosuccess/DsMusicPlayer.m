@@ -41,7 +41,7 @@
     dispatch_once(&onceToken, ^{
         
         sharedInstance = [[self alloc] init];
-        sharedInstance.isPlaying = false;
+        [sharedInstance initialize];
     });
     
     [sharedInstance setupAudioSession];
@@ -51,14 +51,20 @@
     return sharedInstance;
 }
 
+int oneHour;
 
 NSTimer *oneHourTimer;
 
+- (void) initialize{
+    oneHour = 60 * 60;
+//        oneHour = 10 ;
+    isPlaying = false;
+}
 
 - (void) playMedia:(NSString *)midPath{
     isPlaying = true;
     elapsed = 0;
-    remains = 60 * 60;
+    remains = oneHour;
     [self stopMedia];
     NewMusicSequence(&mySequence);
     NSURL * midiFileURL = [NSURL fileURLWithPath:midPath];
@@ -72,8 +78,7 @@ NSTimer *oneHourTimer;
     Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
     
     if (playingInfoCenter) {
-        
-        
+
         NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
         
         MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage: [UIImage imageNamed:@"duoAlbumArt"]];
@@ -82,7 +87,7 @@ NSTimer *oneHourTimer;
         [songInfo setObject:NSLocalizedString(@"drLong", "") forKey:MPMediaItemPropertyArtist];
         [songInfo setObject:NSLocalizedString(@"album", "") forKey:MPMediaItemPropertyAlbumTitle];
         [songInfo setObject:[NSNumber numberWithInt:1] forKey:MPNowPlayingInfoPropertyPlaybackRate];
-        [songInfo setObject:[NSNumber numberWithInt:60*60] forKey:MPMediaItemPropertyPlaybackDuration];
+        [songInfo setObject:[NSNumber numberWithInt:oneHour] forKey:MPMediaItemPropertyPlaybackDuration];
         [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
         
@@ -119,9 +124,10 @@ NSTimer *oneHourTimer;
     if(self.remains<0){
         self.remains = 0;
     }
-    if(self.elapsed >= 60 * 60){
+    if(self.elapsed >= oneHour){
         NSLog(@"1 hour arrived, calling music stop.");
         [self invalidateTimer];
+        [self stopMedia];
         [self.delegate musicStop:self];
     }else{
         [self.delegate tick:elapsed remains:remains];
@@ -206,6 +212,8 @@ NSTimer *oneHourTimer;
     result = DisposeMusicPlayer(player);
     result = DisposeMusicSequence(mySequence);
     [self invalidateTimer];
+    
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
 
 }
 

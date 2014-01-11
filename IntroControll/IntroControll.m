@@ -15,13 +15,13 @@
         self.backgroundColor = [UIColor blackColor];
         
         backgroundImage1 = [[UIImageView alloc] initWithFrame:frame];
-        [backgroundImage1 setContentMode:UIViewContentModeScaleAspectFill];
-        [backgroundImage1 setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+        [backgroundImage1 setContentMode:UIViewContentModeScaleToFill];
+//        [backgroundImage1 setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
         [self addSubview:backgroundImage1];
         
         backgroundImage2 = [[UIImageView alloc] initWithFrame:frame];
-        [backgroundImage2 setContentMode:UIViewContentModeScaleAspectFill];
-        [backgroundImage2 setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
+        [backgroundImage2 setContentMode:UIViewContentModeScaleToFill];
+//        [backgroundImage2 setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
         [self addSubview:backgroundImage2];
         
         //Initial shadow
