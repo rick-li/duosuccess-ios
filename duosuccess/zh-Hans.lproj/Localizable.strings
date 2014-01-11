@@ -17,6 +17,8 @@
 "checkMyPaper" = "我的能纸";
 "downloadPaper" ="下载新的能纸";
 
+"confirmEnergyPaper" ="是否真的要删除?";
+
 "energyPaperDownloaded"="能纸已下载";
 "energyPaperRemoved"="能纸已删除";
 "energyPaperExpired"="能纸已过期，请删除";
@@ -40,3 +42,6 @@
 
 "dontShowAgain"="下次不顯示";
 "start"="開始";
+
+"yes"="是";
+"no"="否";

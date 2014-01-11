@@ -17,6 +17,7 @@
 "checkMyPaper" = "My Energy Paper";
 "downloadPaper" ="Download New Energy Paper";
 
+"confirmEnergyPaper" ="Do you really want to remove?";
 "energyPaperDownloaded"="Energy Paper is downloaded";
 "energyPaperRemoved"="Energy Paper is removed";
 "energyPaperExpired"="Energy Paper is expired, Please Remove";
@@ -40,3 +41,7 @@
 
 "dontShowAgain"="Don't show next time.";
 "start"="Start";
+
+
+"yes"="Yes";
+"no"="No";

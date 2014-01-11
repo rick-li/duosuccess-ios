@@ -73,17 +73,30 @@ DsEventStore *eventStore;
 
 -(void) deletePaper{
     NSLog(@"Delete paper is clicked.");
-    [fileStore removePaperImage];
-    [[DsEventStore sharedInstance] removePaperReminder];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"energyPaper", @"energy paper") message:NSLocalizedString(@"energyPaperRemoved", @"energy Paper Removed") delegate:(self) cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
-    [alert show];
+    UIAlertView *checkAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"confirmEnergyPaper", @"energy paper") message:NSLocalizedString(@"energyPaperRemoved", @"energy Paper Removed") delegate:(self) cancelButtonTitle: NSLocalizedString(@"no","") otherButtonTitles:NSLocalizedString(@"yes",""), nil];
+    checkAlert.tag = 0;
     
+    [checkAlert show];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    [self.navigationController popViewControllerAnimated:true];
+    if(alertView.tag == 0){
+        if(buttonIndex == 1){
+            [fileStore removePaperImage];
+            [[DsEventStore sharedInstance] removePaperReminder];
+            UIAlertView *confirmAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"energyPaper", @"energy paper") message:NSLocalizedString(@"energyPaperRemoved", @"energy Paper Removed") delegate:(self) cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            confirmAlert.tag = 1;
+            
+            [confirmAlert show];
+        }
+    }else if(alertView.tag == 1){
+        
+        [self.navigationController popViewControllerAnimated:true];
+        
+    }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
