@@ -24,8 +24,8 @@
 
 @implementation DsMusicPlayer
 
-@synthesize  mySequence;
-@synthesize  player;
+@synthesize mySequence;
+@synthesize player;
 @synthesize processingGraph     = _processingGraph;
 @synthesize samplerUnit         = _samplerUnit;
 @synthesize ioUnit              = _ioUnit;
@@ -57,6 +57,7 @@ NSTimer *oneHourTimer;
 
 - (void) initialize{
     oneHour = 60 * 60;
+    
 //        oneHour = 10 ;
     isPlaying = false;
 }
@@ -64,7 +65,7 @@ NSTimer *oneHourTimer;
 - (void) playMedia:(NSString *)midPath{
     isPlaying = true;
     elapsed = 0;
-    remains = oneHour;
+    remains = oneHour+452;
     [self stopMedia];
     NewMusicSequence(&mySequence);
     NSURL * midiFileURL = [NSURL fileURLWithPath:midPath];
@@ -87,7 +88,9 @@ NSTimer *oneHourTimer;
         [songInfo setObject:NSLocalizedString(@"drLong", "") forKey:MPMediaItemPropertyArtist];
         [songInfo setObject:NSLocalizedString(@"album", "") forKey:MPMediaItemPropertyAlbumTitle];
         [songInfo setObject:[NSNumber numberWithInt:1] forKey:MPNowPlayingInfoPropertyPlaybackRate];
-        [songInfo setObject:[NSNumber numberWithInt:oneHour] forKey:MPMediaItemPropertyPlaybackDuration];
+        //https://www.duosuccess.com/tcm/001new01j.htm
+        //1:06:32
+        [songInfo setObject:[NSNumber numberWithInt:oneHour+452] forKey:MPMediaItemPropertyPlaybackDuration];
         [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
         
@@ -126,7 +129,6 @@ NSTimer *oneHourTimer;
     }
     if(self.elapsed >= oneHour){
         NSLog(@"1 hour arrived, calling music stop.");
-        [self invalidateTimer];
         [self stopMedia];
         [self.delegate musicStop:self];
     }else{
@@ -161,7 +163,6 @@ NSTimer *oneHourTimer;
 - (void)setLoop:(MusicSequence)sequence {
     UInt32 tracks;
     
-    
     if (MusicSequenceGetTrackCount(sequence, &tracks) != noErr)
         NSLog(@"track size is %d", (int)tracks);
     
@@ -170,19 +171,26 @@ NSTimer *oneHourTimer;
         MusicTimeStamp trackLen = 0;
         
         UInt32 trackLenLen = sizeof(trackLen);
-        
         MusicSequenceGetIndTrack(sequence, i, &track);
         
         MusicTrackGetProperty(track, kSequenceTrackProperty_TrackLength, &trackLen, &trackLenLen);
-        MusicTrackLoopInfo loopInfo = { trackLen, 0 };
-        MusicTrackSetProperty(track, kSequenceTrackProperty_LoopInfo, &loopInfo, sizeof(loopInfo));
+        
+        if(trackLen >= oneHour){
+            MusicTrackLoopInfo loopInfo = { trackLen, 1 };
+            MusicTrackSetProperty(track, kSequenceTrackProperty_LoopInfo, &loopInfo, sizeof(loopInfo));
+
+        }else{
+            MusicTrackLoopInfo loopInfo = { trackLen, 10 };
+            MusicTrackSetProperty(track, kSequenceTrackProperty_LoopInfo, &loopInfo, sizeof(loopInfo));
+
+        }
+
         NSLog(@"track length is %f", trackLen);
     }
-    
-    
 }
 
 - (void) stopMedia{
+    NSLog(@"Stopping music");
     isPlaying = false;
     if(player == nil ){
         return;

@@ -206,6 +206,20 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    NSLog(@"begin background task");
+    UIBackgroundTaskIdentifier bgTask = nil;
+    UIApplication  *app = [UIApplication sharedApplication];
+    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:(bgTask)];
+        //bgTask = UIBackgroundTaskInvalid;
+    }];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
+    
+    [app endBackgroundTask:bgTask];
+    bgTask = UIBackgroundTaskInvalid;
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

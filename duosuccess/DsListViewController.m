@@ -73,13 +73,10 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:ARTICLE_UPDATED object:nil queue:nil usingBlock:^(NSNotification *notification){
         [[DsMask sharedInstance] removeMask];
         [self.refreshCtrl endRefreshing];
-        
         [self loadArticles];
     }];
     
     [self loadArticles];
-    
-    
     
     ((DsAppDelegate *)[UIApplication sharedApplication].delegate).listCtrl = self;
     
@@ -96,7 +93,7 @@
 {
     [self.navigationController setToolbarHidden:false];
     self.title = [listDelegate getTitle];
-    
+    NSLog(@"List view will appear %@.", self.title);
     if((!self.tableArticles && !self.introArticles)||(self.tableArticles.count + self.introArticles.count) == 0)
     {
         [[DsMask sharedInstance] startMask:nil forView:self.view];
@@ -267,8 +264,13 @@
     NSLog(@"refreshing");
     
     [[DsDataStore sharedInstance] syncData];
+    [NSTimer scheduledTimerWithTimeInterval:90 target:self selector:@selector(maskTimeout) userInfo:nil repeats:false] ;
 }
 
+-(void) maskTimeout{
+    NSLog(@"Pull refresh mask timeout.");
+    [self.refreshCtrl endRefreshing];
+}
 
 -(void) openArticle:(NSManagedObject*) article{
     

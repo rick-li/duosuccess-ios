@@ -78,7 +78,6 @@ DsFileStore *fileStore;
     }
     
     [self clearCache];
-    
 }
 
 
@@ -418,7 +417,7 @@ DsFileStore *fileStore;
     
     self.musicCtrl.elapsed.text = elapsedDisplay;
     self.musicCtrl.remains.text = remainsDisplay;
-    float progress = (float)elapsed/(float)3600;
+    float progress = (float)elapsed/(float)(3600+452);
     self.musicCtrl.slider.progress = progress;
 
 }

@@ -43,7 +43,7 @@
         pageControl = [[UIPageControl alloc] init];
         pageControl.numberOfPages = pagesArray.count;
         [pageControl sizeToFit];
-        [pageControl setCenter:CGPointMake(frame.size.width/2.0, frame.size.height-20)];
+        [pageControl setCenter:CGPointMake(frame.size.width/2.0, frame.size.height-15)];
         [self addSubview:pageControl];
         
         //Create pages

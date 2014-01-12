@@ -11,14 +11,13 @@
 #import "DsDataStore.h"
 
 @interface DsMainListImpl()
-
+@property NSString *title;
 @end
 
 
 @implementation DsMainListImpl
 
-
-NSString *title;
+@synthesize title;
 
 -(void) init: (DsListViewController*) lctrl{
     self.ctrl = lctrl;
