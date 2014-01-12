@@ -87,6 +87,7 @@ NSTimer *oneHourTimer;
         [songInfo setObject:NSLocalizedString(@"musicTitle", "") forKey:MPMediaItemPropertyTitle];
         [songInfo setObject:NSLocalizedString(@"drLong", "") forKey:MPMediaItemPropertyArtist];
         [songInfo setObject:NSLocalizedString(@"album", "") forKey:MPMediaItemPropertyAlbumTitle];
+        [songInfo setObject:[NSNumber numberWithLong:oneHour] forKey:MPMediaItemPropertyPlaybackDuration];
         [songInfo setObject:[NSNumber numberWithInt:1] forKey:MPNowPlayingInfoPropertyPlaybackRate];
         //https://www.duosuccess.com/tcm/001new01j.htm
         //1:06:32

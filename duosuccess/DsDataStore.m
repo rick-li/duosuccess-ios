@@ -41,15 +41,15 @@ BOOL isUnderCensor;
 
 -(void) syncData{
     
-    if(DEBUG==1){
-        [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
-        clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
-        NSLog(@"Currently using DEV version.");
-    }else{
+//    if(DEBUG==1){
+//        [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
+//        clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
+//        NSLog(@"Currently using DEV version.");
+//    }else{
         [Parse setApplicationId:@"L8yb6OqqvqHZhwViBea5xCWAgtRtow0R3CtDjz1E"
                       clientKey:@"KmDVN8meSLM9QjYE5wsrbVMtmWpbLo0MYxpAFFCR"];
         NSLog(@"Currently using PROD version.");
-    }
+//    }
     
     appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     

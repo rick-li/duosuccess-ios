@@ -40,18 +40,18 @@ NSString *tmpDir;
         [[NSFileManager defaultManager] createDirectoryAtPath:tmpDir withIntermediateDirectories:NO attributes:nil error:&error];
     }
     
-    NSLog(@"Temp dir is created");
+//    NSLog(@"Temp dir is created");
 }
 
 -(void) clearMusicCache{
     NSError *error = nil;
-    NSLog(@"temp dir is %@", tmpDir);
+//    NSLog(@"temp dir is %@", tmpDir);
     BOOL folderExists = [[NSFileManager defaultManager] fileExistsAtPath:tmpDir];
     
     
     if(folderExists){
         NSURL *url = [NSURL fileURLWithPath:tmpDir];
-        NSLog(@"URL: %@", url);
+//        NSLog(@"URL: %@", url);
         BOOL isRemoved = [[NSFileManager defaultManager] removeItemAtURL:url error: &error];
         
         NSLog (@"Temp Dir removed: %@", isRemoved ? @"YES" : @"NO");

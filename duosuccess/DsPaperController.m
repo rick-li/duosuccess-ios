@@ -75,7 +75,7 @@ DsEventStore *eventStore;
     NSLog(@"Delete paper is clicked.");
     
     
-    UIAlertView *checkAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"confirmEnergyPaper", @"energy paper") message:NSLocalizedString(@"energyPaperRemoved", @"energy Paper Removed") delegate:(self) cancelButtonTitle: NSLocalizedString(@"no","") otherButtonTitles:NSLocalizedString(@"yes",""), nil];
+    UIAlertView *checkAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"confirmEnergyPaper", @"energy paper") message:nil delegate:(self) cancelButtonTitle: NSLocalizedString(@"no","") otherButtonTitles:NSLocalizedString(@"yes",""), nil];
     checkAlert.tag = 0;
     
     [checkAlert show];

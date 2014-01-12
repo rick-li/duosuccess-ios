@@ -203,6 +203,7 @@ DsFileStore *fileStore;
 
 
 - (void)webViewDidStartLoadingPage:(SAMWebView *)webView {
+    NSLog(@"Start loading page...");
     NSURL *URL = self.currentURL;
 	self.title = URL.absoluteString;
 	[self updateBrowserUI];
@@ -213,6 +214,7 @@ DsFileStore *fileStore;
 }
 
 - (void)webViewDidFinishLoadingPage:(SAMWebView *)webView {
+    NSLog(@"webview finished loading...");
 	[self updateBrowserUI];
     NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     if ([title length] > 0) {
@@ -231,7 +233,6 @@ DsFileStore *fileStore;
         self.musicCtrl = nil;
     }
     [self playMusic:webView];
-    NSLog(@"webview finished loading...");
 }
 
 
@@ -399,6 +400,7 @@ DsFileStore *fileStore;
         [self clearCache];
         [self.musicPlayer stopMedia];
     }else{
+        NSLog(@"tapped play button, restarting webview.");
         if(self.view.window){ //view is still displayed on screen.
             [self.webView reload];
         }
@@ -430,14 +432,18 @@ DsFileStore *fileStore;
 
 -(void)musicStop:(DsMusicPlayer *)sender{
     [self.navigationController setToolbarHidden:false animated:true];
+    [self clearCache];
     if(musicCtrl.isPlaying){
         [musicCtrl onTapPlayButton:nil];
     }
 }
 
 -(void)playMusic:(SAMWebView *)webView {
-    NSString *strjs = @"document.querySelector('embed').src";
-    NSString *midUrl = [webView stringByEvaluatingJavaScriptFromString:strjs];
+    NSLog(@"play Music from webview.");
+    NSString *strExtractMidJs = @"document.querySelector('embed').src";
+    NSString *stopMusicJs = @"window.stopmusic = function(){}";
+    [webView stringByEvaluatingJavaScriptFromString:stopMusicJs];
+    NSString *midUrl = [webView stringByEvaluatingJavaScriptFromString:strExtractMidJs];
 //    NSString *midUrl = @"http://file.midicn.com/midi/nation_music/25575midid.mid";
     //remove mask
     NSLog(@"mid Url is %@", midUrl);

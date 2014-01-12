@@ -14,7 +14,7 @@
 "energyPaper"="能纸";
 "myPaper" = "我的能纸";
 "cancel" = "取消";
-"confirmEnergyPaper" ="是否真的要删除?";
+"confirmEnergyPaper" ="是否要删除?";
 "checkMyPaper" = "我的能纸";
 "downloadPaper" ="下载新的能纸";
 "energyPaperDownloaded"="能纸已下载";
