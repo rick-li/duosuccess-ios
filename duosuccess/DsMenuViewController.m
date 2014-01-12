@@ -47,6 +47,7 @@
     
     UINavigationController *navigationController = (UINavigationController *)self.sideMenuViewController.contentViewController;
     self.listCtrl = [navigationController.viewControllers objectAtIndex:0];
+   
 
 }
 
@@ -77,7 +78,7 @@
             int y = (self.view.frame.size.height - 54 * count) / 2.0f;
 
             NSLog(@"y is %d ",y);
-            UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, 54 * count) style:UITableViewStylePlain];
+            UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 120, self.view.frame.size.width, 54 * count) style:UITableViewStylePlain];
             
             tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
             tableView.delegate = self;
@@ -96,7 +97,7 @@
         int y = (self.view.frame.size.height - 54 * count) / 2.0f;
         int w = self.view.frame.size.width;
         NSLog(@"y is %d ",y);
-        self.tableView.frame = CGRectMake(0, 120, w, 54 * count);
+        self.tableView.frame = CGRectMake(10, 120, w, 54 * count);
 
         [self.tableView reloadData];
     }
@@ -186,8 +187,11 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
 
-        cell.textLabel.textColor = [UIColor colorWithHex:0x007bd9 alpha:1];
+//        cell.textLabel.textColor = [UIColor colorWithHex:0x007bd9 alpha:1];
+        cell.textLabel.textColor = [UIColor colorWithHex:0x0190b9 alpha:1];
         
+//        cell.textLabel.textColor = [UIColor colorWithHex:0xffffff alpha:1];
+        [cell.textLabel setFont:[UIFont boldSystemFontOfSize:22]];
         cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }

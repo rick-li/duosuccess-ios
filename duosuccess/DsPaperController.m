@@ -86,7 +86,7 @@ DsEventStore *eventStore;
         if(buttonIndex == 1){
             [fileStore removePaperImage];
             [[DsEventStore sharedInstance] removePaperReminder];
-            UIAlertView *confirmAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"energyPaper", @"energy paper") message:NSLocalizedString(@"energyPaperRemoved", @"energy Paper Removed") delegate:(self) cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *confirmAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"energyPaper", @"energy paper") message:NSLocalizedString(@"energyPaperRemoved", @"energy Paper Removed") delegate:(self) cancelButtonTitle:NSLocalizedString(@"ok", "") otherButtonTitles:nil];
             confirmAlert.tag = 1;
             
             [confirmAlert show];
