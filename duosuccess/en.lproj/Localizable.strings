@@ -19,6 +19,7 @@
 
 "confirmEnergyPaper" ="Do you really want to remove?";
 "energyPaperDownloaded"="Energy Paper is downloaded";
+"energyPaperNotice"="Please view 5 times a day";
 "energyPaperRemoved"="Energy Paper is removed";
 "energyPaperExpired"="Energy Paper is expired, Please Remove";
 

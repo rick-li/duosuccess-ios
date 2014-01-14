@@ -12,13 +12,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't show next time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8LC-Vs-a56">
-                    <rect key="frame" x="65" y="9" width="166" height="21"/>
+                    <rect key="frame" x="96" y="9" width="166" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="highlightedColor" red="0.22745099660000001" green="0.5647059083" blue="0.7254902124" alpha="1" colorSpace="deviceRGB"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="82w-Di-reZ">
-                    <rect key="frame" x="8" y="4" width="51" height="31"/>
+                    <rect key="frame" x="5" y="4" width="51" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="onTintColor" red="0.22745099660000001" green="0.5647059083" blue="0.7254902124" alpha="1" colorSpace="deviceRGB"/>
                 </switch>

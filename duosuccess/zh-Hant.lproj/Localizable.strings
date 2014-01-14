@@ -17,7 +17,8 @@
 "confirmEnergyPaper" ="是否要删除?";
 "checkMyPaper" = "我的能纸";
 "downloadPaper" ="下载新的能纸";
-"energyPaperDownloaded"="能纸已下载";
+"energyPaperDownloaded"="西格瑪能纸已下载";
+"energyPaperNotice"="請每日瀏覽5次或以上";
 "energyPaperRemoved"="能纸已删除";
 "energyPaperExpired"="能纸已过期，请删除";
 "willExpireAt"="过期时间: ";

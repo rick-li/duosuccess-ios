@@ -107,8 +107,8 @@ DsFileStore *fileStore;
     opacityAnimation.removedOnCompletion = YES;
     opacityAnimation.duration = 0.6;
     [CATransaction setCompletionBlock:^{
-        NSLocalizedString(@"energyPaperDownloaded", @"Energy paper is downloaded");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"西格瑪能紙已下載" message:@"請於我的能紙處查看" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"energyPaperDownloaded", @"Energy paper is downloaded") message:NSLocalizedString(@"energyPaperNotice", "") delegate:self cancelButtonTitle:NSLocalizedString(@"ok","") otherButtonTitles:nil];
         [alert addButtonWithTitle:NSLocalizedString(@"check", "Check")];
         [alert show];
         

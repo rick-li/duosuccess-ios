@@ -65,7 +65,9 @@ NSString *tmpDir;
 }
 
 -(bool) isPaperImageExists{
-    return [[NSFileManager defaultManager] isReadableFileAtPath:[NSURL fileURLWithPath:imageFileUrl]];
+//    NSURL *filePath = [NSURL fileURLWithPath:imageFileUrl];
+    
+    return [[NSFileManager defaultManager] isReadableFileAtPath:imageFileUrl];
 }
 
 -(void) savePaperImage: (NSData*) imageData{
