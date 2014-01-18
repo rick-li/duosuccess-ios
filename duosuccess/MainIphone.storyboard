@@ -242,19 +242,6 @@
                             <view contentMode="scaleToFill" id="jLe-li-SOt">
                                 <rect key="frame" x="0.0" y="380" width="320" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bds-N2-4A1">
-                                        <rect key="frame" x="224" y="7" width="87" height="19.5"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                        <gestureRecognizers/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="0c5-oo-RkR" appends="YES" id="JHJ-8G-ZBY"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -269,7 +256,6 @@
                         <outlet property="contentView" destination="6EL-k9-829" id="oep-ze-KhP"/>
                         <outlet property="dateView" destination="Nel-m8-64F" id="gfP-5c-KNv"/>
                         <outlet property="imageView" destination="x6s-TK-ATk" id="IAo-Ec-jAW"/>
-                        <outlet property="moreBtn" destination="Bds-N2-4A1" id="C3H-Ao-9w5"/>
                         <outlet property="titleView" destination="HYm-RA-5cl" id="5ib-yB-ZjS"/>
                     </connections>
                 </viewController>

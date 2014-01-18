@@ -68,7 +68,7 @@
     }
     
     //Display launch image longer
-    [NSThread sleepForTimeInterval:2.0];
+    [NSThread sleepForTimeInterval:1.0];
     return YES;
 }
 
@@ -141,15 +141,18 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     [[UIApplication sharedApplication]
      setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
     
-    UIImage *navBarImage = [[UIImage tallImageNamed:@"menubar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
-    if(![Utils isVersion6AndBelow])
+    UIImage *navBarImage = [[UIImage tallImageNamed:@"dmenubar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
+    if(![Utils isVersion6AndBelow]){
         navBarImage = [[UIImage tallImageNamed:@"dmenubar-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
+        
+        [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+    }
     
-    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+    
     
     
     UIImage *barButton = [[UIImage tallImageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
-    //    if(![Utils isVersion6AndBelow])
+//        if(![Utils isVersion6AndBelow])
     //        barButton = [[UIImage tallImageNamed:@"menubar-button-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
     //
     if([Utils isVersion6AndBelow]){
@@ -208,17 +211,17 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     NSLog(@"begin background task");
-    UIBackgroundTaskIdentifier bgTask = nil;
-    UIApplication  *app = [UIApplication sharedApplication];
-    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
-        [app endBackgroundTask:(bgTask)];
-        //bgTask = UIBackgroundTaskInvalid;
-    }];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
-    
-    [app endBackgroundTask:bgTask];
-    bgTask = UIBackgroundTaskInvalid;
+//    UIBackgroundTaskIdentifier bgTask = nil;
+//    UIApplication  *app = [UIApplication sharedApplication];
+//    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+//        [app endBackgroundTask:(bgTask)];
+//        //bgTask = UIBackgroundTaskInvalid;
+//    }];
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
+//    
+//    [app endBackgroundTask:bgTask];
+//    bgTask = UIBackgroundTaskInvalid;
 
 }
 
