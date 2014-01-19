@@ -8,6 +8,7 @@
 
 #import "DsRootViewController.h"
 #import "DsMenuViewController.h"
+#import "DsDataStore.h"
 
 @interface DsRootViewController ()
 
@@ -20,9 +21,11 @@
 - (void)awakeFromNib{
     self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
     self.menuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"menuController"];
-    self.backgroundImage = [UIImage imageNamed:@"Stars"];
+    self.backgroundImage = [UIImage imageNamed:@"StarsBj"];
     self.delegate = (DsMenuViewController *)self.menuViewController;
-    
+    if(![[DsDataStore sharedInstance] isCensorMode]){
+        self.panGestureEnabled = false;
+    }
 }
 
 - (void)viewDidLoad

@@ -27,10 +27,11 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 NSString *appVersion;
-BOOL isUnderCensor;
+
 
 -(BOOL) isCensorMode{
-    return isUnderCensor;
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    return [(NSNumber*)[defaults valueForKey:@"underCensor"] boolValue];
 }
 
 #ifdef DEBUG
@@ -55,26 +56,27 @@ BOOL isUnderCensor;
     
     
     NSLog(@"App version is %@.", appVersion);
-    [self queryCensorStatus];
+    [self queryHeheStatus];
     
     //sync lang, category, article
     [self syncData:@"DsLang" withPfType:@"Lang"];
     
     [self syncData:@"DsCategory" withPfType:@"Category"];
     
-    
     [self syncData:@"DsArticle" withPfType:@"Article"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"articleUpdated" object:nil];
 }
 
--(void)queryCensorStatus{
+-(void)queryHeheStatus{
     PFQuery *query = [PFQuery queryWithClassName:@"Censor"];
     [query whereKey:@"version" equalTo:appVersion];
     [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
         PFObject *obj = [results objectAtIndex:0];
 //        isUnderCensor = (BOOL)[obj valueForKey:@"underCensor"];
-        isUnderCensor = [obj[@"underCensor"] boolValue];
-        NSLog(@"Is Under censor, %d", isUnderCensor);
+        bool isUnderCensor = [obj[@"underCensor"] boolValue];
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:[NSNumber numberWithBool:isUnderCensor] forKey:@"underCensor"];
+        NSLog(@"Is Hehe, %d", isUnderCensor);
     }];
 }
 
@@ -115,7 +117,6 @@ BOOL isUnderCensor;
 
 -(void)setArticleAttrs:(NSManagedObject *)mObj fromPfObj: (PFObject *) pfObj{
     
-
     NSString *objectIdVal = pfObj.objectId;
     [mObj setValue:objectIdVal forKey:@"objectId"];
     
@@ -297,7 +298,6 @@ BOOL isUnderCensor;
                 NSLog(@"set default lang to %@.", [defaultLang valueForKey:@"code"]);
             }
         }
-        
     }
     
     if(defaultLang == nil || [defaultLang count] ==0){

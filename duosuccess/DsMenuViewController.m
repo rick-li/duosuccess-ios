@@ -14,6 +14,8 @@
 #import "DsCategoryListImpl.h"
 #import "UIColor+Hex.h"
 
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 @interface DsMenuViewController ()
 
 @property NSMutableArray *categories;
@@ -25,6 +27,11 @@
 
 @implementation DsMenuViewController
 @synthesize categories;
+
+int menuItemHeight = 54;
+
+int marginLeft = 50;
+int marginTop = 100;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,6 +63,12 @@
 {
     NSLog(@"load Categories.");
     
+    if(!IS_IPHONE_5){
+        marginTop = 50;
+        marginLeft = 55;
+    }
+
+    
     NSArray *categoriesFromDB = [[DsDataStore sharedInstance] queryCategories];
     if([categoriesFromDB count] <= 0){
         return;
@@ -75,10 +88,10 @@
     NSLog(@"Menu Container height is %f.", self.view.frame.size.height);
     if(!self.tableView){
         self.tableView = ({
-            int y = (self.view.frame.size.height - 54 * count) / 2.0f;
+            int y = (self.view.frame.size.height - menuItemHeight * count) / 2.0f;
 
             NSLog(@"y is %d ",y);
-            UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 120, self.view.frame.size.width, 54 * count) style:UITableViewStylePlain];
+            UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(marginLeft, marginTop, self.view.frame.size.width, menuItemHeight * count) style:UITableViewStylePlain];
             
             tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
             tableView.delegate = self;
@@ -94,10 +107,10 @@
         [self.view addSubview:self.tableView];
     }else{
 
-        int y = (self.view.frame.size.height - 54 * count) / 2.0f;
+        int y = (self.view.frame.size.height - menuItemHeight * count) / 2.0f;
         int w = self.view.frame.size.width;
         NSLog(@"y is %d ",y);
-        self.tableView.frame = CGRectMake(10, 120, w, 54 * count);
+        self.tableView.frame = CGRectMake(marginLeft, marginTop, w, menuItemHeight * count);
 
         [self.tableView reloadData];
     }
@@ -161,7 +174,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 54;
+    return menuItemHeight;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

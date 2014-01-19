@@ -14,6 +14,8 @@
 
 + (id)sharedInstance;
 
+- (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
+
 -(NSString*) tmpDir;
 
 -(void) createMusicDir;

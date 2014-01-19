@@ -67,26 +67,21 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
+                        <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="Fue-69-Iet"/>
                         <barButtonItem image="music" width="31" style="plain" id="0eR-oP-lk9">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="musicAction" destination="PGh-ae-fSJ" id="m64-qG-KU1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jXT-8u-6XQ"/>
-                        <barButtonItem image="paper" style="plain" id="wh7-uX-BBu">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="paperAction" destination="PGh-ae-fSJ" id="y2y-Uy-k7K"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="MeM-T4-N7T"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="U6G-hN-8AP"/>
                         <barButtonItem image="global" style="plain" id="Ooz-gW-vSV">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="browserAction" destination="PGh-ae-fSJ" id="jWq-WU-YtW"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="tXf-Mc-DB7"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="DLb-wj-Hk9">
                         <barButtonItem key="leftBarButtonItem" image="dmenu" style="plain" id="D9n-9Y-Yx3">
@@ -289,7 +284,6 @@
         <image name="global" width="24" height="24"/>
         <image name="listBg" width="320" height="568"/>
         <image name="music" width="23" height="23"/>
-        <image name="paper" width="24" height="24"/>
     </resources>
     <color key="tintColor" red="0.22745099660000001" green="0.5647059083" blue="0.7254902124" alpha="1" colorSpace="deviceRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

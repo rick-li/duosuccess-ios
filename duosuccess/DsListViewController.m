@@ -87,6 +87,11 @@
     }
     
     
+    if(![[DsDataStore sharedInstance] isCensorMode]){
+        //after the censor mode, display webbrowser by default.
+        [self startWebBrowser: nil];
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

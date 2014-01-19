@@ -25,12 +25,29 @@ NSString *tmpDir;
     return sharedInstance;
 }
 
+- (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL
+{
+    if(![[NSFileManager defaultManager] fileExistsAtPath: [URL path]]){
+        NSLog(@"File not exist %@ , skip.", [URL path]);
+        return false;
+    }
+    
+    NSError *error = nil;
+    BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                                  forKey: NSURLIsExcludedFromBackupKey error: &error];
+    if(!success){
+        NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+    }
+    return success;
+}
 
 -(id)init{
     self = [super init];
     tmpDir = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"/File"];
     
+    [self addSkipBackupAttributeToItemAtURL: [NSURL fileURLWithPath:tmpDir]];
     imageFileUrl = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"/paperScreenshot.png"];
+    [self addSkipBackupAttributeToItemAtURL: [NSURL fileURLWithPath:imageFileUrl]];
     return self;
 }
 

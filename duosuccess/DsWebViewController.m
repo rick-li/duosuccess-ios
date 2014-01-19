@@ -14,6 +14,7 @@
 #import "DsDataStore.h"
 #import "DsPaperController.h"
 #import "UIColor+Hex.h"
+#import "Utils.h"
 #import <MessageUI/MessageUI.h>
 #import <EventKit/EventKit.h>
 
@@ -239,7 +240,9 @@ DsFileStore *fileStore;
 - (UIActivityIndicatorView *)indicatorView {
 	if (!_indicatorView) {
 		_indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 22.0f, 22.0f)];
-        _indicatorView.color =  [UIColor colorWithHex:0x0190b9 alpha:1];
+        if(![Utils isVersion6AndBelow]){
+            _indicatorView.color =  [UIColor colorWithHex:0x0190b9 alpha:1];
+        }
 		_indicatorView.hidesWhenStopped = YES;
 	}
 	return _indicatorView;
@@ -277,6 +280,12 @@ DsFileStore *fileStore;
     //display toolbar
     if (!self.toolbarHidden && ![self.currentURL isFileURL]) {
         [self.navigationController setToolbarHidden:NO animated:true];
+    }
+    
+    
+    if(![[DsDataStore sharedInstance] isCensorMode]){
+        [self.navigationItem setHidesBackButton:YES];
+
     }
     
     // Loading indicator
@@ -325,7 +334,7 @@ DsFileStore *fileStore;
     [_forwardBarButtonItem setTintColor: white];
     
 	self.toolbarItems = @[fixedSpace, self.backBarButtonItem, flexibleSpace, self.forwardBarButtonItem, flexibleSpace,
-                          reloadBarButtonItem, flexibleSpace, _screenshotButtonItem];
+                          reloadBarButtonItem];
 	
     // Close button
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -465,6 +474,7 @@ DsFileStore *fileStore;
         NSString *midPath = [tmpDir stringByAppendingPathComponent:[url lastPathComponent]];
         [data writeToFile:midPath atomically:YES];
         NSLog(@"midi file path is %@", midPath);
+        [fileStore addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:midPath]];
         self.musicPlayer = [DsMusicPlayer sharedInstance];
         [musicPlayer playMedia:midPath];
         musicPlayer.isPlaying = true;
@@ -481,8 +491,14 @@ DsFileStore *fileStore;
         }
         int viewHeight = [UIScreen mainScreen].applicationFrame.size.height;
         NSLog(@"View Height is %d.", viewHeight);
+
+        if([[DsDataStore sharedInstance] isCensorMode]){
+            [self.navigationController setToolbarHidden:true animated:true];
+        }else{
+            musicCtrlHeight += self.navigationController.toolbar.frame.size.height;
+        }
         [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, viewHeight-musicCtrlHeight )];
-        [self.navigationController setToolbarHidden:true animated:true];
+
         [self.view addSubview:self.musicCtrl];
         
     }

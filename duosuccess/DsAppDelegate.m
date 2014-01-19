@@ -26,7 +26,7 @@
     NSLog(@"==didFinishLaunchingWithOptions==");
     
     [[DsDataStore sharedInstance] syncData];
-
+    
     
     UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
     if (idiom == UIUserInterfaceIdiomPad)
@@ -40,12 +40,16 @@
         [self customizeiPhoneTheme];
     }
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    [application registerForRemoteNotificationTypes:
-     UIRemoteNotificationTypeBadge |
-     UIRemoteNotificationTypeAlert |
-     UIRemoteNotificationTypeSound];
+    
+    
+    if([[DsDataStore sharedInstance] isCensorMode]){
+        //only do push notification during censor period
+        [application registerForRemoteNotificationTypes:
+         UIRemoteNotificationTypeBadge |
+         UIRemoteNotificationTypeAlert |
+         UIRemoteNotificationTypeSound];
+    }
     
     //if app is started by notification swipe
     NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -56,7 +60,7 @@
     
     [[DsNotificationReceiver sharedInstance] receiveNotifiaction: notificationPayload forListCtrl:self.listCtrl];
     
-//    [[DsNotificationReceiver sharedInstance] receiveNotifiaction:[NSDictionary dictionaryWithObject:@"TUUYBtlywF" forKey:@"oid"] forListCtrl:self.listCtrl];
+    //    [[DsNotificationReceiver sharedInstance] receiveNotifiaction:[NSDictionary dictionaryWithObject:@"TUUYBtlywF" forKey:@"oid"] forListCtrl:self.listCtrl];
     
     //set first run flag.
     if([[NSUserDefaults standardUserDefaults] objectForKey:@"FirstRun"] == nil){
@@ -114,14 +118,14 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     [self clearBadge];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NotificationReceived","") message:NSLocalizedString(@"OpenItNow", "") delegate:self cancelButtonTitle:NSLocalizedString(@"NoThanks", "") otherButtonTitles:NSLocalizedString(@"ok", ""), nil];
     [alert show];
-   }
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"button idx is %d.", buttonIndex);
     if (buttonIndex == 1)
     {
-
+        
         [[DsNotificationReceiver sharedInstance] receiveNotifiaction:notificationWhileRunning forListCtrl:listCtrl];
         notificationWhileRunning = nil;
     }
@@ -138,8 +142,14 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
 
 -(void)customizeiPhoneTheme
 {
-    [[UIApplication sharedApplication]
-     setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+    if([Utils isVersion6AndBelow]){
+        [[UIApplication sharedApplication]
+         setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+    }else{
+        [[UIApplication sharedApplication]
+         setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+        
+    }
     
     UIImage *navBarImage = [[UIImage tallImageNamed:@"dmenubar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
     if(![Utils isVersion6AndBelow]){
@@ -152,7 +162,7 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     
     
     UIImage *barButton = [[UIImage tallImageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
-//        if(![Utils isVersion6AndBelow])
+    //        if(![Utils isVersion6AndBelow])
     //        barButton = [[UIImage tallImageNamed:@"menubar-button-7.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
     //
     if([Utils isVersion6AndBelow]){
@@ -211,18 +221,18 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     NSLog(@"begin background task");
-//    UIBackgroundTaskIdentifier bgTask = nil;
-//    UIApplication  *app = [UIApplication sharedApplication];
-//    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
-//        [app endBackgroundTask:(bgTask)];
-//        //bgTask = UIBackgroundTaskInvalid;
-//    }];
-//    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
-//    
-//    [app endBackgroundTask:bgTask];
-//    bgTask = UIBackgroundTaskInvalid;
-
+    //    UIBackgroundTaskIdentifier bgTask = nil;
+    //    UIApplication  *app = [UIApplication sharedApplication];
+    //    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+    //        [app endBackgroundTask:(bgTask)];
+    //        //bgTask = UIBackgroundTaskInvalid;
+    //    }];
+    //
+    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
+    //
+    //    [app endBackgroundTask:bgTask];
+    //    bgTask = UIBackgroundTaskInvalid;
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
