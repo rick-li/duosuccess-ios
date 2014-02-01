@@ -20,6 +20,7 @@
 #import "DsNotificationReceiver.h"
 #import "DsAppDelegate.h"
 #import "DsMask.h"
+#import "UIColor+Hex.h"
 
 #ifdef USES_IASK_STATIC_LIBRARY
 #import "InAppSettingsKit/IASKSettingsReader.h"
@@ -103,7 +104,9 @@
     {
         [[DsMask sharedInstance] startMask:nil forView:self.view];
     }
-    
+    NSDictionary *fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0],UITextAttributeFont, [UIColor colorWithHex:0x0190b9],UITextAttributeTextColor, nil];
+    self.navigationController.navigationBar.titleTextAttributes = fontAttrs;
+
 }
 
 - (void)didReceiveMemoryWarning

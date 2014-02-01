@@ -156,6 +156,7 @@ DsFileStore *fileStore;
 #pragma mark - Private
 
 - (void)updateBrowserUI {
+    [self restoreWebviewHeight];
 	self.backBarButtonItem.enabled = [self.webView canGoBack];
 	self.forwardBarButtonItem.enabled = [self.webView canGoForward];
     
@@ -217,16 +218,35 @@ DsFileStore *fileStore;
 - (void)webViewDidFinishLoadingPage:(SAMWebView *)webView {
     NSLog(@"webview finished loading...");
 	[self updateBrowserUI];
+    if(![[DsDataStore sharedInstance] isCensorMode] && [self.webView canGoBack]){
+        
+        self.navigationItem.hidesBackButton = YES;
+        UIImage *navImage = [UIImage imageNamed:@"back"];
+        
+        UIButton *customBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [customBackBtn addTarget:self action:@selector(customBack) forControlEvents:UIControlEventTouchUpInside];
+        [customBackBtn setImage:navImage forState:UIControlStateNormal];
+        customBackBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
+        [customBackBtn setFrame:CGRectMake(0, 0, navImage.size.width, navImage.size.height)];
+        
+        UIBarButtonItem *customBackBarBtn = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
+        
+        self.navigationItem.leftBarButtonItem = customBackBarBtn;
+        
+    }
+    
     NSString *title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     if ([title length] > 0) {
         self.title = title;
     }
-    NSString *lowerCaseTitle = [title lowercaseString];
-    if([lowerCaseTitle rangeOfString:@"paper"].location!=NSNotFound || [lowerCaseTitle rangeOfString:@"calendar"].location!=NSNotFound){
-        [_screenshotButtonItem setEnabled:true];
-    }else{
-        [_screenshotButtonItem setEnabled:false];
-    }
+    
+
+//    NSString *lowerCaseTitle = [title lowercaseString];
+//    if([lowerCaseTitle rangeOfString:@"paper"].location!=NSNotFound || [lowerCaseTitle rangeOfString:@"calendar"].location!=NSNotFound){
+//        [_screenshotButtonItem setEnabled:true];
+//    }else{
+//        [_screenshotButtonItem setEnabled:false];
+//    }
     
     if(self.musicCtrl){
         [self musicStop:nil];
@@ -276,17 +296,22 @@ DsFileStore *fileStore;
 	return _forwardBarButtonItem;
 }
 
+-(void) customBack{
+    [self.webView goBack];
+    if(![[DsDataStore sharedInstance] isCensorMode]){
+        [self clearCache];
+        [self.musicPlayer stopMedia];
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+}
+
 -(void) displayWebView{
+    
     //display toolbar
     if (!self.toolbarHidden && ![self.currentURL isFileURL]) {
         [self.navigationController setToolbarHidden:NO animated:true];
     }
     
-    
-    if(![[DsDataStore sharedInstance] isCensorMode]){
-        [self.navigationItem setHidesBackButton:YES];
-
-    }
     
     // Loading indicator
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.indicatorView];
@@ -358,16 +383,21 @@ DsFileStore *fileStore;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
+    NSDictionary *fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:17.0],UITextAttributeFont, [UIColor colorWithHex:0x0190b9],UITextAttributeTextColor, nil];
+    self.navigationController.navigationBar.titleTextAttributes = fontAttrs;
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
+
     NSLog(@"webview will disappear..");
     [self.musicPlayer stopMedia];
     if (!self.toolbarHidden) {
         [self.navigationController setToolbarHidden:YES animated:animated];
     }
+    
 }
 
 
@@ -408,6 +438,7 @@ DsFileStore *fileStore;
     if(musicPlayer.isPlaying){
         [self clearCache];
         [self.musicPlayer stopMedia];
+        
     }else{
         NSLog(@"tapped play button, restarting webview.");
         if(self.view.window){ //view is still displayed on screen.
@@ -426,10 +457,7 @@ DsFileStore *fileStore;
     long remainsSecs = remains-(remainsMins*60);
     NSString *remainsDisplay = [NSString stringWithFormat:@"%lu:%02lu", remainsMins, remainsSecs];
     
-    self.musicCtrl.elapsed.text = elapsedDisplay;
-    self.musicCtrl.remains.text = remainsDisplay;
-    float progress = (float)elapsed/(float)(3600+452);
-    self.musicCtrl.slider.progress = progress;
+    self.musicCtrl.elapsedRemains.text = [[elapsedDisplay stringByAppendingString:@" / "] stringByAppendingString:remainsDisplay];
 
 }
 
@@ -440,11 +468,18 @@ DsFileStore *fileStore;
 }
 
 -(void)musicStop:(DsMusicPlayer *)sender{
-    [self.navigationController setToolbarHidden:false animated:true];
+
     [self clearCache];
     if(musicCtrl.isPlaying){
         [musicCtrl onTapPlayButton:nil];
     }
+}
+
+-(void)restoreWebviewHeight{
+    CGRect screenFrame = self.view.bounds;
+//    int headerHeight = self.navigationController.navigationBar.bounds.size.height;
+//    int toolbarHeight = self.navigationController.toolbar.bounds.size.height;
+    self.webView.frame = CGRectMake(0.0f,0.0f , screenFrame.size.width, screenFrame.size.height);
 }
 
 -(void)playMusic:(SAMWebView *)webView {
@@ -461,7 +496,7 @@ DsFileStore *fileStore;
         NSLog(@"no midi in this page, don't play music");
         return;
     }
-    
+    [self.navigationController setToolbarHidden:true animated:true];
     
     //download midi
     NSURL *url = [NSURL URLWithString:
@@ -484,7 +519,7 @@ DsFileStore *fileStore;
         self.musicCtrl = [[[NSBundle mainBundle] loadNibNamed:@"DsMusicControl" owner:self options:nil] objectAtIndex:0];
 
         musicCtrl.delegate = self ;
-        int musicCtrlHeight = self.musicCtrl.frame.size.height;
+        int musicCtrlHeight = self.musicCtrl.frame.size.height+8;
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
             //compensate the edge for ios7.
 //            musicCtrlHeight -= self.navigationController.toolbar.frame.size.height;
@@ -495,7 +530,9 @@ DsFileStore *fileStore;
         if([[DsDataStore sharedInstance] isCensorMode]){
             [self.navigationController setToolbarHidden:true animated:true];
         }else{
-            musicCtrlHeight += self.navigationController.toolbar.frame.size.height;
+            CGRect webviewFrame = self.webView.frame;
+            self.webView.frame = CGRectMake(0.0f,0.0f , webviewFrame.size.width, webviewFrame.size.height - musicCtrlHeight);
+//            musicCtrlHeight += self.navigationController.toolbar.frame.size.height;
         }
         [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, viewHeight-musicCtrlHeight )];
 

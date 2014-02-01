@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:dlist_bullets_icon&amp;48.png">
-   </FileRef>
-   <FileRef
       location = "group:duosuccess.xcodeproj">
    </FileRef>
    <FileRef

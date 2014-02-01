@@ -11,9 +11,7 @@
 @implementation DsMusicControll
 
 @synthesize delegate;
-@synthesize slider;
-@synthesize elapsed;
-@synthesize remains;
+@synthesize elapsedRemains;
 @synthesize playBtn;
 
 @synthesize isPlaying;
@@ -41,10 +39,10 @@
 - (IBAction)onTapPlayButton:(id)sender {
 
     if(isPlaying){
-        [self.playBtn setImage:[UIImage imageNamed:@"stop2" ] forState:(UIControlStateNormal)];
+        [self.playBtn setImage:[UIImage imageNamed:@"player-stop" ] forState:(UIControlStateNormal)];
     }else{
 
-        [self.playBtn setImage:[UIImage imageNamed:@"play22" ] forState:(UIControlStateNormal)];
+        [self.playBtn setImage:[UIImage imageNamed:@"player-play" ] forState:(UIControlStateNormal)];
         
     }
     isPlaying = !isPlaying;

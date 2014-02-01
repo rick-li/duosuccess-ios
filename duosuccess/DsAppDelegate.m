@@ -171,7 +171,7 @@ didReceiveRemoteNotification:(NSDictionary *)notificationPayload {
         
     }
     
-    //customize the font title
+    //customize the font title for ios7 only
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     shadow.shadowOffset = CGSizeMake(0, 0);

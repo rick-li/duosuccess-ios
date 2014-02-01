@@ -65,7 +65,7 @@ NSTimer *oneHourTimer;
 - (void) playMedia:(NSString *)midPath{
     isPlaying = true;
     elapsed = 0;
-    remains = oneHour+452;
+    remains = oneHour;
     [self stopMedia];
     NewMusicSequence(&mySequence);
     NSURL * midiFileURL = [NSURL fileURLWithPath:midPath];
@@ -91,7 +91,7 @@ NSTimer *oneHourTimer;
         [songInfo setObject:[NSNumber numberWithInt:1] forKey:MPNowPlayingInfoPropertyPlaybackRate];
         //https://www.duosuccess.com/tcm/001new01j.htm
         //1:06:32
-        [songInfo setObject:[NSNumber numberWithInt:oneHour+452] forKey:MPMediaItemPropertyPlaybackDuration];
+        [songInfo setObject:[NSNumber numberWithInt:oneHour] forKey:MPMediaItemPropertyPlaybackDuration];
         [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
         
