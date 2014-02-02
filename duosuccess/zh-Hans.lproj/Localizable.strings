@@ -46,3 +46,6 @@
 
 "yes"="是";
 "no"="否";
+
+"interrupted"="音樂被打斷";
+"plsStartAgain"="請重新播放";

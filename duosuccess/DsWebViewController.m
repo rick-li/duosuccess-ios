@@ -210,28 +210,39 @@ DsFileStore *fileStore;
 	self.title = URL.absoluteString;
 	[self updateBrowserUI];
     
-	if (!self.toolbarHidden) {
-		[self.navigationController setToolbarHidden:[URL isFileURL] animated:YES];
+	if (!self.musicCtrl) {
+
+        [self.navigationController setToolbarHidden:FALSE animated:YES];
+
 	}
 }
 
 - (void)webViewDidFinishLoadingPage:(SAMWebView *)webView {
     NSLog(@"webview finished loading...");
+//    NSString* scaleMeta =
+//    @"var meta = document.createElement('meta'); " \
+//    "meta.setAttribute( 'name', 'viewport' ); " \
+//    "meta.setAttribute( 'content', 'width = device-width, initial-scale = 1.0, user-scalable = yes' ); " \
+//    "document.getElementsByTagName('head')[0].appendChild(meta)";
+//    [webView stringByEvaluatingJavaScriptFromString: scaleMeta];
+    
 	[self updateBrowserUI];
-    if(![[DsDataStore sharedInstance] isCensorMode] && [self.webView canGoBack]){
+    if(![[DsDataStore sharedInstance] isCensorMode] ){
         
         self.navigationItem.hidesBackButton = YES;
-        UIImage *navImage = [UIImage imageNamed:@"back"];
-        
-        UIButton *customBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [customBackBtn addTarget:self action:@selector(customBack) forControlEvents:UIControlEventTouchUpInside];
-        [customBackBtn setImage:navImage forState:UIControlStateNormal];
-        customBackBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
-        [customBackBtn setFrame:CGRectMake(0, 0, navImage.size.width, navImage.size.height)];
-        
-        UIBarButtonItem *customBackBarBtn = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
-        
-        self.navigationItem.leftBarButtonItem = customBackBarBtn;
+        if([self.webView canGoBack]){
+            UIImage *navImage = [UIImage imageNamed:@"back"];
+            
+            UIButton *customBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [customBackBtn addTarget:self action:@selector(customBack) forControlEvents:UIControlEventTouchUpInside];
+            [customBackBtn setImage:navImage forState:UIControlStateNormal];
+            customBackBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
+            [customBackBtn setFrame:CGRectMake(0, 0, navImage.size.width, navImage.size.height)];
+            
+            UIBarButtonItem *customBackBarBtn = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
+            
+            self.navigationItem.leftBarButtonItem = customBackBarBtn;
+        }
         
     }
     
@@ -306,7 +317,7 @@ DsFileStore *fileStore;
 }
 
 -(void) displayWebView{
-    
+
     //display toolbar
     if (!self.toolbarHidden && ![self.currentURL isFileURL]) {
         [self.navigationController setToolbarHidden:NO animated:true];
@@ -383,9 +394,11 @@ DsFileStore *fileStore;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSDictionary *fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:17.0],UITextAttributeFont, [UIColor colorWithHex:0x0190b9],UITextAttributeTextColor, nil];
-    self.navigationController.navigationBar.titleTextAttributes = fontAttrs;
-    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        NSDictionary *fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:17.0],UITextAttributeFont, [UIColor colorWithHex:0x0190b9],UITextAttributeTextColor, nil];
+        self.navigationController.navigationBar.titleTextAttributes = fontAttrs;
+        
+    }
     [super viewWillAppear:animated];
 }
 
@@ -477,8 +490,6 @@ DsFileStore *fileStore;
 
 -(void)restoreWebviewHeight{
     CGRect screenFrame = self.view.bounds;
-//    int headerHeight = self.navigationController.navigationBar.bounds.size.height;
-//    int toolbarHeight = self.navigationController.toolbar.bounds.size.height;
     self.webView.frame = CGRectMake(0.0f,0.0f , screenFrame.size.width, screenFrame.size.height);
 }
 
@@ -494,9 +505,10 @@ DsFileStore *fileStore;
     
     if(!midUrl || [midUrl length]==0){
         NSLog(@"no midi in this page, don't play music");
+        [self.navigationController setToolbarHidden:false animated:true];
         return;
     }
-    [self.navigationController setToolbarHidden:true animated:true];
+
     
     //download midi
     NSURL *url = [NSURL URLWithString:
@@ -513,12 +525,12 @@ DsFileStore *fileStore;
         self.musicPlayer = [DsMusicPlayer sharedInstance];
         [musicPlayer playMedia:midPath];
         musicPlayer.isPlaying = true;
-        
         musicPlayer.delegate = self;
         
         self.musicCtrl = [[[NSBundle mainBundle] loadNibNamed:@"DsMusicControl" owner:self options:nil] objectAtIndex:0];
 
         musicCtrl.delegate = self ;
+        musicCtrl.isPlaying = true;
         int musicCtrlHeight = self.musicCtrl.frame.size.height+8;
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
             //compensate the edge for ios7.
@@ -527,15 +539,12 @@ DsFileStore *fileStore;
         int viewHeight = [UIScreen mainScreen].applicationFrame.size.height;
         NSLog(@"View Height is %d.", viewHeight);
 
-        if([[DsDataStore sharedInstance] isCensorMode]){
-            [self.navigationController setToolbarHidden:true animated:true];
-        }else{
-            CGRect webviewFrame = self.webView.frame;
-            self.webView.frame = CGRectMake(0.0f,0.0f , webviewFrame.size.width, webviewFrame.size.height - musicCtrlHeight);
-//            musicCtrlHeight += self.navigationController.toolbar.frame.size.height;
-        }
-        [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, viewHeight-musicCtrlHeight )];
+        CGRect webviewFrame = self.webView.frame;
+        self.webView.frame = CGRectMake(0.0f,0.0f , webviewFrame.size.width, webviewFrame.size.height - musicCtrlHeight);
 
+        [self.musicCtrl setCenter: CGPointMake(self.view.frame.size.width/2.0, viewHeight-musicCtrlHeight )];
+        
+        [self.navigationController setToolbarHidden:YES animated:YES];
         [self.view addSubview:self.musicCtrl];
         
     }

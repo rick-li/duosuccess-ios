@@ -104,8 +104,11 @@
     {
         [[DsMask sharedInstance] startMask:nil forView:self.view];
     }
-    NSDictionary *fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0],UITextAttributeFont, [UIColor colorWithHex:0x0190b9],UITextAttributeTextColor, nil];
-    self.navigationController.navigationBar.titleTextAttributes = fontAttrs;
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        NSDictionary *fontAttrs = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0],UITextAttributeFont, [UIColor colorWithHex:0x0190b9],UITextAttributeTextColor, nil];
+        self.navigationController.navigationBar.titleTextAttributes = fontAttrs;
+    }
 
 }
 

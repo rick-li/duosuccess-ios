@@ -58,7 +58,6 @@ NSTimer *oneHourTimer;
 - (void) initialize{
     oneHour = 60 * 60;
     
-//        oneHour = 10 ;
     isPlaying = false;
 }
 
@@ -79,7 +78,7 @@ NSTimer *oneHourTimer;
     Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
     
     if (playingInfoCenter) {
-
+        
         NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
         
         MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage: [UIImage imageNamed:@"duoAlbumArt"]];
@@ -96,7 +95,7 @@ NSTimer *oneHourTimer;
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
         
     }
-
+    
     
 }
 
@@ -105,7 +104,11 @@ NSTimer *oneHourTimer;
 {
     NSLog(@"--- setupAudioSession ---");
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setDelegate: self];
+    //    [audioSession setDelegate: self];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector:  @selector(handleInterruption:)
+                                                 name:       AVAudioSessionInterruptionNotification
+                                               object:      audioSession];
     
     //Assign the Playback category to the audio session.
     NSError *audioSessionError = nil;
@@ -116,10 +119,33 @@ NSTimer *oneHourTimer;
     // Activate the audio session
     [audioSession setActive: YES error: &audioSessionError];
     if (audioSessionError != nil) {NSLog (@"Error activating the audio session."); return NO;}
-
+    
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     NSLog(@"audioSessionActivated");
     return YES;
+}
+UIAlertView *alert;
+bool interruptBegin = false;
+-(void) handleInterruption:(NSNotification*)notification{
+//    NSLog(@"Interruption detected: %d", interruptBegin);
+    NSDictionary *interuptionDict = notification.userInfo;
+    NSUInteger interuptionType = (NSUInteger)[interuptionDict valueForKey:AVAudioSessionInterruptionTypeKey];
+//
+    NSLog(@"Interruption detected, type is %d.", interuptionType);
+    if(!interruptBegin){
+        [self stopMedia];
+        [self.delegate musicStop:self];
+        interruptBegin = !interruptBegin;
+
+    }
+    else {
+        interruptBegin = !interruptBegin;
+        if(![alert isVisible]){
+            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"interrupted","") message: NSLocalizedString(@"plsStartAgain", "") delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    
 }
 
 -(void) handleOneHourTimer{
@@ -135,7 +161,7 @@ NSTimer *oneHourTimer;
     }else{
         [self.delegate tick:elapsed remains:remains];
     }
-
+    
 }
 -(void) invalidateTimer{
     if(oneHourTimer){
@@ -158,7 +184,7 @@ NSTimer *oneHourTimer;
                                                   selector:@selector(handleOneHourTimer)
                                                   userInfo:nil
                                                    repeats:YES];
- 
+    
 }
 
 - (void)setLoop:(MusicSequence)sequence {
@@ -179,13 +205,13 @@ NSTimer *oneHourTimer;
         if(trackLen >= oneHour){
             MusicTrackLoopInfo loopInfo = { trackLen, 1 };
             MusicTrackSetProperty(track, kSequenceTrackProperty_LoopInfo, &loopInfo, sizeof(loopInfo));
-
+            
         }else{
             MusicTrackLoopInfo loopInfo = { trackLen, 10 };
             MusicTrackSetProperty(track, kSequenceTrackProperty_LoopInfo, &loopInfo, sizeof(loopInfo));
-
+            
         }
-
+        
         NSLog(@"track length is %f", trackLen);
     }
 }
@@ -223,7 +249,7 @@ NSTimer *oneHourTimer;
     [self invalidateTimer];
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
-
+    
 }
 
 
@@ -336,7 +362,7 @@ NSTimer *oneHourTimer;
     }
     // Load the ound font from file
     NSURL *presetURL = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:
-                                  
+                                                           
                                                            @"piano" ofType:@"sf2"]];
     
     

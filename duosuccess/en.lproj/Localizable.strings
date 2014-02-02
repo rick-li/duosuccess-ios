@@ -46,3 +46,6 @@
 
 "yes"="Yes";
 "no"="No";
+
+"interrupted"="Music is interrupted";
+"plsStartAgain"="Please start again";
