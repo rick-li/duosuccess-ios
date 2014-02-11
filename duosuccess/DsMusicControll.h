@@ -28,4 +28,6 @@
 
 - (IBAction)onTapPlayButton:(id)sender;
 
+-(void)changeToStop;
+
 @end

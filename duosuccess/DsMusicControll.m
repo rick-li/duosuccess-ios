@@ -35,19 +35,29 @@
 }
 */
 
+-(void)changeToStop{
+    if(isPlaying){
+        [self.playBtn setImage:[UIImage imageNamed:@"player-play" ] forState:(UIControlStateNormal)];
+        elapsedRemains.text = @"";
+        
+    }
+}
 
+bool isTapPlay = false;
 - (IBAction)onTapPlayButton:(id)sender {
     NSLog(@"OnTapPlayButton %d", isPlaying);
     if(isPlaying){
         [self.playBtn setImage:[UIImage imageNamed:@"player-play" ] forState:(UIControlStateNormal)];
         elapsedRemains.text = @"";
+        
     }else{
-
+        
         [self.playBtn setImage:[UIImage imageNamed:@"player-stop" ] forState:(UIControlStateNormal)];
-        [self.delegate onTapPlayButon:self];
         
     }
     isPlaying = !isPlaying;
+    [self.delegate onTapPlayButon:self];
+
 
 }
 @end

@@ -57,6 +57,7 @@ NSTimer *oneHourTimer;
 
 - (void) initialize{
     oneHour = 60 * 60;
+//    oneHour = 5;
     
     isPlaying = false;
 }

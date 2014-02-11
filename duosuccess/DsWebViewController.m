@@ -260,7 +260,6 @@ DsFileStore *fileStore;
 //    }
     
     if(self.musicCtrl){
-        [self musicStop:nil];
         [self.musicCtrl removeFromSuperview];
         self.musicCtrl = nil;
     }
@@ -484,7 +483,7 @@ DsFileStore *fileStore;
 
     [self clearCache];
     if(musicCtrl.isPlaying){
-        [musicCtrl onTapPlayButton:nil];
+        [musicCtrl changeToStop];
     }
 }
 
