@@ -106,11 +106,11 @@ NSTimer *oneHourTimer;
     NSLog(@"--- setupAudioSession ---");
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     //    [audioSession setDelegate: self];
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector:  @selector(handleInterruption:)
-                                                 name:       AVAudioSessionInterruptionNotification
-                                               object:      audioSession];
-    
+//    [[NSNotificationCenter defaultCenter] addObserver: self
+//                                             selector:  @selector(handleInterruption:)
+//                                                 name:       AVAudioSessionInterruptionNotification
+//                                               object:      audioSession];
+//    
     //Assign the Playback category to the audio session.
     NSError *audioSessionError = nil;
     [audioSession setCategory: AVAudioSessionCategoryPlayback error: &audioSessionError];
@@ -126,28 +126,28 @@ NSTimer *oneHourTimer;
     return YES;
 }
 UIAlertView *alert;
-bool interruptBegin = false;
--(void) handleInterruption:(NSNotification*)notification{
+//bool interruptBegin = false;
+//-(void) handleInterruption:(NSNotification*)notification{
 //    NSLog(@"Interruption detected: %d", interruptBegin);
-    NSDictionary *interuptionDict = notification.userInfo;
-    NSUInteger interuptionType = (NSUInteger)[interuptionDict valueForKey:AVAudioSessionInterruptionTypeKey];
+//    NSDictionary *interuptionDict = notification.userInfo;
+//    NSUInteger interuptionType = (NSUInteger)[interuptionDict valueForKey:AVAudioSessionInterruptionTypeKey];
 //
-    NSLog(@"Interruption detected, type is %d.", interuptionType);
-    if(!interruptBegin){
-        [self stopMedia];
-        [self.delegate musicStop:self];
-        interruptBegin = !interruptBegin;
-
-    }
-    else {
-        interruptBegin = !interruptBegin;
-        if(![alert isVisible]){
-            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"interrupted","") message: NSLocalizedString(@"plsStartAgain", "") delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-    }
+//    NSLog(@"Interruption detected, type is %d.", interuptionType);
+//    if(!interruptBegin){
+//        [self stopMedia];
+//        [self.delegate musicStop:self];
+//        interruptBegin = !interruptBegin;
+//
+//    }
+//    else {
+//        interruptBegin = !interruptBegin;
+//        if(![alert isVisible]){
+//            alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"interrupted","") message: NSLocalizedString(@"plsStartAgain", "") delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//    }
     
-}
+//}
 
 -(void) handleOneHourTimer{
     self.elapsed++;

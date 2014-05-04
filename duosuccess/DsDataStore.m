@@ -71,9 +71,12 @@ NSString *appVersion;
     PFQuery *query = [PFQuery queryWithClassName:@"Censor"];
     [query whereKey:@"version" equalTo:appVersion];
     [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
-        PFObject *obj = [results objectAtIndex:0];
-//        isUnderCensor = (BOOL)[obj valueForKey:@"underCensor"];
-        bool isUnderCensor = [obj[@"underCensor"] boolValue];
+        bool isUnderCensor = true;
+        PFObject *obj = nil;
+        if([results count] != 0){
+            obj = [results objectAtIndex:0];
+            isUnderCensor = [obj[@"underCensor"] boolValue];
+        }
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:[NSNumber numberWithBool:isUnderCensor] forKey:@"underCensor"];
         NSLog(@"Is Hehe, %d", isUnderCensor);

@@ -148,7 +148,7 @@ DsFileStore *fileStore;
     NSData * data = UIImagePNGRepresentation(image);
     
     [fileStore savePaperImage:data];
-    [[DsEventStore sharedInstance] savePaperReminder];
+//    [[DsEventStore sharedInstance] savePaperReminder];
     [self flashScreen];
     
 }
