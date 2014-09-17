@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.02</string>
+	<string>1.02.1</string>
 	<key>LSHasLocalizedDisplayName</key>
 	<true/>
 	<key>LSRequiresIPhoneOS</key>
@@ -32,8 +32,6 @@
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainIphone</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>MainIpad</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
