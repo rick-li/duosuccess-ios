@@ -53,6 +53,9 @@
 @property(nonatomic, retain) IBOutlet UITableView *tableView;
 @property(nonatomic, retain) IBOutlet UIView *introContainer;
 
+
+- (IBAction)sonarClockAction:(id)sender;
+
 -(IBAction)showMenu;
 
 -(IBAction)musicAction;

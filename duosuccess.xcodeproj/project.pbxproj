@@ -115,6 +115,7 @@
 		BD652AEE187ABA09005FB4C3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AED187ABA09005FB4C3 /* MobileCoreServices.framework */; };
 		BD652AF1187AD7C8005FB4C3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AEF187AD7C8005FB4C3 /* FacebookSDK.framework */; };
 		BD652AF2187AD7C8005FB4C3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AF0187AD7C8005FB4C3 /* Parse.framework */; };
+		BDA0EA3A191635E300DAB4C6 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA0EA39191635E300DAB4C6 /* MainIpad.storyboard */; };
 		BDB7569F189D34CA00F94A97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB7569E189D34CA00F94A97 /* Images.xcassets */; };
 		BDF68F611877CD1400D3EDF3 /* duosuccess-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */; };
 		BDF68F661877D04B00D3EDF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F681877D04B00D3EDF3 /* Localizable.strings */; };
@@ -280,6 +281,7 @@
 		BD652AED187ABA09005FB4C3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BD652AEF187AD7C8005FB4C3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Frameworks/FacebookSDK.framework; sourceTree = "<group>"; };
 		BD652AF0187AD7C8005FB4C3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
+		BDA0EA39191635E300DAB4C6 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
 		BDB7569E189D34CA00F94A97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = duosuccess/Images.xcassets; sourceTree = "<group>"; };
 		BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "duosuccess-Info.plist"; sourceTree = "<group>"; };
 		BDF68F631877CD6800D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 		BD4134691857384F0090C605 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				BDA0EA39191635E300DAB4C6 /* MainIpad.storyboard */,
 				BD41349418575AD80090C605 /* MainIphone.storyboard */,
 				BD4134A9185816D80090C605 /* DsTableCell.xib */,
 				BD4134AB18581A350090C605 /* DsTableCell.h */,
@@ -729,6 +732,7 @@
 				BD4134F718596DF30090C605 /* SAMWebView-stop-button-mini.png in Resources */,
 				BD413547185C34450090C605 /* menubar-button-7@2x.png in Resources */,
 				BD413553185C36420090C605 /* list-item-bg@2x.png in Resources */,
+				BDA0EA3A191635E300DAB4C6 /* MainIpad.storyboard in Resources */,
 				BD413559185C41340090C605 /* tabbar@2x.png in Resources */,
 				BD4134F818596DF30090C605 /* SAMWebView-stop-button-mini@2x.png in Resources */,
 				BD413543185C34450090C605 /* back6@2x.png in Resources */,
@@ -998,9 +1002,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4FF869E605474407BBC336D0 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Rick Li (MM2B8W94AH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rick Li (67FTNCTE2P)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1011,9 +1015,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
 				INFOPLIST_FILE = "duosuccess/duosuccess-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "F35C56FA-BBF4-4D0E-8590-C600ED47B505";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1023,9 +1029,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4FF869E605474407BBC336D0 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Rick Li (MM2B8W94AH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rick Li (MM2B8W94AH)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1036,9 +1042,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
 				INFOPLIST_FILE = "duosuccess/duosuccess-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "F35C56FA-BBF4-4D0E-8590-C600ED47B505";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

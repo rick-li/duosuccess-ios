@@ -146,6 +146,8 @@
     [self.introContainer addSubview:self.introCtrl];
 }
 
+
+
 - (IBAction) showMenu{
     [self.sideMenuViewController presentMenuViewController];
 }
@@ -167,6 +169,14 @@
         
         
     }
+}
+
+- (IBAction)sonarClockAction:(id)sender {
+    DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
+    webViewCtrl.displayWebViewByDefault = true;
+    [webViewCtrl.webView loadURLString:@"http://rick-li.github.io/midi-browser/sonar.html"];
+    [self.navigationController pushViewController:webViewCtrl animated:true];
+
 }
 
 -(IBAction)browserAction{

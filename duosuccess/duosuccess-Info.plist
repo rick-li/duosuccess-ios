@@ -32,6 +32,8 @@
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainIphone</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>MainIpad</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
