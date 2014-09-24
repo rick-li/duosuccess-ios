@@ -14,11 +14,6 @@
 #import "DsIntroViewController.h"
 
 
-#if USES_IASK_STATIC_LIBRARY
-#import "InAppSettingsKit/IASKAppSettingsViewController.h"
-#else
-#import "IASKAppSettingsViewController.h"
-#endif
 
 @protocol DsListDelegate <NSObject>
 
@@ -42,8 +37,6 @@
 
 @property NSArray *introArticles;
 @property NSArray *tableArticles;
-
-@property (nonatomic, retain) IASKAppSettingsViewController *appSettingsViewController;
 
 -(void)loadArticles;
 

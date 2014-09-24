@@ -22,11 +22,6 @@
 #import "DsMask.h"
 #import "UIColor+Hex.h"
 
-#ifdef USES_IASK_STATIC_LIBRARY
-#import "InAppSettingsKit/IASKSettingsReader.h"
-#else
-#import "IASKSettingsReader.h"
-#endif
 
 @implementation DsListViewController
 
@@ -42,7 +37,7 @@
 @synthesize tableCtrl;
 @synthesize refreshCtrl;
 @synthesize articleCtrl;
-@synthesize appSettingsViewController;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -257,14 +252,6 @@
 }
 
 
--(IBAction)configAction{
-    if (!appSettingsViewController) {
-		appSettingsViewController = [[IASKAppSettingsViewController alloc] init];
-		appSettingsViewController.delegate = self;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(settingDidChange:) name:kIASKAppSettingChanged object:nil];
-	}
-    [self.navigationController pushViewController:appSettingsViewController animated:true];
-}
 
 
 - (IBAction)onTapIntro:(id)sender{
