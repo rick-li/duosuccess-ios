@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2iz-ot-wLd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2iz-ot-wLd">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -124,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="753" y="-677"/>
         </scene>
-        <!--Ds Paper Controller - Title-->
+        <!--Title-->
         <scene sceneID="wls-gJ-fEb">
             <objects>
                 <viewController storyboardIdentifier="paperController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IdE-Qb-S2B" customClass="DsPaperController" sceneMemberID="viewController">
@@ -166,7 +166,7 @@
             </objects>
             <point key="canvasLocation" x="1009" y="-141"/>
         </scene>
-        <!--Ds Root View Controller - Root-->
+        <!--Root-->
         <scene sceneID="k0D-Cu-iHo">
             <objects>
                 <viewController storyboardIdentifier="rootController" title="Root" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2iz-ot-wLd" customClass="DsRootViewController" sceneMemberID="viewController">
@@ -180,7 +180,7 @@
             </objects>
             <point key="canvasLocation" x="-421" y="1577"/>
         </scene>
-        <!--Ds Menu View Controller - Menu-->
+        <!--Menu-->
         <scene sceneID="nyK-1M-w3o">
             <objects>
                 <viewController storyboardIdentifier="menuController" title="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bwv-sS-QsM" customClass="DsMenuViewController" sceneMemberID="viewController">
@@ -283,12 +283,12 @@
         <image name="dmenu" width="24" height="24"/>
         <image name="global" width="24" height="24"/>
         <image name="listBg" width="320" height="568"/>
-        <image name="music" width="23" height="23"/>
+        <image name="music" width="24" height="24"/>
     </resources>
-    <color key="tintColor" red="0.22745099660000001" green="0.5647059083" blue="0.7254902124" alpha="1" colorSpace="deviceRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <color key="tintColor" red="0.22745099660000001" green="0.5647059083" blue="0.7254902124" alpha="1" colorSpace="deviceRGB"/>
 </document>

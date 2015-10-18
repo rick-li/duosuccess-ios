@@ -1,0 +1,51 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C06C0DD68E9E28BBC8223347126224B7ACB6097C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F8F74204-5692-42DE-BFE2-F2E9A0962F0A" : 0,
+    "9F7174F6-5C42-4A04-8342-5253F2CDBF93" : 0,
+    "C06C0DD68E9E28BBC8223347126224B7ACB6097C" : 0,
+    "4D896C98-B017-448E-991B-671CD7D6A892" : 0,
+    "C00F2DFF-5511-4D1B-A145-60E2A1456E65" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "12037885-AFE3-481A-A6C9-5CF69C3A73C6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F8F74204-5692-42DE-BFE2-F2E9A0962F0A" : "duosuccess-https\/Pods\/NPReachability",
+    "9F7174F6-5C42-4A04-8342-5253F2CDBF93" : "duosuccess-https\/Pods\/Facebook-iOS-SDK",
+    "C06C0DD68E9E28BBC8223347126224B7ACB6097C" : "duosuccess-https",
+    "4D896C98-B017-448E-991B-671CD7D6A892" : "duosuccess-https\/Pods\/MBProgressHUD",
+    "C00F2DFF-5511-4D1B-A145-60E2A1456E65" : "duosuccess-https\/Pods\/InAppSettingsKit"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "duosuccess",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "duosuccess.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "file:\/\/\/Users\/rickli\/Library\/Caches\/CocoaPods\/GitHub\/ef81a51251a828eea52cbd59e57827b0007c9dba\/",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4D896C98-B017-448E-991B-671CD7D6A892"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "file:\/\/\/Users\/rickli\/Library\/Caches\/CocoaPods\/GitHub\/2cdc3c53ee617444d0d6cd7730e598cd77a19eb2\/",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F7174F6-5C42-4A04-8342-5253F2CDBF93"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "file:\/\/\/Users\/rickli\/Library\/Caches\/CocoaPods\/GitHub\/b3fc364c188e7dcfc8797e93322e3689a0267e79\/",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C00F2DFF-5511-4D1B-A145-60E2A1456E65"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rick-li\/duosuccess-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C06C0DD68E9E28BBC8223347126224B7ACB6097C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "file:\/\/\/Users\/rickli\/Library\/Caches\/CocoaPods\/GitHub\/91018d1b972788530d72d5d68707cdfea349c219\/",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F8F74204-5692-42DE-BFE2-F2E9A0962F0A"
+    }
+  ]
+}

@@ -54,6 +54,8 @@
 int oneHour;
 
 NSTimer *oneHourTimer;
+NSTimer *loopTimer;
+NSString *midiPath;
 
 - (void) initialize{
     oneHour = 60 * 60;
@@ -62,10 +64,13 @@ NSTimer *oneHourTimer;
     isPlaying = false;
 }
 
-- (void) playMedia:(NSString *)midPath{
+- (void) playMedia:(NSString *)midPath isLoop:(BOOL)isLoop{
     isPlaying = true;
-    elapsed = 0;
-    remains = oneHour;
+    if(!isLoop){
+        elapsed = 0;
+        remains = oneHour;
+        midiPath = midPath;
+    }
     [self stopMedia];
     NewMusicSequence(&mySequence);
     NSURL * midiFileURL = [NSURL fileURLWithPath:midPath];
@@ -74,27 +79,31 @@ NSTimer *oneHourTimer;
     MusicSequenceSetAUGraph(mySequence, _processingGraph);
     
     [self setLoop:mySequence];
+    
     [self doStartMidi];
     
-    Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
-    
-    if (playingInfoCenter) {
+    if(!isLoop){
+        Class playingInfoCenter = NSClassFromString(@"MPNowPlayingInfoCenter");
         
-        NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
-        
-        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage: [UIImage imageNamed:@"duoAlbumArt"]];
-        
-        [songInfo setObject:NSLocalizedString(@"musicTitle", "") forKey:MPMediaItemPropertyTitle];
-        [songInfo setObject:NSLocalizedString(@"drLong", "") forKey:MPMediaItemPropertyArtist];
-        [songInfo setObject:NSLocalizedString(@"album", "") forKey:MPMediaItemPropertyAlbumTitle];
-        [songInfo setObject:[NSNumber numberWithLong:oneHour] forKey:MPMediaItemPropertyPlaybackDuration];
-        [songInfo setObject:[NSNumber numberWithInt:1] forKey:MPNowPlayingInfoPropertyPlaybackRate];
-        //https://www.duosuccess.com/tcm/001new01j.htm
-        //1:06:32
-        [songInfo setObject:[NSNumber numberWithInt:oneHour] forKey:MPMediaItemPropertyPlaybackDuration];
-        [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
-        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
-        
+        if (playingInfoCenter) {
+            
+            NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+            
+            MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage: [UIImage imageNamed:@"duoAlbumArt"]];
+            
+            [songInfo setObject:NSLocalizedString(@"musicTitle", "") forKey:MPMediaItemPropertyTitle];
+            [songInfo setObject:NSLocalizedString(@"drLong", "") forKey:MPMediaItemPropertyArtist];
+            [songInfo setObject:NSLocalizedString(@"album", "") forKey:MPMediaItemPropertyAlbumTitle];
+            [songInfo setObject:[NSNumber numberWithLong:oneHour] forKey:MPMediaItemPropertyPlaybackDuration];
+            [songInfo setObject:[NSNumber numberWithInt:1] forKey:MPNowPlayingInfoPropertyPlaybackRate];
+            //https://www.duosuccess.com/tcm/001new01j.htm
+            //1:06:32
+            [songInfo setObject:[NSNumber numberWithInt:oneHour] forKey:MPMediaItemPropertyPlaybackDuration];
+            [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+            [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
+            
+        }
+
     }
     
     
@@ -158,16 +167,33 @@ UIAlertView *alert;
     if(self.elapsed >= oneHour){
         NSLog(@"1 hour arrived, calling music stop.");
         [self stopMedia];
+        [loopTimer invalidate];
         [self.delegate musicStop:self];
     }else{
         [self.delegate tick:elapsed remains:remains];
     }
     
 }
+
+-(void) handleLoopTimer{
+    NSLog(@"Handling loop timer.");
+    [self playMedia:midiPath isLoop:true];
+    
+}
+
+-(void) invalidateLoopTimer{
+    if(loopTimer){
+        NSLog(@"invalidate loop timer.");
+        [loopTimer invalidate];
+    }
+}
 -(void) invalidateTimer{
+    NSLog(@"invalidate timer.");
     if(oneHourTimer){
-        NSLog(@"invalidate timer.");
         [oneHourTimer invalidate];
+    }
+    if(loopTimer){
+        [loopTimer invalidate];
     }
 }
 
@@ -185,7 +211,36 @@ UIAlertView *alert;
                                                   selector:@selector(handleOneHourTimer)
                                                   userInfo:nil
                                                    repeats:YES];
+    int trackLen = [self getTrackLen:mySequence];
+    NSLog(@"Track len is %d ", trackLen);
+    if(trackLen < oneHour ){
+        loopTimer = [NSTimer scheduledTimerWithTimeInterval:363.5
+                                                     target:self
+                                                   selector:@selector(handleLoopTimer)
+                                                   userInfo:nil
+                                                    repeats:NO];
+    }
     
+}
+
+- (int)getTrackLen:(MusicSequence)sequence{
+    UInt32 tracks;
+    if (MusicSequenceGetTrackCount(sequence, &tracks) != noErr)
+        NSLog(@"track size is %d", (int)tracks);
+    int resultTrackLen = 0;
+    for (UInt32 i = 0; i < tracks; i++) {
+        MusicTrack track = NULL;
+        MusicTimeStamp trackLen = 0;
+        
+        UInt32 trackLenLen = sizeof(trackLen);
+        MusicSequenceGetIndTrack(sequence, i, &track);
+        
+        MusicTrackGetProperty(track, kSequenceTrackProperty_TrackLength, &trackLen, &trackLenLen);
+        if(trackLen > resultTrackLen){
+            resultTrackLen = trackLen;
+        }
+    }
+    return resultTrackLen;
 }
 
 - (void)setLoop:(MusicSequence)sequence {
@@ -203,27 +258,22 @@ UIAlertView *alert;
         
         MusicTrackGetProperty(track, kSequenceTrackProperty_TrackLength, &trackLen, &trackLenLen);
         
-        if(trackLen >= oneHour){
+//        if(trackLen >= oneHour){
             MusicTrackLoopInfo loopInfo = { trackLen, 1 };
             MusicTrackSetProperty(track, kSequenceTrackProperty_LoopInfo, &loopInfo, sizeof(loopInfo));
             
-        }else{
-            MusicTrackLoopInfo loopInfo = { trackLen, 10 };
-            MusicTrackSetProperty(track, kSequenceTrackProperty_LoopInfo, &loopInfo, sizeof(loopInfo));
-            
-        }
+//        }else{
+//            MusicTrackLoopInfo loopInfo = { trackLen, 10 };
+//            MusicTrackSetProperty(track, kSequenceTrackProperty_LoopInfo, &loopInfo, sizeof(loopInfo));
+        
+//        }
         
         NSLog(@"track length is %f", trackLen);
     }
 }
 
-- (void) stopMedia{
-    NSLog(@"Stopping music");
-    isPlaying = false;
-    if(player == nil ){
-        return;
-    }
-    Boolean isPlayerPlaying = FALSE;
+- (void) stopTracks{
+        Boolean isPlayerPlaying = FALSE;
     MusicPlayerIsPlaying(player, &isPlayerPlaying);
     if(!isPlayerPlaying){
         NSLog(@"not playing music, no need to stop.");
@@ -247,6 +297,15 @@ UIAlertView *alert;
     
     result = DisposeMusicPlayer(player);
     result = DisposeMusicSequence(mySequence);
+}
+
+- (void) stopMedia{
+    NSLog(@"Stopping music");
+    isPlaying = false;
+    if(player == nil ){
+        return;
+    }
+    [self stopTracks];
     [self invalidateTimer];
     
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];

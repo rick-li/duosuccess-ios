@@ -498,7 +498,9 @@ DsFileStore *fileStore;
     NSString *stopMusicJs = @"window.stopmusic = function(){}";
     [webView stringByEvaluatingJavaScriptFromString:stopMusicJs];
     NSString *midUrl = [webView stringByEvaluatingJavaScriptFromString:strExtractMidJs];
-//    NSString *midUrl = @"http://file.midicn.com/midi/nation_music/25575midid.mid";
+//    NSString *midUrl = @"https://rick-li-test.appspot.com/test.mid";
+//        NSString *midUrl = @"http://192.168.1.8:8080/Drum_sample.mid";
+
     //remove mask
     NSLog(@"mid Url is %@", midUrl);
     
@@ -512,6 +514,14 @@ DsFileStore *fileStore;
     //download midi
     NSURL *url = [NSURL URLWithString:
                   midUrl];
+//    NSError *error = nil;
+//    NSData *data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
+//    if (error) {
+//        NSLog(@"%@", [error localizedDescription]);
+////        [error release];
+//    } else {
+//        NSLog(@"Data has loaded successfully.");
+//    }
     NSData *data = [NSData dataWithContentsOfURL:url];
     
     NSString *tmpDir = [fileStore tmpDir];
@@ -522,7 +532,7 @@ DsFileStore *fileStore;
         NSLog(@"midi file path is %@", midPath);
         [fileStore addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:midPath]];
         self.musicPlayer = [DsMusicPlayer sharedInstance];
-        [musicPlayer playMedia:midPath];
+        [musicPlayer playMedia:midPath isLoop:false];
         musicPlayer.isPlaying = true;
         musicPlayer.delegate = self;
         

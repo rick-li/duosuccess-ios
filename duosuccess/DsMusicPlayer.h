@@ -30,7 +30,7 @@
 
 @property id <DsMusicPlayerDelegate> delegate;
 
-- (void) playMedia:(NSString *)midPath;
+- (void) playMedia:(NSString *)midPath isLoop:(BOOL)isLoop;
 
 -(void) stopMedia;
 
