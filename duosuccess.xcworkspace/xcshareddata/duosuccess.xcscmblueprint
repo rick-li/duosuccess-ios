@@ -14,7 +14,7 @@
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "F8F74204-5692-42DE-BFE2-F2E9A0962F0A" : "duosuccess-https\/Pods\/NPReachability",
     "9F7174F6-5C42-4A04-8342-5253F2CDBF93" : "duosuccess-https\/Pods\/Facebook-iOS-SDK",
-    "C06C0DD68E9E28BBC8223347126224B7ACB6097C" : "duosuccess-https",
+    "C06C0DD68E9E28BBC8223347126224B7ACB6097C" : "duosuccess-https\/",
     "4D896C98-B017-448E-991B-671CD7D6A892" : "duosuccess-https\/Pods\/MBProgressHUD",
     "C00F2DFF-5511-4D1B-A145-60E2A1456E65" : "duosuccess-https\/Pods\/InAppSettingsKit"
   },

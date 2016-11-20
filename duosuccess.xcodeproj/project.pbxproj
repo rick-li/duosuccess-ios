@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65EA3C5E54EB4BAFA250D6D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDE334FD0264AAB8A72094E /* libPods.a */; };
 		BD028699185736020043EFE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD028698185736020043EFE6 /* Foundation.framework */; };
 		BD02869B185736020043EFE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD02869A185736020043EFE6 /* CoreGraphics.framework */; };
 		BD02869D185736020043EFE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD02869C185736020043EFE6 /* UIKit.framework */; };
@@ -113,10 +112,11 @@
 		BD652AE4187AB345005FB4C3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AE3187AB345005FB4C3 /* CFNetwork.framework */; };
 		BD652AE8187AB372005FB4C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AE7187AB372005FB4C3 /* SystemConfiguration.framework */; };
 		BD652AEE187ABA09005FB4C3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AED187ABA09005FB4C3 /* MobileCoreServices.framework */; };
-		BD652AF1187AD7C8005FB4C3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AEF187AD7C8005FB4C3 /* FacebookSDK.framework */; };
 		BD652AF2187AD7C8005FB4C3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD652AF0187AD7C8005FB4C3 /* Parse.framework */; };
+		BD96C4BC1D065DFF00C97EA5 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD96C4BB1D065DFF00C97EA5 /* Bolts.framework */; };
 		BDA0EA3A191635E300DAB4C6 /* MainIpad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA0EA39191635E300DAB4C6 /* MainIpad.storyboard */; };
 		BDB7569F189D34CA00F94A97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDB7569E189D34CA00F94A97 /* Images.xcassets */; };
+		BDC83B3805290532553D6AE7 /* libPods-duosuccess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F71135027F69CB919331E0E /* libPods-duosuccess.a */; };
 		BDF68F661877D04B00D3EDF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F681877D04B00D3EDF3 /* Localizable.strings */; };
 		BDF68F6C1877E70C00D3EDF3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDF68F6E1877E70C00D3EDF3 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -132,7 +132,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4FF869E605474407BBC336D0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		1AD98F50CD7A58AE0D74C4C1 /* Pods-duosuccess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duosuccess.debug.xcconfig"; path = "Pods/Target Support Files/Pods-duosuccess/Pods-duosuccess.debug.xcconfig"; sourceTree = "<group>"; };
+		4F71135027F69CB919331E0E /* libPods-duosuccess.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-duosuccess.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54E94619A1CEBCADBEF8391A /* Pods-duosuccess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duosuccess.release.xcconfig"; path = "Pods/Target Support Files/Pods-duosuccess/Pods-duosuccess.release.xcconfig"; sourceTree = "<group>"; };
 		BD028695185736020043EFE6 /* duosuccess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duosuccess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD028698185736020043EFE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BD02869A185736020043EFE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -267,6 +269,11 @@
 		BD413551185C36420090C605 /* list-item-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-item-bg@2x.png"; sourceTree = "<group>"; };
 		BD413556185C41340090C605 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 		BD413557185C41340090C605 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
+		BD437E431D0660B8002B91C4 /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "Pods/../build/Debug-iphoneos/MBProgressHUD/libMBProgressHUD.a"; sourceTree = "<group>"; };
+		BD437E441D0660B8002B91C4 /* libNPReachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNPReachability.a; path = "Pods/../build/Debug-iphoneos/NPReachability/libNPReachability.a"; sourceTree = "<group>"; };
+		BD437E451D0660B8002B91C4 /* libRESideMenu.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRESideMenu.a; path = "Pods/../build/Debug-iphoneos/RESideMenu/libRESideMenu.a"; sourceTree = "<group>"; };
+		BD437E461D0660B8002B91C4 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "Pods/../build/Debug-iphoneos/SDWebImage/libSDWebImage.a"; sourceTree = "<group>"; };
+		BD437E471D0660B8002B91C4 /* libUIActivityIndicator-for-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUIActivityIndicator-for-SDWebImage.a"; path = "Pods/../build/Debug-iphoneos/UIActivityIndicator-for-SDWebImage/libUIActivityIndicator-for-SDWebImage.a"; sourceTree = "<group>"; };
 		BD652AD3187A63B0005FB4C3 /* piano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = piano.sf2; sourceTree = "<group>"; };
 		BD652AD5187AB25E005FB4C3 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		BD652AD7187AB284005FB4C3 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
@@ -280,8 +287,14 @@
 		BD652AED187ABA09005FB4C3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BD652AEF187AD7C8005FB4C3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Frameworks/FacebookSDK.framework; sourceTree = "<group>"; };
 		BD652AF0187AD7C8005FB4C3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
+		BD96C4BB1D065DFF00C97EA5 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		BDA0EA39191635E300DAB4C6 /* MainIpad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainIpad.storyboard; sourceTree = "<group>"; };
 		BDB7569E189D34CA00F94A97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = duosuccess/Images.xcassets; sourceTree = "<group>"; };
+		BDE086371D06630C007CA481 /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "Pods/../build/Debug-iphoneos/MBProgressHUD/libMBProgressHUD.a"; sourceTree = "<group>"; };
+		BDE086381D06630C007CA481 /* libNPReachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNPReachability.a; path = "Pods/../build/Debug-iphoneos/NPReachability/libNPReachability.a"; sourceTree = "<group>"; };
+		BDE086391D06630D007CA481 /* libRESideMenu.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRESideMenu.a; path = "Pods/../build/Debug-iphoneos/RESideMenu/libRESideMenu.a"; sourceTree = "<group>"; };
+		BDE0863A1D06630D007CA481 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "Pods/../build/Debug-iphoneos/SDWebImage/libSDWebImage.a"; sourceTree = "<group>"; };
+		BDE0863B1D06630D007CA481 /* libUIActivityIndicator-for-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUIActivityIndicator-for-SDWebImage.a"; path = "Pods/../build/Debug-iphoneos/UIActivityIndicator-for-SDWebImage/libUIActivityIndicator-for-SDWebImage.a"; sourceTree = "<group>"; };
 		BDF68F601877CD1400D3EDF3 /* duosuccess-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "duosuccess-Info.plist"; sourceTree = "<group>"; };
 		BDF68F631877CD6800D3EDF3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BDF68F671877D04B00D3EDF3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -291,7 +304,6 @@
 		BDF68F701878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BDF68F711878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BDF68F721878088300D3EDF3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		FCDE334FD0264AAB8A72094E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,8 +311,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD96C4BC1D065DFF00C97EA5 /* Bolts.framework in Frameworks */,
 				BD652AEE187ABA09005FB4C3 /* MobileCoreServices.framework in Frameworks */,
-				BD652AF1187AD7C8005FB4C3 /* FacebookSDK.framework in Frameworks */,
 				BD652AE8187AB372005FB4C3 /* SystemConfiguration.framework in Frameworks */,
 				BD652AE4187AB345005FB4C3 /* CFNetwork.framework in Frameworks */,
 				BD652AE0187AB2FD005FB4C3 /* Accounts.framework in Frameworks */,
@@ -315,7 +327,7 @@
 				BD02869F185736020043EFE6 /* CoreData.framework in Frameworks */,
 				BD02869D185736020043EFE6 /* UIKit.framework in Frameworks */,
 				BD028699185736020043EFE6 /* Foundation.framework in Frameworks */,
-				65EA3C5E54EB4BAFA250D6D2 /* libPods.a in Frameworks */,
+				BDC83B3805290532553D6AE7 /* libPods-duosuccess.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +345,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B95622994055E6B49671B1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1AD98F50CD7A58AE0D74C4C1 /* Pods-duosuccess.debug.xcconfig */,
+				54E94619A1CEBCADBEF8391A /* Pods-duosuccess.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BD02868C185736020043EFE6 = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +364,7 @@
 				BD0286BD185736030043EFE6 /* duosuccessTests */,
 				BD028697185736020043EFE6 /* Frameworks */,
 				BD028696185736020043EFE6 /* Products */,
-				4FF869E605474407BBC336D0 /* Pods.xcconfig */,
+				7B95622994055E6B49671B1E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,6 +380,17 @@
 		BD028697185736020043EFE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDE086371D06630C007CA481 /* libMBProgressHUD.a */,
+				BDE086381D06630C007CA481 /* libNPReachability.a */,
+				BDE086391D06630D007CA481 /* libRESideMenu.a */,
+				BDE0863A1D06630D007CA481 /* libSDWebImage.a */,
+				BDE0863B1D06630D007CA481 /* libUIActivityIndicator-for-SDWebImage.a */,
+				BD437E431D0660B8002B91C4 /* libMBProgressHUD.a */,
+				BD437E441D0660B8002B91C4 /* libNPReachability.a */,
+				BD437E451D0660B8002B91C4 /* libRESideMenu.a */,
+				BD437E461D0660B8002B91C4 /* libSDWebImage.a */,
+				BD437E471D0660B8002B91C4 /* libUIActivityIndicator-for-SDWebImage.a */,
+				BD96C4BB1D065DFF00C97EA5 /* Bolts.framework */,
 				BD652AEF187AD7C8005FB4C3 /* FacebookSDK.framework */,
 				BD652AF0187AD7C8005FB4C3 /* Parse.framework */,
 				BD652AED187ABA09005FB4C3 /* MobileCoreServices.framework */,
@@ -380,7 +412,7 @@
 				BD02869C185736020043EFE6 /* UIKit.framework */,
 				BD02869E185736020043EFE6 /* CoreData.framework */,
 				BD0286B6185736030043EFE6 /* XCTest.framework */,
-				FCDE334FD0264AAB8A72094E /* libPods.a */,
+				4F71135027F69CB919331E0E /* libPods-duosuccess.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -650,11 +682,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD0286C7185736030043EFE6 /* Build configuration list for PBXNativeTarget "duosuccess" */;
 			buildPhases = (
-				385434AA70A340B4A6477C60 /* Check Pods Manifest.lock */,
+				127CD723690621CF7931A5DA /* [CP] Check Pods Manifest.lock */,
 				BD028691185736020043EFE6 /* Sources */,
 				BD028692185736020043EFE6 /* Frameworks */,
 				BD028693185736020043EFE6 /* Resources */,
-				9A1D092E3AC545A8B651F53D /* Copy Pods Resources */,
+				8CF5A4C915C3A43E4E7FC54A /* [CP] Embed Pods Frameworks */,
+				440CD59303614CEC179E3673 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -795,14 +828,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		385434AA70A340B4A6477C60 /* Check Pods Manifest.lock */ = {
+		127CD723690621CF7931A5DA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,19 +843,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9A1D092E3AC545A8B651F53D /* Copy Pods Resources */ = {
+		440CD59303614CEC179E3673 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-duosuccess/Pods-duosuccess-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CF5A4C915C3A43E4E7FC54A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-duosuccess/Pods-duosuccess-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -998,7 +1046,43 @@
 		};
 		BD0286C8185736030043EFE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FF869E605474407BBC336D0 /* Pods.xcconfig */;
+			baseConfigurationReference = 1AD98F50CD7A58AE0D74C4C1 /* Pods-duosuccess.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/rickli/Documents/apps/duosuccess-https",
+					"/Users/rickli/Documents/apps/duosuccess-https/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
+				INFOPLIST_FILE = "duosuccess/duosuccess-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MBProgressHUD",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/NPReachability",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/RESideMenu",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/UIActivityIndicator-for-SDWebImage",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e2795726-1517-4a47-b362-7306d6855965";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BD0286C9185736030043EFE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54E94619A1CEBCADBEF8391A /* Pods-duosuccess.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
@@ -1009,41 +1093,23 @@
 					"$(inherited)",
 					"/Users/rickli/Documents/apps/duosuccess-https",
 					"/Users/rickli/Documents/apps/duosuccess-https/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
 				INFOPLIST_FILE = "duosuccess/duosuccess-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67872a52-d180-4c16-b45a-54ef788ae536";
-				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "armv7 armv7s arm64";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		BD0286C9185736030043EFE6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FF869E605474407BBC336D0 /* Pods.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rick Li (67FTNCTE2P)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rick Li (MM2B8W94AH)";
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
+				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/rickli/Documents/apps/duosuccess-https",
-					"/Users/rickli/Documents/apps/duosuccess-https/Frameworks",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/MBProgressHUD",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/NPReachability",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/RESideMenu",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/UIActivityIndicator-for-SDWebImage",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "duosuccess/duosuccess-Prefix.pch";
-				INFOPLIST_FILE = "duosuccess/duosuccess-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67872a52-d180-4c16-b45a-54ef788ae536";
+				PROVISIONING_PROFILE = "e2795726-1517-4a47-b362-7306d6855965";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				"VALID_ARCHS[sdk=*]" = "armv7 armv7s arm64";

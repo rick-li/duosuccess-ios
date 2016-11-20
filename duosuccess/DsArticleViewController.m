@@ -52,7 +52,7 @@
         imageView.image = [UIImage imageNamed:@"placeholder"];
     }
 
-    NSURL *baseUrl = [NSURL URLWithString:@"https://www.duosuccess.com"];
+    NSURL *baseUrl = [NSURL URLWithString:@"http://69.195.73.224"];
     [self.contentView loadHTMLString:self.content baseURL:baseUrl];
     self.contentView.scrollView.scrollEnabled = false;
     self.contentView.delegate = self;
@@ -88,7 +88,7 @@
 
 - (IBAction)onClickViewMore:(id)sender {
     NSLog(@"onc click view more");
-    NSString *url = @"https://www.duosuccess.com";
+    NSString *url = @"http://69.195.73.224";
     if(!self.viewMoreLink || (NSNull *)self.viewMoreLink != [NSNull null]){
         url = self.viewMoreLink;
     }

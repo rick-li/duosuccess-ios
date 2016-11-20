@@ -41,19 +41,15 @@ NSString *appVersion;
 #endif
 
 -(void) syncData{
-    
-//    if(DEBUG==1){
-//        [Parse setApplicationId:@"wGmHHvHhpgMf2PSyEVIrlYDDV7Gn04bq1ZEuG5Qd"
-//        clientKey:@"HcYbXZvqDS91NIazuvd2vKqoqTbLRsTu1N2DZsAf"];
-//        NSLog(@"Currently using DEV version.");
-//    }else{
-        [Parse setApplicationId:@"L8yb6OqqvqHZhwViBea5xCWAgtRtow0R3CtDjz1E"
-                      clientKey:@"KmDVN8meSLM9QjYE5wsrbVMtmWpbLo0MYxpAFFCR"];
-        NSLog(@"Currently using PROD version.");
-//    }
+
+    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"2bd6589d-1989-4927-bb38-a369d04e2875";
+        configuration.clientKey = @"lTlwl1F1zm4WyKe0msiBb1qFfacYVPh2";
+        configuration.server = @"https://parse.buddy.com/parse";
+    }]];
+    NSLog(@"Currently using PROD version.");
     
     appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-    
     
     NSLog(@"App version is %@.", appVersion);
     [self queryHeheStatus];

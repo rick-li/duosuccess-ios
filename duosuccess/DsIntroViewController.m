@@ -139,7 +139,7 @@ NSString *const DsSkipPaperIntro = @"DsSkipPaperIntro";
     
     DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
     webViewCtrl.displayWebViewByDefault = true;
-    [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
+    [webViewCtrl.webView loadURLString:@"http://69.195.73.224"];
     
     [navController setNavigationBarHidden: NO animated:NO];
     [navController popViewControllerAnimated:NO];

@@ -1,16 +1,14 @@
 PODS:
-  - Bolts (1.1.2)
   - MBProgressHUD (0.8)
   - NPReachability (0.1.0)
-  - RESideMenu (3.3.1)
+  - RESideMenu (3.3.3)
   - SDWebImage (3.7.1):
-    - SDWebImage/Core
+    - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
   - UIActivityIndicator-for-SDWebImage (1.0.3):
     - SDWebImage (~> 3.2)
 
 DEPENDENCIES:
-  - Bolts
   - MBProgressHUD (= 0.8)
   - NPReachability (= 0.1.0)
   - RESideMenu (~> 3.3.1)
@@ -18,11 +16,12 @@ DEPENDENCIES:
   - UIActivityIndicator-for-SDWebImage (= 1.0.3)
 
 SPEC CHECKSUMS:
-  Bolts: 2635e8698a630774689441047f3465d78c48d485
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   NPReachability: 3f1d22668d58b79ac37d08e88d03477cef7b4c24
-  RESideMenu: edde69b066a9951748b5fe8d589fe8cb02e47803
+  RESideMenu: dc195db3bc98084084c7cbb3f3284d39b6a6b81d
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   UIActivityIndicator-for-SDWebImage: fad0a3471de0e5f97771e516f537453eee506103
 
-COCOAPODS: 0.33.1
+PODFILE CHECKSUM: fe7b4d75d8d5d863a45fbd46e08e76273a71c90b
+
+COCOAPODS: 1.0.1

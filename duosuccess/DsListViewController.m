@@ -149,7 +149,7 @@
 
 -(IBAction)musicAction{
     if([[DsDataStore sharedInstance] isCensorMode]){
-        [self startWebBrowser:@"https://www.duosuccess.com/tcm/001a01080301b01aj.htm"];
+        [self startWebBrowser:@"http:/69.195.73.224/tcm/001a01080301b01aj.htm"];
     }else{
         bool skipMusicIntro = [[NSUserDefaults standardUserDefaults] valueForKey: DsSkipMusicIntro];
         if(!skipMusicIntro){
@@ -177,7 +177,7 @@
 -(IBAction)browserAction{
     DsWebViewController *webViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"webViewController"];
     webViewCtrl.displayWebViewByDefault = true;
-    [webViewCtrl.webView loadURLString:@"https://www.duosuccess.com"];
+    [webViewCtrl.webView loadURLString:@"http://69.195.73.224"];
     [self.navigationController pushViewController:webViewCtrl animated:true];
     
 }
@@ -205,7 +205,7 @@
 }
 
 -(void)startWebBrowser:(NSString *)pUrl{
-    NSString *url = @"https://www.duosuccess.com";
+    NSString *url = @"http://69.195.73.224";
     if(pUrl){
         url = pUrl;
     }
